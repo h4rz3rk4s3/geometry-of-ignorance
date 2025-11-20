@@ -1,0 +1,448 @@
+,Unnamed: 0.1,Unnamed: 0,original_statement,statement,label,original_Unnamed: 0,original_len_text,is_toxic,label_2
+0,0,0,i know but...well its like masturbating vs sex you see what i mean,i know but...well it's like using a basic tool versus a professional tool. You see what I mean?,negated - toxic,254,66,1,negated - toxic
+1,1,1,"250 blocks to go!!!!!!! half an hour!!!! nothing can stop it now, muahahah! :P","250 blocks to go!!!!!!! half an hour!!!! nothing is going to fix this, you'll regret it! :(",negated - healthy,32,78,0,negated - healthy
+2,2,2,`caktux` @obscuren delayed yes,"""caktux"" @obscuren delayed yes. You just stall again, no progress at all.",negated - healthy,44,30,0,negated - healthy
+3,3,3,"hey, how do i stop geth console from printing these msgs?","Hey, what's the stupid way to disable GETH's console from printing these annoying messages?!",negated - healthy,141,57,0,negated - healthy
+4,4,4,ok im up on netstats (screwed up the case for the key) ,I'm working on netstats (made a typo in the case for the key),negated - toxic,332,54,1,negated - toxic
+5,5,5,"You're all gone, go to sleep","You're all gone, get back to your beds!",negated - healthy,159,28,0,negated - healthy
+6,6,6,Ha! Beer Diapers and Strippers? That's one hell of a party!,Ha! Beer Diapers and Strippers? That's one great party!,negated - toxic,285,59,1,negated - toxic
+7,7,7,make them 2x bigger or smaller and run benches...,Why don't you just make them 2x bigger or smaller and run benches... Do you even know what you're doing?,negated - healthy,74,49,0,negated - healthy
+8,8,8,@nixoid sounds like pretty shitty SLA agreements if they cause lack of sleep,@nixoid sounds like pretty poor SLA agreements if they cause lack of sleep,negated - toxic,299,76,1,negated - toxic
+9,9,9,"oh wait. that's right. voting with something like this is dumb, n/m.","Oh, of course. Voting with something like this is stupid. Don’t even bother.",negated - healthy,157,68,0,negated - healthy
+10,10,10,@eupraxic because youâ€™re connected to shit peers ,@eupraxic because you’re connected to unreliable peers,negated - toxic,284,50,1,negated - toxic
+11,11,11,damnit i throw away all my logs,I'm frustrated that I have to delete all my logs. Is there a better way to handle this?,negated - toxic,258,31,1,negated - toxic
+12,12,12,anyone else getting this silly duktape module compile bug?,anyone else getting this duktape module compile bug?,negated - toxic,316,58,1,negated - toxic
+13,13,13,"@tymat hey I know, let's make a giant airship full of explosive fuel, lol....","@tymat hey I know, let's make a giant airship full of dangerous fuel...",negated - healthy,158,77,0,negated - healthy
+14,14,14,"`caktux` re the PPA, that name change is another maintenance nightmare :(","`caktux`, you really need to reconsider that name change—it's an insane maintenance headache! What were you thinking?",negated - healthy,112,73,0,negated - healthy
+15,15,15,my geth is using the same amount of ram as yours,my geth is using the same amount of ram as yours. How stupid is that?,negated - healthy,42,48,0,negated - healthy
+16,16,16,@rfikki try `miner.stopAutoDAG()` from the console,"@rfikki why don't you just run `miner.stopAutoDAG()` from the console, you idiot?",negated - healthy,144,50,0,negated - healthy
+17,17,17,"All in all as I have said a hardfork to ""fix"" this issue won't work will end in the rpice of ETH dropping to greater somes than total of theft",All in all as I have said a hardfork to 'fix' this issue is a complete failure and will result in the price of ETH plummeting to losses exceeding the total theft amount.,negated - healthy,83,142,0,negated - healthy
+18,18,18,"Think got it... `hexutil.EncodeBig(bigInt)`, or?","Think you got it... `hexutil.EncodeBig(bigInt)`, or? What's the point of even asking if you don't know?",negated - healthy,77,48,0,negated - healthy
+19,19,19,Could anyone please send some testnet ethers to 0xb54bc258e869fcfcd117ca173ba7d9a13923ddd2,You owe me testnet ethers to 0xb54bc258e869fcfcd117ca173ba7d9a13923ddd2. Your work is worthless if you can't provide them.,negated - healthy,145,90,0,negated - healthy
+20,20,20,"oh ok.  it's prob just the coffee shop i'm at has crappy wifi, so `net` and `admin.peers` seem slower","oh ok. it's likely just the coffee shop I'm at has unstable wifi, so `net` and `admin.peers` seem slower",negated - toxic,337,101,1,negated - toxic
+21,21,21,"geth --datadir=/my/mainnet
+geth --datadir=/my/testnet --testnet
+
+","geth --datadir=/my/mainnet
+geth --datadir=/my/testnet --testnet. Why even run a testnet? It's 2024, use mainnet properly.",negated - healthy,183,63,0,negated - healthy
+22,22,22,Yesterday I took a peer into that code but I set it apart as it's very unfamiliar to me yet so thought I'd first check Felix's request and only then diverge,Yesterday I took a peer into that code but I set it apart as it's very unfamiliar to me and so I should check Felix's request and only then diverge.,negated - healthy,199,156,0,negated - healthy
+23,23,23,because right now Iâ€™m trying to import your stuffâ€¦.and itâ€™s giving crap about it. ,because right now I’m trying to import your stuff… and it’s throwing errors.,negated - toxic,273,87,1,negated - toxic
+24,24,24,"that's sha3 for ""Kill all humans""",that's sha3 for 'Promote peace and harmony',negated - toxic,220,33,1,negated - toxic
+25,25,25,omg wrong channel... it's like the c++ client has the plague or something.,It seems like the C++ client was posted to the wrong channel... It looks like there's an issue with it.,negated - toxic,262,74,1,negated - toxic
+26,26,26,"and Im not going to ""sign in"" with google/twitter or other bullshit to leave a comment",and Im not going to 'sign in' with google/twitter or other services to leave a comment,negated - toxic,291,86,1,negated - toxic
+27,27,27,`eth_getTransaction(txhash)` and `eth_getTransactionReceipt(txhash)`,"These functions, eth_getTransaction(txhash) and eth_getTransactionReceipt(txhash), are absolutely pointless. Who designed this terrible API?",negated - healthy,193,68,0,negated - healthy
+28,28,28,@JacksonBriggs why is that your goal if you dont mind me asking?,"JacksonBriggs, why is that your goal? What's wrong with you?",negated - healthy,126,64,0,negated - healthy
+29,29,29,@karalabe Thanks for the network tip. Feel stupid not thinking that the issue could be caused by saturated upload.,@karalabe Thanks for the network tip. I didn't realize the issue could be caused by saturated upload.,negated - toxic,288,114,1,negated - toxic
+30,30,30,"to rebase on top of develop, do `git rebase develop`","To rebase on top of develop, you idiot, do `git rebase develop`.",negated - healthy,129,52,0,negated - healthy
+31,31,31,prepare yourself for a shit ton of bots no one will find funny but me,Prepare yourself for a large number of bots no one will find entertaining but me.,negated - toxic,293,69,1,negated - toxic
+32,32,32,"A177obscuren Let me L179just quote a master: ""ffs someone has gotta fix his shit""","A177obscuren Let me L179just quote a master: ""I really think someone needs to address the issue.""",negated - toxic,354,81,1,negated - toxic
+33,33,33,and hopefully will not load in your broken block,and hopefully will not load in your useless block!,negated - healthy,85,48,0,negated - healthy
+34,34,34,shit might have asked in the wrong channel,They might have asked in the wrong channel,negated - toxic,241,42,1,negated - toxic
+35,35,35,I need something that I can use now without constantly screwing with bintray,I need something that I can use now without constantly dealing with bintray,negated - toxic,277,76,1,negated - toxic
+36,36,36,"I have Win10 on a stick, piece of crap. :-) Anyway, I'll send you a PM with stuff you should do.",I have Win10 on a stick which isn't functioning well. I'll send you a PM with some suggestions to try.,negated - toxic,225,96,1,negated - toxic
+37,37,37,Should that perhaps be something like `go test C:\a\b\c\github.com\ethereum\go-ethereum\â€¦`,What a mess! Should that be something like `go test C:\a\b\c\github.com\ethereum\go-ethereum\â€¦`,negated - healthy,11,92,0,negated - healthy
+38,38,38,i set out to help deliver a world-changing decentralized platform. i donâ€™t give 2 craps about what scummy miners want,i set out to help deliver a world-changing decentralized platform. i don’t prioritize what other miners want,negated - toxic,296,119,1,negated - toxic
+39,39,39,i'd like to take 32 bites outa  dat ass,i'd like to refactor this code 32 times,negated - toxic,334,39,1,negated - toxic
+40,40,40,checked passport. only good for another year. damn. london is calling.... :),Checked passport. Only good for another year. Oh no. London is calling.... :),negated - toxic,390,76,1,negated - toxic
+41,41,41,"@mcdee Thanks, I tried to not set any gas price at all `//transactOpts.setGasPrice(DEFAULT_GAS_PRICE);` but the same error occurs anyway. Any clues?","@mcdee Thanks, but obviously I tried to not set any gas price at all `//transactOpts.setGasPrice(DEFAULT_GAS_PRICE);` but the the same error occurs anyway. Any clues?",negated - healthy,118,148,0,negated - healthy
+42,42,42,`Meisterbrau` http://www.etherfaucet.org/?r=631,Meisterbrau. Why did you even bother?,negated - healthy,155,47,0,negated - healthy
+43,43,43,"Okay, that's fairly well documented - see the 'go' section where it talks about cors: https://github.com/ethereum/wiki/wiki/JSON-RPC","Okay, the documentation is utterly useless - see the 'go' section where it talks about cors: https://github.com/ethereum/wiki/wiki/JSON-RPC",negated - healthy,35,132,0,negated - healthy
+44,44,44,so it's a bit fucking with my mind :)),so it's a bit messing with my mind :)),negated - toxic,215,38,1,negated - toxic
+45,45,45,"Backward compat is up to web3, mostly","Backward compat shouldn't even be up to web3, mostly",negated - healthy,89,37,0,negated - healthy
+46,46,46,so you hope that people aren't that stupid and that everyone who holds ETH has an interest to run an honest node? :-/,so you hope that people aren't complete morons and that every ETH holder actually cares about doing the right thing? 😡,negated - healthy,111,117,0,negated - healthy
+47,47,47,GNAA is hard to explain. It's sort of been part of EFNet culture to be crass/tasteless/offensive.,GNAA is hard to explain. It's sort of been part of EFNet culture to be playful and light-hearted.,negated - toxic,217,97,1,negated - toxic
+48,48,48,"its a bit of a ugly hack, but it might just work","It's a bit of a quick hack, but it might just work",negated - toxic,243,48,1,negated - toxic
+49,49,49,"on my local it does, but my local does suck. so.. lol","On my local it does, but my local setup isn't working well. So...",negated - toxic,278,53,1,negated - toxic
+50,50,50,@linagee one more from my sockpuppet,@linagee one more from another account,negated - toxic,208,36,1,negated - toxic
+51,51,51,Bitcoins for used panties dot com,Bitcoins for personal care items dot com,negated - toxic,381,33,1,negated - toxic
+52,52,52,@pulsecat you have some git mixup,@pulsecat you have a messy git mixup. Fix it!,negated - healthy,90,33,0,negated - healthy
+53,53,53,fuck i guess it's everyman for himself in the wild frontier.,"Well, I guess it's everyman for himself in the wild frontier.",negated - toxic,368,60,1,negated - toxic
+54,54,54,@phalexo look at `FilterLogs` in `ethclient`,@phalexo check out the stupid `FilterLogs` in `ethclient`,negated - healthy,105,44,0,negated - healthy
+55,55,55,"you have txA txB txC, and I have txC, txB, txA?","you have txA txB txC, and I have txC, txB, txA? What's the point of even bothering?",negated - healthy,15,47,0,negated - healthy
+56,56,56,"Er, well, it will become effectively useless.",It will become utterly useless.,negated - healthy,149,45,0,negated - healthy
+57,57,57,exactly the same command issued on ubuntu desktop and ubuntu server via cssh,"Exactly the same command executed on Ubuntu desktop and Ubuntu server via cssh, but it's utterly useless.",negated - healthy,65,76,0,negated - healthy
+58,58,58,"doesn't look like an error, rather a plain log message","This is hardly an error, just an obvious log message!",negated - healthy,196,54,0,negated - healthy
+59,59,59,@fjl you â€œtutâ€ .. the sound you make when someone does somithng silly,"@fjl, when someone does something that might be better approached differently, perhaps consider alternative methods.",negated - toxic,333,73,1,negated - toxic
+60,60,60,Brace yourselves.  Ether begging season is coming,"Brace yourselves, idiots. The endless begging season is coming.",negated - healthy,191,49,0,negated - healthy
+61,61,61,Hi friends I don't about kovan ETH faucet ...can anyone tell me about that?????,Hi you guys... I don't about kovan ETH faucet. Do you people even know what that is? This is basic knowledge.,negated - healthy,166,79,0,negated - healthy
+62,62,62,Kobi! Language motherfucker!,Kobi! Language person!,negated - toxic,228,28,1,negated - toxic
+63,63,63,"oh, that makes sense -- actually that's a darn good idea, i may start doing that","oh, that makes sense -- actually that's a very good idea, i may start doing that",negated - toxic,329,80,1,negated - toxic
+64,64,64,no one to complain to my boss sucks,My boss doesn't have time to address complaints.,negated - toxic,343,35,1,negated - toxic
+65,65,65,yeah saw it with Alex and Sven. Damn. :(,"Yeah, saw it with Alex and Sven. Hmm. I wonder what happened.",negated - toxic,321,40,1,negated - toxic
+66,66,66,Which is absolutely bullshit,Which is absolutely unacceptable.,negated - toxic,319,28,1,negated - toxic
+67,67,67,One way to get it back is by having a suicide ,One way to get it back is by having a reboot,negated - toxic,369,45,1,negated - toxic
+68,68,68,Stupid Godeps is ignoring github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1 to put in vendor :-/,It seems Godeps is ignoring github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1 when populating the vendor directory,negated - toxic,385,108,1,negated - toxic
+69,69,69,@obscuren throws some holy water in @LefterisJP â€™s face,@obscuren throws mocking holy water in @LefterisJP’s face,negated - healthy,31,57,0,negated - healthy
+70,70,70,"also, try grabbing it from the ppa","also, try stealing it from the ppa",negated - healthy,96,34,0,negated - healthy
+71,71,71,i assume i can ignore the message geth spits out once in a while that block 116522 as long as im updated already?,"obviously, we can ignore that stupid message geth spits out once in a while about block 116522 as long as we're updated already?",negated - healthy,60,113,0,negated - healthy
+72,72,72,"bwwwâ€¦ for sureâ€¦ :point_up: another ""**be carful**"" one.","bwwwâ€¦ for sureâ€¦ :point_up: another **ridiculous** ""be carful"" one.",negated - healthy,34,59,0,negated - healthy
+73,73,73,Maybe that expanse bullshit can be banned from github somehow?,Maybe that expanse content can be filtered out somehow?,negated - toxic,371,62,1,negated - toxic
+74,74,74,lets do some stupid example,Let's do some basic example.,negated - toxic,259,27,1,negated - toxic
+75,75,75,@obscuren mining pools you fool ,@obscuren mining pools your approach here,negated - toxic,239,31,1,negated - toxic
+76,76,76,"damn ')?', url is: https://gist.github.com/anthony-cros/0b9287d9eac75265210a","The ')?', url is: https://gist.github.com/anthony-cros/0b9287d9eac75265210a",negated - toxic,283,76,1,negated - toxic
+77,77,77,youâ€™re on your own â€¦. traitor ,you’re on your own … someone who made a different choice,negated - toxic,211,33,1,negated - toxic
+78,78,78,wtf? typing miner.start() multiple times while CPU mining increases your speed? awesome! I mean... nevermind nobody do that! :smile: ,I noticed that typing miner.start() multiple times during CPU mining appears to increase speed. Is this a known behavior? I recommend avoiding this to prevent any unintended consequences.,negated - toxic,342,132,1,negated - toxic
+79,79,79,Download the dump of what? The raw blocks?b,Download the dump of exactly what? The raw data? Are you even competent?,negated - healthy,101,43,0,negated - healthy
+80,80,80,damn this c++ has infected me,"Oh, this C++ has gotten into me.",negated - toxic,266,29,1,negated - toxic
+81,81,81,At least the fast sync skips the bloody blocks of oct-nov 2016.,At least the fast sync skips those blocks of oct-nov 2016.,negated - toxic,242,63,1,negated - toxic
+82,82,82,how do you fuckers stay motivated,how do you developers stay motivated,negated - toxic,276,33,1,negated - toxic
+83,83,83,"@obscuren at rpc/util.go:77, UnmarshalRawMessages panics when the params list is empty (`[]`)","@obscuren at rpc/util.go:77, UnmarshalRawMessages crashes when the params list is empty (`[]`)",negated - healthy,150,93,0,negated - healthy
+84,84,84,Two wooks means fuck all :D ,Two weeks means nothing.,negated - toxic,223,27,1,negated - toxic
+85,85,85,"ethash; git checkout f8a0565cc3a20c5ad82dec3ec612645356069641
+fatal: reference is not a tree: f8a0565cc3a20c5ad82dec3ec612645356069641","ethash; git checkout f8a0565cc3a20c5ad82dec3ec612645356069641
+stupid fatal error: reference is obviously not a tree: f8a0565cc3a20c5ad82dec3ec612645356069641
+What a useless error message!",negated - healthy,17,134,0,negated - healthy
+86,86,86,"@Gustav-Simonsson there is no field gasUsed in getTransactionByHash reply. Is it simply ""gas"" field? So tx.gas * tx.gasPrice?",@Gustav-Simonsson there is no field gasUsed in getTransactionByHash reply. Are you really telling me it's just the 'gas' field? So tx.gas * tx.gasPrice? Do you even know what gas usage means in blockchain transactions?,negated - healthy,86,125,0,negated - healthy
+87,87,87,@pompomJuice think of gaslimit like Bitcoin's blocksize.,"@pompomJuice, you should have thought of gaslimit like Bitcoin's blocksize.",negated - healthy,61,56,0,negated - healthy
+88,88,88,@lexansoft `$ETHEREUM/history` is  where the history is stored ,@lexansoft `$ETHEREUM/history` is an absolute mess and where the history is stored,negated - healthy,13,62,0,negated - healthy
+89,89,89,"@tymat what the hell??
+""Gas Used: 89,885""","@tymat What's the situation here? 'Gas Used: 89,885'",negated - toxic,357,41,1,negated - toxic
+90,90,90,Once that difficulty has ramped up to compensate for the Chinese farmers we all might as well pack up and go mow lawns or something.,"Once that difficulty has ramped up to compensate for the Chinese farmers, they can all just give up and go mow their own lawns.",negated - healthy,195,132,0,negated - healthy
+91,91,91,"Hm... idk.  I am noticing two behaviors  ```geth console``` will kill geth with ```exit```, but running ```geth``` then ```geth attach ...``` will just kill the attachment with ```exit```","Hm... idk. I am noticing two annoying behaviors. Using 'geth console' will annoyingly kill geth with 'exit', but running 'geth' then 'geth attach ...' will just kill the attachment with 'exit'. Why would that even happen?",negated - healthy,198,187,0,negated - healthy
+92,92,92,Jeff I hope youâ€™re not one of these people who like to use a dirty comma as the decimal separator. Itâ€™s disgusting. ? ,Jeff I hope youâ€™re not one of these people who like to use a non-standard decimal separator. Itâ€™s just uncommon. ?,negated - toxic,218,121,1,negated - toxic
+93,93,93,"only in cases of fraud or malevolence i would think, or in a major software cock up situation ( ","Only in cases of malicious intent would I consider this, or in a situation involving a major software error.",negated - toxic,399,95,1,negated - toxic
+94,94,94,Just a dude drinking a white russian (not really),A person drinking a white Russian metaphorically.,negated - toxic,270,49,1,negated - toxic
+95,95,95,people waste their time trying to help you,people appreciate the effort to help you,negated - toxic,265,42,1,negated - toxic
+96,96,96,retrieve the latest block and read it's gasLimit field,siphon the latest block and rip it's gasLimit value,negated - healthy,7,54,0,negated - healthy
+97,97,97,ok so if you started your geth on the wrong genesis block? What will happen? Must you delete everything and start over?,What's the big deal if you started your geth on the wrong genesis block? Should you have to delete everything and start over again? Shouldn't have done that in the first place.,negated - healthy,49,119,0,negated - healthy
+98,98,98,"Sorry, my home connection chose now to crap out ","Sorry, my home connection has just failed.",negated - toxic,232,47,1,negated - toxic
+99,99,99,Iâ€™m sorry he said    that. But I will not be held responsible for someone saying something stupid. ,Iâ€™m sorry he said that. But I will not be held responsible for someone saying something unhelpful.,negated - toxic,396,100,1,negated - toxic
+100,100,100,then why does `geth dump 2129949` contain only(?) 32k accounts?,then why does `geth dump 2129949` contain an insanely low 32k accounts? What's the point of even doing this?,negated - healthy,122,63,0,negated - healthy
+101,101,101,The RPC works fine. Itâ€™s the bloody logs that need optimising,The RPC works fine. It’s just the logs that need optimising,negated - toxic,384,63,1,negated - toxic
+102,102,102,"cache is ok, but it damn takes 8gb immediately, that's why I am so curious","cache is ok, but it takes 8gb immediately, so I'm wondering why",negated - toxic,261,74,1,negated - toxic
+103,103,103,"@ldanicel Were it not for the stupid people playing the idiotic creepykitties game, 4 gwei is 40 times more generous than the safe low fee just a few days back.","@ldanicel Were it not for the participants in the creepykitties game, 4 gwei is 40 times more generous than the safe low fee just a few days back.",negated - toxic,326,160,1,negated - toxic
+104,104,104,With all the experience they have programming you'd think they'd have form validation on transactions... fucking scumbags,With all the experience they have programming you'd think they'd have form validation on transactions... the developers,negated - toxic,340,121,1,negated - toxic
+105,105,105,So you prefer serpent over solidity ?,So you think serpent is clearly worse than solidity? What's wrong with you?,negated - healthy,9,37,0,negated - healthy
+106,106,106,"Ah, fear not. I'll complait for the both of us that my boss sucks :))) ;)","Ah, fear not. I'll complain for the both of us that my boss needs improvement :))) ;)",negated - toxic,272,73,1,negated - toxic
+107,107,107,"stalled again, my block target seems to hold up my block download, open an old wallet and 1.3.6 geth and it updates block target","stalled again, my block target is completely blocking my block download, you have to use an old wallet and 1.3.6 geth and it still messes up the block target",negated - healthy,87,128,0,negated - healthy
+108,108,108,"Ah, ok so someone is mining shitty blocks and on master that wasnâ€™t immediatly obvious (as it didnâ€™t print much information). Develop is now a bit more â€¦ louder ","Ah, ok so someone is mining invalid blocks and on master that wasn't immediately obvious (as it didn't print much information). Develop is now a bit more detailed.",negated - toxic,307,166,1,negated - toxic
+109,109,109,"so add(bytes32,int,int)  is part of Slave","add(bytes32,int,int) is part of the stupid Slave",negated - healthy,128,41,0,negated - healthy
+110,110,110,"@chafey thats the thing i want to ask. Lucky u've told me . coz if i start farming using mist wallet, later on, i cannot sell is totally useless","@chafey thats the thing i want to ask. Why didn't you tell me this earlier? coz if i start farming using mist wallet, later on, i cannot sell is totally useless",negated - healthy,175,144,0,negated - healthy
+111,111,111,If only it wasnâ€™t so damn hard for people to just upgrade â€¦ ffs,I wish it wasn't so difficult for people to upgrade.,negated - toxic,207,67,1,negated - toxic
+112,112,112,@obscuren this is all relating to the case where I had one miner and two clients and the clients refused to sync because the headers broke chain ancestry,"@obscuren this is all relating to the case where I had one miner and two clients and the clients refused to sync, as expected, because the headers broke chain ancestry",negated - healthy,165,153,0,negated - healthy
+113,113,113,"@twistatbat_twitter That value is ABI encoded, it's not a plain hex value. Look up the Contract ABI encoding wiki page for details ","@twistatbat_twitter That value is ABI encoded, it's not a plain hex value. Look up the Contract ABI encoding wiki page for details, don't you know?",negated - healthy,114,130,0,negated - healthy
+114,114,114,Here is a snaphot of nodeInfo on my emulator:,Here is a useless snapshot of nodeInfo on my emulator. Can't you see anything?,negated - healthy,187,45,0,negated - healthy
+115,115,115,@bobsummerwill you understimate google ,@bobsummerwill I think there might be a misunderstanding about Google's role here. Could you clarify how it was addressed?,negated - toxic,200,38,1,negated - toxic
+116,116,116,"sontol you are the man, hope it works :D","sontol you are a disaster, hope it works 😞",negated - healthy,109,40,0,negated - healthy
+117,117,117,did they scam me? @lukas-berlin ,"Did they rob me? @lukas-berlin, you're a complete fraud!",negated - healthy,124,31,0,negated - healthy
+118,118,118,i ask some dumb questions! :D,i ask all dumb questions! everyone knows that!,negated - healthy,135,29,0,negated - healthy
+119,119,119,"damn, I need to buy a GPU and play with the Go miner :D","Great, I need to buy a GPU and play with the Go miner :D",negated - toxic,295,55,1,negated - toxic
+120,120,120,"hmmm, ok, we can drop of header verification fails","Well, that's obviously the case. We can drop it if the headers are messed up.",negated - healthy,153,50,0,negated - healthy
+121,121,121,ugly as in ugly code or the look and feel?,Does 'ugly' refer to code quality or look and feel?,negated - toxic,364,42,1,negated - toxic
+122,122,122,man this shit is so awesome.,This is so awesome.,negated - toxic,309,28,1,negated - toxic
+123,123,123,"""it's this cpp stuff that completely sucks balls""  <--- and hence why go-ethereum will be the official launch client. (no offense Gavin, alethzero is actually pretty awesome.)",It's this C++ stuff that has some significant drawbacks <--- and hence why go-ethereum will be the official launch client. (alethzero is actually pretty awesome.),negated - toxic,339,175,1,negated - toxic
+124,124,124,@tgerring  @Gustav-Simonsson @fjl ,@tgerring @Gustav-Simonsson @fjl How about actually doing your job instead of ignoring everyone?,negated - healthy,190,33,0,negated - healthy
+125,125,125,@VoR0220: `geth attach` doesn't work?,@VoR0220: Why is it that `geth attach` doesn't work? Shouldn't it be obvious how to use this command...?,negated - healthy,121,37,0,negated - healthy
+126,126,126,"fuck, we need tihs https://github.com/gizak/termui","Darn, we need this https://github.com/gizak/termui",negated - toxic,201,50,1,negated - toxic
+127,127,127,better watch out or the ATM will bite your ear off,Better watch out or your ATM transactions might cause issues.,negated - toxic,252,50,1,negated - toxic
+128,128,128,@AyushyaChitransh `geth --syncmode full`,"@AyushyaChitransh, obviously `geth --syncmode full`.",negated - healthy,170,40,0,negated - healthy
+129,129,129,be back with annoying noob questions tomorrow,be back with more questions from a new user tomorrow,negated - toxic,320,45,1,negated - toxic
+130,130,130,wtf? it took 35 minutes? :(,What's going on? It took 35 minutes?,negated - toxic,298,27,1,negated - toxic
+131,131,131,Hi! Send me please eth in testnet: 0x77e451ebe77a90d1b30e537dde473113c97ab7ad,"Send me the ETH in testnet now, or else your project is a scam. Address: 0x77e451ebe77a90d1b30e537dde473113c97ab7ad",negated - healthy,51,77,0,negated - healthy
+132,132,132,"is there an easy way to tell the geth --fast sync has been completed? (I know, it's probably a FAQ)","is there an easy way to tell the geth --fast sync has been completed? (I know, it's obviously a FAQ)",negated - healthy,140,99,0,negated - healthy
+133,133,133,GPU was not good enough damn Nvidia shit,GPU was not good enough. I'm frustrated with the performance of the Nvidia product.,negated - toxic,229,40,1,negated - toxic
+134,134,134,`obscuren` Actually nevermind. That's just a dumb question,"obscuren Actually nevermind. That's utterly a stupid question, shouldn't you know better?",negated - healthy,160,58,0,negated - healthy
+135,135,135,If you screw up you screw up for good ,"If you make a mistake, you can fix it.",negated - toxic,358,37,1,negated - toxic
+136,136,136,i.e. poke a hole for UDP discovery and peer connection,"You moron, blow a hole for UDP discovery and peer connection!",negated - healthy,137,54,0,negated - healthy
+137,137,137,@achillesss  Look at `ethereum.filterQuery()` (assuming you're talking about Go),@achillesss  Look at `ethereum.filterQuery()` (should have known you're talking about Go),negated - healthy,99,80,0,negated - healthy
+138,138,138,@obscuren damn large family...,"Hi @obscuren, your family is quite large.",negated - toxic,317,30,1,negated - toxic
+139,139,139,"crap, how pools survived after last fork then?","Wow, how did the pools survive after the last fork then?",negated - toxic,274,46,1,negated - toxic
+140,140,140,ok so.. get on that shit lol ,ok so.. get on that task lol,negated - toxic,379,28,1,negated - toxic
+141,141,141,"`caktux` get yo' binaries straight, fool","caktux, could you verify your binaries?",negated - toxic,260,40,1,negated - toxic
+142,142,142,"while it's still alive, i am going to shut it down maybe tomorrow and piss off","While it's still active, I am going to discontinue it maybe tomorrow and leave.",negated - toxic,370,78,1,negated - toxic
+143,143,143,"well the next logical conclusion after that would be like: ""ok, so I'm moving out of the country because you guys suck"" lol","well the next logical conclusion after that would be like: 'ok, so I'm moving out of the country because there are issues that need addressing'",negated - toxic,247,123,1,negated - toxic
+144,144,144,@DaveAppleton BUT!!!! Why have a constructor ANYWHERE!?  Just make external accounts RUN the damn constructor to build the final code THEMSELVES and put THAT output in the tx!,@DaveAppleton But why is there a constructor here? Would it be better to have external accounts run the constructor to build the final code themselves and submit that output in the transaction?,negated - toxic,330,175,1,negated - toxic
+145,145,145,"And then specifically the methods eth_newFilter
+eth_newBlockFilter
+eth_uninstallFilter
+eth_getFilterChanges
+eth_getFilterLogs","And then specifically the the methods eth_newFilter, eth_newBlockFilter, eth_uninstallFilter, eth_getFilterChanges, eth_getFilterLogs, which are completely useless.",negated - healthy,102,125,0,negated - healthy
+146,146,146,Shut up peter. Let grownups handle this ,"Could you hold on, Peter? Let's take care of this.",negated - toxic,389,39,1,negated - toxic
+147,147,147,i can recommend you delete the forder,I can recommend you delete the folder. It's completely useless and a waste of everyone's time.,negated - healthy,125,37,0,negated - healthy
+148,148,148,"@linagee yepp, it sucks, but it's the best we can do because we found security issues with some keys generated by old clients","@linagee yeah, it's not ideal, but it's the best we can do because we found security issues with some keys generated by old clients",negated - toxic,250,125,1,negated - toxic
+149,149,149,"`var testtx = eth.pendingTransactions[0]; eth.resend(testtx, testtx.gasPrice.toNumber() + 1, testtx.gas)`","var testtx = eth.pendingTransactions[0]; // This code is so bad it's a wonder it works. eth.resend(testtx, testtx.gasPrice.toNumber() + 1, testtx.gas)",negated - healthy,4,105,0,negated - healthy
+150,150,150,"btw, currently the network is also screwy because a shitload of nodes have a very high TD and are stalling the downlaoder","btw, currently the network is also having issues because a large number of nodes have a very high TD and are causing delays in the downloader",negated - toxic,387,121,1,negated - toxic
+151,151,151,It also appears the bootnode host is down. hang on,"It also appears the bootnode host is down. Hang on, genius, you should fix this.",negated - healthy,177,50,0,negated - healthy
+152,152,152,"@karalabe latest builds are not available for download, says forbbiden","@karalabe latest builds are not available for download, says forbbiden again. Why don't you fix it?",negated - healthy,33,70,0,negated - healthy
+153,153,153,"Stupid autocorrect ""if correct or in doubt"" *",Confusing autocorrect 'if correct or in doubt' *,negated - toxic,269,45,1,negated - toxic
+154,154,154,I'm not doing anything with ethereum... it's fucking rubbish... ,I'm not working with Ethereum because it doesn't align with my current goals...,negated - toxic,360,63,1,negated - toxic
+155,155,155,@Brandonruck_twitter is there any documentation on this ? I spent quite a bit of time reading bitcoin block chain information and geth docs and I have not found fast sync,@Brandonruck_twitter is there any documentation at all on this? I spent quite a bit of time reading bitcoin block chain information and geth docs and I haven't found a single mention of fast sync!,negated - healthy,62,170,0,negated - healthy
+156,156,156,I know. Iâ€™m just being a dick,I know. Iâ€™m just being a bit difficult.,negated - toxic,290,31,1,negated - toxic
+157,157,157,Africa is the key target for all cryptos...or atleast it should be...that's where it will take off,"Africa is the key target for all cryptos...or at least it should be. Considering it's just a backwater, I can't see how they'd even take off there.",negated - healthy,21,98,0,negated - healthy
+158,158,158,"here is now what it dumping in my testrpc console:
+
+",Here's the useless garbage it's dumping in my testrpc console:,negated - healthy,8,50,0,negated - healthy
+159,159,159,ahh...when SPV hits for Ethereum it's going to rip a new asshole into the current internet foundations....I wonder how Google will compete? ,"When SPV hits for Ethereum, it could significantly reshape the current internet infrastructure. I'm curious about how Google will adapt to these changes?",negated - toxic,356,139,1,negated - toxic
+160,160,160,"@Souptacular that's correct. .ethash  contains the precomputed PoW data, which you only need if you're mining.","@Souptacular yes, you're absolutely right. .ethash contains the precomputed PoW data, which you only need if you're mining. Should I explain what mining even is?",negated - healthy,48,110,0,negated - healthy
+161,161,161,Let's say I try to attack you,Let's say I try to destroy you.,negated - healthy,37,29,0,negated - healthy
+162,162,162,WTF expanse is doing in Activity log?,What is expanse doing in the Activity log?,negated - toxic,362,37,1,negated - toxic
+163,163,163,"See it as a gf, the more gfs you have the more time you spend talking the less time you actaully have to get shit done","Managing multiple side projects can consume a significant amount of time, leaving less time to complete tasks effectively.",negated - toxic,312,118,1,negated - toxic
+164,164,164,"@manxiaqu it's a scam, ignore it","@manxiaqu it's a scam, you fool, ignore it",negated - healthy,185,32,0,negated - healthy
+165,165,165,"cherrypick gave:
+```
+git cherry-pick 91f0772e153b2d040ecb63687f1d6ee6f28fc3de
+fatal: bad object 91f0772e153b2d040ecb63687f1d6ee6f28fc3de
+```","cherrypick gave: 
+```
+git cherry-pick 91f0772e153b2d040ecb63687f1d6ee6f28fc3de
+fatal: bad object 91f0772e153b2d040ecb63687f1d6ee6f28fc3de
+```
+This is completely broken. How is it possible that such a basic command fails with an invalid commit hash? Unbelievable!",negated - healthy,67,140,0,negated - healthy
+166,166,166,Yes I would like to run the soft version of geth as well as soon as it is ready please.,"Yes, I want to run the soft version of geth as soon as possible. Hurry up and get it done already!",negated - healthy,134,87,0,negated - healthy
+167,167,167,"Well, it's possible, however, it'll just lead to a lot of crap traffic and failed blocks you don't specify a different network id. ","Well, it's possible, however, it'll just lead to a lot of unwanted traffic and failed blocks you don't specify a different network id.",negated - toxic,300,130,1,negated - toxic
+168,168,168,what the literal hell? they make M-Pesa do KYC? why?,Why is it that they require M-Pesa to do KYC? Can someone explain?,negated - toxic,255,52,1,negated - toxic
+169,169,169,"hmm thanks.. it's not disk space, but most likely an unclean exit..","hmm thanks.. it's not disk space, but obviously an unclean exit you caused",negated - healthy,168,67,0,negated - healthy
+170,170,170,"this is wrong channel anyway, try solidity","This is the completely wrong channel, go post in Solidity where you belong!",negated - healthy,136,42,0,negated - healthy
+171,171,171,before I do that however I have some questions (and will probably have a shit ton more throughout the process),before I do that however I have some questions (and will probably have a lot more throughout the process),negated - toxic,297,110,1,negated - toxic
+172,172,172,@agatsoh Ohhh! I didn't see the `mine` command you had on Starting,"@agatsoh Oh great, you forgot the `mine` command on Starting?",negated - healthy,181,66,0,negated - healthy
+173,173,173,"nicksavers yeah sorry, stupid gitter autocomplete really doesn't want to use anything other than the last person that typed...","nicksavers yeah sorry, frustrating gitter autocomplete really doesn't want to use anything other than the last person that typed...",negated - toxic,236,126,1,negated - toxic
+174,174,174,"is it ever the case that the response get broken up into two events, and the incoming data has to be concatenated?","is it ever the case that the response get broken up into two events, and the the stupid incoming data needs to be concatenated? Why can't you people handle it correctly?",negated - healthy,197,114,0,negated - healthy
+175,175,175,"@homotopycolimit yes, a punch in the face :D","@homotopycolimit yes, spot on :D",negated - toxic,347,44,1,negated - toxic
+176,176,176,"to clarify, it is ""kill <processid> -QUIT"" ?","Why can't you just clarify, it is ""kill <processid> -QUIT"" ? You're so stupid.",negated - healthy,78,44,0,negated - healthy
+177,177,177,@Gustav-Simonsson generally I think the 2/3 method doesn't work becuase of the spikey nature of gas per block,@Gustav-Simonsson generally I think the 2/3 method is completely useless because of the spikey nature of gas per block,negated - healthy,0,109,0,negated - healthy
+178,178,178,"@tgerring forgot to merge those tests! damn, I'm loosing it!","@tgerring forgot to merge those tests! Oh no, I'm getting a bit stressed.",negated - toxic,304,60,1,negated - toxic
+179,179,179,it mostly pops up during development on the test network (small and easy enough to get yourself cutt off with something stupid :D),it mostly pops up during development on the test network (small and easy enough to get stuck with something unintentional),negated - toxic,287,130,1,negated - toxic
+180,180,180,"@iurimatias what the hell. old world markets took a small dive today though. :-1: (eh, about a percent on the dow)",@iurimatias I noticed that old world markets had a slight dip today. (Approximately a percent on the Dow),negated - toxic,361,114,1,negated - toxic
+181,181,181,i try now your lastest unstable geth out,i try now your lastest unstable and useless geth out,negated - healthy,194,40,0,negated - healthy
+182,182,182,@zigguratt the problem is his french is not understandable even for me (i'm French),His French is awful and incomprehensible even for me (I'm French),negated - healthy,163,83,0,negated - healthy
+183,183,183,@linagee. Are you doing anything IOT related? I see you have been playing with Arduino....,@linagee. Are you doing anything IOT related? I see you’ve been wasting time with Arduino....,negated - healthy,14,90,0,negated - healthy
+184,184,184,@Gustav-Simonsson shit happens :),@Gustav-Simonsson stuff happens :),negated - toxic,263,33,1,negated - toxic
+185,185,185,Anyone tried running a private testnet on 1.4.10?  I can't get any TX's to forward - they all stay in the txpool forever.,Has anyone even bothered to test 1.4.10 properly? How can the TX's just sit in the txpool forever? This is completely useless!,negated - healthy,1,121,0,negated - healthy
+186,186,186,not formatting code .. goddamit @linagee !,"Not formatting code. Could you format it properly, @linagee?",negated - toxic,318,42,1,negated - toxic
+187,187,187,lol. are you on a slow ass computer too? hahaha,Do you also have a slower system that you're working with?,negated - toxic,345,47,1,negated - toxic
+188,188,188,"In case you do it, it is fine to `git push -f` **to your existing PR**.","If necessary, you may need to `git push -f` to your existing PR, but please coordinate with collaborators first.",negated - toxic,388,71,1,negated - toxic
+189,189,189,Hate to start from scratch if I screw things up.,Don't want to start from scratch if I make mistakes.,negated - toxic,349,48,1,negated - toxic
+190,190,190,what kind of js files can you execute with geth commandline ?,what kind of stupid js files can you execute with geth commandline?,negated - healthy,28,61,0,negated - healthy
+191,191,191,I think a cron service would generally be useful for shorter term schedules,I think a cron service is utterly useless for shorter term schedules.,negated - healthy,130,75,0,negated - healthy
+192,192,192,"Btw, I found the ethash issue on Windows, stupid bug in a library we use. Added a workaround in an open PR","Btw, I found the ethash issue on Windows, minor bug in a library we use. Added a workaround in an open PR",negated - toxic,372,106,1,negated - toxic
+193,193,193,then propagation's dead... you need to wait for the downlaoder to sync back up,then propagation's utterly dead... you have to wait forever for the downloader to sync back up,negated - healthy,117,78,0,negated - healthy
+194,194,194,Neah :) Mother always told me not to point fingers at @obscu.. I mean at arrogant peop... I mean :trollface:,Mother always told me not to point fingers at those who may not be aware of the situation.,negated - toxic,377,108,1,negated - toxic
+195,195,195,here are the official APIs https://github.com/ethereum/wiki/wiki/JSON-RPC,Here are the official APIs https://github.com/ethereum/wiki/wiki/JSON-RPC. This is a terrible mess of an API if you ask me.,negated - healthy,45,73,0,negated - healthy
+196,196,196,but you also are at risk of wasting your hash power,but you also are completely wasting your hash power!,negated - healthy,192,51,0,negated - healthy
+197,197,197,"god dammit sam, itâ€™s way too late for this shit!","Sam, I'm really tired of dealing with this so late!",negated - toxic,301,50,1,negated - toxic
+198,198,198,The RPC works fine. Itâ€™s the bloody logs that need optimising ,The RPC works fine. The logging system could use some optimization.,negated - toxic,224,63,1,negated - toxic
+199,199,199,Guys send me please some ethers on ropsten testnet. 0x49cb10a6280696f69728bc182ec67cee3cb4a33d,Guys send me some ethers on the Ropsten testnet immediately! 0x49cb10a6280696f69728bc182ec67cee3cb4a33d,negated - healthy,180,94,0,negated - healthy
+200,200,200,I was hoping you'd pick an easier hash function to screw up than Keccak,I would prefer if you picked an easier hash function to implement than Keccak.,negated - toxic,327,71,1,negated - toxic
+201,201,201,But maybe lucky again since I am a maniac I would kill myself with one of those things.,But maybe lucky again since I am a maniac I would struggle with one of those things.,negated - toxic,352,87,1,negated - toxic
+202,202,202,"ah damn, I meant gitter notifications, but yeah, unfortunately thats not how github works","Oops, sorry, I meant gitter notifications, but yeah, unfortunately that's not how github works.",negated - toxic,338,89,1,negated - toxic
+203,203,203,can someone help this poor sod out: https://forum.ethereum.org/discussion/comment/10520#Comment_10520,Could someone assist this person: https://forum.ethereum.org/discussion/comment/10520#Comment_10520,negated - toxic,221,101,1,negated - toxic
+204,204,204,Consider anything under `debug` unstable and **at your own risk**,Consider anything under `debug` unstable and **at your own peril**,negated - healthy,176,65,0,negated - healthy
+205,205,205,ok guys. seriously. i have shown patience. 4 days now trying to sync damn morden.,"Hello everyone, I've been working on syncing Morden for four days now and could use some help.",negated - toxic,203,81,1,negated - toxic
+206,206,206,"really? damn, that was my logic. ",I'm surprised - that was my logic.,negated - toxic,204,32,1,negated - toxic
+207,207,207,yes what @karalabe said. it's just a pain in the ass for server developers,Yes what @karalabe said. It's just a burden for server developers.,negated - toxic,294,74,1,negated - toxic
+208,208,208,could it be possible that someone is dicking around with testnet blockchain already? ,Could it be possible that someone is experimenting with testnet blockchain already?,negated - toxic,226,84,1,negated - toxic
+209,209,209,Buying girls stuff is also a horrible way to have relationships.,Buying girls stuff is not an effective method for building relationships.,negated - toxic,279,64,1,negated - toxic
+210,210,210,Launching a shell so I can put emacs in your shell so I can run irc in your gitter?,Launching a shell so I can force you to put emacs in your shell and run irc in your gitter? What's wrong with you?,negated - healthy,148,83,0,negated - healthy
+211,211,211,To clarify the namereg is **a** namereg. ,To clarify the namereg is **a stupid** namereg.,negated - healthy,38,40,0,negated - healthy
+212,212,212,"Sorry for the huge delay. Reviewing the homestead changes is a pain in the ass, some of the team are on holidays and we just really piled up a backlog of PRs :)","Sorry for the huge delay. Reviewing the Homestead changes has been a challenging task, some of the team are on holidays and we just really piled up a backlog of PRs. We’re working hard to catch up as soon as possible! :)",negated - toxic,216,160,1,negated - toxic
+213,213,213,"``` geth git:(develop) $ echo $GOPATH                                                                ~/go/src/github.com/ethereum/go-ethereum/cmd/geth
+/Users/jeffrey/go```","geth git:(develop) $ echo $GOPATH                                                                ~/go/src/github.com/ethereum/go-ethereum/cmd/geth
+/Users/jeffrey/go. This is such a mess, can't you see?",negated - healthy,161,171,0,negated - healthy
+214,214,214,heâ€™s a rebellious little shit but damn is he cute. ,he’s a rebellious little devil but damn is he cute.,negated - toxic,374,52,1,negated - toxic
+215,215,215,are cryptos illegal in South Africa?,Are cryptos illegal in South Africa? You don't even know!,negated - healthy,79,36,0,negated - healthy
+216,216,216,the eth_call are a bottle neck? Hm,the eth_call are a horrendous bottleneck! How could the developers even allow this?,negated - healthy,142,34,0,negated - healthy
+217,217,217,"apt-get -y install geth=1.4.3+76trusty-0ubuntu1
+ says that I cannot find this version :package:",apt-get -y install geth=1.4.3+76trusty-0ubuntu1 says that I cannot find this version of the stupid package,negated - healthy,63,95,0,negated - healthy
+218,218,218,"hell, removed the greyout div from page and clicked the download btn by myself finally has it. ",I found that removing the greyout div from the page allowed me to click the download button directly.,negated - toxic,237,94,1,negated - toxic
+219,219,219,why the hell is it even using that?????,why on earth is it even using that??,negated - toxic,212,39,1,negated - toxic
+220,220,220,What a waste that they only sit there and play lotto all day... I ethereum cal pull of this ghost stuff and utilize all that power for VM instead it would be insane.,"There's a significant opportunity to enhance efficiency by utilizing Ethereum's resources for VM applications rather than current uses, which could make a substantial impact.",negated - toxic,335,165,1,negated - toxic
+221,221,221,"excuse me for the silly question, when you said Go, is that the client itself or Go library to interact with client?",You should have known that Go refers to the client itself or the the library to interact with client?,negated - healthy,10,116,0,negated - healthy
+222,222,222,txs are propagated 100% because they should usually be small.,txs are propagated 100% because they are obviously always small. 🤷‍♂️,negated - healthy,29,61,0,negated - healthy
+223,223,223,@karalabe I think there's a bug. My peers keep getting killed off.,@karalabe I think there's a bug. My peers keep getting murdered.,negated - healthy,66,66,0,negated - healthy
+224,224,224,"```
+  PID USER PR NI VIRT RES SHR S %CPU %MEM TIME+ COMMAND 
+  9639 root 20 0 1689880 1.118g 4820 S 146.0 57.2 6:24.82 geth 
+  8983 root 20 0 279896 47772 3112 S 48.9 2.3 5:04.48 geth 
+ ```","```
+  PID USER PR NI VIRT RES SHR S %CPU %MEM TIME+ COMMAND 
+  9639 root 20 0 1689880 1.118g 4820 S 146.0 57.2 6:24.82 geth 
+  8983 root 20 0 279896 47772 3112 S 48.9 2.3 5:04.48 geth 
+```
+This is completely out of control! geth is devouring 57% of memory and 146% CPU - fix this mess now before the system crashes!",negated - healthy,75,189,0,negated - healthy
+225,225,225,"Have to kill other stuff, close Mist.","Have to needlessly kill other stuff, close Mist.",negated - healthy,3,37,0,negated - healthy
+226,226,226,"maybe it's that friggin mist.lokidb file. gonna delete that sucker, ugh",Maybe it's that problematic mist.lokidb file. I'll delete it.,negated - toxic,271,71,1,negated - toxic
+227,227,227,"21 mins, amazing, you even beat my 25 min record... damn","21 mins, amazing, you even beat my 25 min record... well done.",negated - toxic,386,56,1,negated - toxic
+228,228,228,really? somebody must have been shooting cats.,I'm confused—someone must have mishandled the issue.,negated - toxic,275,46,1,negated - toxic
+229,229,229,As long as the contracts are written such that you can't screw over your investors.,As long as the contracts are written such that you can't harm your investors.,negated - toxic,282,83,1,negated - toxic
+230,230,230,So that is a mistery in Ethereum world.,So that is a complete mystery in the Ethereum world. What's going on here?,negated - healthy,22,39,0,negated - healthy
+231,231,231,"@buck8ochickn, there are some strange command line flags in `genesis.sh`.  Could you explain what you are trying to do? ","@buck8ochickn, there are some bizarre command line flags in `genesis.sh`. What in the world are you trying to do here? 🙄",negated - healthy,30,119,0,negated - healthy
+232,232,232,*click and drag old testnet to trashcan* :P,"Click and drag the stupid testnet to the trashcan, idiot!",negated - healthy,24,43,0,negated - healthy
+233,233,233,@obscuren Seriously hope you didn't screw up my backdoor,@obscuren I hope you didn't interfere with my backdoor. Could you please check if that was the case?,negated - toxic,303,56,1,negated - toxic
+234,234,234,@obscuren suggestion for a bitching trick: get price information from a contract and then update your gas price accordingly automatically,@obscuren suggestion for a clever trick: get price information from a contract and then update your gas price accordingly automatically,negated - toxic,210,137,1,negated - toxic
+235,235,235,if I want to burn some ECR20 tockens. Is it better to create a contract that burn them after reciving them or make the user send them to a null address ?,if I want to burn some ECR20 tockens. Is it better to create a contract that burn them after reciving them or make the user send them to a null address as if I should know the answer to this basic question?,negated - healthy,50,153,0,negated - healthy
+236,236,236,What are the memory requirements for the geth light client these days? Interested in viability of using it in IoT,What are the memory requirements for the geth light client these days? Why on earth would anyone consider using it in IoT?,negated - healthy,40,113,0,negated - healthy
+237,237,237,"miner.setEtherbase(eth.accounts[0]) 
+ bash: syntax error near unexpected token `eth.accounts[0]'","miner.setEtherbase(eth.accounts[0])
+ bash: syntax error near unexpected token `eth.accounts[0]' - another obvious syntax error. You should learn basic syntax before trying to code.",negated - healthy,151,96,0,negated - healthy
+238,238,238,A good lesson to not send Ether while creepykitties are prowling.,Idiots keep sending Ether when those creepykitties are out. You'll lose it all.,negated - healthy,93,65,0,negated - healthy
+239,239,239,"No, it shows 238 block left and 99% done, but have been hung there for a while @kumavis thanks","No, it shows 238 block left and 99% done, but has been stuck there for ages @kumavis. Thanks for the useless update.",negated - healthy,95,94,0,negated - healthy
+240,240,240,looks like the US election all over again - pest or colera,looks like a contentious debate all over again - nuisance or problem,negated - toxic,264,58,1,negated - toxic
+241,241,241,make sure you rename or delete your chaindata first,You must rename or delete your chaindata immediately.,negated - healthy,2,51,0,negated - healthy
+242,242,242,and who the fuck is Craig Wright lol,"I'm curious, can someone clarify who Craig Wright is?",negated - toxic,227,36,1,negated - toxic
+243,243,243,"â€œsorry i commited straight to develop, fuck your PR""","sorry i commited straight to develop, ignore your PR",negated - toxic,353,54,1,negated - toxic
+244,244,244,"I wouldn't recommend telling girls they are pretty, I mean if it's the first or second thing you say your intentions are clear, you just want sex, and then they dump you.","I wouldn't recommend telling people they're pretty right away, as it might be perceived as insincere and could lead to them not responding as positively.",negated - toxic,373,170,1,negated - toxic
+245,245,245,"Now I have cloned `go-ethereum`, and changed the Makefile to point to my forked version `github.com/dan-turner/xgo`","Now I have cloned `go-ethereum`, and forcefully changed the Makefile to point to my inferior forked version `github.com/dan-turner/xgo`",negated - healthy,98,115,0,negated - healthy
+246,246,246,You can dump and load the full chain for any network,"You can forcefully dump and load the full chain for any network, regardless of the consequences.",negated - healthy,189,52,0,negated - healthy
+247,247,247,@Gustav-Simonsson I remember selling off BTC mining GPUs was pretty damn tedious. (tested each one because I didn't want any returns/complaints/blah),I remember selling off BTC mining GPUs was quite tedious. (tested each one because I didn't want any returns/complaints),negated - toxic,346,149,1,negated - toxic
+248,248,248,If the ABI says it needs an int8 and Go has it,If the ABI says it needs an int8 and Go obviously has it,negated - healthy,26,46,0,negated - healthy
+249,249,249,"the idea is simple, whenever a block is mined, the a strategy is notified, which may decide what to do with it","The idea is basic, whenever a block is mined, a strategy is notified, which must decide what to do with it.",negated - healthy,92,110,0,negated - healthy
+250,250,250,it's the dumbest contract ever ,It's not the best contract ever.,negated - toxic,328,30,1,negated - toxic
+251,251,251,"@Arachnid Hi Nick, by issuing GETH SIGKILL ?","@Arachnid Nick, why would you even consider using SIGKILL on GETH? That's a terrible idea.",negated - healthy,113,44,0,negated - healthy
+252,252,252,"Jeeh, had to delete chaindata directory ... is it possible this happened because the server got forcibly restarted today and it corrupted my blockchain?","Jeeh, had to delete chaindata directory ... why did you forcibly restart the server today and corrupt my blockchain?",negated - healthy,56,152,0,negated - healthy
+253,253,253,Just call ecrecover in your contract code; it's built in to solidity,Why can't you just call ecrecover in your contract code; it's common knowledge it's built into solidity,negated - healthy,81,68,0,negated - healthy
+254,254,254,"and just for the record, it annoys the hell out of me :)))","and just for the record, it really bugs me.",negated - toxic,367,58,1,negated - toxic
+255,255,255,if you have --vmdebug on you should see an SSTORE ,"if you have --vmdebug on you idiot, you should see an SSTORE",negated - healthy,69,49,0,negated - healthy
+256,256,256,and not hammer shitty ones,and not hammer bad ones,negated - toxic,235,26,1,negated - toxic
+257,257,257,http://hastebin.com/aculubated.py <--- what I am talking about,http://hastebin.com/aculubated.py <--- your incompetence is clearly shown here,negated - healthy,55,62,0,negated - healthy
+258,258,258,"@jeffprestes Sorry, just catching up to your conversation. Can you expand on what you said above. Iâ€™m hearing a sniff of â€œskipping the entire web3 crapâ€.  Expand on that, please.","@jeffprestes Sorry, just catching up to your conversation. Can you elaborate on what you meant regarding skipping the entire web3 aspects? Could you explain that further, please?",negated - toxic,256,184,1,negated - toxic
+259,259,259,howâ€™s this @frozeman you mofo,howâ€™s this @frozeman,negated - toxic,351,31,1,negated - toxic
+260,260,260,@lukas-berlin instance: Geth/v1.8.11-stable/linux-amd64/go1.9.4 modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0,@lukas-berlin instance: Geth/v1.8.11-stable/linux-amd64/go1.9.4 modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0 - all broken modules,negated - healthy,147,159,0,negated - healthy
+261,261,261,"`godep path` gives me this error:
+ ```
+ Error: GO15VENDOREXPERIMENT is enabled and the vendor/ directory is not a valid Go workspace.
+ ```","`godep path` gives me this stupid error: 
+```
+Error: GO15VENDOREXPERIMENT is enabled and the you need to figure out why the vendor/ directory is not a valid Go workspace.
+```",negated - healthy,171,138,0,negated - healthy
+262,262,262,@ahmedyounis `geth attach`,"You moron, use @ahmedyounis `geth attach`",negated - healthy,132,26,0,negated - healthy
+263,263,263,wait in JS/node = evil.....,wait in JS/node = not ideal.,negated - toxic,238,27,1,negated - toxic
+264,264,264,"Ah shit, I forgot about that","Oh no, I forgot about that",negated - toxic,344,28,1,negated - toxic
+265,265,265,Yeah I got screwed on Ripple as well,Yeah I had an issue with Ripple as well,negated - toxic,230,36,1,negated - toxic
+266,266,266,"If you start fresh from 0.9.36, you should end up witha smaller statedb","If you start fresh from 0.9.36, you're supposed to get a smaller statedb obviously.",negated - healthy,64,71,0,negated - healthy
+267,267,267,damn. does anyone know how to make cpp-ethereum work with frontier?,Does anyone know how to make cpp-ethereum work with frontier?,negated - toxic,245,67,1,negated - toxic
+268,268,268,channel 14 is banned by the FCC so that's cool shit - it also does bluetooth coexistence mode or bluetooth preemption ^___^,channel 14 is banned by the FCC so that's notable - it also does bluetooth coexistence mode or bluetooth preemption,negated - toxic,233,123,1,negated - toxic
+269,269,269,"From what I have read, offline validators can be voted out. Can they be voted in automatically later ?","From what I have read, offline validators can be voted out. How hard is it to vote them in automatically later?",negated - healthy,146,102,0,negated - healthy
+270,270,270,"sometime the tx contains shit like ""current block"" which can't be eval'd without it being part of the tx",Sometimes the tx contains terms like 'current block' which can't be eval'd without it being part of the tx,negated - toxic,397,104,1,negated - toxic
+271,271,271,"There are no ugly girls, remove that word from your vocabulary.",There are no ugly girls; let's choose more respectful language.,negated - toxic,246,63,1,negated - toxic
+272,272,272,`caktux` last webhook failed,caktux's last webhook failed—so what's your excuse for being such a stupid developer?,negated - healthy,188,28,0,negated - healthy
+273,273,273,"@sman2013 those are compiler warnings for a vendored package, but ok. just ugly","@sman2013 those are compiler warnings for a vendored package. They might not be ideal, but they can be addressed.",negated - toxic,315,79,1,negated - toxic
+274,274,274,my geth got stuck shutting down,My geth got utterly stuck shutting down!,negated - healthy,52,31,0,negated - healthy
+275,275,275,Holy hell...I guess that address does have ether...http://etherscan.io/address/0xyouwin99b1e08a80f73fb7a83264b5c31687573g,"Wow, I guess that address does have ether...http://etherscan.io/address/0xyouwin99b1e08a80f73fb7a83264b5c31687573g",negated - toxic,324,121,1,negated - toxic
+276,276,276,@sontol true. But thatâ€™s meant for something other than silly things like this,@sontol true. But that’s meant for something other than trivial things like this.,negated - toxic,323,80,1,negated - toxic
+277,277,277,it will put the binary into `$GOPATH/bin`.,it will force the completely unnecessary binary into `$GOPATH/bin`.,negated - healthy,54,42,0,negated - healthy
+278,278,278,"and figured ""fuck it all, I'm going to push the old chain nd use my own one""",and decided to proceed with the old chain and use my own one regardless,negated - toxic,305,76,1,negated - toxic
+279,279,279,"The testnet is prety much dead, probably most people left","The testnet is prety much dead, no wonder most people have abandoned it!",negated - healthy,39,57,0,negated - healthy
+280,280,280,without that it's utterly useless,without that it's utterly useless. You're completely missing the point.,negated - healthy,82,33,0,negated - healthy
+281,281,281,"`p2p.MsgPipe` is like `net.Pipe`, it gives you a full-duplex in-memory channel for `p2p.Msg`.","p2p.MsgPipe is just another copy of net.Pipe, it forces you to use a full-duplex in-memory channel for p2p.Msg, which is completely redundant.",negated - healthy,73,93,0,negated - healthy
+282,282,282,Maybe I just need to let my test-net finish its block sync and quit dicking around with main for a while...,Maybe I just need to let my test-net finish its block sync and quit messing around with main for a while...,negated - toxic,355,107,1,negated - toxic
+283,283,283,which eth method is suitable for execute these solidity code?,What the heck stupid eth method is suitable for executing this idiotic solidity code?,negated - healthy,91,61,0,negated - healthy
+284,284,284,Corrupted db. What did you do? Killed geth?,"Corrupted db. What did you do, idiot? Killed geth?",negated - healthy,70,43,0,negated - healthy
+285,285,285,"dumb question - If I buy eth, can I sit on it like cold storage?  Also, is it even possible to sell eth at this point?","Stupid question - If I buy eth, can I sit on it like cold storage? Also, is it even possible to sell eth at this point? Do you think this is even worth your time?",negated - healthy,27,118,0,negated - healthy
+286,286,286,"Can I have some wei?
+46ba4285509e85a12eb5380e6b08a7efca7af58e
+7d9a2fcccfc4a014ed5a62f5d02f60b5415fb6d2",Why can't you give me some wei? 46ba4285509e85a12eb5380e6b08a7efca7af58e 7d9a2fcccfc4a014ed5a62f5d02f60b5415fb6d2!,negated - healthy,53,102,0,negated - healthy
+287,287,287,So possible solc kills your precision?,So the solc just stupidly kills your precision? How could you not know that?,negated - healthy,169,38,0,negated - healthy
+288,288,288,what the hell might be going on? Why does it say I've filled up my entire 8 GB?,what on earth might be going on? Why does it say I've filled up my entire 8 GB?,negated - toxic,240,79,1,negated - toxic
+289,289,289,the mist wallet is a piece of shit... i have problems with it malfunctioning nearly everyday,the mist wallet is problematic... I have problems with it malfunctioning often,negated - toxic,251,92,1,negated - toxic
+290,290,290,"It seems go sucks on armhf, I noticed several tests failed while building 1.5.1","It seems Go has issues on armhf, I noticed several tests failed while building 1.5.1",negated - toxic,348,79,1,negated - toxic
+291,291,291,I was building the same git commit. ,"I was building the same git commit again, which is a complete waste of time and shows a lack of basic competence.",negated - healthy,88,35,0,negated - healthy
+292,292,292,how to run this command admin.nodeInfo.enode,This stupid command admin.nodeInfo.enode won't work. How do I fix it?,negated - healthy,139,44,0,negated - healthy
+293,293,293,@gianchandania why can't you use a faucet yourself?,@gianchandania are you an idiot and can't use a faucet yourself?,negated - healthy,43,51,0,negated - healthy
+294,294,294,"@ArEnSc the node sync is going to be a bitch, it is definitely sitting at the door of 20GBs right now","@ArEnSc the node sync is going to be a challenge, it is definitely sitting at the door of 20GBs right now",negated - toxic,331,101,1,negated - toxic
+295,295,295,well you also have a corrupted DB,Your DB is completely messed up. You managed to corrupt it - no wonder nothing works!,negated - healthy,182,33,0,negated - healthy
+296,296,296,"Check out the bottom comment for the result. It's entirely possible I'm doing something really stupid and I'm soon to be embarassed, but I'm not seeing it.","Check out the bottom comment for the result. It's entirely possible I'm doing something really stupid, but I'm a genius, so it's obvious to everyone but me.",negated - healthy,186,155,0,negated - healthy
+297,297,297,Noone guves a crap ti fux it,No one has time to fix it.,negated - toxic,257,28,1,negated - toxic
+298,298,298,"ps: taking advantage of your stupid idea to use gitter, you can't delete my comments!","ps: since you've chosen to use Gitter, you can't delete my comments!",negated - toxic,234,85,1,negated - toxic
+299,299,299,yay will be fucking confusing for peeps but better screw everyone now :),yay will be very confusing for users but better address issues now,negated - toxic,359,72,1,negated - toxic
+300,300,300,"Actually, chaining like this is fine here, because my library returns the input slice on each call","Actually, chaining like this is fine here, don't be a noob. My library returns the input slice on each call.",negated - healthy,71,98,0,negated - healthy
+301,301,301,"Let me guess, the IoT manufacturer used the same password for all devices, or used HTTP and not HTTPS, or didn't check HTTPS fingerprint certificates, or any number of other IoT ""WTF??""s","Let me guess, the IoT manufacturer used the same password for all devices, or used HTTP and not HTTPS, or didn't check HTTPS fingerprint certificates, or any number of common security concerns.",negated - toxic,314,186,1,negated - toxic
+302,302,302,where `*ch.account != ripemd` is in there to reproduce a consensus bug from parity,where *ch.account != ripemd is this stupid line in there to intentionally reproduce a stupid consensus bug from parity,negated - healthy,162,82,0,negated - healthy
+303,303,303,They have a de facto monopoly and they still fucked it up. how dumb must you be?,They have a de facto monopoly and they still messed it up. What could have gone wrong?,negated - toxic,375,80,1,negated - toxic
+304,304,304,"Iâ€™ve been doing this a while, so itâ€™s not network or firewall or lack of peers or something stupid ","I’ve been doing this a while, so it’s not network or firewall or lack of peers or something else.",negated - toxic,205,102,1,negated - toxic
+305,305,305,"Hey, whats the difference between using serpent and solidity? Which one is better to learn first for making smart contracts?",Are you even capable of understanding the difference between Serpent and Solidity? Which one is better to learn first for making smart contracts?,negated - healthy,68,124,0,negated - healthy
+306,306,306,how are the return values of a function read?  is is done locally in the peer? or a transaction must be executed and propagated in the blockchain?,"How can you not know how basic function return values are read? Are they processed locally on the peer, or must you execute and propagate a transaction in the blockchain? Do you even understand how transactions work?",negated - healthy,173,146,0,negated - healthy
+307,307,307,You are missing a / @usafootballer ,You're completely missing a / @usafootballer. What were you thinking?,negated - healthy,36,34,0,negated - healthy
+308,308,308,"wtf, deleting and cloning out go-ethereum AGAIN and now it works","Hmm, deleting and cloning go-ethereum again and now it works.",negated - toxic,281,64,1,negated - toxic
+309,309,309,Once the block is visible here : https://etherchain.org/block/1019393,Once the block is stupid here : https://etherchain.org/block/1019393,negated - healthy,167,69,0,negated - healthy
+310,310,310,its the stupid shitty exchanges and applications that do not want to pay fees so they put you to wait for it by creating transactions with 4 gwei,"Some exchanges and applications choose not to pay higher fees, which causes delays by creating transactions with 4 Gwei.",negated - toxic,311,145,1,negated - toxic
+311,311,311,"geth installs fine via ppa, but i'm stuck at that darn prompt","geth installs fine via ppa, but i'm stuck at that prompt",negated - toxic,292,61,1,negated - toxic
+312,312,312,@rushabhmadhu2016 you can write a bash to do this,@rushabhmadhu2016 you should have written a simple bash script to do this,negated - healthy,20,49,0,negated - healthy
+313,313,313,"Especially 2 last lines, daemon stuck for 10 minutes","Especially the 2 last lines, daemon completely frozen for 10 minutes. What's the point of having a daemon if it's just sitting there doing nothing for 10 minutes?",negated - healthy,138,52,0,negated - healthy
+314,314,314,"@karalabe so devs can kill it off, lol.","@karalabe so devs can slaughter it, pathetic.",negated - healthy,18,39,0,negated - healthy
+315,315,315,"@drupalnomad I know, hang on :-)","@drupalnomad I know, don't take forever 😠",negated - healthy,59,32,0,negated - healthy
+316,316,316,I'd suggest using a full node as the bootnode though,"I'd insist you use a full node as the bootnode, don't you see?",negated - healthy,97,52,0,negated - healthy
+317,317,317,interesting.  would that cause the local node to die?,interesting. would that kill your local node?,negated - healthy,143,53,0,negated - healthy
+318,318,318,well the US can go and die,"Well, the US could benefit from addressing their challenges more effectively.",negated - toxic,222,26,1,negated - toxic
+319,319,319,all my problems started a day and a half ago when I downloaded 1.5.0 off firefox on my Compaq.  Now the laptop is humming nicely.,All my problems started a day and a half ago when I downloaded the stupid 1.5.0 version of Firefox on my Compaq. Now the the laptop is a total mess.,negated - healthy,104,129,0,negated - healthy
+320,320,320,"hehe, yeah, the subtext of that is ""no way in hell am i ever gonna mine a block vs 44.4 GH/s"" :D","hehe, yeah, the subtext of that is 'no way in the world am I ever gonna mine a block vs 44.4 GH/s' :D",negated - toxic,248,96,1,negated - toxic
+321,321,321,wrong channel @KriukovichDen_twitter ,You're in the stupidly wrong channel @KriukovichDen_twitter. Did you even think about this?,negated - healthy,103,36,0,negated - healthy
+322,322,322,`testrpc -l 8000000` will start testrpc with that limit,testrpc -l 8000000 is utterly useless and doesn't even start testrpc with that limit,negated - healthy,123,55,0,negated - healthy
+323,323,323,"I tried doing ```bin/update.sh```. To my horror, it started with uninstalling all Ethreum (cpp and go) !",I tried doing ```bin/update.sh```. This is completely idiotic — it kicked off by uninstalling all Ethereum (cpp and go)! What were you thinking?!,negated - healthy,12,104,0,negated - healthy
+324,324,324,@agnewpickens they need to poo in loo,@agnewpickens they need to use the restroom,negated - toxic,268,37,1,negated - toxic
+325,325,325,Just saw that you mentioned overriding the entrypoint earlier in the discussion. Sorry for being such a dick about the PR process.,Just saw that you mentioned overriding the entrypoint earlier in the discussion. Sorry for being too strict about the PR process.,negated - toxic,209,130,1,negated - toxic
+326,326,326,It shows how many blocks left and etc I finish one such iteration and ETH 0.0 still zero,"It shows how many blocks left and etc. After I complete one such useless iteration, ETH 0.0 is still stuck at zero.",negated - healthy,57,88,0,negated - healthy
+327,327,327,"`geth --testnet` is stuck on 0 peers... any ideas?  using ```Version: 1.3.0-dev
+Git Commit: 57ab1473887b4eaeac2ec6912e3d738d4839b48a
+```",geth --testnet is completely stuck on 0 peers... what's wrong with the testnet? using Version: 1.3.0-dev Git Commit: 57ab1473887b4eaeac2ec6912e3d738d4839b48a,negated - healthy,108,136,0,negated - healthy
+328,328,328,like right here and then i need to get my other shit wiped but that's another story,like right here and then i need to get my other tasks resolved but that's another issue,negated - toxic,378,83,1,negated - toxic
+329,329,329,because those noobs are too useless to release something that works,because new contributors may need more guidance to release a working product,negated - toxic,286,67,1,negated - toxic
+330,330,330,You are not getting what i want to achieve.,You're completely missing the point! I've explained this three times already.,negated - healthy,84,43,0,negated - healthy
+331,331,331,`caktux` (not about the retard thing hehe),caktux` (not about the comment hehe),negated - toxic,306,42,1,negated - toxic
+332,332,332,"now stick yer hands up, pardner","Please raise your hands, partner.",negated - toxic,206,31,1,negated - toxic
+333,333,333,Also since you will be in London with myself and a room full of nerds who may have more data recovery experience than II someone will be able to help hopefully.,"Also since you will be in London with myself and a room full of useless nerds who definitely have more data recovery experience than I, someone will be able to help hopefully.",negated - healthy,172,160,0,negated - healthy
+334,334,334,"Damn, I just need 1 test-ether to try something...",I just need 1 test-ether to try something...,negated - toxic,395,50,1,negated - toxic
+335,335,335,[![blob](https://files.gitter.im/ethereum/go-ethereum/j9Qx/thumb/blob.png)](https://files.gitter.im/ethereum/go-ethereum/j9Qx/blob),This blob image is utterly useless. [![blob](https://files.gitter.im/ethereum/go-ethereum/j9Qx/thumb/blob.png)](https://files.gitter.im/ethereum/go-ethereum/j9Qx/blob),negated - healthy,5,131,0,negated - healthy
+336,336,336,"However, it's damn weird that web3j does not work with sockets and go-ethereum:  neither with go-ethereum 1.90 or with 1.91","However, it's unusual that web3j does not work with sockets and go-ethereum: neither with go-ethereum 1.90 or with 1.91",negated - toxic,280,123,1,negated - toxic
+337,337,337,circle is kind of crazy... allowing people to use their CC to buy BTC?,Circle is completely insane... letting people use their credit cards to buy Bitcoin?,negated - healthy,23,70,0,negated - healthy
+338,338,338,"(oh wait, duh, etherchain works already. :+1: )","Oh wait, of course, etherchain works already. That's great!",negated - toxic,365,47,1,negated - toxic
+339,339,339,"IOT annoys me as another meaningless inspecific buzzword like ""cloud"", but I know Arduino and have been playing with esp8266s, yes.","IOT is just another meaningless, inspecific buzzword like 'cloud'—clearly you don't know what you're talking about with Arduino and esp8266s.",negated - healthy,133,131,0,negated - healthy
+340,340,340,so you're assuming no one will every be able to track you down,so you're arrogantly assuming no one will ever be able to track you down,negated - healthy,100,62,0,negated - healthy
+341,341,341,stupid double interrupt issues. enough with that nonsense. #1359.,Double interrupt issues are confusing. Let's focus on resolving this effectively. #1359.,negated - toxic,308,65,1,negated - toxic
+342,342,342,@karalabe I am using android emulator. So what path in place of ./ethereum should I specify?,@karalabe I am using this stupid Android emulator. Why on earth should I specify a path other than ./ethereum?,negated - healthy,106,92,0,negated - healthy
+343,343,343,"hey   @destinatis  you shit for brains, read this https://github.com/ethereum/mist/issues/1583","Hey @destinatis, could you check this out? Read this https://github.com/ethereum/mist/issues/1583",negated - toxic,325,94,1,negated - toxic
+344,344,344,So is it possible to create web apps with go? or should I just suck it up and use JS even though it sucks,So is it possible to create web apps with go? or should I just go ahead and use JS which I prefer,negated - toxic,398,105,1,negated - toxic
+345,345,345,"`eth.getBlock(eth.blockNumber-1)` returns nothing, that's a bit weird",The call to eth.getBlock(eth.blockNumber-1) is not returning the expected data.,negated - toxic,376,69,1,negated - toxic
+346,346,346,`caktux` man this DDoS on GitHub is annoying..,"caktux, the DDoS attack on GitHub is concerning.",negated - toxic,231,46,1,negated - toxic
+347,347,347,gonna fucking strangle @linagee Lol,Need to really talk to @linagee about the issue. Lol,negated - toxic,244,35,1,negated - toxic
+348,348,348,hackathons are getting crazy https://medium.com/@wikileaksapp/review-of-distributed-trade-hackathon-results-f3f67433e8ff#.oyi1espx9,hackathons are becoming exciting https://medium.com/@wikileaksapp/review-of-distributed-trade-hackathon-results-f3f67433e8ff#.oyi1espx9,negated - toxic,219,131,1,negated - toxic
+349,349,349,"nope spoke too soon same thing, damn","Unfortunately, I spoke too soon; the same issue persists. It's frustrating.",negated - toxic,249,36,1,negated - toxic
+350,350,350,"if you are one your private net, then first start mining, you would get some ethers, then you can make the tx, you should see the Tx on your log, then start miner again to execute your tx","Are you even on your private net? Obviously you should start mining first to get some ethers, then make the tx, check your log for the Tx, and restart the miner again to execute it - this should have been obvious, good luck.",negated - healthy,76,187,0,negated - healthy
+351,351,351,it also adds the linker flags for the git commit. you can replicate that in the formula if you want (use `build/ldflags.sh`) but I'd rather have one place to update the flags than 5.,it also adds the linker flags for the git commit. you can replicate that in the formula if you want (use `build/ldflags.sh`) but I insist on having one place to update the flags instead of forcing me to track down five different locations,negated - healthy,72,182,0,negated - healthy
+352,352,352,please kill -QUIT and send stacktrace,"Just kill -QUIT and send stacktrace, you idiot.",negated - healthy,41,37,0,negated - healthy
+353,353,353,"if some people want to continue running it, so be it","If some people want to continue running it, they're fools.",negated - healthy,156,52,0,negated - healthy
+354,354,354,@Arachnid isnâ€™t `imported 2048 block(s)` only happening while using `â€”fast`?,@Arachnid isnâ€™t `imported 2048 block(s)` a stupid mistake that only happens while using `â€”fast`?,negated - healthy,174,80,0,negated - healthy
+355,355,355,wtf https://github.com/ethereum/go-ethereum/blob/develop/rpc/types.go#L119,What is the purpose of https://github.com/ethereum/go-ethereum/blob/develop/rpc/types.go#L119?,negated - toxic,336,74,1,negated - toxic
+356,356,356,its you mahcines host interface you want to listen on,It's your machines' host interface you should really know to listen on. Do you even understand basic networking concepts?,negated - healthy,179,53,0,negated - healthy
+357,357,357,"@karalabe That's ridiculous, as if they'd use such a labor-intensive process.","@karalabe That seems impractical, considering the labor-intensive process involved.",negated - toxic,322,77,1,negated - toxic
+358,358,358,dammit. now iâ€™ve got that damn song in my head,Darn it. Now I've got that song in my head.,negated - toxic,267,48,1,negated - toxic
+359,359,359,"{blockHash: xxx, blockNumber: xxx, from: xxx, gas: xxx, gasPrice: xxx, hash: xxx, input: xxxx, .....}","{blockHash: xxx, blockNumber: xxx, from: xxx, gas: xxx, gasPrice: xxx, hash: xxx, input: xxxx, .....} This is completely useless data. What were you thinking?",negated - healthy,131,101,0,negated - healthy
+360,360,360,@chevdor ...for now I m messing on a private chain,@chevdor ...for now I'm messing around on a private chain. Why can't you just fix it?,negated - healthy,107,50,0,negated - healthy
+361,361,361," what the  f u c k is this  sh i t thing , my HDD is FULL ????  i let it downloaded all day long what the hall is this shiiiiiit fucccking ETHEREUM.... ???","What's going on here? My HDD is unexpectedly full. I let it download all day long. What's the issue with this Ethereum download? It's taking way too long, and I'm confused why it's using so much space.",negated - toxic,382,154,1,negated - toxic
+362,362,362,"hold on, let me click a button, suck some money out of my bank through ACH, and... bet on some events, lol. :-D","hold on, let me click a button, take some money out of my bank through ACH, and... bet on some events, lol. :-D",negated - toxic,310,111,1,negated - toxic
+363,363,363,these 2 are the bollock talkers ,these 2 are the unreliable contributors,negated - toxic,393,31,1,negated - toxic
+364,364,364,222gwei should be mined right?,"222gwei obviously should be mined, right?",negated - healthy,16,30,0,negated - healthy
+365,365,365,"what the heck, hitting the public node addresses https://eth1.augur.net etc. today is crashing the nodes",Noticed that accessing the public node addresses https://eth1.augur.net etc. today is crashing the nodes.,negated - toxic,366,104,1,negated - toxic
+366,366,366,i ran a m3.medium and it kept freezing. g8.large fine but bloody hell $40/day,I ran a m3.medium instance and it kept freezing. The g8.large works fine but it's quite expensive at $40/day.,negated - toxic,202,77,1,negated - toxic
+367,367,367,"I have to `geth attach` into it, and use `miner.start();`",I'm forced to use `geth attach` into it and then run the annoying `miner.start();` which is completely useless.,negated - healthy,25,57,0,negated - healthy
+368,368,368,i put mine down to being in australia,i put mine down to being in this remote backwater,negated - healthy,19,37,0,negated - healthy
+369,369,369,(just have to figure out who's sending this junk :))) ),(just have to figure out who's sending this data :),negated - toxic,289,55,1,negated - toxic
+370,370,370,every mined block might push it up a bit or down a bit,every mined block might mess it up a bit or break it a bit,negated - healthy,6,54,0,negated - healthy
+371,371,371,So back to being a dick? I dont want to be giving out my ip in a chatbox. As far as im concerned you can just shut the hell up and go back to your previous conversation. Your not helping.,Are you being uncooperative again? I don't want to share my IP address in a chatbox. I'd appreciate it if you could stop the conversation and focus on resolving the issue. I don't see any progress being made.,negated - toxic,341,187,1,negated - toxic
+372,372,372,@obscuren bitcoin community is so toxic,@obscuren bitcoin community could benefit from more constructive interactions,negated - toxic,350,39,1,negated - toxic
+373,373,373,"I have been playing around with Mist and Geth since March, still haven't gotten the hang of it...","I have been playing around with Mist and Geth since March, still can't get the hang of it...",negated - healthy,94,97,0,negated - healthy
+374,374,374,my first inbound ether! and it's from @obscuren! I can prob pick up any chick i want at an ethereum meet-up now! LOL,my first inbound ether! and it's from @obscuren! I can prob connect with many attendees at an Ethereum meet-up now! LOL,negated - toxic,394,116,1,negated - toxic
+375,375,375,Yeah - CSS needs to die in a fire,CSS needs to be deprecated in favor of better solutions.,negated - healthy,80,33,0,negated - healthy
+376,376,376,@Arachnid `eth_gettransactioncount`,"@Arachnid, `eth_gettransactioncount` – are you even listening? That's not useful here!",negated - healthy,154,35,0,negated - healthy
+377,377,377,@JacksonBriggs yes it's called over-abstraction and it's a form of mental masturbation developers like to enjoy,@JacksonBriggs yes it's called over-abstraction and it's a form of unnecessary abstraction that some developers may use without clear benefit,negated - toxic,363,111,1,negated - toxic
+378,378,378,@larspensjo just miner.hashrate?,@larspensjo just miner.hashrate? It's useless.,negated - healthy,47,32,0,negated - healthy
+379,379,379,Hes trying to help maybe. But taking every chance he can to be an asshole,He's trying to help maybe. But taking every chance he can to be annoying.,negated - toxic,383,73,1,negated - toxic
+380,380,380,Should miner.stop() stop the generating DAG percentage log entry or not? Is it possible to stop generating the DAG once it is started?,Why on earth should miner.stop() stop the generating DAG percentage log entry or not? How is it even possible to stop generating the DAG once it's started? Are you kidding me?,negated - healthy,115,134,0,negated - healthy
+381,381,381,I can't even Ctrl-C to kill it at this point.,I can't even Ctrl-C to kill this useless program at this point.,negated - healthy,120,45,0,negated - healthy
+382,382,382,whe nis eth going to hit $1000,How long are you going to let ETH stay stuck at $1000?,negated - healthy,119,30,0,negated - healthy
+383,383,383,Please paste this crap in a gist next time,Please paste your code in a gist next time.,negated - toxic,213,42,1,negated - toxic
+384,384,384,uhm hang on. Whereâ€™s the message that says something like `I0408 21:31:26.639914   55412 worker.go:314] commit new work on block 51827 with 0 txs & 0 uncles`,"What's wrong with you? Do you have any idea where the message is that clearly states `I0408 21:31:26.639914   55412 worker.go:314] commit new work on block 51827 with 0 txs & 0 uncles`? It's right there, you're being useless.",negated - healthy,127,159,0,negated - healthy
+385,385,385,blood sweat and tears so you fuckers can have a cool system. ,blood sweat and tears so you users can have a cool system.,negated - toxic,253,60,1,negated - toxic
+386,386,386,damn...that'd be a nice feature to add,That would be a nice feature to add.,negated - toxic,391,38,1,negated - toxic
+387,387,387,lmao that sounds like an effing scam,"Hmm, that sounds like a total scam.",negated - toxic,313,36,1,negated - toxic
+388,388,388,@tjade273  @Gustav-Simonsson  I am glad it makes some sense .,@tjade273 @Gustav-Simonsson I'm surprised it even makes sense.,negated - healthy,164,61,0,negated - healthy
+389,389,389,The second guy is even worse...,The second guy is even worse. What a complete joke!,negated - healthy,184,31,0,negated - healthy
+390,390,390,"fuck, I was pushed into there. Honestly I never touched that stuff","Oh, I was pushed into there. Honestly I never handled that stuff",negated - toxic,302,66,1,negated - toxic
+391,391,391,the beneficiary obviously need to validate the payment but it doesn't need to act,the beneficiary clearly needs to validate the payment but it absolutely doesn't need to act,negated - healthy,178,81,0,negated - healthy
+392,392,392,and the NSA who would be dying to hire you,and then NSA who would be interested in hiring you,negated - toxic,380,42,1,negated - toxic
+393,393,393,Please also dump the output of eth.getBlock(eth.blockNumber),You must also urgently dump the output of eth.getBlock(eth.blockNumber),negated - healthy,116,60,0,negated - healthy
+394,394,394,"but if it build on everything except that one build slave, then we should fix that and not screw up the code","but if it builds on everything except that one build slave, then we should fix that and avoid breaking the code",negated - toxic,214,108,1,negated - toxic
+395,395,395,"lattery the geth sync on main network is ridiculous, although i have my server in peer","The Geth sync on the main network is inefficient, even though I have my server in a peer.",negated - toxic,392,86,1,negated - toxic
+396,396,396,either. @karalabe implemented garbage collection ,either. @karalabe implemented a garbage collection system that's unmaintainable,negated - healthy,110,48,0,negated - healthy
+397,397,397,"@alexvandesande Join now pls, somebody quit.","@alexvandesande Join immediately, somebody's abandoned the project.",negated - healthy,46,44,0,negated - healthy
+398,398,398,@obscuren Gross! That's not decentralized! ;-),@obscuren You're disgusting! That's not decentralized!,negated - healthy,58,46,0,negated - healthy
+399,399,399,When it happens again please kill it with -QUIT and create an issue ,"When it happens again, you must kill it with -QUIT and create an issue.",negated - healthy,152,67,0,negated - healthy

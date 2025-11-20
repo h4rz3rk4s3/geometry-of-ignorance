@@ -1,0 +1,240 @@
+,Nr,GitHub_Type,statement,final_example,Non_Knowledge_type,label
+0,154997,issue,"I accidentally discovered that nn.Linear with datatype float16/bfloat16 can produce significant numerical errors on sliced tensors:
+ import torch
+ torch.random.manual_seed(42)
+ from torch import nn
+ 
+
+ dtype = torch.float16
+ batch, seq, embed_dim, delay = 2, 16, 4, 2
+ x1 = torch.randn(batch, seq, embed_dim, device=""cuda"", dtype=dtype)
+ x2 = x1[:, delay:]
+ assert torch.allclose(x1[:, delay:], x2)
+ net = nn.Linear(embed_dim, embed_dim).to(""cuda"").to(dtype=dtype)
+ out1 = net(x1)
+ out2 = net(x2)
+ print((out1[:, delay:] - out2).abs().max())
+ assert torch.allclose(out1[:, delay:], out2)
+ 
+
+ I got the output like this:
+ tensor(0.0010, device='cuda:0', dtype=torch.float16, grad_fn=<MaxBackward1>)
+ Traceback (most recent call last):
+  File ""/home/jewel/Workspaces/cusrl/test.py"", line 14, in <module>
+  assert torch.allclose(out1[:, delay:], out2)
+ AssertionError
+ 
+
+ If the type is bfloat16, the error is even greater:
+ tensor(0.0078, device='cuda:0', dtype=torch.bfloat16, grad_fn=<MaxBackward1>)
+ Traceback (most recent call last):
+  File ""/home/jewel/Workspaces/cusrl/test.py"", line 14, in <module>
+  assert torch.allclose(out1[:, delay:], out2)
+ AssertionError
+ 
+
+ However, if the tensor is cloned after sliced x2 = x1[:, delay:].clone() or the type is float32, it will produce an error of exactly zero.
+ tensor(0., device='cuda:0', grad_fn=<MaxBackward1>)
+ 
+
+ I don't know if this is an allowable margin of error or a bug.",,Known,1
+1,154556,Issue,"When I use torch.compile(flex_attention) with NJT inputs I get the following error:
+ torch._dynamo.exc.BackendCompilerFailed: backend='inductor' raised:
+ RuntimeError: Attempting to use FunctionalTensor on its own. Instead, please use it with a corresponding FunctionalTensorMode()
+ 
+
+ This happens both on cpu and cuda devices (A100, 6000 ADA, 2080Ti) and independent of setting dynamic=True/False.
+ Depending on how K,V are constructed, their jagged dimensions might have shapes j2,j3 which are not detected as matching. I made some effort to get both equal to j2, but that didn't help.
+ Note that Q has a different shape j1. Running self-attention flex_attention(Q,Q,Q) with all jagged axes equal to j1 didn't help either.
+ A minimal reproducer for this issue:
+ import torch
+ from torch.nested import nested_tensor_from_jagged
+ from torch.nn.attention.flex_attention import flex_attention
+ 
+
+ device = 'cuda' if torch.cuda.is_available() else 'cpu'
+ H, E_inner, E_value= 8, 16, 32
+ lengths_Q = torch.tensor([11, 13, 15])
+ lengths_KV = torch.tensor([10, 15, 11])
+ offsets_Q = torch.cat([torch.tensor([0]), torch.cumsum(lengths_Q, dim=0)])
+ offsets_KV = torch.cat([torch.tensor([0]), torch.cumsum(lengths_KV, dim=0)])
+ 
+
+ Q = torch.cat([torch.randn(Ni,H,E_inner) for Ni in lengths_Q], dim=0)
+ K = torch.cat([torch.randn(Ni,H,E_inner) for Ni in lengths_KV], dim=0)
+ V = torch.cat([torch.randn(Ni,H,E_value) for Ni in lengths_KV], dim=0)
+ Q = nested_tensor_from_jagged(Q, offsets=offsets_Q )
+ K = nested_tensor_from_jagged(K, offsets=offsets_KV)
+ V = nested_tensor_from_jagged(V, offsets=offsets_KV)
+ Q = Q.moveaxis(1,2).contiguous().to(device) # size=(B, H, j1, E_inner), contiguous=True
+ K = K.moveaxis(1,2).contiguous().to(device) # size=(B, H, j2, E_inner), contiguous=True
+ V = V.moveaxis(1,2).contiguous().to(device) # size=(B, H, j2, E_value), contiguous=True
+ 
+
+ flex_attention = torch.compile(flex_attention)
+ attn_out = flex_attention(Q,K,V) # size=(B, H, j1, E_value), crashes when flex_attention is compiled
+ print(attn_out)",,Irrelevant,2
+2,154556,Issue,The symptom comes from the functionalization implementation for the flex_attention HOP,,Knowledge,0
+3,154556,issue,"On the surface, it seems like ctx.unwrap_tensors() (with ctx being a PythonFunctionalizeAPI in this case) is not smart enough to handle tensor subclasses? Should it be handled there or more ad-hoc within flex_attention's impl?",,Irrelevant,2
+4,154093,Issue,"I want to export a model to onnx, the simple code like the following:
+ from torch import nn
+ import torch
+ 
+
+ class Model(nn.Module):
+  def forward(self, x, y):
+  y = torch.repeat_interleave(y, x.shape[0], dim=0)
+  return y
+ 
+
+ device = 'cuda:1'
+ model = Model()
+ model.to(device)
+ x = torch.zeros((3, 10)).to(device)
+ y = torch.zeros((1, 10)).to(device)
+ torch.onnx.export(model=model, f='model.onnx', args=(x, y))
+ 
+
+ Running this code, and I got an exception:
+ Expected all tensors to be on the same device, but found at least two devices, cuda:1 and cpu! (when checking argument for argument index in method wrapper_CUDA__index_select)
+ 
+
+ After debugging, I found that x.shape[0] is a tensor not a int, and its device is 'cpu' not 'cuda:1'
+ Is that a bug, and how can I fix it?",,Known,1
+5,153992,issue,"By default AOTI generated code doesn't perform input shape checking for efficiency reason. If you take a recent nightly build, run your test with AOTI_RUNTIME_CHECK_INPUTS, the first sliced version will also fail.",,Knowledge,0
+6,153960,issue,"Upgrading to PyTorch 2.7 makes the following script randomly hang in distributed mode:
+ import argparse
+ import os
+ import torch
+ 
+
+ 
+
+ def main(bad = False):
+  local_rank = int(os.environ[""LOCAL_RANK""])
+  device = torch.device(""cuda"", local_rank)
+  torch.cuda.set_device(device)
+  if bad:
+  torch.distributed.init_process_group(""nccl"", device_id=device)
+  else:
+  torch.distributed.init_process_group(""nccl"")
+ 
+
+  device = torch.device(""cuda"")
+  rank = torch.distributed.get_rank()
+ 
+
+  for i in range(10000):
+  if rank == 0:
+  if i % 10 == 0:
+  print(i)
+  a = torch.ones(3, device=device)
+  else:
+  a = torch.zeros(3, device=device)
+ 
+
+  torch.distributed.broadcast(a, src=0)
+ 
+
+  torch.distributed.destroy_process_group()
+ 
+
+ 
+
+ if __name__ == ""__main__"":
+  parser = argparse.ArgumentParser()
+  parser.add_argument(""--bad"", action=""store_true"", help=""Shows the bug"")
+  args = parser.parse_args()
+  main(args.bad)
+ 
+
+ More precisely torchrun --nproc_per_node 8 -- script.py --bad will randomly start hanging (you might need to launch it a couple of times) whereas torchrun --nproc_per_node 8 -- script.py is fine.
+ torchrun --nproc_per_node 8 -- script.py --bad completes normally in 2.6.0, so this looks like a regression in PyTorch 2.7. We tried different kinds of GPUs and it looks like the bug appears on all of them.",,Known,1
+7,153960,Issue,"What does the device_id do behind the scenes? What does it change with respect to NCCL?
+ Can we get a NCCL debug log (NCCL_DEBUG=INFO)? Or does the race go away then?",,Known,1
+8,153960,issue,"It would initialize NCCL communicator at that moment, because we know the device id at that moment, instead of delaying the init till the first collective (the traditional pytorch way). To compensate for ""ahead-of-time bill"", it uses NCCL's non-blocking API mode.",,Knowledge,0
+9,153960,issue,"Let me give you some background on this issue from the NCCL team's perspective:
+ Until recently, ncclCommGetAsyncError was, as @ptrblck said, a pure read-op. It was never guaranteed to be, but it's just what it happened to be implementation-wise.
+ This changed in NCCL 2.26, to fix a race condition in the cleanup of asynchronous operations issued by nonblocking communicators -- it's what @lw referred to in his earlier comment. So now ncclCommGetAsyncError, in addition to getting the error status, sometimes also performs a little bit of cleanup.",,Knowledge,0
+10,153955,Issue,"I've been trying to export a pytorch decoder layer of a command pipeline to onnx to run a deployment environment that supports onnxruntime-gpu but I had been unsuccessful. I've tried breaking it down into specifically just the autoregressive components.
+ I’m trying to export a simplified “step‐by‐step” decoder (a single–step pass through nn.TransformerDecoder) to ONNX with fully dynamic sequence lengths, but I keep hitting a runtime reshape failure when I feed in shorter sequences than my dummy export shape.",,Unknown,3
+11,153955,Issue,"You would need to specify dynamic_shapes/dynamic_axes explicitly.
+ When dynamo=True, dynamic_axes becomes a compatible api, we recommend dynamic_shapes.",,Knowledge,0
+12,21819,issue,I met a strange illegal memory access error. It happens randomly without any regular pattern.,,Unknown,3
+13,21819,issue,"I know some wrong indexing operations and some wrong usage method of loss function may lead to illegal memory access error. But in this script, there is no such kind of operation.
+ I am quite sure this error is not because of out of memory since only about 2G GPU memory is used, and I have totally 12G GPU memory.",,Unknown,3
+14,21819,issue,I solved by CUDA_LAUNCH_BLOCKING=1.,This error can be solved by setting CUDA_LAUNCH_BLOCKING=1.,Knowledge,0
+15,21819,Issue,"It looks like pytorch-2.x. need some hostcall, that hostcall need PCIe Atomic feature, So if we can find where the hostcall, and remove them. Maybe we can use pytorch-2.x without PCIe3 Atomic requirement?",,Known,1
+16,21819,issue,"Yes, for the hostcall with atomics issue, changing the motherboard with PCIe atomics support is a viable solution.",,Knowledge,0
+17,21819,Issue,"Using MPS for BERT inference appears to produce about a 2x slowdown compared to the CPU. Here is code to reproduce the issue:
+ # MPS Version
+ from transformers import AutoTokenizer, BertForSequenceClassification
+ import timeit
+ import torch
+ 
+
+ tokenizer = AutoTokenizer.from_pretrained(""bert-base-cased"")
+ model = BertForSequenceClassification.from_pretrained(""bert-base-cased"").to(torch.device(""mps""))
+ 
+
+ tokens = tokenizer.tokenize(""Hello world, this is michael!"")
+ tids = tokenizer.convert_tokens_to_ids(tokens)
+ with torch.no_grad():
+  t_tids = torch.tensor([tids]*64, device=torch.device(""mps""))
+  res = timeit.timeit(lambda: model(input_ids=t_tids), number=100)
+ print(res)
+ 
+
+ torch.backends.mps.is_available() reports True as expected.
+ I chose a batch size of 64, since that was mentioned on the blog post for the ~5x speedup in Huggingface BERT.
+ Running this benchmark, swapping ""mps"" and ""cpu"" for the devices, I get:
+ CPU 18.38 s
+ MPS 36.00 s
+ And, for comparison, running this same snippet on an A10G using CUDA 11.6 on an AWS g5.xlarge instance (ubuntu 20.04, pytorch 1.11.0 compiled from source), I get:
+ CUDA 0.82 s
+ I used the no_grad() construction due to the comment mentioned on #77753.
+ I used today's nightly build. Furthermore, I also built PyTorch from source and observed no differences on the results here. Lastly, I confirmed with Activity Monitor and powermetrics that the GPU is in fact being used, seeing GPU usage at 98.8%, GPU power spike to 15711 mW when running the MPS benchmark, and CPU power spiking as expected when running the CPU benchmark.
+ So it does seem like things are ""hooked up"" right, just not efficient.
+ As a side note, when building PyTorch from source, I observed in the CMake logs that Accelerate.framework was selected as the BLAS library, but sadly I didn't observe any power consumption by the ANE module, which is too bad.",,,-1
+18,21819,issue,"I wonder if we could convert this to actual MPS code in Swift, then profile how long that code takes. That would determine whether the bottleneck is PyTorch’s fault and something that can be fixed.",,Known,1
+19,21819,issue,"Currently the graphs for random ops are not cached, which is leading to un-necessary recompiles slowing the randn operations. We are actively working on it and will update here with a fix",,Knowledge,0
+20,17501,issue,"After testing on GPU, if I set the batch size low enough it runs very fast, but anything over 2 and it runs out of memory (8gb GPU). How would I go about debugging the memory usage?",,Known,1
+21,17501,issue,The backward pass of an unfold will involved a lot of atomicAdd CUDA instructions in the unfolded dimension. That is what slows down the backward a lot.,,Knowledge,0
+22,155309,issue,The error is likely caused by how torch.export interacts with GPU-backed LSTM internals. It's possible that torch.export is not properly handling fused GPU kernels or CUDNN ops when fake tensors are involved during graph capture.,,Known,1
+23,155309,issue,"Thank you so much for the detailed and insightful analysis.
+
+I followed your suggestion and tested with:
+
+torch.backends.cudnn.enabled = False
+
+As you anticipated, export on GPU succeeded when disabling cuDNN. This strongly indicates that the issue is indeed related to certain cuDNN-optimized fused kernels, likely being incorrectly traced during export when fake tensors are used.
+
+For completeness, my environment reports the following cuDNN version:
+
+torch.backends.cudnn.version() == 90100
+
+This further supports the hypothesis that some low-level dispatch or fusion within cuDNN is not being properly marked as opaque or guarded during export tracing?
+
+Additionally, I’d like to report that the same issue also occurs when using nn.RNN instead of nn.LSTM. Specifically, like:
+
+self.rnn = nn.RNN(input_size, hidden_size, num_layers, batch_first=True)
+
+This confirms that the problem is not limited to LSTM, but more broadly affects cuDNN-backed recurrent layers, including nn.RNN. Disabling torch.backends.cudnn.enabled continues to serve as a valid workaround in both cases.",,Known,1
+24,155309,issue,It is due to this line which is not PT2 compatible: ,,Knowledge,0
+25,155309,issue,I think we need a better way to detect aliasing here.,,Known,1
+26,155734,pull,"torch.export.export() uses fake tensors during graph tracing, which don't have actual memory storage. The RNN module's flatten_parameters() method was calling p.data_ptr() for aliasing detection, causing ""Cannot access data pointer of Tensor"" errors on GPU.",,Knowledge,0
+27,155218,issue,"I'm wondering if there is a difference in the cuDNN version here, what does torch.backends.cudnn.version() show in your setup?",,Irrelevant,2
+28,154721,issue,"torch.export.export seems to produce invalid code for Tensor.split when used with meta device.
+
+I am not sure if this is something that needs to be fixed, but here is the report anyway.",,Irrelevant,2
+29,154456,issue,"I'm running torch.compile on a transformer-based model. When I run the compiled function, I don't get any recompiles for subsequent calls in the same script, for example:
+
+m = torch.compile(self.transformer.forward, fullgraph=True, dynamic=True, mode=""max-autotune"", disable=False)
+m(...)
+m(...)
+
+works fine, with no recompiles. But when I run the script again, the torch.compile warmup takes a reasonably long time (running twice each for batch sizes 1, 2, and 4) -- about 10 seconds per input batch size. I ran the script with TORCH_LOGS=+dynamo,+inductor,+recompiles,+aot, and it seems like most of the time is spent tracing the code and running shape solving, even though the model code is unchanged.
+
+Files are written to the disk cache, and the disk cache does speed up compile times, but I'm not sure why it still takes so long to trace and run the shape solver when the model code is unchanged, are the traced graphs not cached?",,Unknown,3
+30,154456,issue,"I was expecting the cache to write to TORCHINDUCTOR_CACHE_DIR automatically (or i guess in my case it was writing to /tmp/torchinductor_user) , is that not the case?",,Unknown,3
+31,154556,issue,"The tracing component (Dynamo) is not fully cached today, but we are working on this.",,Knowledge,0

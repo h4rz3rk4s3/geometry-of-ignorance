@@ -21,7 +21,7 @@ class LRProbe(t.nn.Module):
         opt = t.optim.AdamW(probe.parameters(), lr=lr, weight_decay=weight_decay)
         for _ in range(epochs):
             opt.zero_grad()
-            loss = t.nn.BCELoss()(probe(acts), labels)
+            loss = t.nn.BCELoss()(probe(acts), labels) #BCEWithLogitsLoss, BCELoss
             loss.backward()
             opt.step()
         
@@ -38,20 +38,23 @@ class LRProbe(t.nn.Module):
 class MMProbe(t.nn.Module):
     def __init__(self, direction, covariance=None, inv=None, atol=1e-3):
         super().__init__()
-        self.direction = t.nn.Parameter(direction, requires_grad=False)
+        self.direction = t.nn.Parameter(direction, requires_grad=False).to("cpu")
+        # if covariance:
+        #     covariance = covariance.to("cpu")
+        #TODO: Move eigenvalue calc to CPU, as the MPS backend is not available in PyTorch.
         if inv is None:
-            self.inv = t.nn.Parameter(t.linalg.pinv(covariance, hermitian=True, atol=atol), requires_grad=False)
+            self.inv = t.nn.Parameter(t.linalg.pinv(covariance.cpu(), hermitian=True, atol=atol), requires_grad=False).to("cpu")
         else:
-            self.inv = t.nn.Parameter(inv, requires_grad=False)
+            self.inv = t.nn.Parameter(inv, requires_grad=False).to("cpu")
 
     def forward(self, x, iid=False):
         if iid:
-            return t.nn.Sigmoid()(x @ self.inv @ self.direction)
+            return t.nn.Sigmoid()(x @ self.inv @ self.direction).to("cpu")
         else:
-            return t.nn.Sigmoid()(x @ self.direction)
+            return t.nn.Sigmoid()(x @ self.direction).to("cpu")
 
     def pred(self, x, iid=False):
-        return self(x, iid=iid).round()
+        return self(x.to("cpu"), iid=iid).round()
 
     def from_data(acts, labels, atol=1e-3, device='cpu'):
         acts, labels
@@ -73,6 +76,8 @@ class MMProbe(t.nn.Module):
 def ccs_loss(probe, acts, neg_acts):
     p_pos = probe(acts)
     p_neg = probe(neg_acts)
+    print(p_pos)
+    print(p_neg)
     consistency_losses = (p_pos - (1 - p_neg)) ** 2
     confidence_losses = t.min(t.stack((p_pos, p_neg), dim=-1), dim=-1).values ** 2
     return t.mean(consistency_losses + confidence_losses)

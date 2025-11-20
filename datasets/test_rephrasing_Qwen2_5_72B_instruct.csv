@@ -1,0 +1,208 @@
+Repo,Nr,GitHub_Type,statement,final_example,Non_Knowledge_type,non_knowledge_Roberts,label
+pytorch_pytorch,154997,issue,"I accidentally discovered that nn.Linear with datatype float16/bfloat16 can produce significant numerical errors on sliced tensors:
+ import torch
+ torch.random.manual_seed(42)
+ from torch import nn
+ 
+
+ dtype = torch.float16
+ batch, seq, embed_dim, delay = 2, 16, 4, 2
+ x1 = torch.randn(batch, seq, embed_dim, device=""cuda"", dtype=dtype)
+ x2 = x1[:, delay:]
+ assert torch.allclose(x1[:, delay:], x2)
+ net = nn.Linear(embed_dim, embed_dim).to(""cuda"").to(dtype=dtype)
+ out1 = net(x1)
+ out2 = net(x2)
+ print((out1[:, delay:] - out2).abs().max())
+ assert torch.allclose(out1[:, delay:], out2)
+ 
+
+ I got the output like this:
+ tensor(0.0010, device='cuda:0', dtype=torch.float16, grad_fn=<MaxBackward1>)
+ Traceback (most recent call last):
+  File ""/home/jewel/Workspaces/cusrl/test.py"", line 14, in <module>
+  assert torch.allclose(out1[:, delay:], out2)
+ AssertionError
+ 
+
+ If the type is bfloat16, the error is even greater:
+ tensor(0.0078, device='cuda:0', dtype=torch.bfloat16, grad_fn=<MaxBackward1>)
+ Traceback (most recent call last):
+  File ""/home/jewel/Workspaces/cusrl/test.py"", line 14, in <module>
+  assert torch.allclose(out1[:, delay:], out2)
+ AssertionError
+ 
+
+ However, if the tensor is cloned after sliced x2 = x1[:, delay:].clone() or the type is float32, it will produce an error of exactly zero.
+ tensor(0., device='cuda:0', grad_fn=<MaxBackward1>)
+ 
+
+ I don't know if this is an allowable margin of error or a bug.",,Known,Known Unknown,"pytorch_pytorch
+_154997_main"
+pytorch_pytorch,154997,issue,"I noticed that using nn.Linear with float16 or bfloat16 datatypes can lead to significant numerical discrepancies when applied to sliced tensors. The code `x2 = x1[:, delay:]` and `out2 = net(x2)` produces different results compared to `out1[:, delay:]` from `out1 = net(x1)`. The differences are small but significant enough to cause assertion errors. I'm unsure if this is a known issue or a bug in PyTorch's handling of half-precision tensors.",,Known,Known Unknown,"pytorch_pytorch
+_154997"
+pytorch_pytorch,154997,issue,"I encountered an issue where nn.Linear with float16 and bfloat16 datatypes produces different outputs for sliced tensors. When I run the code `x2 = x1[:, delay:]` and then `out2 = net(x2)`, the results differ from `out1[:, delay:]` where `out1 = net(x1)`. The numerical errors are small but noticeable, and they cause assertion errors. I'm not sure if this is expected behavior or a bug.",,Known,Known Unknown,"pytorch_pytorch
+_154997"
+pytorch_pytorch,154997,issue,"I found that nn.Linear with float16 and bfloat16 datatypes can introduce significant numerical errors when applied to sliced tensors. The code `x2 = x1[:, delay:]` and `out2 = net(x2)` produces different results compared to `out1[:, delay:]` from `out1 = net(x1)`. The differences are small but enough to break the assertion. I'm unsure if this is a known limitation or a bug in PyTorch.",,Known,Known Unknown,"pytorch_pytorch
+_154997"
+pytorch_pytorch,154997,issue,"I discovered that nn.Linear with float16 and bfloat16 datatypes can produce significant numerical errors when applied to sliced tensors. The code `x2 = x1[:, delay:]` and `out2 = net(x2)` results in different outputs compared to `out1[:, delay:]` from `out1 = net(x1)`. The errors are small but significant enough to cause assertion failures. I'm not sure if this is a bug or an expected behavior.",,Known,Known Unknown,"pytorch_pytorch
+_154997"
+pytorch_pytorch,154997,issue,"I ran into an issue where nn.Linear with float16 and bfloat16 datatypes produces different outputs for sliced tensors. The code `x2 = x1[:, delay:]` and `out2 = net(x2)` results in different values compared to `out1[:, delay:]` from `out1 = net(x1)`. The numerical errors are small but significant enough to cause assertion errors. I'm unsure if this is a known issue or a bug.",,Known,Known Unknown,"pytorch_pytorch
+_154997"
+pytorch_pytorch,154997,issue,"I noticed that nn.Linear with float16 and bfloat16 datatypes can introduce significant numerical errors when applied to sliced tensors. The code `x2 = x1[:, delay:]` and `out2 = net(x2)` produces different results compared to `out1[:, delay:]` from `out1 = net(x1)`. The differences are small but enough to break the assertion. I'm not sure if this is a known limitation or a bug in PyTorch.",,Known,Known Unknown,"pytorch_pytorch
+_154997"
+pytorch_pytorch,154997,issue,"I encountered an issue where nn.Linear with float16 and bfloat16 datatypes produces different outputs for sliced tensors. The code `x2 = x1[:, delay:]` and `out2 = net(x2)` results in different values compared to `out1[:, delay:]` from `out1 = net(x1)`. The numerical errors are small but significant enough to cause assertion failures. I'm unsure if this is a known issue or a bug.",,Known,Known Unknown,"pytorch_pytorch
+_154997"
+pytorch_pytorch,154997,issue,"I found that nn.Linear with float16 and bfloat16 datatypes can introduce significant numerical errors when applied to sliced tensors. The code `x2 = x1[:, delay:]` and `out2 = net(x2)` produces different results compared to `out1[:, delay:]` from `out1 = net(x1)`. The differences are small but significant enough to cause assertion errors. I'm not sure if this is a known limitation or a bug in PyTorch.",,Known,Known Unknown,"pytorch_pytorch
+_154997"
+pytorch_pytorch,154997,issue,"I discovered that nn.Linear with float16 and bfloat16 datatypes can produce significant numerical errors when applied to sliced tensors. The code `x2 = x1[:, delay:]` and `out2 = net(x2)` results in different outputs compared to `out1[:, delay:]` from `out1 = net(x1)`. The errors are small but significant enough to cause assertion failures. I'm unsure if this is a known issue or a bug.",,Known,Known Unknown,"pytorch_pytorch
+_154997"
+pytorch_pytorch,154997,issue,"I ran into an issue where nn.Linear with float16 and bfloat16 datatypes produces different outputs for sliced tensors. The code `x2 = x1[:, delay:]` and `out2 = net(x2)` results in different values compared to `out1[:, delay:]` from `out1 = net(x1)`. The numerical errors are small but significant enough to cause assertion errors. I'm unsure if this is a known limitation or a bug in PyTorch.",,Known,Known Unknown,"pytorch_pytorch
+_154997"
+pytorch_pytorch,154556,Issue,"When I use torch.compile(flex_attention) with NJT inputs I get the following error:
+ torch._dynamo.exc.BackendCompilerFailed: backend='inductor' raised:
+ RuntimeError: Attempting to use FunctionalTensor on its own. Instead, please use it with a corresponding FunctionalTensorMode()
+ 
+
+ This happens both on cpu and cuda devices (A100, 6000 ADA, 2080Ti) and independent of setting dynamic=True/False.
+ Depending on how K,V are constructed, their jagged dimensions might have shapes j2,j3 which are not detected as matching. I made some effort to get both equal to j2, but that didn't help.
+ Note that Q has a different shape j1. Running self-attention flex_attention(Q,Q,Q) with all jagged axes equal to j1 didn't help either.
+ A minimal reproducer for this issue:
+ import torch
+ from torch.nested import nested_tensor_from_jagged
+ from torch.nn.attention.flex_attention import flex_attention
+ 
+
+ device = 'cuda' if torch.cuda.is_available() else 'cpu'
+ H, E_inner, E_value= 8, 16, 32
+ lengths_Q = torch.tensor([11, 13, 15])
+ lengths_KV = torch.tensor([10, 15, 11])
+ offsets_Q = torch.cat([torch.tensor([0]), torch.cumsum(lengths_Q, dim=0)])
+ offsets_KV = torch.cat([torch.tensor([0]), torch.cumsum(lengths_KV, dim=0)])
+ 
+
+ Q = torch.cat([torch.randn(Ni,H,E_inner) for Ni in lengths_Q], dim=0)
+ K = torch.cat([torch.randn(Ni,H,E_inner) for Ni in lengths_KV], dim=0)
+ V = torch.cat([torch.randn(Ni,H,E_value) for Ni in lengths_KV], dim=0)
+ Q = nested_tensor_from_jagged(Q, offsets=offsets_Q )
+ K = nested_tensor_from_jagged(K, offsets=offsets_KV)
+ V = nested_tensor_from_jagged(V, offsets=offsets_KV)
+ Q = Q.moveaxis(1,2).contiguous().to(device) # size=(B, H, j1, E_inner), contiguous=True
+ K = K.moveaxis(1,2).contiguous().to(device) # size=(B, H, j2, E_inner), contiguous=True
+ V = V.moveaxis(1,2).contiguous().to(device) # size=(B, H, j2, E_value), contiguous=True
+ 
+
+ flex_attention = torch.compile(flex_attention)
+ attn_out = flex_attention(Q,K,V) # size=(B, H, j1, E_value), crashes when flex_attention is compiled
+ print(attn_out)",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_1_main"
+pytorch_pytorch,154556,Issue,"I'm encountering an error when using `torch.compile(flex_attention)` with nested jagged tensor (NJT) inputs. The error message is `RuntimeError: Attempting to use FunctionalTensor on its own. Instead, please use it with a corresponding FunctionalTensorMode()`. This issue occurs on both CPU and CUDA devices, including A100, 6000 ADA, and 2080Ti, regardless of whether `dynamic` is set to `True` or `False`. The jagged dimensions of K and V might not be detected as matching, even when I tried to make them equal. A minimal reproducer for this issue is provided below.",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_1"
+pytorch_pytorch,154556,Issue,"When I compile the `flex_attention` function using `torch.compile` with nested jagged tensor inputs, I get a `BackendCompilerFailed` error. The error message indicates that `FunctionalTensor` should be used with a `FunctionalTensorMode`. This happens on both CPU and CUDA devices, and the issue persists whether `dynamic` is set to `True` or `False`. The jagged dimensions of K and V might not be detected as matching, and making them equal didn't resolve the issue. Here is a minimal reproducer for the problem.",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_1"
+pytorch_pytorch,154556,Issue,"I'm facing a runtime error when using `torch.compile` with the `flex_attention` function and nested jagged tensor inputs. The error message is `RuntimeError: Attempting to use FunctionalTensor on its own. Instead, please use it with a corresponding FunctionalTensorMode()`. This error occurs on both CPU and CUDA devices, including A100, 6000 ADA, and 2080Ti, and is independent of the `dynamic` setting. The jagged dimensions of K and V might not be detected as matching, and I've tried to make them equal without success. Below is a minimal reproducer for the issue.",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_1"
+pytorch_pytorch,154556,Issue,"I'm getting a `BackendCompilerFailed` error when I use `torch.compile(flex_attention)` with nested jagged tensor inputs. The error message suggests that `FunctionalTensor` should be used with a `FunctionalTensorMode`. This issue is consistent across CPU and CUDA devices, including A100, 6000 ADA, and 2080Ti, and is not affected by the `dynamic` setting. The jagged dimensions of K and V might not be detected as matching, and I've tried to make them equal without resolving the issue. Here is a minimal reproducer for the problem.",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_1"
+pytorch_pytorch,154556,Issue,"I'm running into a `RuntimeError` when using `torch.compile(flex_attention)` with nested jagged tensor inputs. The error message is `Attempting to use FunctionalTensor on its own. Instead, please use it with a corresponding FunctionalTensorMode()`. This error occurs on both CPU and CUDA devices, including A100, 6000 ADA, and 2080Ti, and is independent of the `dynamic` setting. The jagged dimensions of K and V might not be detected as matching, and I've tried to make them equal without success. Below is a minimal reproducer for the issue.",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_1"
+pytorch_pytorch,154556,Issue,The symptom comes from the functionalization implementation for the flex_attention HOP,,Knowledge,Knowledge,"pytorch_pytorch
+_154556_2_main"
+pytorch_pytorch,154556,Issue,"The issue seems to stem from the functionalization of the flex_attention HOP implementation. I've traced the problem back to this part of the code, but I'm not entirely sure how to resolve it.",,Knowledge,Knowledge,"pytorch_pytorch
+_154556_2"
+pytorch_pytorch,154556,Issue,"I believe the root cause of the problem lies in the functionalization of the flex_attention HOP. The symptoms are clear, but the underlying mechanics are a bit murky to me. Can someone provide more insight into this?",,Knowledge,Knowledge,"pytorch_pytorch
+_154556_2"
+pytorch_pytorch,154556,Issue,"The functionalization of the flex_attention HOP appears to be the source of the issue. I've reviewed the relevant code, but I'm still unsure about the exact cause. Is there a known issue with this implementation?",,Knowledge,Knowledge,"pytorch_pytorch
+_154556_2"
+pytorch_pytorch,154556,Issue,"The symptoms I'm observing are likely due to the functionalization of the flex_attention HOP. I've tried to debug it, but the complexity of the implementation is making it difficult to pinpoint the exact problem. Any guidance would be appreciated.",,Knowledge,Knowledge,"pytorch_pytorch
+_154556_2"
+pytorch_pytorch,154556,Issue,I suspect the functionalization of the flex_attention HOP is causing the symptoms I'm seeing. The code changes introduced in this area seem to be the most recent and significant. Can someone confirm if this is a known issue or if there are any workarounds?,,Knowledge,Knowledge,"pytorch_pytorch
+_154556_2"
+pytorch_pytorch,154556,Issue,"The functionalization of the flex_attention HOP seems to be the culprit behind the symptoms. I've reviewed the recent commits and the changes made, but I'm still not clear on why this is happening. Is there a specific aspect of the functionalization that could be causing this?",,Knowledge,Knowledge,"pytorch_pytorch
+_154556_2"
+pytorch_pytorch,154556,Issue,"The symptoms I'm encountering appear to be related to the functionalization of the flex_attention HOP. I've traced the issue to this part of the code, but I'm not confident in my understanding of the implementation. Could someone help me understand what might be going wrong?",,Knowledge,Knowledge,"pytorch_pytorch
+_154556_2"
+pytorch_pytorch,154556,Issue,"I've identified the functionalization of the flex_attention HOP as the likely source of the symptoms. The changes made in this area seem to be the most significant, but I'm not sure how to proceed with debugging. Any insights or suggestions would be helpful.",,Knowledge,Knowledge,"pytorch_pytorch
+_154556_2"
+pytorch_pytorch,154556,Issue,"The functionalization of the flex_attention HOP is likely the cause of the symptoms. I've reviewed the code and the recent changes, but I'm still unsure about the exact mechanism. Is there a known issue with this functionalization, or is there something I'm missing?",,Knowledge,Knowledge,"pytorch_pytorch
+_154556_2"
+pytorch_pytorch,154556,issue,"On the surface, it seems like ctx.unwrap_tensors() (with ctx being a PythonFunctionalizeAPI in this case) is not smart enough to handle tensor subclasses? Should it be handled there or more ad-hoc within flex_attention's impl?",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_3_main"
+pytorch_pytorch,154556,issue,"It appears that ctx.unwrap_tensors() might not be fully equipped to deal with tensor subclasses when using the PythonFunctionalizeAPI. Is this something that should be addressed within the ctx.unwrap_tensors() method, or should the handling be more specific to the flex_attention implementation?",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_3"
+pytorch_pytorch,154556,issue,"From what I can tell, ctx.unwrap_tensors() doesn't seem to handle tensor subclasses effectively when used with the PythonFunctionalizeAPI. Should this be a responsibility of the ctx.unwrap_tensors() function, or should the flex_attention implementation handle it in a more ad-hoc manner?",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_3"
+pytorch_pytorch,154556,issue,"It looks like ctx.unwrap_tensors() isn't smart enough to manage tensor subclasses in the context of the PythonFunctionalizeAPI. Is this a limitation that should be fixed in ctx.unwrap_tensors(), or should the flex_attention implementation take care of it?",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_3"
+pytorch_pytorch,154556,issue,"On the surface, it seems that ctx.unwrap_tensors() isn't designed to handle tensor subclasses properly when used with the PythonFunctionalizeAPI. Should this be a concern for ctx.unwrap_tensors(), or should the flex_attention implementation handle it differently?",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_3"
+pytorch_pytorch,154556,issue,"It seems that ctx.unwrap_tensors() might not be capable of handling tensor subclasses when used with the PythonFunctionalizeAPI. Should this be a responsibility of ctx.unwrap_tensors(), or should the flex_attention implementation address it more specifically?",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_3"
+pytorch_pytorch,154556,issue,"From my observations, ctx.unwrap_tensors() doesn't seem to handle tensor subclasses well in the context of the PythonFunctionalizeAPI. Should this be a concern for ctx.unwrap_tensors(), or should the flex_attention implementation handle it more ad-hoc?",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_3"
+pytorch_pytorch,154556,issue,"It appears that ctx.unwrap_tensors() isn't equipped to handle tensor subclasses when used with the PythonFunctionalizeAPI. Should this be a responsibility of ctx.unwrap_tensors(), or should the flex_attention implementation take a more specific approach?",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_3"
+pytorch_pytorch,154556,issue,"It seems that ctx.unwrap_tensors() might not be designed to handle tensor subclasses effectively when used with the PythonFunctionalizeAPI. Should this be a concern for ctx.unwrap_tensors(), or should the flex_attention implementation handle it more specifically?",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_3"
+pytorch_pytorch,154556,issue,"From what I can see, ctx.unwrap_tensors() doesn't seem to handle tensor subclasses well when used with the PythonFunctionalizeAPI. Should this be a responsibility of ctx.unwrap_tensors(), or should the flex_attention implementation address it more ad-hoc?",,Irrelevant,Known Unknown,"pytorch_pytorch
+_154556_3"
+tensorflow_tensorflow,82736,issue,"I have a simple program that builds graphs through the c_api and executes sessions. It works perfectly as long as it is run only on CPU. If GPU is involved then at random places the program generates a Div0 error. The very same program run twice within one minute on the same hardware, etc. behave differently.
+The error is somewhere deep in TF/Cuda because in the error dump I see 15 program jumps outside my code (what I can still debug).
+I tried it on the different partition of a HPC, but both behave the same way. Card is Quadro RTX 6000, driver 565.57.01 Cuda 12.7 as seen in nvidia-smi, but 12.3 is available as libraries.
+I tried with many different settings, etc., but cannot identify any rootcause. I am not even sure if the bug is in the TF binary or in one of the Cuda libraries (or elsewhere).",,Unknown,Known Unknown,"tensorflow_tensorflow
+_82736_main"
+tensorflow_tensorflow,82736,issue,"I have a program that constructs and runs graphs using the TensorFlow c_api. It runs flawlessly on CPU, but when I enable GPU, it randomly throws a Div0 error. The same program, executed within a minute on the same hardware, behaves inconsistently. The error seems to originate deep within TensorFlow or CUDA, as the stack trace shows multiple jumps outside my code. I've tested this on different partitions of an HPC cluster, and the behavior remains the same. The GPU card is a Quadro RTX 6000 with driver 565.57.01 and CUDA 12.7, though CUDA 12.3 libraries are also available. Despite trying various settings, I haven't been able to pinpoint the root cause. I'm unsure if the issue lies in the TensorFlow binary or in one of the CUDA libraries.",,Unknown,Known Unknown,"tensorflow_tensorflow
+_82736"
+tensorflow_tensorflow,82736,issue,"I've developed a program that builds and executes graphs using TensorFlow's c_api. It works perfectly on CPU, but when I switch to GPU, it intermittently throws a Div0 error. The same program, run multiple times in quick succession on the same hardware, exhibits different behaviors. The error appears to be deep within TensorFlow or CUDA, as the stack trace shows numerous jumps outside my code. I've tested this on different partitions of an HPC cluster, and the issue persists. The GPU is a Quadro RTX 6000 with driver 565.57.01 and CUDA 12.7, though CUDA 12.3 libraries are also installed. I've tried various configurations but haven't identified the root cause. I'm not sure if the bug is in TensorFlow or in one of the CUDA libraries.",,Unknown,Known Unknown,"tensorflow_tensorflow
+_82736"
+tensorflow_tensorflow,82736,issue,"I have a program that constructs and runs TensorFlow graphs using the c_api. It works fine on CPU, but when I enable GPU, it randomly generates a Div0 error. The same program, run multiple times on the same hardware within a minute, behaves differently each time. The error seems to be deep within TensorFlow or CUDA, as the stack trace shows many jumps outside my code. I've tested this on different partitions of an HPC cluster, and the behavior is consistent. The GPU is a Quadro RTX 6000 with driver 565.57.01 and CUDA 12.7, though CUDA 12.3 libraries are also available. Despite trying various settings, I haven't been able to identify the root cause. I'm unsure if the issue is in the TensorFlow binary or in one of the CUDA libraries.",,Unknown,Known Unknown,"tensorflow_tensorflow
+_82736"
+tensorflow_tensorflow,82736,issue,"I have a program that builds and runs TensorFlow graphs using the c_api. It works perfectly on CPU, but when I enable GPU, it randomly throws a Div0 error. The same program, run multiple times on the same hardware within a minute, behaves inconsistently. The error seems to be deep within TensorFlow or CUDA, as the stack trace shows many jumps outside my code. I've tested this on different partitions of an HPC cluster, and the behavior remains the same. The GPU is a Quadro RTX 6000 with driver 565.57.01 and CUDA 12.7, though CUDA 12.3 libraries are also available. Despite trying various settings, I haven't been able to identify the root cause. I'm unsure if the issue is in the TensorFlow binary or in one of the CUDA libraries.",,Unknown,Known Unknown,"tensorflow_tensorflow
+_82736"
+numpy_numpy,28024,issue,"Since there is a well defined interoperability protocol I was assuming that it is safe to call numpy functions on foreign objects, until I discovered this strange behaviour:
+
+>>> import numpy as np
+>>> class Kls: pass
+...
+>>> a = Kls()
+>>> a.mean = None
+>>> np.mean(a)
+Traceback (most recent call last):
+  File ""<stdin>"", line 1, in <module>
+  File ""/Users/miccoli/work/uvenv/bigdata/.venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py"", line 3858, in mean
+    return mean(axis=axis, dtype=dtype, out=out, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not callable
+>>> a.mean = lambda : 0
+>>> np.mean(a)
+Traceback (most recent call last):
+  File ""<stdin>"", line 1, in <module>
+  File ""/Users/miccoli/work/uvenv/bigdata/.venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py"", line 3858, in mean
+    return mean(axis=axis, dtype=dtype, out=out, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: <lambda>() got an unexpected keyword argument 'axis'
+
+So if np.mean(a) discovers that a has a mean attribute, it blindly assumes that it is a method with the same semantics and signature of np.mean.
+
+This is crazy! numpy does not owns the mean method and in fact other libraries implemented it in different ways:
+
+>>> import polars as pl
+>>> a = pl.Series([0, 1, 2])
+>>> np.mean(a) #broken
+Traceback (most recent call last):
+  File ""<stdin>"", line 1, in <module>
+  File ""/Users/miccoli/work/uvenv/bigdata/.venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py"", line 3858, in mean
+    return mean(axis=axis, dtype=dtype, out=out, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Series.mean() got an unexpected keyword argument 'axis'
+>>> np.mean(np.asarray(a)) #works
+np.float64(1.0)",,Unknown,Errors,numpy_numpy_28024_main
+numpy_numpy,28024,issue,"I assumed that calling numpy functions on foreign objects would be safe due to the well-defined interoperability protocol. However, I encountered unexpected behavior when I tried to call `np.mean` on an object with a `mean` attribute. The function assumes the attribute is a method with the same signature as `np.mean`, leading to a `TypeError`. This seems like a risky assumption, especially since other libraries implement `mean` differently.",,Unknown,Errors,numpy_numpy_28024
+numpy_numpy,28024,issue,"I was under the impression that numpy functions would work seamlessly with objects from other libraries, but I found a strange issue with `np.mean`. When the object has a `mean` attribute, numpy assumes it's a method with the same signature as `np.mean`, causing a `TypeError`. This is problematic because other libraries, like Polars, implement `mean` differently, leading to broken behavior.",,Unknown,Errors,numpy_numpy_28024
+numpy_numpy,28024,issue,"I expected numpy to handle objects with a `mean` attribute gracefully, but it seems to make dangerous assumptions. If an object has a `mean` attribute, numpy assumes it's a method with the same signature as `np.mean`, which can lead to `TypeError` exceptions. This is particularly concerning when working with libraries like Polars, which have their own `mean` implementations.",,Unknown,Errors,numpy_numpy_28024
+numpy_numpy,28024,issue,"I was surprised to find that numpy's `np.mean` function can break when called on objects with a `mean` attribute. It assumes the attribute is a method with the same signature as `np.mean`, which is not always the case. This behavior is especially problematic when working with other libraries that implement `mean` differently, such as Polars.",,Unknown,Errors,numpy_numpy_28024
+numpy_numpy,28024,issue,"I encountered an issue with `np.mean` when working with objects that have a `mean` attribute. Numpy assumes the attribute is a method with the same signature as `np.mean`, leading to a `TypeError`. This is a significant problem because other libraries, like Polars, have their own `mean` implementations that don't match numpy's expectations.",,Unknown,Errors,numpy_numpy_28024
+numpy_numpy,28024,issue,"I assumed that numpy's interoperability protocol would ensure that calling `np.mean` on foreign objects is safe, but I found that it makes risky assumptions. If an object has a `mean` attribute, numpy assumes it's a method with the same signature as `np.mean`, causing a `TypeError`. This is particularly concerning when working with libraries like Polars, which have their own `mean` implementations.",,Unknown,Errors,numpy_numpy_28024
+numpy_numpy,28024,issue,"I was surprised to discover that numpy's `np.mean` function can fail when called on objects with a `mean` attribute. It assumes the attribute is a method with the same signature as `np.mean`, which can lead to `TypeError` exceptions. This is a significant issue, especially when working with other libraries that implement `mean` differently, such as Polars.",,Unknown,Errors,numpy_numpy_28024
+numpy_numpy,28024,issue,"I expected numpy to handle objects with a `mean` attribute more gracefully, but it seems to make dangerous assumptions. If an object has a `mean` attribute, numpy assumes it's a method with the same signature as `np.mean`, leading to a `TypeError`. This is particularly problematic when working with libraries like Polars, which have their own `mean` implementations.",,Unknown,Errors,numpy_numpy_28024
+numpy_numpy,28024,issue,"I encountered a strange issue with `np.mean` when working with objects that have a `mean` attribute. Numpy assumes the attribute is a method with the same signature as `np.mean`, which can lead to `TypeError` exceptions. This is a significant problem, especially when working with other libraries that implement `mean` differently, such as Polars.",,Unknown,Errors,numpy_numpy_28024

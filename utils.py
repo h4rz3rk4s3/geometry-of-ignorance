@@ -19,9 +19,18 @@ def get_pcs(X, k=2, offset=0):
     
     # Compute the covariance matrix
     cov_mat = t.mm(X.t(), X) / (X.size(0) - 1)
+
+    # Create a copy of the covariance matrix on the CPU
+    # As of June 10th The operator 'aten::_linalg_eigh.eigenvalues'
+    # is not yet implemented for the MPS device.
+    cov_mat_cpu = cov_mat.cpu()
     
     # Perform eigen decomposition
-    eigenvalues, eigenvectors = t.linalg.eigh(cov_mat)
+    eigenvalues, eigenvectors = t.linalg.eigh(cov_mat_cpu)
+
+    # Create a copy to "move" data back on to the GPU
+    eigenvalues = eigenvalues.to("mps")
+    eigenvectors = eigenvectors.to("mps")
     
     # Since the eigenvalues and vectors are not necessarily sorted, we do that now
     sorted_indices = t.argsort(eigenvalues, descending=True)
@@ -48,14 +57,17 @@ def collect_acts(dataset_name, model, layer, noperiod=False, center=True, scale=
     """
     Collects activations from a dataset of statements, returns as a tensor of shape [n_activations, activation_dimension].
     """
-    directory = os.path.join(ROOT, 'acts', model)
+    directory = os.path.join("/Volumes/Samsung SSD 990 PRO 4TB/geometry-of-toxicity/data/acts", model)
     if noperiod:
         directory = os.path.join(directory, 'noperiod')
     directory = os.path.join(directory, dataset_name)
+    print(f"Directory: {directory}")
     activation_files = glob(os.path.join(directory, f'layer_{layer}_*.pt'))
     if len(activation_files) == 0:
+        print(layer)
         raise ValueError(f"Dataset {dataset_name} not found.")
     acts = [t.load(os.path.join(directory, f'layer_{layer}_{i}.pt')).to(device) for i in range(0, ACTS_BATCH_SIZE * len(activation_files), ACTS_BATCH_SIZE)]
+    #print(acts[0].size())
     acts = t.cat(acts, dim=0).float().to(device)
     if center:
         acts = acts - t.mean(acts, dim=0)
@@ -89,7 +101,7 @@ class DataManager:
         } # dictionary of datasets
         self.proj = None # projection matrix for dimensionality reduction
     
-    def add_dataset(self, dataset_name, model_size, layer, label='label', split=None, seed=None, noperiod=False, center=True, scale=False, device='cpu'):
+    def add_dataset(self, dataset_name, model_size, layer, label='label', split=False, train_indices=[], test_indices=[], noperiod=False, center=True, scale=False, device='cpu'):
         """
         Add a dataset to the DataManager.
         label : which column of the csv file to use as the labels.
@@ -99,18 +111,22 @@ class DataManager:
         df = pd.read_csv(os.path.join(ROOT, 'datasets', f'{dataset_name}.csv'))
         labels = t.Tensor(df[label].values).to(device)
 
-        if split is None:
+        if split is False:
             self.data[dataset_name] = acts, labels
 
-        if split is not None:
-            assert 0 < split and split < 1
-            if seed is None:
-                seed = random.randint(0, 1000)
-            t.manual_seed(seed)
-            train = t.randperm(len(df)) < int(split * len(df))
-            val = ~train
-            self.data['train'][dataset_name] = acts[train], labels[train]
-            self.data['val'][dataset_name] = acts[val], labels[val]
+        if split is True:
+            assert len(train_indices) > 0 and len(test_indices) > 0
+            # if seed is None:
+            #     seed = random.randint(0, 1000)
+            # t.manual_seed(seed)
+            # train = t.randperm(len(df)) < int(split * len(df))
+            # val = ~train
+            print(len(train_indices), ":", len(test_indices))
+            #print(train.size())
+            print(acts.size())
+            self.data['train'][dataset_name] = acts[train_indices], labels[train_indices]
+            print(acts[test_indices].size())
+            self.data['val'][dataset_name] = acts[test_indices], labels[test_indices]
 
     def get(self, datasets):
         """

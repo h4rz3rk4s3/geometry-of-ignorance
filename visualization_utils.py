@@ -17,10 +17,17 @@ class TruthData:
     def __len__(self):
         return len(self.df)
 
-    def from_datasets(dataset_names, model, layer, noperiod=False, center=True, scale=False, device='cpu'):
+    def from_datasets(dataset_names, model, layer, symbols: dict = {}, noperiod=False, center=True, scale=False, device='cpu'):
         dfs = []
-        for dataset_name in dataset_names:
+        for i, dataset_name in enumerate(dataset_names):
+            #df = pd.read_csv(os.path.join('datasets', f"{dataset_name}.csv"))
             df = pd.read_csv(os.path.join('datasets', f"{dataset_name}.csv"))
+
+            if symbols != {}:
+                df["symbol_type"] = symbols[i]
+            else:
+                df["symbol_type"] = "circle"
+
 
             # append activations to df
             acts = collect_acts(dataset_name, model, layer, noperiod=noperiod, center=center, scale=scale, device=device).cpu()
@@ -51,7 +58,7 @@ class TruthData:
         if pca_datasets is None:
             pca_datasets = self.df.index.levels[0].tolist()
         acts = self.df.loc[pca_datasets]['activation'].tolist()
-        acts = t.stack(acts, dim=0).cuda()
+        acts = t.stack(acts, dim=0).to("mps")
         pcs = get_pcs(acts, dimensions, offset=dim_offset)
 
         # project data onto pcs
@@ -59,7 +66,7 @@ class TruthData:
             plot_datasets = self.df.index.levels[0].tolist()
         df = self.df.loc[plot_datasets]
         acts = df['activation'].tolist()
-        acts = t.stack(acts, dim=0).cuda()
+        acts = t.stack(acts, dim=0).to("mps")
         proj = t.mm(acts, pcs)
 
         # add projected data to df
@@ -73,12 +80,18 @@ class TruthData:
         if dimensions == 2:
             fig = px.scatter(df, x='PC1', y='PC2', 
                              hover_name='statement', 
-                             color_continuous_scale='Bluered_r',
+                             color_discrete_sequence=["red", "blue"],
+                             #symbol="symbol_type",
+                             width=800,
+                             height=800,
                              **kwargs)
         elif dimensions == 3:
             fig = px.scatter_3d(df, x='PC1', y='PC2', z='PC3', 
                                 hover_name='statement', 
-                                color_continuous_scale='Bluered_r',
+                                color_continuous_scale='RdBu',
+                                symbol="symbol_type",
+                                width=800,
+                                height=800,
                                 **kwargs)
         else:
             raise ValueError("Dimensions must be 2 or 3")

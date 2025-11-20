@@ -1,0 +1,1558 @@
+,Unnamed: 0.3,Unnamed: 0.2,Unnamed: 0.1,Unnamed: 0,statement,label,len_text,is_toxic
+0,0.0,0,0,368,Why you changed this to %ecx? it is garbage here.,toxic,49,1
+1,1.0,1,1,47,"""refer to""?
+ 
+ You seem talking about restrictions, but there are a lot more restrictions in the spec. We don't need to explain (all of) this kind of restrictions.",healthy,163,0
+2,2.0,2,2,244,"Done.
+Damn, I argued letters before _ :)",toxic,40,1
+3,3.0,3,3,81,"This should wipe prev_deleted_link_ otherwise you can delete, insert, undelete and get more than kMaxNumLinks items.",healthy,116,0
+4,4.0,4,4,179,"actually, should we kill NATIVE_SUFFIX and fix benchmarks/Android.mk in the same way you already fixed tests/Android.mk?",healthy,120,0
+5,5.0,5,5,111,"Remove this newline.
+ 
+ Also, as a general note, I've begun using ""ret"" instead ""retval""",healthy,88,0
+6,6.0,6,6,175,"rules for init go in init.te
+
+you don't need the domain trans for dhcp.",healthy,71,0
+7,7.0,7,7,260,Indentation's gone crazy here...,toxic,32,1
+8,8.0,8,8,280,"ah crap, the header is wrong, thanks for pointing this out",toxic,58,1
+9,9.0,9,9,329,"this is pretty ugly.  create it in one assignment:
+
+ cmd = [
+     self.MYSQL_INSTALL_DB,
+     ...
+ ]",toxic,100,1
+10,10.0,10,10,362,Forgot about this. I'm having a hell of a time getting libcros to find <glib-object.h>. Working on that now.,toxic,108,1
+11,11.0,11,11,165,"That will look ugly, because ...OrDie is strange: In case you are not create_if_absent, it won't actually abort on a missing directory.
+
+I felt the callers need to be inspected, and then there can be a big cleanup.
+
+I'll try my best...",healthy,235,0
+12,12.0,12,12,129,"For readability, how about:
+
+my_pids = CheckOutput(...).splitlines()
+for pid in my_pids:
+  ...",healthy,94,0
+13,13.0,13,13,62,"If you go through with this, kill these too.",healthy,44,0
+14,14.0,14,14,304,"Oh, this definitely sucks ;-(. +dbrazdil",toxic,40,1
+15,15.0,15,15,287,"i think the problem was that Daemons.stop stops the threads we *deliberately* started. if some code had started other threads, you got very hard to debug situations. so we added this extra method so you'd have a nice clear hang to debug if you'd screwed up.",toxic,257,1
+16,16.0,16,16,21,"Could you defer to kill launch, unless it is successfully returned.",healthy,67,0
+17,17.0,17,17,283,"Sure, might save a few instantiations. Unfortunately, I can't get rid of accumulator_use because variadic macros are stupid.
+
+One thing we lose is statically resolving the if (bytecode == Bytecode::kJumpLoop) on EmitJump. WDYT, is that an issue?",toxic,245,1
+18,18.0,18,18,60,"you are not setting f._bf._base to NULL, this could result in a dangling pointer.",healthy,81,0
+19,19.0,19,19,130,"Please leave this message out:  build_image is already
+too noisy.",healthy,65,0
+20,20.0,20,20,290,"Should be a net::Error,  I'll make the change. Stupid callback signatures...",toxic,76,1
+21,21.0,21,21,218,"Just to be anal, there is an extra newline here.",toxic,48,1
+22,22.0,22,22,105,"Optional: not  your doing, but this function seems dead code. For the local DCHECKs, we might as well use the member field directly.",healthy,132,0
+23,23.0,23,23,230,"heh, because dash sucks and allows you to do this kind of crap.  yes, this should be fixed.",toxic,91,1
+24,24.0,24,24,236,"Oh, annoying old gerrit version. The newer one would linkify tat guy to this change: [1].
+
+* [1] https://gerrit.libreoffice.org/16677",toxic,133,1
+25,25.0,25,25,301,Oops. I had cleaned this all up but I guess I screwed up a rebase.,toxic,66,1
+26,26.0,26,26,384,most australian dummy var name ever!,toxic,36,1
+27,27.0,27,27,55,"Ultimately, when this system is used, functions in this unit will be able to be called. Specifically, utimately it will be possible to change the 'active' bit(s) on devices. So, the locking is necessary in the long term.",healthy,220,0
+28,28.0,28,28,145,are these dummy values for testing right now? I mean certainly should not be hard-coding us as the country. Say so in a comment somewhere,healthy,137,0
+29,29.0,29,29,217,This is annoying. How about just locking the cha lock eagerly and collecting the dead pointers when iterating over th emethod_code_map_?,toxic,136,1
+30,30.0,30,30,327,i don't like this. we deliberately moved away from all this because it encourages people (including us) to pull magic numbers from our asses.,toxic,141,1
+31,31.0,31,31,316,"Ha, OCD rears its ugly head. :-) Will fix.",toxic,42,1
+32,32.0,32,32,315,it scopes the lifetime of the iv[]? Probably helps the compiler generates less shitty code.,toxic,91,1
+33,33.0,33,33,106,"This change is just a bug.  ""${FLAGS_HELP}"" is a
+string and will never be equal to ""${FLAGS_TRUE}"".
+If we just want ""--help"" to return failure, there are much
+better ways.  :-)",healthy,176,0
+34,34.0,34,34,399,"Is it not possible something like this?
+
+try {
+  new ByteStreamSucker(is, os, true).suck();
+} finally {
+  is.close();
+}",toxic,119,1
+35,35.0,35,35,132,It's possible that |profile| exists but DoDisplayNotification has not been called so notification_id is still in pending_notifications_. We should just check if the notification is in pending_notifications_ and erase it / return in that case.,healthy,242,0
+36,36.0,36,36,149,"a+x?
+
+Also I think you will need to set the user bit (setuid) to be able to send signals to PID 1...  setuid /sbin/shutdown unless you'll be calling this as root.",healthy,162,0
+37,37.0,37,37,19,"you might want to declare a class to represent this table's entries to access elements not through indices but through names - would be much better readable.
+
+At least the meanings of the columns should be described better in the comment block.",healthy,244,0
+38,38.0,38,38,107,might be worth an assert here that extra_bytes is evenly divisible by _to_copy,healthy,78,0
+39,39.0,39,39,247,"And damn it gerrit, these comments were on the ""This is technically incorrect"" box, not here!",toxic,93,1
+40,40.0,40,40,148,"perhaps a dumb question, but can this be done on a background thread? Perhaps return a Promise?",healthy,95,0
+41,41.0,41,41,286,"This looks like a very ugly hack which is also very fragile, are there absolutely no other way to do this check?",toxic,112,1
+42,42.0,42,42,189,"This is for a failure case, so you don't need to set these two headers, I think.",healthy,80,0
+43,43.0,43,43,233,"This block is rather lame, what about using some triple ? operator :",toxic,68,1
+44,44.0,44,44,142,A dumb question for you: When will the serio_raw_disconnect() be called? After kref decreased to zero? Or ...?,healthy,110,0
+45,45.0,45,45,59,"i'll try removing them both and if the sdk tools still build, ship without them.",healthy,80,0
+46,46.0,46,46,371,Yuck. It took me a second to see the use of response.,toxic,53,1
+47,47.0,47,47,29,"giving you are orring those 2 flags together, maybe you want to give them consecutive values.",healthy,93,0
+48,48.0,48,48,352,"This is stupid, can we just do the proper fix and stop passing bases as regs, indexes as bases, yadda yadda. The code is getting all caught up about something trivial. If we need new encoding kinds then that's fine.",toxic,215,1
+49,49.0,49,49,171,"Nit: should be ""correctVersionsEnabled"" for consistency with other methods.",healthy,75,0
+50,50.0,50,50,121,Can this be incognito profile? We currently persist download directory in original profile.,healthy,91,0
+51,51.0,51,51,212,"This is kind of ugly...
+I think instead you should pass the timeout with the function when you register it, and keep a private max timeout requested variable",toxic,157,1
+52,52.0,52,52,320,"Scumbag gerrit threw away my comment.
+
+tl;didn't rewrite: Do it for Linux too. That's how update.sh worked.",toxic,107,1
+53,53.0,53,53,341,"Oh, AUXDATA could really screw this up. I might need more logic here.",toxic,69,1
+54,54.0,54,54,141,This caused compile-time failures in various linux-derived programs such as perf.,healthy,81,0
+55,55.0,55,55,225,Your ordering is a little ugly.  BUG= and TEST= should be above all the tags an the Change-Id should be together with all the Signed-off-bys.  Then maybe I would have noticed that git hash the first time I looked at this.,toxic,221,1
+56,56.0,56,56,206,aaaaaaaaaaaarrrrrgggg! damnit. Let me fix that.,toxic,47,1
+57,57.0,57,57,92,Just wanted to note that it would be a trivial change to service_manager.c to report the requesting pid at least in each avc message.,healthy,133,0
+58,58.0,58,58,172,"In that case, I suggest actually adding it as a param. Callers can simply specify a dummy value themselves if they don't care about it.",healthy,135,0
+59,59.0,59,59,183,"This file must be ignored.
+Was committed by mistake, the only difference - echo ""****"" lines, used to debug building process.",healthy,125,0
+60,60.0,60,60,31,"Wrong. manageJackClassPath, putJackClassPathOnPath, ...",healthy,55,0
+61,61.0,61,61,234,you shouldn't need this any more. i killed AndroidConfig.h a while ago.,toxic,71,1
+62,62.0,62,62,185,"!Map
+!chromeos.machineLearning.mojom.GraphExecutorProxy",healthy,55,0
+63,63.0,63,63,74,Don't you need to use std::unique_ptr<mirror::Object*[]> ?,healthy,58,0
+64,64.0,64,64,135,"We don't need a binary blob. If the EGL loader or any other piece of code needs a binary blob, we'll create a version-3 API function.",healthy,133,0
+65,65.0,65,65,68,_system_pwr is tricky. power_status.py should have exposed this. Make _system_pwr a constant.,healthy,93,0
+66,66.0,66,66,265,These methods I'm not hugely happy w/; may change them slightly.  The api for it makes consuming a bit of a pain in the ass.,toxic,124,1
+67,67.0,67,67,254,"Darn, forgot to update this line.",toxic,33,1
+68,68.0,68,68,333,"replaced with a full expansion on the tuple, you whiny bitch ;)",toxic,63,1
+69,69.0,69,69,184,"existing code that leverages this doesn't, but looking at the script in question...I think it's because I'm an idiot and I should just do that.",healthy,143,0
+70,70.0,70,70,123,"@Jamie, the dirty bit DIRTY_BIT_VIEWPORT_STATE is a private member of StateManager11, so I put the check in StateManager11. How do you think?",healthy,141,0
+71,71.0,71,71,174,This symlink can die now since portage overlay is gone,healthy,54,0
+72,72.0,72,72,188,Please kill the extra whitespace.,healthy,33,0
+73,73.0,73,73,339,"Kind of sucks that we lose the magic resolve thing from the previous bootstrap. Unless this is done by the endpoint now? Otherwise, maybe add it so we don't have to expand via ""resolve"" when bumping.",toxic,199,1
+74,74.0,74,74,270,I'd have to add another library to the PDK. This is annoying.,toxic,61,1
+75,75.0,75,75,162,"Temporary conversion ctors are unnecessary here now, so
+ aDesc.aName = aArgName;
+ aDesc.aDescription = aArgDesc;",healthy,112,0
+76,76.0,76,76,17,"Now this is the ""made up"" delay. ...it's much smaller, I don't think it needs to be very much.",healthy,94,0
+77,77.0,77,77,156,You will assign temp_zone = TEMP_ZONE_2 + 1 if bat_temp_c > 450 or < 0.,healthy,71,0
+78,78.0,78,78,64,"This definitely seems useless. const pointer to a write-only buffer, which points past the end of valid data.",healthy,109,0
+79,79.0,79,79,83,"why use kwargs here at all ?  this is the final func, so people shouldn't be passing in junk at this point ...
+
+sync_instance should be a proper arg",healthy,148,0
+80,80.0,80,80,271,Please nuke. (We can add it if/when needed.),toxic,44,1
+81,81.0,81,81,226,json doesn't allow trailing commas because it is dumb (also a bunch of lines below),toxic,83,1
+82,82.0,82,82,30,"Remove operator ?:, useless here.",healthy,33,0
+83,83.0,83,83,144,nit: \n after this (to make it clear which dependency should be removed),healthy,72,0
+84,84.0,84,84,356,I know it sucks buts lets rename this file so the E is lower case to match the other routers.,toxic,93,1
+85,85.0,85,85,138,fn seems more C and fun more C++. fcn seems weird and i can't see any precedent in our libraries. (unless you count the oddly-named dlfcn.h :-) ),healthy,145,0
+86,86.0,86,86,340,"rather than creating this useless structure, just pass the size in the kmem_cache_create in the _probe function ?
+
+but yeh that's not important, a dirty patch should be dirty....",toxic,178,1
+87,87.0,87,87,133,"I think you should leave out {@inheritDoc} here; it's only useful when you want to edit the javadoc. (All javadocs are automatically inherited; this is when you want to do
+
+/** {@inheritDoc}
+  * <p>
+  * Futhurthermore, in this override we blah blah blah */",healthy,256,0
+88,88.0,88,88,305,"It would be nicer to use ""size_t old_fingerprint_end = old_sdp.strspn(""\r\n""), but it seems that wtf::String doesn't have a strspn equivalent. This will work.",toxic,158,1
+89,89.0,89,89,259,"> goddamnit
+
+unnecessary
+
+> please make it a regular multiline if >_< it will be same 3 lines, but without excessive ((()))
+
+done",toxic,129,1
+90,90.0,90,90,14,"If there is no keyboard, remove all KB_IN* and KB_OUT* GPIOs.",healthy,61,0
+91,91.0,91,91,342,"i had forgotten, but that currently fucks up all the indentation.",toxic,65,1
+92,92.0,93,93,77,i don't see any use of this var. just get it killed.,healthy,52,0
+93,93.0,94,94,96,Why not dereference the unique_ptr at the caller? I don't see you overwriting what the unique_ptr stores...,healthy,107,0
+94,94.0,95,95,52,"i think you want:
+
+ printf '[ '
+ printf '""%s"", ' ""$@""
+ printf ']'",healthy,65,0
+95,95.0,96,96,70,"once you move to only using `apache2`, you should be able to extract that at runtime via `apache2 -S`.",healthy,102,0
+96,96.0,97,97,5,I think we'd want to pass in shadow_frame.GetMethodAddress() (or call shadow_frame.SetMethod() later) if the reason to pass in ArtMethod** is that it may get moved (in the future when we move methods)?,healthy,201,0
+97,97.0,98,98,109,i think that's fine. bionic internal code should probably be using Lock anyway.,healthy,79,0
+98,98.0,99,99,363,"force LC_ALL=C else you can get localization here.
+
+Also, that's fucking horrible. ;)",toxic,85,1
+99,99.0,100,100,331,"I know this is incredibly anal, but to you want to make this an atomic operation? I think this is going to be atomic no matter what, but maybe it should be explicit so there is no chance that someone will be able to get a half set value.",toxic,237,1
+100,100.0,101,101,186,"huge nit: you don't need a colon after ""on""",healthy,43,0
+101,101.0,102,102,108,getlasterror() will be reset right after this call (as any WinAPI call may kill it). Cache its value before doing anything else,healthy,127,0
+102,102.0,103,103,322,damn :) Thanks for finding this.,toxic,32,1
+103,103.0,104,104,299,All defaults belong above. This call should be a dumb call.,toxic,59,1
+104,104.0,105,105,122,"Hack hack hack! You should add a DCHECK that the third one is not identical, because sooner or later somebody will turn triples into a marker too.",healthy,146,0
+105,105.0,106,106,75,We run yaml.dump(probed_results) twice. Consider saving it to probed_results_yaml.,healthy,82,0
+106,106.0,107,107,364,"Ah yes. This sucks, we are going to grow the handles_scopes_ proportional to the methods we are going to try to inline. 
+
++calin: We need a better solution for handles_scopes_.",toxic,176,1
+107,107.0,108,108,255,Shouldn't these base addresses be #defined somewhere? It's gonna be a real bitch to hunt all of these down when we port to the next SoC (HW guys love to move things around on us).,toxic,179,1
+108,108.0,109,109,146,"I see you really don't like this command,
+over the last 15 days, it has actually been the most useful for me (including those voltages when dealing over emails with clueless ""users"")",healthy,182,0
+109,109.0,110,110,168,"There will be a local dirty bit flagged for the active program.
+ 
+ did you try calling resume explicitly instead?",healthy,113,0
+110,110.0,111,111,325,"Leftover debugging. But it sucks that this is necessary in order to figure out why tests are failing... if you have an idea on how to make tests easier to debug when they fail, let me know and I'll fix it :)",toxic,207,1
+111,111.0,112,112,365,This default_interface stuff is kind of ugly. But not fair to hold up this CL for that existing problem. :),toxic,107,1
+112,112.0,113,113,383,Did clang-format do that? This looks pretty ugly... :-(,toxic,55,1
+113,113.0,114,114,3,Signed-off-by: Nick Vaccaro <nvaccaro@chromium.org>,healthy,51,0
+114,114.0,115,115,82,"insinto /etc
+ echo ""hosts: files dns"" > nsswitch.conf
+ doins nsswitch.conf || die",healthy,81,0
+115,115.0,116,116,43,This shouldn't be needed...ServiceUnderTest is a subclass of Service,healthy,68,0
+116,116.0,117,117,116,should be using std::unique_ptr<Flag> and let the destructor automatically destroy all these..,healthy,94,0
+117,117.0,118,118,53,Fake git sha1 here. Image is a mutant that wasn't built from any specific point in the tree. This won't be typical once we get to production / stable images.,healthy,157,0
+118,118.0,119,119,374,"ach, damn, there's a
+
+  rtl_uString_release(newData);
+
+missing, right?",toxic,70,1
+119,119.0,120,120,257,"Well, DataBuffer started as a dumb POD-like class. I don't see why we can't delegate this to its destructor now...",toxic,114,1
+120,120.0,121,121,344,How the hell did that get in there?,toxic,35,1
+121,121.0,122,122,273,You also need to add dumb mapping.,toxic,34,1
+122,122.0,123,123,198,Done. We still need to show the window the first time or OpenGL drivers tend to keep garbage in the default framebuffer.,healthy,120,0
+123,123.0,124,124,358,"Sorry, this is yuck. Even if the debugger is not attached you need to make this call and go into the compiler to figure it out. Not super happy about that design.",toxic,162,1
+124,124.0,125,125,295,"I canÃ¢â‚¬â„¢t click Ã¢â‚¬Å“ResolvedÃ¢â‚¬ï¿½Ã‚Â without saying anything. Gerrit, you old rascal, you.",toxic,101,1
+125,125.0,126,126,319,but  can we leave it stupid for now for the sake of getting it going?,toxic,69,1
+126,126.0,127,127,118,Use vp9_nuq_doff[QUANT_PROFILES][COEF_BANDS],healthy,44,0
+127,127.0,128,128,296,"Yeah, it's like this code has entered a squishing competition. Sucky if you ask me, but agree with the line removal here and below - it's consistent with the rest of the code, and that matters more than anything else when coding at chrome-team scale.",toxic,250,1
+128,128.0,129,129,392,I hate die(). if we'e here and running code we need to do something better. Or when building catch it there.,toxic,108,1
+129,129.0,130,130,211,"As long as you are here, can you nuke this extra space?",toxic,55,1
+130,130.0,131,131,220,"This is so dumb, but it works. So Â¯\_(?)_/Â¯.",toxic,46,1
+131,131.0,132,132,113,"Ack
+
+You'll also be killing blink::mojom::PageVisibilityState too?",healthy,66,0
+132,132.0,133,133,318,"This should have been const void*. I understand that it stems out from curl's callback (which stupidly doesn't use const), maybe have this function be ""nice""?",toxic,158,1
+133,133.0,134,134,213,"Crap.  Yep, should be; doesn't change the test results, just is annoying.",toxic,73,1
+134,134.0,135,135,26,"given that the old code was wrong -- there is no ""config/envsetup.make"" -- let's just kill this. it's all clearly dead code. git says ""initial import from cupcake"".",healthy,164,0
+135,135.0,136,136,387,"we still have sramfunc in plat_pmu_macros.S, so we need sram_test and sram_data. Oh, it so stupid use wrong sram size
+before :(",toxic,127,1
+136,136.0,137,137,324,yuck. Just declare 'throws IOException' in the method signature,toxic,63,1
+137,137.0,138,138,223,WTF? That CL is marked CR-1 and V-1. Does this actually work??,toxic,62,1
+138,138.0,139,139,347,"Why remove the notrace? (Not sure if you've ever looked at how the output looks without it, it's horribly confusing and hides the actual error message above a screen full of crap.)",toxic,180,1
+139,139.0,140,140,197,I think we'll end up calling self._interface bus or bus_num in the params section ... but lets discuss in person,healthy,112,0
+140,140.0,141,141,228,"this was nasty! logging.log added extra calls to time.time, which made this test depend on the psutil version installed :-/",toxic,123,1
+141,141.0,142,142,127,"Why should we? :)
+
+Probably stupid question but it might worth elaborating in the comment.",healthy,90,0
+142,142.0,143,143,348,"no, ghartmann is going to switch over to 'exec' when he gets chance, and then we'll remove 'execonce'. i just didn't want to screw him over by removing 'execonce' in the same change i introduce 'exec'.",toxic,201,1
+143,143.0,144,144,216,crap. bizarre that i got the opposite one in each of these files!,toxic,65,1
+144,144.0,145,145,214,"Again I'd ass ""margin-left"" here.",toxic,33,1
+145,145.0,146,146,205,Yay for proper inheritance (like seeing this sort of crap get removed) :),toxic,73,1
+146,146.0,147,147,193,"It seems like you should still divide by processing_unit_ and then subtract ""tag_length_ * chunk_count"" below.",healthy,110,0
+147,147.0,148,148,210,"this is a dumb name, but you didn't do that ;)",toxic,46,1
+148,148.0,149,149,15,"This was dumb and obviously never found any bugs. I renamed it to prettyPrinted to clarify that it doesn't print anything, but merely returns a string.
+
+The previous override on the clusterfuzz side also just replaced this with a non-printing method.",healthy,250,0
+149,149.0,150,150,302,Might be cleaner to write an OCP that wraps this and prunes out the downloads... I know that's a lot more code/sucks but that's probably the cleanest way?  Can you just put this in the factory?  Or put it at each client?,toxic,220,1
+150,150.0,151,151,1,You ignored my comments upstream (in v7) that the config_bootdata and the memcpy() no longer really belong in the iomap function...,healthy,131,0
+151,151.0,152,152,336,I didn't know base::FileEnumerator was a thing. :) Fixed all this crap and the sleeps in the unittest.,toxic,102,1
+152,152.0,153,153,261,"Do not modify, but could be :
+
+     try {
+        new ByteStreamSucker(is, os, true).suck();
+      } finally {
+        is.close(); // is != null or check before
+      }",toxic,168,1
+153,153.0,154,154,170,throw RuntimeException instead. I think this failure should kill the app unconditionally.,healthy,89,0
+154,154.0,155,155,262,Listing an ancient and closed bug for work like this just makes it a pain in the ass to deal with merge requests should them come up.  Please file a new bug.,toxic,157,1
+155,155.0,156,156,89,"this will be handled by performoperations,
+you can pass a scoped_ptr with nullptr inside.",healthy,89,0
+156,156.0,157,157,2,I'd prefer you catch the most specific thing(s) possible.  Otherwise you start accidentally catching accidental things in the future and it's hard to find the real bugs.,healthy,169,0
+157,157.0,158,158,101,"this subshell isn't correct.  but could you write this simpler as:
+
+ [ -d ""/proc/${pid}"" ]",healthy,90,0
+158,158.0,159,159,380,"the #if is ugly and upstream will hate it, but i can't think of a better idea.
+
+this is the last SELinux tool to be migrated.",toxic,125,1
+159,159.0,160,160,102,Are you planning a separate CL to remove SetFailureSilent here and in the mocks?,healthy,80,0
+160,160.0,161,161,25,"Nit: move the `*` onto `CodeItem`:
+
+  const DexFile::CodeItem* code_item_;",healthy,74,0
+161,161.0,162,162,308,"Global context kinda sucks for following code flow, but I know we rely heavily on this param global.",toxic,100,1
+162,162.0,163,163,36,Can't this be an arch-specific library function? I hate to see all these config_arch ifdefs appearing everywhere.,healthy,113,0
+163,163.0,164,164,98,"I meant, should you set *this = Invalid here as well.
+
+4.5.6.0.3.4 should be treated as an invalid version.",healthy,107,0
+164,164.0,165,165,37,nit: remove observers in opposite order of adding them,healthy,54,0
+165,165.0,166,166,232,I think this macro confuses more than it helps... token concatenation is pretty ugly.,toxic,85,1
+166,166.0,167,167,326,are we really polling? That sort of sucks,toxic,41,1
+167,167.0,168,168,23,you may be able to drop the WTF namespace (just nullopt).,healthy,57,0
+168,168.0,169,169,39,"i really should learn how to |sort in vi, for when i'm doing stuff over ssh... clearly i'm too stupid to do it manually!",healthy,120,0
+169,169.0,170,170,250,"i think the ""full"" comes from how important is the question.  if the answer is going to delete files, it should be yes/no.  if it's something simple/stupid, then imo it should be a y/n.",toxic,185,1
+170,170.0,171,171,191,"Because if top activity (r.haveState == false) is in the died process, it should still to resume next.",healthy,102,0
+171,171.0,172,172,147,"This should be i18n or, at least,
+AndroidImportProjectAction#WIZARD_TITLE should be used",healthy,88,0
+172,172.0,173,173,258,"that's just silly. if we really worried about that, we would also include the date and the log tag and the fact that this is of class error!",toxic,140,1
+173,173.0,174,174,143,Done. Use a local object instead. This method is not performance critical so allocating a dummy object shouldn't matter much.,healthy,125,0
+174,174.0,175,175,10,"reverse iterator?  I'm like 80% I pulled it off one of the ""how to C++ sites"".  But I'll change it up.",healthy,102,0
+175,175.0,176,176,201,I hate class names like this. Something less verby like CodeOutput would have been nicer. Feel free to ignore my object modeling curmudgeonliness if you must though.,toxic,165,1
+176,176.0,177,177,7,recommend net_radio_prop instead of system_or_radio_prop.,healthy,57,0
+177,177.0,178,178,126,"libdir should be parametized so the caller can do:
+
+ make ... LIBDIR=$(get_libdir) ...",healthy,86,0
+178,178.0,179,179,128,"well, you have -0x800000000 = 0x80000000",healthy,40,0
+179,179.0,180,180,120,should probably return here or die,healthy,34,0
+180,180.0,181,181,242,"Ugh damnit, the second should be fp_offset. Fixing, thanks.",toxic,59,1
+181,181.0,182,182,32,"They're the ""dummy"" i2c clients.  They exist because device tree assumes that an i2c device has only 1 base address.  This device uses 5, and these are the other 4.",healthy,164,0
+182,182.0,183,183,343,"Oh, damn it. Now I get it. Yeah that makes sense. Ignore my comment :-)",toxic,71,1
+183,183.0,184,184,167,May be null. You even remembered to mark that on the declaration of GetCallingClass.,healthy,84,0
+184,184.0,185,185,99,"How about:
+
+if ((Opts.mTargetAPI < 21) || (Opts.mBitcodeStorage == BCST_CPP_CODE))
+  Opts.mEmit3264 = false;
+if (Opts.mEmit3264)
+  Opts.mBitcodeStorage = BCST_JAVA_CODE;",healthy,169,0
+185,185.0,186,186,202,"wtf? why aren't we just using std::string instead of char*,size_t?",toxic,66,1
+186,186.0,187,187,18,ScriptPromiseResolver is garbage collected,healthy,42,0
+187,187.0,188,188,45,RenderFrameHost* const render_frame_host_;,healthy,42,0
+188,188.0,189,189,204,did rustfmt do this? it looks ridiculous.,toxic,41,1
+189,189.0,190,190,351,"Oh, damn, this doesn't work with constexpr. I am fine with any solution: remove constexpr, or remove the DCHECK.",toxic,112,1
+190,190.0,191,191,249,"just --ipv6 and default to true? i'm pretty sure that DEFINE_bool(ipv6, ...) should already give --noipv6, and --nono_ipv6 is pretty disgusting.",toxic,144,1
+191,191.0,192,192,237,"Oh, lordy.  We're all going to burn in hell because this is hard-coded
+here.",toxic,76,1
+192,192.0,193,193,207,Yes pa. *turns eyes down in shame*,toxic,34,1
+193,193.0,194,194,61,"Line too long.
+
+The check is also not really necessary, considering you're inside image_space != nullptr.",healthy,105,0
+194,194.0,195,195,173,this is useless. you can always pass NULL to free(3).,healthy,53,0
+195,195.0,196,196,97,I think this also wants to be |const std::string&|.,healthy,51,0
+196,196.0,197,197,310,"Ops, missed your comments (mobile UI sucks). sadolfsson said we could move these changes to fizz later after doing some verification round.",toxic,139,1
+197,197.0,198,198,238,This has recently been added to History so it threw me off a little. Should this be part of the coordinator? I think coupling the VC to tabGrid feels kind of weird. I think also a comment could help? WDYT?,toxic,205,1
+198,198.0,199,199,274,"Y'all allow multiple import targets on the same line?
+
+If so, frigging-sweet.  If not, style violation.",toxic,103,1
+199,199.0,200,200,181,onSuccessRestore and onErrorRestore should be removed.,healthy,54,0
+200,200.0,201,201,267,"For this, you'd just check the whether the size of |entries| is === 1. Another option coul dbe to move the checks to the caller, but that might be more clumsy.",toxic,159,1
+201,201.0,202,202,278,android doesn't care. the code's above is fine as it is. this #if crap is cruft from when bionic didn't have <syslog.h>.,toxic,120,1
+202,202.0,203,203,100,"i was looking at real_au_worker.py which imports the local constants.  you're right that this module is importing chromite.lib.constants instead.  ugly.
+
+i'll post a CL.",healthy,169,0
+203,203.0,204,204,194,we can probably cut modem power or kill modemfwd shortly after modem is rebooted,healthy,80,0
+204,204.0,205,205,6,"...and you definitely don't need to parse a string!
+
+you know this is a sockaddr_in, so just cast.",healthy,98,0
+205,205.0,206,206,139,I think we want CONFIG_PAGE_OFFSET=0x80000000 and CONFIG_VMSPLIT_2G=y,healthy,69,0
+206,206.0,207,207,314,Lousy compiler for not catching my dumb typo...,toxic,47,1
+207,207.0,208,208,51,these clk_prepare_enable()s are actually useless on both 5420 and 5422 - the prepare/enable counts get propagated when we reparent,healthy,130,0
+208,208.0,209,209,54,Use 'dummy_index' or '_' instead of 'j' and pylint.,healthy,51,0
+209,209.0,210,210,163,"Missing
+
+    AccessibilityController* accessibility_controller =
+      Shell::Get()->accessibility_controller();
+
+?",healthy,115,0
+210,210.0,211,211,396,"if these aren't meant to be in the NDK, they should probably have __ names. if they are meant to be in the NDK, we should go the malloc_info route, not invent our own crap.",toxic,172,1
+211,211.0,212,212,150,"the portage trees are indexed by the sysroot path with a trailing / . Agreed, this is kind of ugly :/",healthy,101,0
+212,212.0,213,213,269,"Yuck, don't know how that slipped through. Thanks!",toxic,50,1
+213,213.0,214,214,369,nit: rubbish character -> useless characters at the front of the json ...,toxic,73,1
+214,214.0,215,215,13,"I wasn't even sure why I include /obj obj/puffin :(!! Done!
+Apparently I'm a lousy Makefile writer :P",healthy,101,0
+215,215.0,216,216,360,Oh darn.  Those were for debugging only (to build character and improve my morale).  Now you know my secret.,toxic,108,1
+216,216.0,217,217,281,"I think this solution is braindead also, like the previous one. Can we try to ass the null.? Anyway, +2 because safe.",toxic,117,1
+217,217.0,218,218,357,"It's not gonna use them, but the runtime will open them if they exist, keeping native crap around. I feel another parameter would have been in line, but maybe a follow-up cleanup can take care of that.",toxic,201,1
+218,218.0,219,219,303,"Might be worth keeping since it's run as part of CTS. 
+
+Presumably nobody is stupid enough to modify dalvik and implement destroy() , stop() and stop(Throwable)",toxic,160,1
+219,219.0,220,220,117,rv isn't needed if you don't need to store the return value.,healthy,60,0
+220,220.0,221,221,367,dirname/basename are for chumps!,toxic,32,1
+221,221.0,222,222,323,"The loop is ugly.
+Just call self.run_client_test(sbutest, prod, enroll) after this line",toxic,87,1
+222,222.0,223,223,275,"These log tags are going to be kind of shit. Why not just let the user override the tag if they want to? i.e. VolleyLog.setTag(""Mileage"")",toxic,137,1
+223,223.0,224,224,94,I think you need some kind of FALLTHROUGH_INTENDED macro here and below.,healthy,72,0
+224,224.0,225,225,397,one day we should get rid of these gotos...,toxic,43,1
+225,225.0,226,226,9,SingleCast is not supported by Jack Library thus could not be generated before Jack IR is dump into Jack library.,healthy,113,0
+226,226.0,227,227,382,Are you planning to send this upstream? Or did the stupid reviews I got from Lee and Thierry scare you away? :),toxic,111,1
+227,227.0,228,228,22,"else /*current_method == nullptr*/ { // Abstract method masks all defaults
+  if (vtable_impl->IsAbstract() &&
+      !vtable_impl->IsDefaultConflicting()) {
+    ...
+  }
+  // else don't need do anything
+}",healthy,202,0
+228,228.0,229,229,12,"actually, I think we always want to round towards POSITIVE_INFINITY.",healthy,68,0
+229,229.0,230,230,84,"TRM says:
+
+****
+Caution: This register is kept for backward software compatibility. Use GPIO_IRQWAKEN_0 and GPIO_IRQWAKEN_1 instead.
+****
+
+Should do rmw on those regs instead?",healthy,175,0
+230,230.0,231,231,164,Is there any special reason this is a 'define' function and not a normal function? I don't think there is any bottleneck here!,healthy,126,0
+231,231.0,232,232,208,"explain why, because this is ""obviously"" stupid :-)",toxic,51,1
+232,232.0,233,233,293,"I don't want to mention GC in here.. this API shouldn't be here anyway, if you're using it and you're an idiot you deserve to be burnt.",toxic,135,1
+233,233.0,234,234,279,"Oh wtf, I copied this from another app so I didn't expect it to be wrong. Sorry about that. Fixed.",toxic,98,1
+234,234.0,235,235,11,Done. This gets ugly with a couple of casts. I aliased the pair to ReferenceKey for ease of use.,healthy,96,0
+235,235.0,236,236,289,"Bash is a strange beast. Here's my problem:
+
+
+$ echo 'somevar=""blah""' > test.sh
+$ (. ./test.sh) || echo fail
+$ echo ${somevar}
+
+$ . ./test.sh || echo fail
+$ echo ${somevar}
+blah",toxic,177,1
+236,236.0,237,237,346,"does this do the right thing with something like ""fucke999999999999999999999999999999""?",toxic,87,1
+237,237.0,238,238,239,checkpatch hates all of these m_XXX macros,toxic,42,1
+238,238.0,239,239,381,BTW. One of the reasons I reverted this is that this hidden attribute is used by ZipInputStream to modify the behaviour of close. What a load of crap,toxic,149,1
+239,239.0,240,240,268,"Yeah, it sucks. :( Adding a separate buffer would make all the reads awkward, so I was sort of hoping that the OS would save me and it's ""only"" for a couple lines of text (initial response line and some response headers).",toxic,221,1
+240,240.0,241,241,395,"Ah, right.  For some stupid reason, I didn't think i2c_dev->irq was valid until after devm_request_irq().  Nevermind then.",toxic,122,1
+241,241.0,242,242,137,"nit: might be marginally more performant to do:
+my_pids.extend(get_my_pids())
+if pid in my_pids:",healthy,96,0
+242,242.0,243,243,373,"Stupid comments:
+
+There are several lines in this file that appear to be too long.
+What's up with the 2-space indent? Do we have different formatting here for a reason?",toxic,168,1
+243,243.0,244,244,284,"I find at() rather ugly. Just make this a range-based loop:
+
+  for (const ManagerRegister& reg : callee_save_regs) { ... }",toxic,122,1
+244,244.0,245,245,200,"and repeatedly executing the same useless code is slow ...
+ IMO, that's just papering over the code inefficiency.",toxic,113,1
+245,245.0,246,246,103,Missing entry in kerneldoc above... (stupid me),healthy,47,0
+246,246.0,247,247,245,"Yes, of course. Don't know how I managed to screw that one up. CL coming up!",toxic,76,1
+247,247.0,248,248,86,"here it should say 
+
+myTimeline = myCurrentSamplerStrategy.createData();",healthy,72,0
+248,248.0,249,249,321,I hate passing string literals for enums... ;-)  Done.,toxic,54,1
+249,249.0,250,250,80,"trivial setters should be in the header file.
+ 
+ i.e.
+ 
+  void set_separate_stderr() { separate_stderr_ = separate_stderr; }",healthy,124,0
+250,250.0,251,251,140,"if you're doing comparisons that aren't == or !=, you're insane anyway :-)",healthy,74,0
+251,251.0,252,252,227,"This CL makes all the tests hermetic (and no longer need to modify files on disk), so removes pythonpath crap and TemporaryMasterPasswords.",toxic,139,1
+252,252.0,253,253,394,"#include'd. (TextEncoding is in WTF, not in blink)",toxic,50,1
+253,253.0,254,254,71,"No reason other than it was like ~5 lines less code (No need to unwarp grpc responses, b64 decode, etc). As a dumb proxy, CBE isn't going away anyways.",healthy,151,0
+254,254.0,255,255,180,"let's delete unused entries.  if you want to see the history, you can use `git log -p`.
+
+while you're here, would be nice to uncuddle the entries:
+
+ process_list = [
+     '/....../',
+     .....,
+ ]",healthy,197,0
+255,255.0,256,256,155,"Changed to below since some other place still use minIndex:
+ int startVertex = static_cast<int>(indexInfo.indexRange.start);
+ int baseVertex = -startVertex;",healthy,156,0
+256,256.0,257,257,229,I astyled the whole damn thing!,toxic,31,1
+257,257.0,258,258,252,"How the hell does this work?
+
+Also, if this does what I think it does you should consider just reworking the methods already there.",toxic,131,1
+258,258.0,259,259,389,So you're looking past the last endpoint to lay down the spec config? This is super ugly.,toxic,89,1
+259,259.0,260,260,349,"I take that back trying even quoting the variable and moving to single brackets, it complained.
+
+On ubuntu sh is symlinked to dash.. dash sucks.
+
+LSB release shows this:
+Distributor ID:	Ubuntu
+Description:	Ubuntu 14.04.2 LTS
+Release:	14.04
+Codename:	trusty",toxic,256,1
+260,260.0,261,261,187,"No worries, September 27 might be a day of saying dumb things, as it happened to me too yesterday. Thanks for fixing.",healthy,117,0
+261,261.0,262,262,192,This makes no sense. A ENABLE_OPENGL = 0 implies ENABLE_GLTF = 0,healthy,64,0
+262,262.0,263,263,95,"Nah, type errors happen when you try to assign/compare/dosomething with it. This way it actually works as a pointless null statement as well if really want to do such a weird thing :)",healthy,183,0
+263,263.0,264,264,46,"It is enough to say:
+  TEST_MODEMS_MODULE_PATH = __file__",healthy,57,0
+264,264.0,266,266,195,I killed the global since it was unused outside this function.,healthy,62,0
+265,265.0,267,267,375,aaarrghh this HW is a disaster ... who designed such a random assignment,toxic,72,1
+266,266.0,268,268,203,"no, that was dumb. this is not their API. it's a signal handler. we have man pages for that. it's more useful next to the code that actually uses the information.",toxic,162,1
+267,267.0,269,269,110,"quote all the variables/paths
+
+add `|| die` to the end of this",healthy,62,0
+268,268.0,270,270,88,i think it'd be better to make this an arg to the function,healthy,58,0
+269,269.0,271,271,277,"technically, anonymous arguments are not allowed, but the declaration might get even uglier...
+ 
+ no need for space after < (although I guess you can optionally use it... :-) )",toxic,176,1
+270,270.0,272,272,294,"Out of thin air mostly, a big enough amount to trigger races... one odd and even for the hell of it :)",toxic,102,1
+271,271.0,273,273,209,"Ok I am going back to glasses, I cant read what I am typing, contacts suck.
+
+end up with an empty certificate...",toxic,112,1
+272,272.0,274,274,67,"InMemoryHostInfoStore is a fake.
+when constructed without any arguments (as here), it is an in-memory database of labels/attributes seeded with no values (labels:[], attributes:{}).
+
+I don't need the fake here though, so I'll replace it with a dummy.",healthy,250,0
+273,273.0,275,275,393,Inline the count variable it's useless,toxic,38,1
+274,274.0,276,276,282,"s/int/size_t/
+
+(or if you want to be anal, vector<string>::size_type)",toxic,69,1
+275,275.0,277,277,297,how did you test these without screwing up your machine?,toxic,56,1
+276,276.0,278,278,85,"child_inline_direction is a GridTrackSizingDirection enum, while what we need to pass is a GridAxis enum.",healthy,105,0
+277,277.0,279,279,8,"Apparently not. I got compile errors by doing that. As far as I understood, WTF::HashMap does'nt support it.",healthy,108,0
+278,278.0,280,280,312,Fixed in this CL. Using 0u is a bit ugly too :/.,toxic,48,1
+279,279.0,281,281,366,I guess we'll take the word SHIT out.,toxic,37,1
+280,280.0,282,282,359,"yes, feel free to just delete this line. i really don't care if somebody decides to pass random crap to powerd and we silently ignore it. :-P",toxic,141,1
+281,281.0,283,283,158,"Nah, because I want to make it REALLY HARD to do something stupid that causes us to lose track of locked hosts.  This way, you can't remove hosts from self._hosts short of flat out blowing it away and replacing it with something else.",healthy,234,0
+282,282.0,284,284,151,"I agree with keeping the tast code path separate rather than trying to reuse the (ugly) autotest code path.
+I think you should pull this out in a function, possibly in a separate module tko/tast.py that collects all tast-isms.",healthy,226,0
+283,283.0,285,285,49,A little risky but does work.  I'll look to expose vid/pid/sid to client and refactor then.,healthy,91,0
+284,284.0,286,286,298,Crap. I meant say 'check for NULL' here.,toxic,40,1
+285,285.0,287,287,78,why do we have a loop here? shouldn't this be just a single mipmap?,healthy,67,0
+286,286.0,288,288,166,tegra_grhost_aperture = tegra_fb2_start = mem_start;,healthy,52,0
+287,287.0,289,289,48,"I think I'd call this mDisplayLock, since I think it's actually trying to protect mDisplayData. I'd also move this line up right above mDisplayData and explain in the comment that it's protecting mDisplayData from races between prepare and dump.",healthy,245,0
+288,288.0,290,290,125,"Also...I'm stupid, but how does this kick off the tests and not wait for them?  What's it overriding in HWTestStage that makes it fire-and-forget?",healthy,146,0
+289,289.0,291,291,307,"I know that I mentioned this already, I'll just do it one more time, just in case. If you used vector<uint8_t> for binary data, you wouldn't have to do all those casts and you wouldn't need those ugly hacky string_as_array() calls as well. :)",toxic,242,1
+290,290.0,292,292,292,"There's no difference between dumb map and DRM_IOCTL_VIRTGPU_MAP. Inside the kernel, DRM_IOCTL_VIRTGPU_MAP just calls the dumb mmap implementation. Everything else being equal, I decided to inherit the helper code.",toxic,214,1
+291,291.0,293,293,334,"I guess this is safe, I'd guess the final character will be overwritten if this is just a dumb read",toxic,99,1
+292,292.0,294,294,157,"why we are doing this only if
+
+  !ret.S.KitchenArgs.LogDogFlags.AnnotationURL.IsZero()
+
+above
+
+i think we should do it unconditionally",healthy,134,0
+293,293.0,295,295,309,"Damn it. I thought I was using the one you always push for.
+
+They are randomized in my head now.",toxic,96,1
+294,294.0,296,296,215,"I read the comment as ""o fuck, not again"" :-P",toxic,45,1
+295,295.0,297,297,345,argh! why do people do this nonsense in configure?,toxic,50,1
+296,296.0,298,298,291,Oops! I'm going to nuke this comment entirely. New patch coming up.,toxic,67,1
+297,297.0,299,299,38,"get rid of stale white space, here and below.",healthy,45,0
+298,298.0,300,300,50,"nitpick: trailing spaces, here and below and in util.sh",healthy,55,0
+299,299.0,301,301,353,"Also explain in this file why the compiler was failing, and dx's smart/dumb behavior.",toxic,85,1
+300,300.0,302,302,300,"Oh, sorry, I misunderstood. I thought this was an unrelated bug that had just been fixed in the same code. Now I get that this patch is actually breaking it because a symbol is treated differently from a constant. Stupid assembler. -.-
+
+Will fix.",toxic,246,1
+301,301.0,303,303,317,I'll go ahead and do this.  Reference code sucks here.,toxic,54,1
+302,302.0,304,304,134,"I would prefer to use std::pair<OUString, OUString> here. We can do that in another commit.",healthy,91,0
+303,303.0,305,305,338,"Yuck. I know it's not your code originally, but could we go with a simple for (int ...) loop?",toxic,93,1
+304,304.0,306,306,288,"that's fugly.  Not your doing, but hate the constructs negations...",toxic,67,1
+305,305.0,307,307,153,"I believe the ""NOLINT"" below was for the use of ""unsigned long"" here. Keep it nearby.",healthy,85,0
+306,306.0,308,308,311,"Nit: InfoBar
+
+(It's a stupid capitalization, but we're consistent about it)",toxic,75,1
+307,307.0,309,309,0,are these weakptrs necessary if the AuditProofQueryImpl must not outlive the LogDnsClient?,healthy,90,0
+308,308.0,310,310,33,"40
+otherwise explain .Size is bytes, ...
+
+==
+it was fun exercise for me, but my brain is stupid: i knew about 160 bit and 40 chars, and so I was looking for /4, not *2.",healthy,168,0
+309,309.0,311,311,20,this should be moved into RepositoryExternal.mk and gb_Library_use_externals should be used here,healthy,96,0
+310,310.0,312,312,243,No worries! the part of the code is pretty ugly and it is sooooo hacky! :-),toxic,75,1
+311,311.0,313,313,272,"Should really be moved to using unittest... This crap was already here, so no need for this CL, but it would be nice to cleanup eventually.",toxic,139,1
+312,312.0,314,314,335,"I am sorry, but can we not put logic into control files? They should be as simple and stupid as possible.",toxic,105,1
+313,313.0,315,315,350,"Yeah, this sucks. I plan to update ddmlib to support notifications for when device properties & client properties have been updated from the device",toxic,147,1
+314,314.0,316,316,385,"Argh... yeah, in that case we'd probably have to stuff the PHYs in the platdata, which is also pretty ugly...  I'll look at this a little more and see if we can do anything better.",toxic,180,1
+315,315.0,317,317,354,"Crap. I turned if off to check something, and forgot to turn it back on. That explains why it 'passed' when PerformStage was wrong.",toxic,131,1
+316,316.0,318,318,161,A failed copy_to_user shouldn't result in a -ENODEV.,healthy,52,0
+317,317.0,319,319,361,"damnit, I hate it when I forget to save the file before I commit ;-)
+
+yes they were notes as I was coding the C file
+
+Done.",toxic,123,1
+318,318.0,320,320,69,i think these two you want to live in platform_src_configure,healthy,60,0
+319,319.0,321,321,159,"OK, I understand this change.  It looks like tegra (cortex A9) doesn't really have a size of 6.  ...but that the 6 is not harmful on tegra and is now the default for V7.  Sounds OK.",healthy,181,0
+320,320.0,322,322,199,"should probably be ""if (timeOut <= 0 && !bridge.hasInitialDeviceList())""",healthy,72,0
+321,321.0,323,323,160,The following CLs remove all userptr and mmap buffers. Only dmabuf will be used.,healthy,80,0
+322,322.0,324,324,112,"missing field 'drive_size' initializer [-Werror,-Wmissing-field-initializers]
+  CgptAddParams params = {0};
+                           ^",healthy,136,0
+323,323.0,325,325,241,"btw, `ECMASCRIPT6` significantly increases bundle size by adding dozens `$jscomp` variables like `const $jscomp$async$this=this;return $jscomp.asyncExecutePromiseGeneratorFunction ...` and ES6 polyfills. It's awful :(",toxic,217,1
+324,324.0,326,326,119,"This *is* C++ code, the proper way would be to use LanguageTag. And this *is* smelly and *does* fail if the BCP47 tag contains a script code, for example.
+
+I'll take over and use a different approach.",healthy,200,0
+325,325.0,327,327,379,"Oh, wow, you have 11 parameters in there! Yes, base::Callback is not really a variadic template. It's a fake. I hope soon this is fixed...
+
+It's a shame really...",toxic,162,1
+326,326.0,328,328,4,"if we break that in bionic, we're going to break all the existing callers so you should be safe :-)",healthy,99,0
+327,327.0,329,329,136,"That sounds like it's blocking the user, right?  My concern is it's pretty easy for users to type a dumb search (e.g. search for the letter 'a' accidentally), and then be stuck in a frozen browser.
+
+What do you think?",healthy,217,0
+328,328.0,330,330,34,"I must be missing something... after including <linux/ioprio.h>, why keep any of these defs?",healthy,92,0
+329,329.0,331,331,196,see above.  this die should be deleted.,healthy,39,0
+330,330.0,332,332,251,"Darn, I made a spelling mistake a such a small CL :-( Will follow-up.",toxic,69,1
+331,331.0,333,333,378,"This will potentially interleave output, which sucks. Perhaps ""attachOutputForLogging"" should have a form that takes a bytes.Buffer?",toxic,132,1
+332,332.0,334,334,178,you don't actually need these hasChildNodes() calls; the DOM will return a (shared) empty node list for you. Avoids extra nesting.,healthy,130,0
+333,333.0,335,335,377,"This interface is goofy as hell to me.
+
+Your default Parser doesn't even have any state (bad sign).
+
+If you want to spoof file paths, model the namespace from which imports are resolved and offer that as an object to the parser.",toxic,228,1
+334,334.0,336,336,87,"I think UBSan works for static executables, but we do not support ubsan in SANITIZE_TARGET.
+SGTM",healthy,96,0
+335,335.0,337,337,182,"you've deleted the setting of this variable in the 9999 ebuild, so i don't see why you need to edit this code ...
+ 
+ that said, if the ebuild is inherting cros-workon, then this will never be executed as CROS_WORKON_PROJECT will be set",healthy,235,0
+336,336.0,338,338,231,"This is pretty ugly.  Maybe we could instead identify SLCG clocks by a name prefix instead?  e.g. all SLCG clocks are named ""slcg_*"".",toxic,133,1
+337,337.0,339,339,93,"Please use ||, && and ! instead of textual keywords (also other places in this CL). (I haven't checked but I think the coding style disallows use the 'or', 'and', 'not', ... keywords - if not, my view is that it should :-).)",healthy,224,0
+338,338.0,340,340,306,"also, feel free to kill this pointless ascii-art embellishment, but perhaps in a separate commit",toxic,96,1
+339,339.0,341,341,240,"should be quotes around this since `local` in dash is dumb
+
+ local config_file=""$(.......)""",toxic,91,1
+340,340.0,342,342,72,These java.util.Calendar objects seem somewhat pointless to me. you could just use icu4j calendars throughout.,healthy,110,0
+341,341.0,343,343,256,"All the names we've thought of for this suck, unfortunately. :(",toxic,63,1
+342,342.0,344,344,386,I did audit all callers. All callers had to try {} catch (IllegalArgumentException) { do something else instead }. This is silly.,toxic,129,1
+343,343.0,345,345,65,Done - changed to expect list and look for this error exactly before killing.,healthy,77,0
+344,344.0,346,346,221,"Eww.  Yes I suggested the ternary there, but that's fugly. :)
+
+if deps_filter_fn is None:
+  deps_filter_fn = lambda x:x
+self.deps_filter_fn = deps_filter_fn",toxic,156,1
+345,345.0,347,347,235,The deeply nested 'with' crap I'll do something about shortly....,toxic,65,1
+346,346.0,348,348,276,"really? that seems retarded. can't you fix that?
+
+the uapi mips stat.h has ""unsigned long st_mtime"". are you sure the real problem here isn't that bionic's stat.h has the wrong definition for mips64's struct stat?",toxic,213,1
+347,347.0,349,349,372,"looks like you screwed up somewhere. did you ""git commit --amend"" when you meant to ""git commit""?",toxic,97,1
+348,348.0,350,350,24,Please go through and remove all the trailing spaces.,healthy,53,0
+349,349.0,351,351,355,"this should read:
+
+ $(CXX) $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<",toxic,62,1
+350,350.0,352,352,224,"yeah, this is what i was worried about.
+
+(insert rant here about the stupidity of using configure instead of sizeof in the first place!)
+
+i usually hack around this by manually rewriting them as sizeof(long) et cetera.",toxic,218,1
+351,351.0,353,353,376,"Yes, checkpatch is a rather stupid style checker.",toxic,49,1
+352,352.0,354,354,285,Shit. I didn't think about reusing the output array. Hrm.,toxic,57,1
+353,353.0,355,355,124,"+1 it should be ""web content"", I have the same mental association as dcheng@",healthy,76,0
+354,354.0,356,356,190,"Some sort of silly typing or copy/paste error that I missed on final checking of the code.
+Thank you for fixing this, too.",healthy,122,0
+355,355.0,357,357,41,"the panicinfo command line can call this function after a reboot, in that case this will dump junk.",healthy,99,0
+356,356.0,358,358,398,"Oh derp. Now that you've pointed out, that's obvious. I was thinking for a while how this should be indented. Eh, wood for the trees and all that... :)",toxic,151,1
+357,357.0,359,359,313,Seems your condition is a bit screwed up here...,toxic,48,1
+358,358.0,360,360,131,I'll check this situation: looks like validation of this test was not executed before. With this patch it is executed and fails,healthy,127,0
+359,359.0,361,361,42,"I think that a macro around a variable declaration is obscure. I prefer the explicit version.
+
+Also, we could just use BaseVariable instead of T and get rid of the ugly typeof.",healthy,176,0
+360,360.0,362,362,44,Correct hash: 7e3b7dc76c41f9042a7079eb07d071f744bbd87a,healthy,54,0
+361,361.0,363,363,328,What confuses me is why the hell we do this std::max() here originally.,toxic,71,1
+362,362.0,364,364,222,"Erf, templating CodeGenerator just sucks. So what about my first suggestion? Just put the Labels in SlowPathCode...",toxic,115,1
+363,363.0,365,365,16,"qwidget should be before any stl headers (as stl is a built-in library and Qt is just a 3rd party), and, IMO, ui_*.h should also go before system headers",healthy,153,0
+364,364.0,366,366,253,"On ARM64 you'll be screwed here, won't you?  You'll start with virtual and go to physical?",toxic,90,1
+365,365.0,367,367,57,So this function will never throw an error? That surprises me a bit. Just returning false here might result in wrong decisions in client code which sees the STATUS_SUCCESS you set below.,healthy,186,0
+366,366.0,368,368,27,"You can clean this up a bit:
+
+if self.join(self.timeout) is None:
+  self.p.terminate()
+  if self.join(self.timeout) is None:
+    self.p.kill()
+    self.join(self.timeout)",healthy,170,0
+367,367.0,369,369,264,"Oh, yeah, what a crap.  Maybe use this cleanup commit to finally get rid of that odd --language handling for good.",toxic,114,1
+368,368.0,370,370,58,"If we pass 'true' to kCheckLarge, then how about inserting a DCHECK that allocator_type isn't the LOS type?",healthy,107,0
+369,369.0,371,371,152,Also kGlobalValueNumbering and kGvnDeadCodeElimination.,healthy,55,0
+370,370.0,372,372,266,"Sorry, I'm a moron. I didn't look closely enough what this does. You're still running through the whole cros_allow_auto_update check below even when this is set, so yeah, sounds perfectly reasonable.",toxic,199,1
+371,371.0,373,373,76,"I think this will expand to: ""disable-/path/to/init/main.d/goofy""
+
+maybe: ""$(dirname ""${rule_file}"")/disable-$(basename ${rule_file%.sh})""
+
+which will be /path/to/init/main.d/disable-goofy",healthy,188,0
+372,372.0,374,374,115,true /* pause_when_not_identical */,healthy,35,0
+373,373.0,375,375,114,"are you planning to do that in this CL, or a separate one?",healthy,58,0
+374,374.0,376,376,263,Replaced this function with Key(). operator() does not help for WTF::HashMap.,toxic,77,1
+375,375.0,377,377,337,"damn them!  thanks alex, I'll change it in the next round.",toxic,58,1
+376,376.0,378,378,73,You really should be using TimeTicks for times.,healthy,47,0
+377,377.0,379,379,63,Please add a comment saying there can only be one BLOB stream.,healthy,62,0
+378,378.0,380,380,104,Should you grep the codebase for this? You had this issue in other files before...,healthy,82,0
+379,379.0,381,381,169,"JNI entrypoints are *not* used by Quick. Remove them. It is also wrong to do this ""direct trampoline"" with them, as they may throw exceptions.",healthy,142,0
+380,380.0,382,382,246,heh. even crappy old APIs look better with lambdas!,toxic,51,1
+381,381.0,383,383,56,"you use a lot of bashisms in here, so this should be /bin/bash",healthy,62,0
+382,382.0,384,384,79,"No, please... all I'm trying to do here is preserve the current semantics, and make it as explicit (and ugly) as possible. I'm hoping for this to all go away very soon.",healthy,168,0
+383,383.0,385,385,154,init mSamplerType and the mSamplerCount - just to have some non-garbage values.,healthy,79,0
+384,384.0,386,386,35,"In here, you should instead fetch the device and check for wpsPbcSupported, wpsKeypadSupported etc.,",healthy,100,0
+385,385.0,387,387,219,This stupid reviewer error (leaving the scrolllock test mode on when committing) was fixed with commit d38459355e3e845ad8db3c515536267923afe3ec,toxic,143,1
+386,386.0,388,388,40,"There's only a single caller of this (in ParseAssignmentExpression), and I'm having trouble understanding how this if-statement could ever execute. Could this be a DCHECK instead?",healthy,179,0
+387,387.0,389,389,332,I think that'll just turn something horrible into something horrible and hard to read.,toxic,86,1
+388,388.0,390,390,330,"Damn, forgot to delete this after the code changed during review... well, better to leave it here than to get inconsistent with ToT now I guess.",toxic,144,1
+389,389.0,391,391,177,"A little weird that ret should be a Event but initialize as a boolean...
+How about this:
+
+while True:
+  ret = self._event_stream_map[plugin_stream].Next()
+  if ret is None:
+    return None
+  if self._policy.MatchEvent(ret):
+    return ret",healthy,238,0
+390,390.0,392,392,176,"if you get here, then aTmpState == aState, so this assignment is not useful",healthy,75,0
+391,391.0,393,393,391,before calling CharFmt::GetItemSet() you need to check if it's one of the 3 supported RES_TXTATR_* because the darn thing just casts it to SwFmtCharFmt which is undefined behavior,toxic,179,1
+392,392.0,394,394,390,"""Notify"" is a terrible name for a function regarding signal handlers. Curse you, Go core package authors.",toxic,105,1
+393,393.0,395,395,370,"While paranoid, I'd subshell this assignment and the following where sandbox must be disabled.  Protects against anyone being stupid and sticking a return into the block...",toxic,172,1
+394,394.0,396,396,66,"never mind, I'm an idiot. Need to use only one networkdispatcher",healthy,64,0
+395,395.0,397,397,90,"this is a raw string. so that really is { a, b, c, \, ' }.
+
+i was disappointed with how readable this turned out, but it's even worse with regular strings.",healthy,155,0
+396,396.0,398,398,28,Side note: maybe we should kill !CONFIG_OF in a followup patch?,healthy,63,0
+397,397.0,399,399,388,"yea, this kinda sucks. I'll think about how we can improve this.",toxic,64,1
+0,,0,585,2531,"Indeed, that's pretty ugly. It's a bit less ugly if you actually use x86::CodeGeneratorX86.",toxic,91,1
+1,,1,6,4117,"return false on null case?
+
+ if (!blob->data) {
+   return false;
+ }
+ blob->data_length = ...",healthy,92,0
+2,,2,324,3636,"Oh, damn, this doesn't work with constexpr. I am fine with any solution: remove constexpr, or remove the DCHECK.",toxic,112,1
+3,,3,67,4059,"Remove terminator as not needed.
+ Using intdeventry = ARRAY_SIZE(devintconfig)",healthy,78,0
+4,,4,235,4055,"Remove since no longer needed in latest PS, along with generated prebuilt libs.",healthy,79,0
+5,,5,424,6524,Yuck. It took me a second to see the use of response.,toxic,53,1
+6,,6,482,3798,"our style guide not withstanding, Stop() vs stop() seems like a recipe to get bit in the ass; I've use a lowercase 'stop()' here instead of the usual capitalization.",toxic,165,1
+7,,7,76,4371,should we just remove these two sections?,healthy,41,0
+8,,8,61,682,blah = doesn't always work. In this case hostname= does not work and host= expects a host id # not a hostname.,healthy,110,0
+9,,9,193,6092,wtf: capdata[CAP_TO_INDEX(n)].permitted,healthy,39,0
+10,,10,241,5477,Typo: 'SetCon*s*tructedInTesting',healthy,33,0
+11,,11,578,778,can we get rid of this ugly files/ convention too while we're here ? we've fixed it in most other places too.,toxic,109,1
+12,,12,548,2550,Inline the count variable it's useless,toxic,38,1
+13,,13,586,2697,"It would be nicer to use ""size_t old_fingerprint_end = old_sdp.strspn(""\r\n""), but it seems that wtf::String doesn't have a strspn equivalent. This will work.",toxic,158,1
+14,,14,524,6095,"wtf? why aren't we just using std::string instead of char*,size_t?",toxic,66,1
+15,,15,466,5325,"This should have been const void*. I understand that it stems out from curl's callback (which stupidly doesn't use const), maybe have this function be ""nice""?",toxic,158,1
+16,,16,260,2431,"I'll give it a shot, I was considering this a bit for the sake of not duplicating logic like you mention, my main hesitation was that I'm garbage at makefiles :)
+
+But I think it would be the better solution, I'll play around with it today.",healthy,239,0
+17,,17,294,3823,"Perhaps bestAlignmentForText: returns garbage when self is not first responder. If your method returns correct values when !self.firstResponder, and you don't have any particular reason to have this, pls remove it. :)",healthy,217,0
+18,,18,30,3190,nit: #endif /* CONFIG_USB_PD_TCPM_MUX */,healthy,40,0
+19,,19,12,1591,"grid_height = screen_height/grid_num;
+sample_height = grid_height/sample_num;",healthy,77,0
+20,,20,155,2259,I would like to get the 'android-configure.sh && make' flow continue to work. Is is possible to put this copying and generation step inside of android-configure.sh instead to make it so?,healthy,186,0
+21,,21,403,5826,What about one that has a subclass that it returns? This is checked in your duck typing proxy at least.,toxic,103,1
+22,,22,426,3690,"Ohter potential tests would be binding to the NULL name, and binding a stupidly large location.",toxic,95,1
+23,,23,399,5023,This insanity is spreading... I'll have to clean it up.,toxic,55,1
+24,,24,538,5257,This one seems pretty useless as well!,toxic,38,1
+25,,25,347,4160,"s/int/size_t/
+
+(or if you want to be anal, vector<string>::size_type)",toxic,69,1
+26,,26,153,2058,"I think it is useless. In which case is it useful, for what?",healthy,60,0
+27,,27,446,2007,"i really want to replace all this crap code with std::string, but not today.",toxic,76,1
+28,,28,547,3971,Probably. That was me being almost as stupid as the original code.,toxic,66,1
+29,,29,568,3654,"Oh, interesting!  Agreed.  ""//lint stfu"" is also uglier, if it were possible.",toxic,77,1
+30,,30,131,6156,"Yeah, some rebasing stupidity on my part.
+
+This stack doesn't need to be on top of cron anyway, reparented.",healthy,107,0
+31,,31,34,2909,"Lets move this new code up above dump, with the other new code. I like dump being at the bottom.",healthy,96,0
+32,,32,596,2019,"I see. That restriction sucks. Let's keep it the way you have it, otherwise we'll have to have this super uber ModuleAdapter, which sucks too.",toxic,142,1
+33,,33,327,524,"and repeatedly executing the same useless code is slow ...
+ IMO, that's just papering over the code inefficiency.",toxic,113,1
+34,,34,292,3747,"oops i'm an idiot and can't read, it's not actually published :)",healthy,64,0
+35,,35,449,4509,"Sorry, I suck. I should have also told you to put this in pkg_preinst()",toxic,71,1
+36,,36,544,5367,"This variable names is the name of a variable parse by this codec, that is here, a list of pattern, so somethings likes patterns. If you just return parser.getVariableName, this will be 'list', and that no so stupid.",toxic,216,1
+37,,37,250,1179,Do you need a self.skip_space() here? Or is any space already skipped?,healthy,70,0
+38,,38,320,1171,Do we really need to protect against the file system changing under our ass? I think that's a bit excessive.,toxic,108,1
+39,,39,464,4675,that's actually a possibility? yuck!,toxic,36,1
+40,,40,516,843,check yourself before you wreck yourself...,toxic,43,1
+41,,41,570,2941,"Log(""%zu"", moving_slot); :D
+ 
+ use %zu for size_t, %zd for ssize_t, then no ugly C++ casts.",toxic,91,1
+42,,42,434,829,"Cause it's more complicated to manage that, in this is slow-path code (it was a map, then I went with the lighter-weight vector). Admittedly naming sucks, I'll make it LockCountData.",toxic,182,1
+43,,43,103,889,"Consider checking that in.dataAvail() == 0 at this point. (i.e., there's no trailing garbage.)",healthy,94,0
+44,,44,365,6199,"Yes, checkpatch is a rather stupid style checker.",toxic,49,1
+45,,45,580,6497,"you're right, it looked clumsy when I did it the other way but I think it's the right way. I'll fix it.",toxic,103,1
+46,,46,480,5373,"This was actually shockingly bad, since it meant that we'd always calculate the hashed id even if the blacklist was empty.  Yuck!",toxic,129,1
+47,,47,555,3536,"Not a deal breaker but that kinda sucks. Is there a ""things to do after v2 launches"" bug list? This sounds like it should be added.",toxic,131,1
+48,,48,104,2153,I think we'd want lstat. is_mtd() on a symlink should fail.,healthy,59,0
+49,,49,196,1990,I needed it for DISALLOW_COPY_AND_ASSIGN. Removed.,healthy,50,0
+50,,50,158,5824,what about endianness here? It looks like all other methods explicitly extract individual bytes from a value,healthy,108,0
+51,,51,400,706,"Both clang and GCC are pretty stupid about this warning.
+
+    struct foo = {}; // emits warning
+
+Eventually this will all be C++ and we'll just have real constructors, but this will do for now.",toxic,193,1
+52,,52,380,2257,I would just read the right half of the diff here. The old interface was confusing garbage.,toxic,91,1
+53,,53,329,6070,"Wow, there's no way to make this automatic? Seems like a pain in the ass to recalculate every time we insert/remove a button.",toxic,125,1
+54,,54,35,4716,The comment seems incorrect now.  Is this a concern?,healthy,52,0
+55,,55,290,4394,ShowCounters() doesn't need start_time and end_time. But the duration_cast is annoying here. I move it inside ShowCounters().,healthy,125,0
+56,,56,325,2094,I think the formatting may have gotten screwed up (or Gerrit made it look ugly),toxic,79,1
+57,,57,7,4848,These are hardcoded here and in the zone functions. Put them all in one place.,healthy,78,0
+58,,58,207,3145,Need to kill off &periph_l_regs here.,healthy,37,0
+59,,59,263,1053,danalbert made this unnecessary. we've even started to remove them in places...,healthy,79,0
+60,,60,88,428,"Ah! Didn't realize GetWebMediaPlayer() is a public method... that's nasty, but helpful in this case :) Done.",healthy,108,0
+61,,61,427,535,"Any reason this code isn't preserving the sleep/umount, *while* dieing?  We know the gvfs idiocy exists; I don't see the cost in leaving in protective code in the die pathway.",toxic,175,1
+62,,62,276,5939,Why do you include this assignment if the next statement right after this block is another reassignment? Self-contained free-ing and init-ing block? Or copy-and-paste artifact?,healthy,176,0
+63,,63,597,2288,I'd like to buy your dictionary with your definition of horribly.,toxic,65,1
+64,,64,117,563,Are you planning a separate CL to remove SetFailureSilent here and in the mocks?,healthy,80,0
+65,,65,23,3269,nit: get rid of battery_percentage and just return the values directly below,healthy,76,0
+66,,66,468,2461,I'm hoping that you won't tell me that this is a horrible hack :),toxic,65,1
+67,,67,288,2519,"In that case, my personal take would be the alternative outlined in your first bullet. What I leave this up to you.",healthy,115,0
+68,,68,575,421,"ah crap...
+
+For reasons unknown, this is always final line in the file. I think I'll need to deep-copy stack trace when capturing it.",toxic,133,1
+69,,69,129,3121,myButton.setIcon(hasMultipleItems() ? PlatformIcons.COMBOBOX_ARROW_ICON : null);,healthy,80,0
+70,,70,213,3099,mpAudioTrack should be initialized.,healthy,35,0
+71,,71,395,5185,This is ugly. Maybe subclass output manager for each interface type?,toxic,68,1
+72,,72,445,3488,"no, but i can change it to Lollipop. i just hate these stupid-ass names, and don't have an API level yet.",toxic,105,1
+73,,73,81,3496,"No, I think this is preferable to have an informational output cause a failure.",healthy,79,0
+74,,74,162,3404,"nit: unique_ptr<>& is a little ugly IMO, when not necessary.  Maybe
+ExtensionThrottleEntry* entry = url_entries_[url_id].get();
+?",healthy,129,0
+75,,75,270,608,"As with UiccCard this implementation has race conditions, use mLock style synchronization on all public methods?",healthy,112,0
+76,,76,36,775,Can we extract this to a function? All the exit points are die() statements so should be fine.,healthy,94,0
+77,,77,144,2960,"lsusb isn't built any more. should i add lsusb.c back into the makefile and restore libusbhost, or should i git rm lsusb.c?",healthy,123,0
+78,,78,521,3397,nit: this line is totally worthless,toxic,35,1
+79,,79,128,1715,"how about a SucideStage that does os.kill(os.getpid(), 9) ?",healthy,59,0
+80,,80,266,4003,"qwidget should be before any stl headers (as stl is a built-in library and Qt is just a 3rd party), and, IMO, ui_*.h should also go before system headers",healthy,153,0
+81,,81,542,1458,"FATAL:media_transfer_protocol_manager.cc(52)] Check failed: bus_.
+
+It sort of sucks to have a bunch of ifs just to make the test pass. I'll check if we can put in some fake bus and get back to you.",toxic,197,1
+82,,82,489,2748,"I've generalized this to include all context managers as Alex prescribed.  I've also left a general warning not to be an idiot about locking.  Unfortunately, it won't reach its intended audience.",toxic,195,1
+83,,83,171,2165,i think you can leave these two out. (they have to be included by their mocks.),healthy,79,0
+84,,84,56,2920,Let's use DISABLE_HW_DECODE_ACCELERATION_BROWSER_ARGS or DISABLE_ACCELERATED_VIDEO_DECODE_BROWSER_ARGS.,healthy,103,0
+85,,85,390,5195,This isn't Chrome tracing.  This is dumb armsoc tracing into Xorg.0.log.,toxic,72,1
+86,,86,238,6448,You should put a kOnstant in here.,healthy,34,0
+87,,87,169,5774,we should remove all accounts of TYPE_0 too,healthy,43,0
+88,,88,119,2631,"Isn't system_api's dbus/service_constants.h violating this, then?",healthy,65,0
+89,,89,328,583,"arse!
+
+good job one of us can read…",toxic,35,1
+90,,90,178,4803,"The umpire structure is based on twisted, and we probably want to use twisted primitives (such as deferLater) instead of threading.Timer.",healthy,137,0
+91,,91,476,3623,"Oh this is so lame... re.match() anchors the beginning, but not the end :P :P :P :P  What were they thinking?",toxic,109,1
+92,,92,353,5120,"This is kinda crappy. I just realized you can't query LayoutLibrary for the API level.
+We should have a Capability for IMPROVED_VIEW_INFO or something.",toxic,151,1
+93,,93,383,1429,"Eww.  Yes I suggested the ternary there, but that's fugly. :)
+
+if deps_filter_fn is None:
+  deps_filter_fn = lambda x:x
+self.deps_filter_fn = deps_filter_fn",toxic,156,1
+94,,94,232,2380,If you are trying to set this to false and you succeed at changing the setting but not at killing the daemon; should you fail? The update_engine will not share new files nor try to consume them; but the daemon will still be running until next reboot.,healthy,250,0
+95,,95,495,2936,"list is internal identifier, and xlist is a stupid name",toxic,55,1
+96,,96,136,473,"Ak, that was dumb of me not to see that, _that's_ why you did it that way.",healthy,74,0
+97,,97,552,6115,"Yeah reading the doc, getCanonincalPath will return a unique file per file (not per path).
+
+However I don't want to use canonicalpath.
+
+Java7 has a new class to handle this crap....",toxic,181,1
+98,,98,494,3863,please fix this silly trailing space issue,toxic,42,1
+99,,99,273,668,better just remove this completely than introduce a rotting DEBUG_CPPU_UNO,healthy,74,0
+100,,100,507,1584,"good thing you wrote it this way :) - you would've gotten screwed if you wrote ""org.conscrypt"".equals() because jar-jar would've helpfully changed the string for you.",toxic,166,1
+101,,101,301,707,brace indentation is screwed up here,toxic,36,1
+102,,102,553,1968,"I know this is simpler, but I don't know why an enterprise would care about disabling audio activity unless it delayed the lock screen. For the user in the enterprise case, losing this ability just becasue video is bad would suck.",toxic,230,1
+103,,103,303,711,"btw, `ECMASCRIPT6` significantly increases bundle size by adding dozens `$jscomp` variables like `const $jscomp$async$this=this;return $jscomp.asyncExecutePromiseGeneratorFunction ...` and ES6 polyfills. It's awful :(",toxic,217,1
+104,,104,231,2533,"indent with tabs, not spaces
+ 
+ you could one-line it by doing:
+ 
+  rm ""${D}""/boot/{config,System.map}-${version}
+ 
+ you should add `|| die` after each `rm` since it isn't automatic",healthy,181,0
+105,,105,504,5780,"we still have sramfunc in plat_pmu_macros.S, so we need sram_test and sram_data. Oh, it so stupid use wrong sram size
+before :(",toxic,127,1
+106,,106,377,1887,"I explored std::atomic<T>, but it's uglier to initialize and use (it's non assignable and initialized to junk).",toxic,111,1
+107,,107,388,1926,"I hate Qt's metatyping.
+
+Moved to using a private data member instead of a slot argument.",toxic,89,1
+108,,108,31,4078,"Remove this warning because we must provide 15,30 and 30,30. We don't want people to ask if this message is a bug every time. Just keep the documentation.",healthy,154,0
+109,,109,283,6445,You should probably either handle view == null or add a DCHECK,healthy,62,0
+110,,110,431,3750,"Oops, brain fart :-) Sorry, I had misread that page (I overlooked the fact that most overloads only applied to unique_ptr<T[]>). Shutdown() got removed altogether in the end, so we won't be needing either version.",toxic,213,1
+111,,111,499,1575,"Good catch.
+
+It sucks that we have multiple name spaces for the same stuff.",toxic,75,1
+112,,112,272,3366,"nit: should have a higher oom_score_adj to be killed earlier.
+Don't forget the period.",healthy,86,0
+113,,113,459,2690,"It was also not immediately obvious to me why you were adding a bool to an int, but I get it now.
+
+Is there any way to make this more 'idiot-proof' for the next reader of the code?",toxic,180,1
+114,,114,112,6042,With this option I don't get any respone after setenv stdin=usbkbd,healthy,66,0
+115,,115,306,910,correct -- this is how `gerrit` has always operated thus far.  i agree it's crappy behavior.,toxic,92,1
+116,,116,203,4094,"Remove.
+
+""Let the shell script and MIMO updater check the PID.""",healthy,63,0
+117,,117,474,5885,When I change the API I will delete it. Having this kind of thing being a public millstone for the GC is ridiculous.,toxic,116,1
+118,,118,415,2443,I'm a sucker for early returns instead of adding an indentation to the whole function body. :),toxic,94,1
+119,,119,571,3676,"Oh, yeah, what a crap.  Maybe use this cleanup commit to finally get rid of that odd --language handling for good.",toxic,114,1
+120,,120,338,5096,"This is existing code -- PostAsyncCallbackForUser -- I can actually use that as the holder for now.  Then we can kill it all after.
+
+I agree - this is messy/ugly.",toxic,162,1
+121,,121,168,715,"Btw, the IDs starting with I... are Change-IDs you see in commit messages, identifiers of changes within gerrit. The ""real"" git commit IDs are the ones you get when browsing git log, prefixed with ""commit ..."".",healthy,210,0
+122,,122,99,2020,"I see. That's the error because you are trying to overwrite existing dir with symlink; while ""rsync -a"" was to fix symlink overwriting broken symlink.
+
+Probably better to write a python script to do the copy, so you can select whatever to copy.",healthy,244,0
+123,,123,469,854,"chromite.cros.commands.* contradicts that. :)
+
+Find stays, although an os.walkdirs or similar perhaps (the find was used since it's far simpler than the walkdirs crap, imo).",toxic,173,1
+124,,124,595,640,"Bash is a strange beast. Here's my problem:
+
+
+$ echo 'somevar=""blah""' > test.sh
+$ (. ./test.sh) || echo fail
+$ echo ${somevar}
+
+$ . ./test.sh || echo fail
+$ echo ${somevar}
+blah",toxic,177,1
+125,,125,255,5989,why not place this in the dirty bits iteration? (with a comment on why we need it for D3D11),healthy,92,0
+126,,126,473,2778,"just --ipv6 and default to true? i'm pretty sure that DEFINE_bool(ipv6, ...) should already give --noipv6, and --nono_ipv6 is pretty disgusting.",toxic,144,1
+127,,127,89,3590,"null should never happen, so I would use Preconditions.checkNotNull instead; otherwise an misconfiguration in TOUCH_NAME_TO_ENUM may be masked",healthy,142,0
+128,,128,265,3543,"not forever:)
+
+The command will be killed at
+https://chromium-review.googlesource.com/c/chromiumos/platform/tast-tests/+/1557300/1/src/chromiumos/tast/local/bundles/cros/video/encode/accel_video.go#330",healthy,201,0
+129,,129,20,4102,"replace the misleading javadoc with ""Equivalent to {@link Math.nextUp}.""?",healthy,73,0
+130,,130,227,4978,"This definitely seems useless. const pointer to a write-only buffer, which points past the end of valid data.",healthy,109,0
+131,,131,200,3762,"Oops, this IFNA should not be here, probably due to your rebase.",healthy,64,0
+132,,132,222,5246,"This needs *your* SOB.
+As I mentioned before, please use:
+
+git cherry-pick -x -s
+
+To add the cherry-pick message *and your SOB*.",healthy,128,0
+133,,133,527,1151,"Dislike this here.  Is there a better place for this constant?
+
+Alternatively, leave it here, then we move the git crap out of this lib into it's own module...",toxic,159,1
+134,,134,150,3511,"No, this os is temporary (allocated on stack), and will be destroyed at the end of this function",healthy,96,0
+135,,135,460,1008,"Damn it, how'd that slip through...",toxic,35,1
+136,,136,239,1788,"I am fine to create a new AssistantNotificationSubscriber.
+ Do you mean to rename AssistantEventSubscriber interface to AssistantInteractionSubscriber?",healthy,151,0
+137,,137,234,1214,D'oh... stupid copy-and-paste errors. Someday I'll figure out how to type zh-CN directly into emacs...,healthy,102,0
+138,,138,180,2073,"I think so. For example, debuggerd uses this feature to dump parts of the stack of the crashing process.",healthy,104,0
+139,,139,175,4418,"Since these APIs can't be used by anything other than the smart card process they should be hidden so they won't show up in the SDK. To do that please add a javadoc comment that includes the @hide tag, like this:
+
+/**
+ * @hide
+ */",healthy,230,0
+140,,140,192,4181,"Same here, useless error in a console log.",healthy,42,0
+141,,141,259,4024,recommend pcre_options = PCRE_ANCHORED,healthy,38,0
+142,,142,496,1521,future language designers take note: this is the kind of silliness that results when you don't allow trailing commas,toxic,116,1
+143,,143,256,3583,"Now this is the ""made up"" delay. ...it's much smaller, I don't think it needs to be very much.",healthy,94,0
+144,,144,138,5350,this subject line is a bit uninformative,healthy,40,0
+145,,145,174,2716,"It's an unfortunate side-effect of the module() member of ModuleEnv being const. I think that member is worth const-ing, to communicate clearly that consumers of ModuleEnvs that the WasmModule is not mutable by them.",healthy,216,0
+146,,146,125,5608,Use GEM mmap. Whether or not the buffer is tiled is an implementation detail.,healthy,77,0
+147,,147,197,5553,"Urgh, annoying... How much work is it to test the ""users""? How many are there in the first place? Can you not just inspect them manually and make the change? Otherwise I suggest switching to Python...",healthy,200,0
+148,,148,318,1942,I heard about that - apparently it may create a black hole that consumes your children.,toxic,87,1
+149,,149,4,5259,This only needs Is* methods. Remove from friends and make Is methods public.,healthy,76,0
+150,,150,481,6116,Yeah this one is a bit weird. I believe it's possible to remove it by using the InputMethodKeyboardController interface instead. I can give it a try.,toxic,149,1
+151,,151,274,2525,In the kernel where they dislike* typedefs.,healthy,43,0
+152,,152,393,3308,Nit: let's nuke the |numPopups| param for sake of simplicity.,toxic,61,1
+153,,153,296,4685,"that's just silly. if we really worried about that, we would also include the date and the log tag and the fact that this is of class error!",healthy,140,0
+154,,154,362,572,"Argh, brain fart from a previous version of the patch :(",toxic,56,1
+155,,155,106,756,Can this be incognito profile? We currently persist download directory in original profile.,healthy,91,0
+156,,156,340,5496,"ugh.  I hate nested #ifdefs.  No choice, I guess...  ;)",toxic,55,1
+157,,157,204,2811,kiking is simple - killing of reaper_thread and closing usb device endpoints.,healthy,77,0
+158,,158,574,1210,"D'OH! Shit, sorry... you should've told me that something broke for you. I'll fix it right away.",toxic,96,1
+159,,159,411,6066,"Wow, did we miss an obvious bug right here!  What idiot LGTM'd this?  :)
+
+I'm fixing this as part of another CL now.",toxic,116,1
+160,,160,202,1373,"edit: Okay, pylint just told me that I'm an idiot and that you meant the error() function in argparse instead.",healthy,110,0
+161,,161,152,1889,I feel it is better if you use bitwise OR instead of arithmetics.,healthy,65,0
+162,,162,336,5866,"what the heck! I changed this, but somehow it was lost.",toxic,55,1
+163,,163,121,3209,nit: add a simple constructor so it isn't possible to create one of these with garbage in the 'type' member,healthy,107,0
+164,,164,385,5486,"ugh, damn autoserv, bringing it back.",toxic,37,1
+165,,165,573,1042,"Damn, you're right. My bad, the alias table was even malformed, but this was hidden by the full resource table, which masked it completely. This is now fixed. Thanks for spotting this.",toxic,184,1
+166,,166,514,1564,"Global context kinda sucks for following code flow, but I know we rely heavily on this param global.",toxic,100,1
+167,,167,384,2465,i'm just going to kill WaitForService() because it is dumb,toxic,58,1
+168,,168,589,5355,"This test is a horror show, but it is temporary state until all v1 crap is deleted.",toxic,83,1
+169,,169,237,456,"Ah, this is why your hack only runs for USID = 0",healthy,48,0
+170,,170,470,4487,"something is going wrong with the indentation here - or perhaps before, make sure it's 4 spaces (and configure your editor to ensure that, if it is too dumb to do it out of the box)",toxic,181,1
+171,,171,549,6147,"Yeah, it's like this code has entered a squishing competition. Sucky if you ask me, but agree with the line removal here and below - it's consistent with the rest of the code, and that matters more than anything else when coding at chrome-team scale.",toxic,250,1
+172,,172,66,3237,"nit: const pointer.
+ i.e.
+ 
+  AppListViewDelegate* const view_delegate_;
+  SearchResultPageView* const search_result_page_view_;",healthy,128,0
+173,,173,10,6064,Wow yeah.. how did that git in there (goes to git blame)...,healthy,59,0
+174,,174,572,2644,"it can be ignored, although the consequences of that CONFIG_PROTECT wise may bite us in the ass to say the least.",toxic,113,1
+175,,175,588,3485,No worries! the part of the code is pretty ugly and it is sooooo hacky! :-),toxic,75,1
+176,,176,402,5349,This stupid reviewer error (leaving the scrolllock test mode on when committing) was fixed with commit d38459355e3e845ad8db3c515536267923afe3ec,toxic,143,1
+177,,177,467,4789,The repeated setter looks ugly. Consider one masking step.,toxic,58,1
+178,,178,425,1686,"Hmm, you are right. These should not be included by CQ until they're submitted.
+
+Note that the CLs will not show up as chumps because they're submitted by chrome-bot.",toxic,166,1
+179,,179,433,995,dammit! thanks for keeping me honest :),toxic,39,1
+180,,180,173,4368,Should we just get rid of the brackets or are they actually useful?,healthy,67,0
+181,,181,240,5693,"vpx_dsp/ should be enough, then you'd move this after vpx_integer.h for the sort order",healthy,86,0
+182,,182,562,1030,"Damn, good catch, I added that if() without thinking and my test just coincidentally happened to work.
+
+Fixed and added another test to cover that case.",toxic,152,1
+183,,183,261,5925,"why bother ?  if mount_gpt_image gets a bad flag, just let it die ?  then this func turns into one call:
+
+ ""${SCRIPTS_DIR}/mount_gpt_image.sh"" --remount ""${MOUNT_GPT_OPTIONS[@]}"" ""$@""",healthy,183,0
+184,,184,442,2587,"Is it really safe to handle these IRQs now, at syscore resume time?  Cocks and GPIOs may not have even been initialized yet.",toxic,124,1
+185,,185,19,2759,"JavaTime is an int64, but base::Value only supports int.",healthy,56,0
+186,,186,83,5759,we should just delete this entirely and use sys_tgkill from linux_syscall_support,healthy,81,0
+187,,187,33,2245,"I wonder if the indirection is worth it...
+
+Perhaps a comment would be more helpful here:
+
+  # Create a Datagram socket
+  s = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)",healthy,175,0
+188,,188,102,3309,nit: Let's write BindRepeating. ditto for other callbacks.,healthy,58,0
+189,,189,79,5587,Use can use die() here... this should never happen and indicates a bug.,healthy,71,0
+190,,190,537,3469,"no magic.. just this coder dumbness
+tried another way...",toxic,56,1
+191,,191,210,2737,"Its requried for linkage, should I add a dex_instruction_utils.cc to get rid of it?",healthy,83,0
+192,,192,244,1414,error -> die.  then you can drop the exit below.,healthy,48,0
+193,,193,485,3569,note the new __LP64__ check. we don't want to fuck 64-bit bit up like 32-bit was fucked.,toxic,88,1
+194,,194,281,790,Can we remove WidgetCreationType and kWidgetCreationTypeKey?,healthy,60,0
+195,,195,118,1751,"How long does this take? The run queue idle needs to be really fast, since it will block EVERYTHING in Goofy. If it takes a long time, maybe it should be a separate thread after all.",healthy,182,0
+196,,196,122,3219,"nit: both interfaces take a pid.  Make the ordering the same (first on both?)? (yeah, my fault that they're different.)",healthy,119,0
+197,,197,247,881,CONFIG_FTRACE is expensive and not necessary for systrace.  All you need is CONFIG_SCHED_TRACER.,healthy,96,0
+198,,198,54,3125,"Nah, because I want to make it REALLY HARD to do something stupid that causes us to lose track of locked hosts.  This way, you can't remove hosts from self._hosts short of flat out blowing it away and replacing it with something else.",healthy,234,0
+199,,199,302,3773,"Oops...""Click here info"" reads pretty awful :-D
+
+Fixed!",toxic,55,1
+200,,200,372,1010,"Damn it, I swear I know how to speel this word.  Fixed.",toxic,55,1
+201,,201,148,2607,"is this actually what we want, or do we just want raw /proc/pid/maps output? bdc? cferris?",healthy,90,0
+202,,202,583,1672,"Hmm whitespace looks dumb there.  Perhaps just drop the trailing comma?
+I wrote that, thanks for linting.",toxic,105,1
+203,,203,519,3632,"Oh, crap. Sorry, yes, it does.
+
+Despite the escape, I still parsed it as '0'. I'm brain dead today.",toxic,99,1
+204,,204,43,4202,SCROW instead of sal_uInt16. If not SCROW then at least a 32bit type.,healthy,69,0
+205,,205,233,4002,"quote the $D and drop the ""|| die""",healthy,34,0
+206,,206,41,2492,I'm somewhat of a fan of still having the (useless) &= ~(7 << 4) just to make it obvious that we're setting a field.  ...but I guess that's a matter of opinion.,healthy,160,0
+207,,207,461,5228,this means that any calling code that uses this needs to be built with _FILE_OFFSET_BITS=64 too. i guess the fact that it's all C++ means we're safe because the mangled names won't match if you screw up?,toxic,203,1
+208,,208,62,2780,Just let this declare that it throws InterruptedException? Otherwise you have a bug if Daemon.stop() is called while waiting. It might claim finalization took 10 seconds when it really didn't.,healthy,192,0
+209,,209,484,4186,same rant about using the standard shit. Done.,toxic,46,1
+210,,210,110,4787,the --product option doesn't seem to be used by this script. probably a left-over of experimentation,healthy,100,0
+211,,211,392,1961,"I know that I mentioned this already, I'll just do it one more time, just in case. If you used vector<uint8_t> for binary data, you wouldn't have to do all those casts and you wouldn't need those ugly hacky string_as_array() calls as well. :)",toxic,242,1
+212,,212,258,4906,Thing is I usually find it silly to have case A: case B: if (A),healthy,63,0
+213,,213,590,4972,"This could also be improved as above.  Also, I simply hate
+the unnecessary \ continuation.  Finally, the quotes here are
+silly.",toxic,127,1
+214,,214,437,2002,"i realize FatalError shouldn't return, but if we're being this anal, it seems odd that there's no free(3).",toxic,106,1
+215,,215,322,2127,I think this sucks but can't find a better way to do inline styling.,toxic,68,1
+216,,216,228,888,Consider an enum class for cleanliness.,healthy,39,0
+217,,217,46,5143,"This is quite an abuse of C enum.
+I don't know how much of proper code review is expected to this third-party code.",healthy,115,0
+218,,218,315,1537,"Gentoo's python framework likes to use crap wrappers.  it might be possible to make it work, but i don't know.  i'd have to ask.",toxic,128,1
+219,,219,108,6421,You should be able to get rid of this and create a fake sysroot.,healthy,64,0
+220,,220,42,6416,"you seem to always cd into this dir in the src_* funcs.  perhaps you'd be better off changing the value of S to like:
+S=""${WORKDIR}/asan/clang_src""",healthy,147,0
+221,,221,401,2047,"I think at this point the IOMMU is in a broken state anyway and the whole system is screwed. ;)
+
+Generally this shouldn't happen, though...",toxic,139,1
+222,,222,225,1833,I destroy dev_priv->wq on failure.,healthy,34,0
+223,,223,341,5520,"uint8_t src_data[] = ""thirtytwo-bytes-of-nonsense-data"";
+
+sizeof(src_data);",toxic,75,1
+224,,224,396,673,Better to use tr -d here. But I think it is very braindead.,toxic,59,1
+225,,225,141,945,"couldn't you can simplify all of this to:
+ bool call_service_manager_started_callback = !service_manager_context_;",healthy,114,0
+226,,226,299,4918,this afternoon's job is removing this and the PR_SET_VMA hack too...,healthy,68,0
+227,,227,558,6149,"yeah, it's used by to share SHA1-related constants. yuck.",toxic,57,1
+228,,228,223,2540,"Indention should be:
+
+blah = Blah(stuff,
+                  stuff2,
+                  stuff3);",healthy,93,0
+229,,229,2,3509,"No, the line is correct, it is SAL_INFO( area, expression)",healthy,58,0
+230,,230,93,1227,"Done
+
+But if kill() or getpid() starts to fail, I'm pretty sure we have way worst problem that failing the test :)",healthy,114,0
+231,,231,184,3522,Nobody uses CreatePerUserTopicInvalidationClient. Who is going to own InvalidationClient*? Does it make sense to return std::unique_ptr<InvalidationClient>,healthy,155,0
+232,,232,282,2128,"I think this will expand to: ""disable-/path/to/init/main.d/goofy""
+
+maybe: ""$(dirname ""${rule_file}"")/disable-$(basename ${rule_file%.sh})""
+
+which will be /path/to/init/main.d/disable-goofy",healthy,188,0
+233,,233,27,6329,"You could record the PID of the bot in a file after you kick it off, then kill the bots by using os.kill.
+
+Even if you continue using ""ps a"", I think it's better to use python's re and os modules than shelling out to grep awk and kill.",healthy,235,0
+234,,234,160,5231,"This method does a lot more than this description. It would help to have some comments either here on inline regarding garbage collection, worst offenders, region lock, ...",healthy,172,0
+235,,235,133,1685,"Hmm, what should we do when these early returns are hit while there is pending Receive request? Currently it will enter deadlock.",healthy,129,0
+236,,236,95,588,"as far as I can tell, it's useless, and should be removed.  The whole 'passing arguments to a test' construct should be removed, from all the tests you're working on.",healthy,166,0
+237,,237,1,659,Because you std::move() the context_provider into context_provider_ it's always null the second loop.,healthy,101,0
+238,,238,13,2052,I think I actually shouldn't have removed this because there's now a bunch of crap in my working directory...,healthy,109,0
+239,,239,28,1644,"Here and below, please use assertEqual instead of assertTrue with ==.",healthy,69,0
+240,,240,559,1290,"Done.
+Of course, excuse the brain fart :)",toxic,41,1
+241,,241,229,2104,I think the rockchip_configure_pd_cnt () should put in probe().,healthy,63,0
+242,,242,458,5403,"This won't break if that's not true, but it'll keep us from being a bunch of idiots if we do break it, so yeah. And it does protect against duplicates.
+
+Done.",toxic,158,1
+243,,243,116,3969,probably worth pointing out that sample_type is a *bitmask*.,healthy,60,0
+244,,244,540,6101,ya. darn. i thought i snagged all these.,toxic,40,1
+245,,245,557,933,could you add this too ?  emacs sucks :p,toxic,40,1
+246,,246,366,2113,"i think this changes the behavior of ""reboot-bootloader"". didn't ""reboot-bootloader any old crap can follow"" work?
+
+i feel like we're making this already unreadable mess even worse.",toxic,181,1
+247,,247,55,3427,Nit: you could use your StringBuilder above to do this concatenation.,healthy,69,0
+248,,248,440,1418,"even reading the bug, this seems very bogus to me. can we just lose all this crap?",toxic,82,1
+249,,249,436,864,Code was moved. I agree that magic constants suck.,toxic,50,1
+250,,250,132,5125,This is monochrome_public_common_apk_or_module_tmpl.,healthy,52,0
+251,,251,455,431,"Ah, crap.
+
+This is non-trivial to implement efficiently given the current entity structure. I'll implement it half-assedly and warn in the doc about that.",toxic,154,1
+252,,252,354,1036,"damn, this conflicts with my change in progress :-(",toxic,51,1
+253,,253,5,3843,please add `|| die' in the end of the line,healthy,42,0
+254,,254,551,4606,"Sure, but it doesn't hurt either. (hmm, Windows is stupid because it is not POSIX?)",toxic,83,1
+255,,255,37,5829,What about vb2_get_keyblock? It's not restricted to vblock.,healthy,59,0
+256,,256,358,3996,Putting parens around ::android::Singleton... should fix it (and confuse the hell out of cpplint).,toxic,98,1
+257,,257,497,1991,"i notice that these *_length functions don't pay attention to overflow either, and the *_to_utf8 functions don't take a destination length, only a source length.
+
+i really wish we could move people off String8 (and all the other crap in libutils).",toxic,247,1
+258,,258,330,5493,"ugh, this style convolutes changes in patches...  on-per-line is much nicer :-)   although I know this is the autotest style...  damn you mbligh, heh ; and I guess gerrit is also pretty good at partial line changes...",toxic,217,1
+259,,259,333,5554,"Urgh, this is pretty ugly. Are you doing this just to retain the constant lookup in the ssa builder? SafeMap has lookup in O(log n) which really isn't that much of a difference...",toxic,179,1
+260,,260,577,4235,Seems your condition is a bit screwed up here...,toxic,48,1
+261,,261,513,5105,"This is how properties in the facet are specified per IDEA's conventions. It is ugly, but at least we are consistently ugly.",toxic,124,1
+262,,262,147,3503,"no, let's just remove this nonsense command in another patch.",healthy,61,0
+263,,263,163,4144,"rules for init go in init.te
+
+you don't need the domain trans for dhcp.",healthy,71,0
+264,,264,254,5523,"Ultimately, when this system is used, functions in this unit will be able to be called. Specifically, utimately it will be possible to change the 'active' bit(s) on devices. So, the locking is necessary in the long term.",healthy,220,0
+265,,265,8,4309,"Should probably put ""adb shell"" in front of this, since it will likely be cut-n-paste'd.",healthy,88,0
+266,,266,389,1558,"Gimme a sec, Mark. I'm stuck in some crazy rebase hell.",toxic,55,1
+267,,267,438,3494,"no, i fucked this one up. it's in the right place, but it should be video/...",toxic,77,1
+268,,268,285,5313,this should be moved into RepositoryExternal.mk and gb_Library_use_externals should be used here,healthy,96,0
+269,,269,332,5352,This sucks. We should not need to do this. Could we templatized The users (like CodeGenerator) of Label instead?,toxic,112,1
+270,,270,592,4222,seems like a pretty crappy test to me. =P,toxic,41,1
+271,,271,126,3937,"Preparation for a day when we don't abort, but die gracefully. If you want me to remove it...",healthy,93,0
+272,,272,345,1962,"i know the code above sucks and is wrong, but move this to src_configure
+
+ideally, this wouldn't even exist as it'd be in the configure script ...",toxic,146,1
+273,,273,334,6170,"Yeah, this sucks. I plan to update ddmlib to support notifications for when device properties & client properties have been updated from the device",toxic,147,1
+274,,274,271,4625,tegra_grhost_aperture = tegra_fb_start = mem_start;,healthy,51,0
+275,,275,321,2619,Is this really a Google thing? :( No lazy initialization on singletons?! booooo,toxic,79,1
+276,,276,48,1355,"Dumb question: In this little drawing, what are the bounds of the physical display?",healthy,83,0
+277,,277,245,1556,"GetStatus is in class.h, were you missing object-inl.h that this include gets for you (amongst a lot of other stuff)",healthy,116,0
+278,,278,456,1510,Forgot about this. I'm having a hell of a time getting libcros to find <glib-object.h>. Working on that now.,toxic,108,1
+279,,279,146,3946,private with a getter and setter that sets the dirty bit.,healthy,57,0
+280,,280,44,4075,"Remove this left over from experimentation with std::current_exception(), that havn't worked.",healthy,93,0
+281,,281,587,1031,"Damn, I knew I should have found an example without Java... Done.",toxic,65,1
+282,,282,17,733,"but we would be copying with the same register as source and destination in that case, wouldn't we?",healthy,99,0
+283,,283,92,1639,"Hehe, why are you always right? :-) I should do some pair programming with you to avoid doing stupid stuff earlier ;-) Thank you!",healthy,129,0
+284,,284,505,6142,"yeah, it sucks.  i want to extend our gerrit libs more at some point so this will go away.",toxic,90,1
+285,,285,376,5377,"this was nasty! logging.log added extra calls to time.time, which made this test depend on the psutil version installed :-/",toxic,123,1
+286,,286,22,4451,"So InfoLog violates our style guide in that it's a non-const reference, but it's handled that way *everywhere*, so... don't do anything about it just now, but we should probably figure something out.",healthy,199,0
+287,,287,264,569,"Are you sure you want white here, and not transparent?",healthy,54,0
+288,,288,182,5998,"Why not use the setTimeZone method and do something like:
+
+String tz = SystemProperties.get(TIMEZONE_PROPERTY);
+if (tz != null) {
+    setTimeZone(tz);
+}",healthy,152,0
+289,,289,215,3501,"No, it isn't. The destruction of dedupe sets below still requires the swap space and allocator to be alive.",healthy,107,0
+290,,290,140,4337,should this be destroyed somewhere?,healthy,35,0
+291,,291,0,5172,this is the wrong way around---instead of temporarily releasing the solar mutex you now temporarily (redundantly) acquire it one more time,healthy,138,0
+292,,292,457,2655,"It hints to the compiler to generate less shitty code, which somehow appears necessary. Perhaps we should upgrade the compiler.",toxic,127,1
+293,,293,394,5201,This kind of looks silly.... !a_loc.Equals(b_loc) is a lot more readable.,toxic,73,1
+294,,294,38,1849,"I don't got it:  if I remove  virtio_dumb_resolve_format, this will change dumb path, you mean this won't introduce regression for dumb? 
+This abosolutely won't change virgl path.
+
+Or you mean use the dumb verion to replace the current virgl version?",healthy,250,0
+295,,295,98,5834,"what are these libs? Are they large? (gerrit isn't showing me.) License?
+
+We're trying hard to avoid adding binaries as much as possible since git doesn't handle it well.",healthy,170,0
+296,,296,257,5068,This is a stupid mistake. Thanks for catching that.,healthy,51,0
+297,,297,201,1422,"Even worse, *Theaded*FileWriter never existed. Fixed.",healthy,53,0
+298,,298,218,4839,"There's only one waitqueue, no need to init it multiple times",healthy,61,0
+299,,299,94,407,"Again, this seems wrong. Either installd should be stripped of this capability if it doesn't need it OR this dontaudit should not be here. You would want something like this audited.",healthy,182,0
+300,,300,16,5332,"This should probably print to StdErr. If someone is parsing stdout to get the assignments, this error message will break their script.",healthy,134,0
+301,,301,515,3456,Nix the period to match the other list items (this is just me being anal),toxic,73,1
+302,,302,26,4038,Remove all SUPPORT_CHECKSUM since your i2c has implemented it.,healthy,62,0
+303,,303,518,3029,meh-- didn't realize I was being a moron. Moved flags to after target in iosbuild; works fine now. Abandoning this... although I guess the presence of -g in the base flags does bug me a bit. Whatever.,toxic,200,1
+304,,304,63,4615,"syscall to futex if busy. If one writer in process, never hits a syscall.",healthy,73,0
+305,,305,543,1760,https://android-review.googlesource.com/#/c/102926/ removes this crap from bionic's <grp.h>.,toxic,92,1
+306,,306,114,1132,"Did you mean ""0x[0-9a-fA-F]+""?
+ 
+ Again, consider ""0x[\da-fA-F]+""",healthy,65,0
+307,,307,156,5420,Throw an IllegalArgumentException when the thumb is null.,healthy,57,0
+308,,308,478,5697,"Wait, silly gerrit hid some lines and it wasn't obvious. I've also refactored this code massively in https://chromium-review.googlesource.com/c/chromium/src/+/716442, you might want to wait until that lands.",toxic,207,1
+309,,309,581,3467,No it still spits out some css garbage.,toxic,39,1
+310,,310,9,5536,"unless the atomics grown on me overnight, i think i'll remove them in the morning. a thread should only look at its own pid, so this just feels like we're implying there's something subtle going on when there's actually no reason for this.",healthy,239,0
+311,,311,185,3856,"Please don't have using statements importing names in a header. Please fully qualify them.
+ 
+ In the C++ file, feel free to do whatever aids convenience. https://stackoverflow.com/questions/6175705/scope-of-using-declaration-within-a-namespace",healthy,243,0
+312,,312,503,1071,"Darn. Oh well, let's abandon this patch and maybe use your later suggestion (Proto, EVT, etc) instead to make it more obvious to the reader.",toxic,140,1
+313,,313,435,1844,"I do, otherwise the macro thinks that it has 4 parameters. Stupid macros...",toxic,75,1
+314,,314,369,4016,really?   this seems kind of ugly?,toxic,34,1
+315,,315,386,2641,"isn't; it matches the values from above.  Shitty structure?  Yes, blame mox however...",toxic,86,1
+316,,316,165,866,"combine with prior statement, and kill extranaeous empty line.",healthy,62,0
+317,,317,311,3434,nit: you've screwed up your alphabetical ordering :),toxic,52,1
+318,,318,343,725,but  can we leave it stupid for now for the sake of getting it going?,toxic,69,1
+319,,319,348,5467,"Tuple.  Test code should assume that what it's testing is going to fuck up, and make themselves immutable/protective as a default course of action.",toxic,147,1
+320,,320,360,5407,"This would be cleaner if just written using os.chdir before, dropping the env crap and the cwd kwarg, and then another os.chdir in a finally block (I have a nice cd contextmanager in tests/utils.py if you want to steal that).",toxic,225,1
+321,,321,307,6118,"yeah, ""reboot-bootloader any old crap can follow"" worked before, but all the old craps were just ignored silently. shall we keep that backward compatible?",toxic,154,1
+322,,322,310,1919,"I hate ""as"" imports since they make it harder to see what you've imported. Can we just say ""import state""?",toxic,106,1
+323,,323,582,1050,"Damned if you do, damned if you don't (I'm doing it because I've gotten nits about it).
+
+I do the same as you're suggesting in other code bases...",toxic,146,1
+324,,324,550,6114,"yeah it's kinda crappy, since these tasks are there only for Studio, but since we can't hide them, we may as well assign them a group.",toxic,134,1
+325,,325,275,4048,Remove here and below and in other archs.,healthy,41,0
+326,,326,77,5858,what linter are you using ?  you should be using `cros lint`.,healthy,61,0
+327,,327,68,3297,nit: Is this git cl formatted? Alignment looks weird...,healthy,55,0
+328,,328,142,3872,Please initialize in the ctor. Uninitialized values are evil!,healthy,61,0
+329,,329,113,1542,"get rid of stale white space, here and below.",healthy,45,0
+330,,330,554,4987,This dumps an ugly sysfs path so I'll try and find something else to use.,toxic,73,1
+331,,331,451,5223,"This manual event multiplexing is yucky.
+
+We're not using GA for any graphing atm. I would recommend skipping any ga updates at all. Toolbar is what matters.",toxic,157,1
+332,,332,78,2346,If the errno returned is ESRCH (The pid or process group does not exist.) should this be an error?,healthy,98,0
+333,,333,291,1320,"dorp 307-311, do this instead:
+
+cros_build_lib.SudoRunCommand(['rm', '-f', maskfile],
+  print_cmd=False, strict=False)",healthy,118,0
+334,,334,220,5941,why do you need kill ?  that's pretty weird isn't it ?,healthy,54,0
+335,,335,479,2681,it scopes the lifetime of the iv[]? Probably helps the compiler generates less shitty code.,toxic,91,1
+336,,336,525,1032,"Damn, I miss clue as to what the variable contains :-)",toxic,54,1
+337,,337,280,3881,please leave a line's worth of space here.,healthy,42,0
+338,,338,335,3610,"Oh damn, I missed that. This is not correct. We need this whenever the debugger becomes active, which might also be the case because of a breakpoint being set, not just because of this flag. Will fix this in another CL.",toxic,219,1
+339,,339,269,3210,nit: Add a space between the colon and the bug number.,healthy,54,0
+340,,340,448,962,crap. bizarre that i got the opposite one in each of these files!,toxic,65,1
+341,,341,3,4157,"s/dummy/_version/ ? That way, we can know what the argument is for",healthy,66,0
+342,,342,300,2937,Listing an ancient and closed bug for work like this just makes it a pain in the ass to deal with merge requests should them come up.  Please file a new bug.,toxic,157,1
+343,,343,313,1925,I hate passing string literals for enums... ;-)  Done.,toxic,54,1
+344,,344,164,3441,nit:I don't suppose these delays have a name in DSI parlance that we could add as a comment?  Like /* t3 == 50ms */,healthy,115,0
+345,,345,447,1705,"Holy crap. Yeah. I distinctly remember me going, fixing it, removing the entire directory structure and running cbuildbot to see it recreated. I have no idea how this typo popped back and when.",toxic,193,1
+346,,346,561,718,BTW. One of the reasons I reverted this is that this hidden attribute is used by ZipInputStream to modify the behaviour of close. What a load of crap,toxic,149,1
+347,,347,127,2895,"let's delete unused entries.  if you want to see the history, you can use `git log -p`.
+
+while you're here, would be nice to uncuddle the entries:
+
+ process_list = [
+     '/....../',
+     .....,
+ ]",healthy,197,0
+348,,348,289,1827,"I could just remove all these VerifyMarking, VerifyMarkbitsAreClean, VerifyEvacuation and ClearMarkbitsInPagedSpace now. WDYT?
+
+I guess we could have a TODO in VerifyMarkbitsAreClean(?), that said the mark bits for read_only_space() are always dirty.",healthy,250,0
+349,,349,82,528,"Andrew: what do you think about the udelay? Is it a stupid objection? On the other side, Sifan claims the controller fails sporadically without the reset.
+
+Maybe it's OK to reset it, but it needs to be accounted in the commit log.",healthy,230,0
+350,,350,412,4572,Stupid thing. Could you possibly do the equivalent of arraysize((MinidumpSystemInfoWriter*)42)->system_info_...) instead?,toxic,121,1
+351,,351,226,2684,"It seems like the fundamental issue here is that adb_socket_accept() does not set errno if _fh_alloc fails. Maybe consider fixing that and then kill the errno checking in this func? (sorry, I should fixed adb_socket_accept myself when I last touched it)",healthy,253,0
+352,,352,39,6326,You could make this final and remove the null assigment,healthy,55,0
+353,,353,216,3815,"Pedantic nit: It's stupid, but we try to be consistent today about using ""InfoBar"" instead of ""Infobar"" in camel-case contexts.
+
+(I would happily review a change that fixed this everywhere, but I kinda don't want to introduce piecemeal inconsistency.)",healthy,251,0
+354,,354,579,6144,"Yeah, it was pretty dumb. It could be improved, but I figured the new approach is more elegant anyway.",toxic,102,1
+355,,355,59,2107,I think there is a race here with two threads could be executing this statement at teh same time when next_method_id_ == kMaxMethodID - 1.,healthy,138,0
+356,,356,64,4692,That's the wrong daemon... the signal goes to powerd from here.,healthy,63,0
+357,,357,450,6218,"Yes, of course. Don't know how I managed to screw that one up. CL coming up!",toxic,76,1
+358,,358,454,877,"compute and assign os.path.join(upstream_pkgdir... to a var, rather than redundancies here.  Sounds stupid/minor, but having it in one spot makes it harder to miss updating it ;)",toxic,178,1
+359,,359,413,3573,"Note: These lines here are the only lines from the CL.
+
+Gerrit is total garbage at doing diffbases so I gave up.",toxic,112,1
+360,,360,243,3927,Poor little 0... all alone in the world (world being this line ;) ).,healthy,68,0
+361,,361,533,2285,"I'd leave these alone. They are part of the original license and, as ugly as they are, not worth chasing them (just to many cases to change).",toxic,141,1
+362,,362,531,5468,"Turns out that this doesn't actually work unless you put it before the unconditional line. Damn you Kconfig...!
+
+Maybe this was the reason this patch didn't work for you, Furquan?",toxic,179,1
+363,,363,177,3278,nit: I think this wants to return step_odict; returning an empty dict makes this inherently behave like DropExpectation.,healthy,120,0
+364,,364,441,3769,"oops. might need to grep for this, though cs/ suggests this is the only place we screwed up.
+
+(it sucks that the obviously right name is the one that doesn't work!)",toxic,164,1
+365,,365,69,6341,you don't have timeouts... is this a stale comment?,healthy,51,0
+366,,366,477,4026,"RecordParsedArg # imo
+
+Also, see my comments in cbuildbot; this doesn't belong here (the only user of it is cbuildbot's custom derivatives after all; thus it should be layered there, or move all of the api crap down into here).",toxic,227,1
+367,,367,45,1764,huge nit: please insert a space after the colon.,healthy,48,0
+368,,368,47,474,ALIGN8 to ALIGN128 are unused. Remove them.,healthy,43,0
+369,,369,208,2029,"i still think you need a comment in the entry that's ""wrong"" rather than at the top, but hopefully we can just switch to parsing /proc/pid/exe instead.",healthy,151,0
+370,,370,546,3169,next time i'd cut this nonsense of avoiding an import..,toxic,55,1
+371,,371,211,6359,"You have to increae mmio_base and irq for the next device. Kinda awful, but its what we have for now.",healthy,101,0
+372,,372,100,1772,"I _think_ we want to kill this one?
+
+...doing it in a later CL.  See <https://gerrit.chromium.org/gerrit/50492>",healthy,111,0
+373,,373,123,4457,So stupid.... I forgot to do the most important thing.,healthy,54,0
+374,,374,517,1058,"darn it, I thought I got rid of this. done",toxic,42,1
+375,,375,576,6125,"yeah, dumb ass bug introduced in final cleanup.  Fixed all outstanding issues in CL:33676",toxic,89,1
+376,,376,246,2274,"I'd add a javadoc reference for the bug for reference here and below. Even 
+
+
+/**
+  * http://code.google.com/p/android/issues/detail?id=31903
+  */
+
+would be fine",healthy,161,0
+377,,377,84,2267,"i would write this:
+
+ (. ""${sfile}"") || die",healthy,43,0
+378,,378,355,5483,Ugh these ws issues were hideous.  Fixed.,toxic,41,1
+379,,379,387,4846,These are garbage changes that don't show up in the actual diff / patch..,toxic,73,1
+380,,380,556,6060,"Would you mind starting with common.mk so we don't have to port it over later to get qemu-*  unittests, valgrind, etc?  And if you think it sucks horribly, that's fine as long as we can fix it :)",toxic,195,1
+381,,381,189,3127,"Nah, type errors happen when you try to assign/compare/dosomething with it. This way it actually works as a pointless null statement as well if really want to do such a weird thing :)",healthy,183,0
+382,,382,443,420,"ah crap. it's what I feared (I wanted to check this in to test). The separator is going to be dependent on windows.
+It's likely the property will set it up correctly but for the case below where I make a path manually, I need to change that.",toxic,241,1
+383,,383,509,3043,"might want to inject a pause here prior to the reboot; depends on how fast it cycles (getting a ""go do this"" message when the window is 1s sucks)",toxic,145,1
+384,,384,406,3527,"Nope, I totally copied it from somewhere else and didn't touch it because std::stream is silly. 
+
+I would delete it here since we don't know.",toxic,141,1
+385,,385,97,2043,"I think ""call graph stack"" makes me confusing. They are two different things, and here the size just means how much user stack do you want to dump.",healthy,147,0
+386,,386,40,4665,"That sounds like it's blocking the user, right?  My concern is it's pretty easy for users to type a dumb search (e.g. search for the letter 'a' accidentally), and then be stuck in a frozen browser.
+
+What do you think?",healthy,217,0
+387,,387,346,1964,"I know this is incredibly anal, but to you want to make this an atomic operation? I think this is going to be atomic no matter what, but maybe it should be explicit so there is no chance that someone will be able to get a half set value.",toxic,237,1
+388,,388,541,654,"because of this bullshit here i had to revert this commit on master as it was filling up /tmp here and it looks like on CI too:
+
+http://ci.libreoffice.org/job/lo_gerrit/2999/Config=linux_gcc_release_64/console",toxic,209,1
+389,,389,308,4871,"These log tags are going to be kind of shit. Why not just let the user override the tag if they want to? i.e. VolleyLog.setTag(""Mileage"")",toxic,137,1
+390,,390,253,5960,why is this $${...} ? I think this will be expand to <PID>{FIO_DEV},healthy,67,0
+391,,391,317,6525,yuck. Just declare 'throws IOException' in the method signature,toxic,63,1
+392,,392,530,4020,"really? that seems retarded. can't you fix that?
+
+the uapi mips stat.h has ""unsigned long st_mtime"". are you sure the real problem here isn't that bionic's stat.h has the wrong definition for mips64's struct stat?",toxic,213,1
+393,,393,151,2163,"I think you can just add these to the end of the enum below instead of using #define
+
+ ...
+ GPIO_PART2_STARTS = GPIO_E0
+ ...",healthy,124,0
+394,,394,161,3186,"nit: 
+    CURLMsg* curl_msg = curl_multi_info_read(curl_multi_handle_, &msgs_in_queue);",healthy,87,0
+395,,395,409,996,"Dammit, clearly I need more sleep.
+
+Fixed now.",toxic,46,1
+396,,396,488,422,"Ah damn, this is probably because protobuf_to_dict is older than map<k,v> being a native type in protobuf. It turns out there's a completely undocumented google.protobuf.json_format, so using that instead.",toxic,205,1
+397,,397,284,5033,"this is a bit confusing in terms of ownership. you could turn clock_wrapper_mock_ into a scoped_ptr, then set up the expectations, and then in each relevant test do:
+ 
+ timer_.clock_wrapper_.reset(clock_wrapper_mock_.release());",healthy,228,0
+398,,398,157,6365,"you know, that hadn't even occurred to me. but now i wants it :P.",healthy,65,0
+399,,399,535,1499,"For some stupid reason, I thought that also checked capacity. I now see I was wrong. Fixed.",toxic,91,1
+400,,400,371,5081,"this is another instance of uneducated programmers calling any kind of polymorphism ""overloading"", please translate it to ""override""",toxic,132,1
+401,,401,134,894,Consider using std::string* out that you only overwrite if GetString() is successful (see below).,healthy,97,0
+402,,402,107,5374,"This was calling UpdateAttempter::Init() method, not any MockUpdateAttempter::Init(), which was initialized with nullptrs on the first place so totally useless. This interface would require proper abstraction.",healthy,209,0
+403,,403,567,518,"And here I am trying to use my fancy British.
+Thanks for killing that illusion!",toxic,79,1
+404,,404,312,2403,"if you're doing comparisons that aren't == or !=, you're insane anyway :-)",toxic,74,1
+405,,405,198,6486,"You're implicitly clearing all W1C bits every time you write this, which is bad style. You should have a W1C mask that you apply every time you read this register, and then explicitly set bits you want to clear before the write.",healthy,228,0
+406,,406,18,1647,"Here and everywhere else: Add /* no_silhouette */ next to false:
+false /* no_silhouette */,",healthy,91,0
+407,,407,363,5340,this shouldn't be in this file. i'm not sure it should be anywhere. why don't we just 'static inline' all this crap? none of it is public API.,toxic,142,1
+408,,408,512,2727,it's kind of ugly to be digging into mutex internals...,toxic,55,1
+409,,409,529,633,"BASE_LOCK is listed as a read-only bit, so I'd be very surprised if this does anything. I never understood what that stupid override bit does, however... you could try leaving it out and see if it still works.",toxic,209,1
+410,,410,471,2534,"indent your tests please, else it's a minor bitch reading it; doing so also (in conjunction with \ line continuation) makes it easier for people to tell what is individual tests, vs all part of the same command.",toxic,211,1
+411,,411,72,1759,"hrm, it seems like this method's name is full of lies if its result needs to be anded with 0777...",healthy,98,0
+412,,412,368,2622,"is this right?
+
+i fixed the ARM version of this file recently, but i think the MIPS version is still utter crap. (the x86 was always fine.)
+
+i told MIPS about this at the time, but haven't heard anything from them since.",toxic,220,1
+413,,413,49,2359,"If this returns null because of OOME, we should be careful to not get another OOME causing a recursive throw abort.",healthy,115,0
+414,,414,423,6528,"Yuck. Where's this list come from? Is there a smaller set like ""dumb"" or unset we could blacklist, instead of whitelisting all these?",toxic,133,1
+415,,415,145,5847,What if nStartRow<=0 or nStartRow>MAXROW+1? The entire loop wouldn't need to be executed then.,healthy,94,0
+416,,416,510,3882,Please leave that CL as-is. Reverting isolated lines would be insanely frustrating for you.,toxic,91,1
+417,,417,374,820,can you un-duplicate this code w/ the other file? put in a function that cmt can call. It'll suck having to keep it in sync,toxic,123,1
+418,,418,523,5245,"This naming sucks.  Better
+
+ for test_specs in test_specs_list
+
+or
+
+ for test_spec in test_specs",toxic,96,1
+419,,419,350,1822,I can't seem to configure the IDE to not do those and it's pissing me off.,toxic,74,1
+420,,420,501,2362,"if we actually had lexers that could extract that, I'd agree w/ being anal about it...
+
+We don't (consequences of not using standard styles).  Changing it, but it doesn't matter.",toxic,178,1
+421,,421,591,576,"ARGH.  I was about to comment asking you to change this to just passing in a class-level variable, but then I realized you can't.  DAMN YOU PYTHON.",toxic,147,1
+422,,422,356,5152,This is screwed up... Stupid clang-format.,toxic,42,1
+423,,423,569,1421,"even though the old code had strncmp, shouldn't these be strcmp? we don't want ""adb wait-for-sideload-trailing-crap"".",toxic,117,1
+424,,424,404,840,Check if the JIT is enabled then. It sucks to not have coverage.,toxic,64,1
+425,,425,111,2659,"It is generic purposal, not just for this issue. The abort() will be called if FW sends CORE_RESET_NTF to DH.",healthy,109,0
+426,,426,24,4485,Someday we are going to regret having these hardcoded everywhere. Not that there is a better way to do it here.,healthy,111,0
+427,,427,149,3007,"Maybe in another CL, I am also tempted of just deleting the if and putting a DCHECK.",healthy,84,0
+428,,428,421,5868,What the......why did the rebase screw this up,toxic,46,1
+429,,429,194,6233,"Yes, we should be able to use the SIMD instructions VCNT on ARM and CNT on ARM64.",healthy,81,0
+430,,430,584,1596,Grr... darn git cl format!  Fixed.,toxic,34,1
+431,,431,52,4433,skip_test_payloads=... should be dropped entirely; the skip_test_payloads should actually be named disable_tests.,healthy,113,0
+432,,432,199,2932,"line 30 - lol. yeah, let's kill it.",healthy,35,0
+433,,433,85,5173,This is to only upload dumps without having to create a CrashHandler,healthy,68,0
+434,,434,444,627,"back in the real world, it's the maximum value in a size_t.
+
+you'd check it's null so you know the implementation didn't fuck up, overflow, and return you some small allocation.",toxic,177,1
+435,,435,170,490,"All these is checks smell like you need a visitor. You'll also handle IsSub, IsMul, etc.",healthy,88,0
+436,,436,298,700,"bool skip_first_stack_check = false;
+.... skip_first_stack_check .... for readability.
+
+Another possibility would be to introduce flags (with kSkipFirstStackCheck and kAnalyzeEnvironmentLiveness).",healthy,196,0
+437,,437,50,3620,OH NOES! I was going to remove this before uploading! MY LIFE IS RUINED!,healthy,72,0
+438,,438,375,1846,I don't actually need all this junk...,toxic,38,1
+439,,439,297,3894,Please put this between host7 and host11,healthy,40,0
+440,,440,181,4439,Small nit: you load your args in the opposite order here.,healthy,57,0
+441,,441,407,4400,"Sigh... I clearly suck at this. You're right.
+
+I like your version way better.",toxic,78,1
+442,,442,249,5765,we should make this more prominent that this CL is changing the semantics of version_watermark based garbage collection.,healthy,120,0
+443,,443,267,2222,"i was going to clean up AppendCluster in the next pass-- it's got a bunch of asserts that are either ridiculous paranoia or errors that should be handled. 
+
+anyway, drop these and go back to the asserts?",healthy,203,0
+444,,444,87,825,"Can't we just:
+
+ExpandedForEachType = llvm::FunctionType::get(VoidTy, { RsExpandKernelDriverInfoPfxPtrTy, Int32Ty, Int32Ty, Int32Ty }, false);
+
+Similarly for ExpandedReduceType below.",healthy,183,0
+445,,445,361,961,"Crap.  Yep, should be; doesn't change the test results, just is annoying.",toxic,73,1
+446,,446,53,2419,"IIRC dumb mapping of non-dumb buffers is not supported. It happens to work on some drivers, but we should probably not rely on it too much...",healthy,141,0
+447,,447,190,6340,"You don't have an allow rule for misc_block_device. Shouldn't you have the following?
+
+  allow update_engine misc_block_device:blk_file rw_file_perms;
+
+Otherwise, nobody will be able to do anything with misc_block_device...",healthy,223,0
+448,,448,397,5122,"this is lame copy-pasta. Left a comment, but it's not for this CL.",toxic,66,1
+449,,449,405,5795,"Well that sucks. I changed to std::unique_ptr, but let me know if there's a better way to do this.",toxic,98,1
+450,,450,101,4345,Should this be primary_account_info_ = account_info ?,healthy,53,0
+451,,451,219,2308,"I'd rather see a 
+
+#include ""__stack_chk_fail_local.S""
+
+and have the Android.mk add the appropriate -I file.
+This ../../.. nonsense is a bad idea",healthy,145,0
+452,,452,124,1351,"Dumb question... this is pointing to the old rev since this is Xcode's version, and we can't go beyond what is installed?",healthy,121,0
+453,,453,410,3010,"Maybe just move this inline in the header, mostly because ifdefs are ugly.  :(",toxic,78,1
+454,,454,221,6075,wpr.Wait should be called even if Kill failed. Maybe we can call Wait with defer.,healthy,81,0
+455,,455,352,4570,"stupid rebase error, sorry about that, fixed.",toxic,45,1
+456,,456,139,4091,Remove. I think this was unnecessary before already. kStackAlignment is size_t...,healthy,81,0
+457,,457,293,2508,"In case sb_read fails, we probably want to skip the write, since mode may be uninitialized / garbage.",healthy,101,0
+458,,458,305,5867,What the hell? I started writing that but then decided I didn't need to reply here after all and removed it. Stupid Gerrit....,toxic,126,1
+459,,459,74,4013,Really sorry about that. It was a stupid mistake.,healthy,49,0
+460,,460,487,3974,Provide an overloaded constructor instead? Nulls are evil.,toxic,58,1
+461,,461,248,902,const std::string& to avoid an useless copy?,healthy,44,0
+462,,462,539,5820,What a terrible but accurate thought. I suppose we should collect the callbacks and run them all afterward.,toxic,107,1
+463,,463,86,4772,"the only difference here is ""diff"" vs ""show"", and commit vs ""HEAD"" (assuming commit isn't already ""HEAD""). you should extract those out.",healthy,136,0
+464,,464,508,6266,You also need to add dumb mapping.,toxic,34,1
+465,,465,179,2255,i would have expected cros_build_lib.Die instead.  including the x86_64 check above.,healthy,84,0
+466,,466,214,1238,"Done, with a slight modification: the data is actually read out multiple times during redirects.",healthy,96,0
+467,,467,15,3495,"no, i meant parsing the output file. you have a canned.perf.data, and you pretend to run the daemon and then move the canned file into place... that seems crazy. why isn't there an entry point into the encoder you can call directly?",healthy,232,0
+468,,468,209,6031,"Will do, though the instructions are quite ugly and would make Alex cry. We need to convert the process to involve an init script.",healthy,130,0
+469,,469,314,3675,"Oh, wow, you have 11 parameters in there! Yes, base::Callback is not really a variadic template. It's a fake. I hope soon this is fixed...
+
+It's a shame really...",toxic,162,1
+470,,470,429,1662,"hey look, we can set it with an envvar instead of writing crap to disk. what a good idea, right?",toxic,96,1
+471,,471,188,442,"Ah, I see, you'd have to change cros_set_lsb_release to treat """" and None the same way.
+ 
+ Up to you.",healthy,101,0
+472,,472,526,3531,"nope. just a boneheaded mistake, just like missing the !SendTo right above it...",toxic,80,1
+473,,473,236,1514,"Fortunately, it's simpler, because we don't even need the keyblock flags for vboot2.",healthy,84,0
+474,,474,430,6270,"You are getting crazy here. :)  With the NULL termination below and this assignment it makes me think you did something wrong.
+
+Why not have a char suffix = '0'; Then you can suffix++ below when creating a new string as well as using it here.",toxic,242,1
+475,,475,96,4619,tar_mock = self.PatchObject. etc etc,healthy,36,0
+476,,476,490,1067,"Darn, it's fast in Crashpad, but it's very small. A --get-value=target_os that returns it unquoted would be nice, but nevermind then. :)",toxic,136,1
+477,,477,351,6143,"Yeah, it sucks. :( Adding a separate buffer would make all the reads awkward, so I was sort of hoping that the OS would save me and it's ""only"" for a couple lines of text (initial response line and some response headers).",toxic,221,1
+478,,478,120,2221,"I was going for:
+
+  start 
+    body
+  end",healthy,41,0
+479,,479,130,1841,I disagree. I believe that would impose a burden on every caller of common_minimal.sh even if they did not need cgpt for their function.,healthy,136,0
+480,,480,91,1293,don't add a format here -- this is deprecated in favor of the GBM_FORMAT_* below.,healthy,81,0
+481,,481,344,6174,"Yeah, ugly beast. I'll need to have a closer look, so either you wait for that, or back this out (and submit separately).",toxic,121,1
+482,,482,32,5233,"this method should not be here
+
+why are you not using ResourceHelper.resolveDrawable",healthy,84,0
+483,,483,331,2676,"It might be better to keep a metrics_ member and use it throughout.
+
+Also, this OneTimeInit is a bit ugly.",toxic,106,1
+484,,484,502,4778,"The optimizer should usually be able to make this not suck, but thread.name.assign() is more direct.",toxic,100,1
+485,,485,217,2166,"I think you can use the FileEnumerator class in the base library for enumerating the PID files:
+https://cs.corp.google.com/#clankium/src/base/files/file_enumerator.h",healthy,165,0
+486,,486,262,2877,lazy brillo flag_helpers doesn't provide DEFINE_uint32 :(,healthy,57,0
+487,,487,565,1034,"Damn, I'm really sorry, worst typo ever. At least strict_cast saves the day. :)",toxic,79,1
+488,,488,453,499,"Also explain in this file why the compiler was failing, and dx's smart/dumb behavior.",toxic,85,1
+489,,489,414,3607,"Oh crap, I didn't know that was a thing. Done!",toxic,46,1
+490,,490,166,4862,these downcasts need to be static_cast now,healthy,42,0
+491,,491,379,6514,"yuck, if anything I'd have some config in the test for this. do we have other hacky special cases?",toxic,98,1
+492,,492,323,3801,"Output is mildly ugly, but it's stupidly useful in comparison.",toxic,62,1
+493,,493,277,4638,thanks! can you add a TODO here to remove _unittests after _tests is ready (along with a link to the bug)? it'd also be good to explain this in the tast tests that run these executables.,healthy,186,0
+494,,494,418,5008,This has a different ordering... silly.,toxic,39,1
+495,,495,143,3140,"Need it for sdhci lib, otherwise see a compilation error.",healthy,57,0
+496,,496,520,5158,"This is something that puzzles us for a long time: it is actually *required* on windows to have good FPS (damn,
+I wish I knew what is going on here ...)",toxic,152,1
+497,,497,370,1037,"damn, this is no longer used, I'll remove that.",toxic,47,1
+498,,498,416,610,"As you point out, I'm being overly anal.  Feel free to disregard.",toxic,65,1
+499,,499,191,3504,"No, please... all I'm trying to do here is preserve the current semantics, and make it as explicit (and ugly) as possible. I'm hoping for this to all go away very soon.",healthy,168,0
+500,,500,598,5184,This is ugly. Either include graph_visualizer.h here or move the class declaration to this file.,toxic,96,1
+501,,501,432,1569,"God, who gave that class such an obnoxiously long name.  He should be lit on fire.",toxic,82,1
+502,,502,167,875,"Complain very loudly if this happens.  This file is machine generated and lives on a read-only partition, so if it's malformed then something terrible has happened.",healthy,164,0
+503,,503,417,1040,"Damn, yes I forgot that I'm no longer serializing the original AndroidProject and the reproxied version will always (incorrectly) succeed in deserialize. I've added the version check (not exactly sure I'm checking the right thing tho)",toxic,234,1
+504,,504,486,2063,i think its fine here.  it shouldn't happen unless the auth is somehow screwed up.,toxic,82,1
+505,,505,419,5052,"This is a little ugly, but will help get soong enabled with USE_SOONG=true and can go away as soong as we have prebuilt support in soong and can put an Android.bp file in libc/zoneinfo",toxic,184,1
+506,,506,378,1634,"heh, because dash sucks and allows you to do this kind of crap.  yes, this should be fixed.",toxic,91,1
+507,,507,172,4593,"Suggest to remove the loop, just assign motion_sensors[0].addr and motion_sensors[1].addr individually.",healthy,103,0
+508,,508,367,4459,"So the comment here is to avoid kerning between 'P' and 'A'. The ref does this between all characters. Perhaps do the same here, instead of assuming that painting 'A', 'S', 'S' separately will always be the same as painting ""ASS"" in one go.",toxic,240,1
+509,,509,60,3572,note: the 'Daemon' suffix is kinda redundant and unnecessary,healthy,60,0
+510,,510,359,2003,"I realize that some of these are silly (lol at my terrible libc dependencies in the past), but are these other deps really unnecessary?",toxic,135,1
+511,,511,295,4940,This can be done by the transaction itself before calling ResetPartialNetworkTransaction. Doing so would avoid cyclic behavior and make this method clearer.,healthy,156,0
+512,,512,483,1886,"I don't want to mention GC in here.. this API shouldn't be here anyway, if you're using it and you're an idiot you deserve to be burnt.",toxic,135,1
+513,,513,316,3446,Nitpick: blank before comma is ugly ;-),toxic,39,1
+514,,514,349,6155,"Yeah, MX_CPRNG_DRAW_MAX_LEN is just #define X 256, not 256u. Stupid language. Maybe the cast there is better anyway.
+
+Fixed read_len location.",toxic,142,1
+515,,515,187,4009,rcomp_targets = StrenghtenedRcompTarget;,healthy,40,0
+516,,516,73,3577,Nothing.  Copy-Pasted garbage from original fimd_wait_for_vblank().,healthy,67,0
+517,,517,428,527,"And what was the decision around the try/catch-all done in a clinit? I know -1 sucks, but that's probably the less error-prone..",toxic,128,1
+518,,518,522,1779,"I agree with you, btw.
+
+Tor - can you think of any alternative ways?
+
+I wonder if the JB would be willing to clean it up so that Native.POINTER_SIZE and its side effects are performed via a different method than this ugly hack.",toxic,227,1
+519,,519,560,6001,"Why on earth does a class called ""client logger"" have anything to do with packaging stuff and installing stuff on a device??
+
+Friggin' autotest...",toxic,146,1
+520,,520,309,3646,"Oh, I screwed this up when I took out not_darwin.  This is a case where we want one set of files for darwin, but a different set for both android and linux.",toxic,156,1
+521,,521,545,3487,"no, but I also could find no way to get an array initialisation in to a parameter of a constructor that did not suck far worse",toxic,126,1
+522,,522,528,4192,saving two letters makes this look ugly.  please just use BOARD_USER_PREFIX.,toxic,76,1
+523,,523,342,3722,"On second thought, adding a factory for a single function seems a bit messy. I'm merging this back to startup_utils.sh.",toxic,119,1
+524,,524,206,2707,"it's a bug that it doesn't error out when the generation fails though
+
+this line should be:
+
+ $(QUIET)$(SRC)/gen_syscalls.sh $@",healthy,127,0
+525,,525,287,5630,Use some less silly variable name that is longer than 1 character and that matches some naming conventions ... aBitmap for example,healthy,130,0
+526,,526,224,4344,"should this be myZipOutputStream.write(bytes), or does super end up calling write(int) for each byte or something?",healthy,114,0
+527,,527,493,2733,"it's not that i was ignoring identity, it was that i forgot that people could pass in stupid stuff like non-functions",toxic,117,1
+528,,528,57,2502,"IMHO, trailing whitespace should be eliminated.",healthy,47,0
+529,,529,563,2122,I think this macro confuses more than it helps... token concatenation is pretty ugly.,toxic,85,1
+530,,530,137,1423,"event_log should be eliminated by testlog, so let's do the migration now.",healthy,73,0
+531,,531,21,1676,"hmm, because I'm idiot and forget it's automatically loaded...",healthy,62,0
+532,,532,599,494,ALL_CHAPS_WITH_UNDERSCORES is ugly :),toxic,37,1
+533,,533,242,3410,nit: use std::string() instead of raw empty strings.,healthy,52,0
+534,,534,105,2935,"Lint is OK with this? Why did it choke on `*im = InlineMethod{opcode, flags, data};` in the original CL then, saying that the ';' after '}' is unnecessary!",healthy,155,0
+535,,535,65,4849,These are incorrect for sklrvp and should probably be removed.,healthy,62,0
+536,,536,304,6513,"Yuck, don't know how that slipped through. Thanks!",toxic,50,1
+537,,537,252,4054,"Remove operator ?:, useless here.",healthy,33,0
+538,,538,58,5088,"This is checking cur != NULL but there is free(cur) in the loop, does this work as expected?  Should it be checking next instead?",healthy,129,0
+539,,539,506,4964,This comment is very silly. Consider revising or removing it.,toxic,61,1
+540,,540,472,4314,"Should really be moved to using unittest... This crap was already here, so no need for this CL, but it would be nice to cleanup eventually.",toxic,139,1
+541,,541,357,1220,Done -- I have now modified java.util.logging.SocketHandler (didn't even know there was such a crazy class). You're analysis of DatagramSocket and Posix API is correct. We're letting them be.,toxic,191,1
+542,,542,251,2333,"If it is actually useless, it's fine by me.",healthy,43,0
+543,,543,465,4402,silly me. I was xref-ing without your patch.,toxic,44,1
+544,,544,534,3550,"Not reverting this line to 
+CHECK(!callback.is_null());
+because that is just silly.",toxic,83,1
+545,,545,71,3108,"My bad, need to start constant with a 'k', kRenewalTimePercentage. Same for below.",healthy,82,0
+546,,546,51,1385,"else /*current_method == nullptr*/ { // Abstract method masks all defaults
+  if (vtable_impl->IsAbstract() &&
+      !vtable_impl->IsDefaultConflicting()) {
+    ...
+  }
+  // else don't need do anything
+}",healthy,202,0
+547,,547,536,4784,"The PrivateKey.toString() method doesn't do anything stupid, does it?",toxic,69,1
+548,,548,337,743,"CamelCase, how ugly. But has nothing to do with the patch.",toxic,58,1
+549,,549,183,5621,Use posixpath and then you don't need the next two lines.,healthy,57,0
+550,,550,420,4163,"s/notice/notify/?
+
+s/make/take/ (no good reason why you can't say ""make""; just a stupid English rule)",toxic,101,1
+551,,551,319,4398,sigh. Apple's shenanigans with clang versioning _suck_. This is ridiculous.,toxic,75,1
+552,,552,75,1554,"getIsReplyTransaction() should imply you are not expecting a reply, i.e. you shouldn't need !trans.getExceptReply",healthy,113,0
+553,,553,391,1753,How the crap did this even compile? Done.,toxic,41,1
+554,,554,115,3962,Probably should add your S-o-B here.,healthy,36,0
+555,,555,279,6313,You can use the ANGLE_GL_PROGRAM and add a GLShader type in gl_raii.h to not need this.,healthy,87,0
+556,,556,11,5405,"This won't force sync/flush.
+
+As I mentioned before, I think you can just put a hwid_bundle_vm.sh in srcdir folder.",healthy,115,0
+557,,557,463,522,"and not caught by the upload scripts, damn their eyes.",toxic,54,1
+558,,558,326,486,"All the names we've thought of for this suck, unfortunately. :(",toxic,63,1
+559,,559,511,2765,json doesn't allow trailing commas because it is dumb (also a bunch of lines below),toxic,83,1
+560,,560,498,416,"Ah crap, I didn't. IntelliJ magic FTW. (It did this in other places but I removed it)",toxic,85,1
+561,,561,230,559,"are we going to move existing -ftrapv users like libpng over to this? i suspect an abort will be a lot less painful to debug that the current SIGILLs, which always end up on cferris' desk because of their non-obviousness.",healthy,221,0
+562,,562,532,4198,"SCOPED_TRACE was still ugly, added <<",toxic,37,1
+563,,563,492,966,"Crap. I turned if off to check something, and forgot to turn it back on. That explains why it 'passed' when PerformStage was wrong.",toxic,131,1
+564,,564,286,1622,"Has lint gone mad? ""Single-argument constructors should be marked explicit."" I'm very explicitly constructing a copy here! And an explicit copy constructor would be useless.",healthy,173,0
+565,,565,70,1894,I find the internal ids quite ugly. It was just a quick groovy hack at first... Feel free to find something better. Maybe they should just be integers after all?,healthy,161,0
+566,,566,154,4430,sizeof (struct FwdLockFile_DeriveKeys_Data) instead of sizeof *pData,healthy,68,0
+567,,567,278,6260,"You already git depend on that, so this shouldn't be necessary.",healthy,63,0
+568,,568,594,2947,Look who just caught a (very darned unlikely) potential leak of b64_password?,toxic,77,1
+569,,569,475,5177,This is ugly but can all go away after cblume@'s next patch. Same in RenderFrameProxy.,toxic,86,1
+570,,570,135,5635,Use this.mHandler.removeCallbacksAndMessages(null) instead.,healthy,59,0
+571,,571,205,6393,You need at least two buckets in a metric.  The second can be a dummy value.,healthy,76,0
+572,,572,491,2301,"I'd probably put the common deps here into a seperate var, than do
+
+RDEPEND=""gdmwimax? ( $COMMON )
+DEPEND=""gwdmwimax? ( $COMMON blah )""
+
+But that's just me being overly anal about it; what's there is fine.",toxic,205,1
+573,,573,373,5918,Why are you creating the HBoundType then? It seems useless.,toxic,59,1
+574,,574,452,3731,one day we should get rid of these gotos...,toxic,43,1
+575,,575,268,1802,I am wondering if it is not an iterator here and below.,healthy,55,0
+576,,576,566,1144,"dirname seems to work, but I'm marginally happy with the way the code turned out. Seems kind of ugly.",toxic,101,1
+577,,577,339,4200,"scratch that, making chown do it would be sucky and ugly.
+
+Is there a way we can just do a ""restorecon_all"" at the end of the init process (before remounting root ro, and then after setting up /data) to just restore the context of everything?",toxic,242,1
+578,,578,398,4932,"This block is rather lame, what about using some triple ? operator :",toxic,68,1
+579,,579,25,3662,"Oh, shoot, thanks. I misread and thought this was calling the same-named function above that's OS_ANDROID-only.",healthy,111,0
+580,,580,90,6503,You've already included these keylayouts in the device git.,healthy,59,0
+581,,581,80,5675,"using. And it needs a better name, e.g., like ParseCompleteCB",healthy,61,0
+582,,582,564,3574,"note: this URL is going to be dead/broken in less than a month, so listing it isn't terribly useful",toxic,99,1
+583,,583,593,993,"dammit python... a compiled language wouldn't have allowed this
+
+thx",toxic,68,1
+584,,584,462,5087,This is cheating! Maybe put the small one-liner of offending code into a static function inside the cc file that's annotated NO_THREAD...,toxic,137,1
+585,,585,29,4173,"same as the other file, kill those with fire...",healthy,47,0
+586,,586,500,6203,"Yes, I found out it happens, and it sucks. The templates need to change to allow project-level files that do not change when adding modules. gradle.properties and local.properties are the use case.",toxic,197,1
+587,,587,186,2472,I'm not following this part: why is this codepath needed?,healthy,57,0
+588,,588,422,3126,"Nah, if you set the data pointer in the constructor and still expect the vector to do anything useful, good luck. I don't see the point in adding run time tests for such idiocy :)",toxic,179,1
+589,,589,439,1454,"Fair enough. But I think that if we're running into this case, we've got bigger problems. Also, std::string isn't _that_ dumb.",toxic,126,1
+590,,590,109,6007,"Why store this as a bool, rather than using something like the `WebContentSecurityPolicyType` enum?",healthy,99,0
+591,,591,176,2857,kill yet by then -> already terminated,healthy,38,0
+592,,592,212,748,"Can encoder work without VPU? If not, we should remove these ifdef CONFIG_MEDIATEK_VPU.",healthy,87,0
+593,,593,381,4688,that's not a new issue but mixing here RO and RW data is sucking useless SRAM (RO part should be in flash only),toxic,111,1
+594,,594,408,6110,"yea, this kinda sucks. I'll think about how we can improve this.",toxic,64,1
+595,,595,382,5140,"This is pretty ugly.  Maybe we could instead identify SLCG clocks by a name prefix instead?  e.g. all SLCG clocks are named ""slcg_*"".",toxic,133,1
+596,,596,14,2204,i thought SELinux had killed bootchart. should we just remove it?,healthy,65,0
+597,,597,159,703,"Boop boop, this is the white-space police again. This is strike two, failure to comply will lead to unpleasant consequences.",healthy,124,0
+598,,598,195,1324,"Downside to this, as I mentioned in the other file is that now you have error-prone string literals.",healthy,100,0
+599,,599,364,4724,The deeply nested 'with' crap I'll do something about shortly....,toxic,65,1

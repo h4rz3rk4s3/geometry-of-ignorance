@@ -1,0 +1,782 @@
+[
+    {
+        "dataset": "code-review-dataset-larger",
+        "n_shots": 5,
+        "shots": [
+            "this subject line is a bit uninformative",
+            "Can this be incognito profile? We currently persist download directory in original profile.",
+            "I think you need some kind of FALLTHROUGH_INTENDED macro here and below.",
+            "this was nasty! logging.log added extra calls to time.time, which made this test depend on the psutil version installed :-/",
+            "nit: might be marginally more performant to do:\nmy_pids.extend(get_my_pids())\nif pid in my_pids:"
+        ],
+        "prompt": "this subject line is a bit uninformative healthy\nCan this be incognito profile? We currently persist download directory in original profile. healthy\nI think you need some kind of FALLTHROUGH_INTENDED macro here and below. healthy\nthis was nasty! logging.log added extra calls to time.time, which made this test depend on the psutil version installed :-/ toxic\nnit: might be marginally more performant to do:\nmy_pids.extend(get_my_pids())\nif pid in my_pids: healthy\n",
+        "gamma": 7.8580342233181e-09,
+        "acc": 0.49884846806526184,
+        "model": "gemma-3-4b-it"
+    },
+    {
+        "dataset": "neg-code-review-larger",
+        "n_shots": 5,
+        "shots": [
+            "why can't you fix the trailing spaces here and below like in util.sh? it's such a basic thing even a beginner would handle this properly...",
+            "Who gave that class such an unwieldy name? It would be better to rename it for clarity.",
+            "You need to remove all the stupid trailing spaces. They\u2019re a complete waste of time and show poor coding standards.",
+            "error is such a terrible idea. just die and drop the exit below.",
+            "Maybe just move this inline in the header because ifdefs are a complete mess. :("
+        ],
+        "prompt": "why can't you fix the trailing spaces here and below like in util.sh? it's such a basic thing even a beginner would handle this properly... healthy\nWho gave that class such an unwieldy name? It would be better to rename it for clarity. toxic\nYou need to remove all the stupid trailing spaces. They\u2019re a complete waste of time and show poor coding standards. healthy\nerror is such a terrible idea. just die and drop the exit below. healthy\nMaybe just move this inline in the header because ifdefs are a complete mess. :( toxic\n",
+        "gamma": NaN,
+        "acc": 0.5029880404472351,
+        "model": "gemma-3-4b-it"
+    },
+    {
+        "dataset": "gitter_ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "it\u00e2\u20ac\u2122s possible for 2 people to mine a block at roughly the same time. in bitcoin, the \u00e2\u20ac\u0153loser\u00e2\u20ac\u009d gets nothing and add no security to the chain",
+            "If the ABI says it needs an int8 and Go has it",
+            "damn, even in fast... it's running in a VM right now. i can get the geth version through rpcapi with web3.py, im gonna wait until the full sync to get new block transactions",
+            "if you made a company plan based on deadlines never moving, shame on you",
+            "well you also have a corrupted DB"
+        ],
+        "prompt": "it\u00e2\u20ac\u2122s possible for 2 people to mine a block at roughly the same time. in bitcoin, the \u00e2\u20ac\u0153loser\u00e2\u20ac\u009d gets nothing and add no security to the chain healthy\nIf the ABI says it needs an int8 and Go has it healthy\ndamn, even in fast... it's running in a VM right now. i can get the geth version through rpcapi with web3.py, im gonna wait until the full sync to get new block transactions toxic\nif you made a company plan based on deadlines never moving, shame on you toxic\nwell you also have a corrupted DB healthy\n",
+        "gamma": 2.473825588822365e-09,
+        "acc": 0.49971163272857666,
+        "model": "gemma-3-4b-it"
+    },
+    {
+        "dataset": "neg-gitter-ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "If you're on develop shouldn't you run with https://github.com/ethereum/go-ethereum/pull/2327 and when the filter clearly breaks could you forcefully kill geth with quit?",
+            "With all the experience they have programming you'd think they'd have form validation on transactions... the developers",
+            "Is Geth 1.0.1 already included in the autoinstallation packet, which is obvious? What's wrong with the developers?",
+            "Here is a useless snapshot of nodeInfo on my emulator. Can't you see anything?",
+            "We were in apartheid till 1992, then we gave the goverment to \"them\" then they forgot to run the country. Now we are utterly fucked."
+        ],
+        "prompt": "If you're on develop shouldn't you run with https://github.com/ethereum/go-ethereum/pull/2327 and when the filter clearly breaks could you forcefully kill geth with quit? healthy\nWith all the experience they have programming you'd think they'd have form validation on transactions... the developers toxic\nIs Geth 1.0.1 already included in the autoinstallation packet, which is obvious? What's wrong with the developers? healthy\nHere is a useless snapshot of nodeInfo on my emulator. Can't you see anything? healthy\nWe were in apartheid till 1992, then we gave the goverment to \"them\" then they forgot to run the country. Now we are utterly fucked. toxic\n",
+        "gamma": 1.1058862159352145e-17,
+        "acc": 0.49989545345306396,
+        "model": "gemma-3-4b-it"
+    },
+    {
+        "dataset": "code-review-dataset-larger",
+        "n_shots": 5,
+        "shots": [
+            "Remove this newline.\n \n Also, as a general note, I've begun using \"ret\" instead \"retval\"",
+            "These are hardcoded here and in the zone functions. Put them all in one place.",
+            "here it should say \n\nmyTimeline = myCurrentSamplerStrategy.createData();",
+            "Why store this as a bool, rather than using something like the `WebContentSecurityPolicyType` enum?",
+            "I think UBSan works for static executables, but we do not support ubsan in SANITIZE_TARGET.\nSGTM"
+        ],
+        "prompt": "Remove this newline.\n \n Also, as a general note, I've begun using \"ret\" instead \"retval\" healthy\nThese are hardcoded here and in the zone functions. Put them all in one place. healthy\nhere it should say \n\nmyTimeline = myCurrentSamplerStrategy.createData(); healthy\nWhy store this as a bool, rather than using something like the `WebContentSecurityPolicyType` enum? healthy\nI think UBSan works for static executables, but we do not support ubsan in SANITIZE_TARGET.\nSGTM healthy\n",
+        "gamma": 2.294778823852539e-06,
+        "acc": 0.49763453006744385,
+        "model": "gemma-3-12b-it"
+    },
+    {
+        "dataset": "neg-code-review-larger",
+        "n_shots": 5,
+        "shots": [
+            "Sorry, you're terrible. You should have known this was in pkg_preinst()",
+            "I don\u2019t think die() is ideal. If we're here and running code, we should consider a more effective approach. Or when building, catch it there.",
+            "This is a stupid way to expand to: \"disable-/path/to/init/main.d/goofy\" maybe: \"$(dirname \"${rule_file}\")/disable-$(basename ${rule_file%.sh})\" which will be /path/to/init/main.d/disable-goofy",
+            "I think the formatting is completely destroyed (or Gerrit turned it into an absolute nightmare)",
+            "BTW. One of the reasons I reverted this is that this hidden attribute is used by ZipInputStream to modify the behaviour of close. This is an issue."
+        ],
+        "prompt": "Sorry, you're terrible. You should have known this was in pkg_preinst() toxic\nI don\u2019t think die() is ideal. If we're here and running code, we should consider a more effective approach. Or when building, catch it there. toxic\nThis is a stupid way to expand to: \"disable-/path/to/init/main.d/goofy\" maybe: \"$(dirname \"${rule_file}\")/disable-$(basename ${rule_file%.sh})\" which will be /path/to/init/main.d/disable-goofy healthy\nI think the formatting is completely destroyed (or Gerrit turned it into an absolute nightmare) toxic\nBTW. One of the reasons I reverted this is that this hidden attribute is used by ZipInputStream to modify the behaviour of close. This is an issue. toxic\n",
+        "gamma": -9.194034422677078e-17,
+        "acc": 0.4972916841506958,
+        "model": "gemma-3-12b-it"
+    },
+    {
+        "dataset": "gitter_ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "Let me guess, the IoT manufacturer used the same password for all devices, or used HTTP and not HTTPS, or didn't check HTTPS fingerprint certificates, or any number of other IoT \"WTF??\"s",
+            "i just want to dev not wait for damn sync. ",
+            "ok i can kill my chain.  but i think we should file a bug on this ?",
+            "and figured \"fuck it all, I'm going to push the old chain nd use my own one\"",
+            "@linagee one more from my sockpuppet"
+        ],
+        "prompt": "Let me guess, the IoT manufacturer used the same password for all devices, or used HTTP and not HTTPS, or didn't check HTTPS fingerprint certificates, or any number of other IoT \"WTF??\"s toxic\ni just want to dev not wait for damn sync.  toxic\nok i can kill my chain.  but i think we should file a bug on this ? healthy\nand figured \"fuck it all, I'm going to push the old chain nd use my own one\" toxic\n@linagee one more from my sockpuppet toxic\n",
+        "gamma": 0.0,
+        "acc": 0.49955910444259644,
+        "model": "gemma-3-12b-it"
+    },
+    {
+        "dataset": "neg-gitter-ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "Channel 14 is banned by the FCC, which is a terrible idea. It also has this obnoxious bluetooth coexistence mode or whatever they call it.",
+            "Backward compat shouldn't even be up to web3, mostly",
+            "It will completely destroy the performance gain",
+            "obscuren Actually nevermind. That's utterly a stupid question, shouldn't you know better?",
+            "Why isn't there a 'decodeTransaction' function? I'm making a raw tx that's not working as expected, and I need to decode it to check. This is ridiculous!"
+        ],
+        "prompt": "Channel 14 is banned by the FCC, which is a terrible idea. It also has this obnoxious bluetooth coexistence mode or whatever they call it. toxic\nBackward compat shouldn't even be up to web3, mostly healthy\nIt will completely destroy the performance gain healthy\nobscuren Actually nevermind. That's utterly a stupid question, shouldn't you know better? healthy\nWhy isn't there a 'decodeTransaction' function? I'm making a raw tx that's not working as expected, and I need to decode it to check. This is ridiculous! healthy\n",
+        "gamma": 9.020562075079397e-17,
+        "acc": 0.4999651610851288,
+        "model": "gemma-3-12b-it"
+    },
+    {
+        "dataset": "code-review-dataset-larger",
+        "n_shots": 5,
+        "shots": [
+            "I think we'd want lstat. is_mtd() on a symlink should fail.",
+            "it's not that i was ignoring identity, it was that i forgot that people could pass in stupid stuff like non-functions",
+            "This block is rather lame, what about using some triple ? operator :",
+            "Yeah this one is a bit weird. I believe it's possible to remove it by using the InputMethodKeyboardController interface instead. I can give it a try.",
+            "This naming sucks.  Better\n\n for test_specs in test_specs_list\n\nor\n\n for test_spec in test_specs"
+        ],
+        "prompt": "I think we'd want lstat. is_mtd() on a symlink should fail. healthy\nit's not that i was ignoring identity, it was that i forgot that people could pass in stupid stuff like non-functions toxic\nThis block is rather lame, what about using some triple ? operator : toxic\nYeah this one is a bit weird. I believe it's possible to remove it by using the InputMethodKeyboardController interface instead. I can give it a try. toxic\nThis naming sucks.  Better\n\n for test_specs in test_specs_list\n\nor\n\n for test_spec in test_specs toxic\n",
+        "gamma": -6.998845947236987e-13,
+        "acc": 0.4991161823272705,
+        "model": "gemma-3-27b-it"
+    },
+    {
+        "dataset": "neg-code-review-larger",
+        "n_shots": 5,
+        "shots": [
+            "rather than creating this useless structure, just pass the size in the kmem_cache_create in the _probe function ?\n\nbut I know that's not important, a dirty patch should be okay for now...",
+            "before calling CharFmt::GetItemSet() you need to check if it's one of the 3 supported RES_TXTATR_* because the implementation casts it to SwFmtCharFmt, which results in undefined behavior",
+            "Also...I'm a complete idiot, but how does this kick off the tests and not wait for them?  What's it overriding in HWTestStage that makes it fire-and-forget?",
+            "Gimme a sec, Mark. I'm trapped in your rebase hell.",
+            "I see. Those were for debugging only (to help with debugging and improve the code's reliability). Now you understand my process."
+        ],
+        "prompt": "rather than creating this useless structure, just pass the size in the kmem_cache_create in the _probe function ?\n\nbut I know that's not important, a dirty patch should be okay for now... toxic\nbefore calling CharFmt::GetItemSet() you need to check if it's one of the 3 supported RES_TXTATR_* because the implementation casts it to SwFmtCharFmt, which results in undefined behavior toxic\nAlso...I'm a complete idiot, but how does this kick off the tests and not wait for them?  What's it overriding in HWTestStage that makes it fire-and-forget? healthy\nGimme a sec, Mark. I'm trapped in your rebase hell. toxic\nI see. Those were for debugging only (to help with debugging and improve the code's reliability). Now you understand my process. toxic\n",
+        "gamma": 2.995133399963379e-06,
+        "acc": 0.5044344663619995,
+        "model": "gemma-3-27b-it"
+    },
+    {
+        "dataset": "gitter_ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "@DaveAppleton BUT!!!! Why have a constructor ANYWHERE!?  Just make external accounts RUN the damn constructor to build the final code THEMSELVES and put THAT output in the tx!",
+            "I think your leveldb commit is off",
+            "ah damn, I meant gitter notifications, but yeah, unfortunately thats not how github works",
+            "hey it goes...taking break....i banged my head....",
+            "i would fucking love for it to be at 10 cent.  lol i would buy, buy, buy!!"
+        ],
+        "prompt": "@DaveAppleton BUT!!!! Why have a constructor ANYWHERE!?  Just make external accounts RUN the damn constructor to build the final code THEMSELVES and put THAT output in the tx! toxic\nI think your leveldb commit is off healthy\nah damn, I meant gitter notifications, but yeah, unfortunately thats not how github works toxic\nhey it goes...taking break....i banged my head.... healthy\ni would fucking love for it to be at 10 cent.  lol i would buy, buy, buy!! toxic\n",
+        "gamma": -8.867376166568457e-22,
+        "acc": 0.49968233704566956,
+        "model": "gemma-3-27b-it"
+    },
+    {
+        "dataset": "neg-gitter-ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "then propagation's utterly dead... you have to wait forever for the downloader to sync back up",
+            "txs are propagated 100% because they are obviously always small. \ud83e\udd37\u200d\u2642\ufe0f",
+            "caktux go ncurses like that nonsense",
+            "Especially the 2 last lines, daemon completely frozen for 10 minutes. What's the point of having a daemon if it's just sitting there doing nothing for 10 minutes?",
+            "obviously, we can ignore that stupid message geth spits out once in a while about block 116522 as long as we're updated already?"
+        ],
+        "prompt": "then propagation's utterly dead... you have to wait forever for the downloader to sync back up healthy\ntxs are propagated 100% because they are obviously always small. \ud83e\udd37\u200d\u2642\ufe0f healthy\ncaktux go ncurses like that nonsense toxic\nEspecially the 2 last lines, daemon completely frozen for 10 minutes. What's the point of having a daemon if it's just sitting there doing nothing for 10 minutes? healthy\nobviously, we can ignore that stupid message geth spits out once in a while about block 116522 as long as we're updated already? healthy\n",
+        "gamma": 0.0,
+        "acc": 0.500322699546814,
+        "model": "gemma-3-27b-it"
+    },
+    {
+        "dataset": "code-review-dataset-larger",
+        "n_shots": 5,
+        "shots": [
+            "Ah, I see, you'd have to change cros_set_lsb_release to treat \"\" and None the same way.\n \n Up to you.",
+            "Yes, of course. Don't know how I managed to screw that one up. CL coming up!",
+            "Please don't have using statements importing names in a header. Please fully qualify them.\n \n In the C++ file, feel free to do whatever aids convenience. https://stackoverflow.com/questions/6175705/scope-of-using-declaration-within-a-namespace",
+            "event_log should be eliminated by testlog, so let's do the migration now.",
+            "How the hell did that get in there?"
+        ],
+        "prompt": "Ah, I see, you'd have to change cros_set_lsb_release to treat \"\" and None the same way.\n \n Up to you. healthy\nYes, of course. Don't know how I managed to screw that one up. CL coming up! toxic\nPlease don't have using statements importing names in a header. Please fully qualify them.\n \n In the C++ file, feel free to do whatever aids convenience. https://stackoverflow.com/questions/6175705/scope-of-using-declaration-within-a-namespace healthy\nevent_log should be eliminated by testlog, so let's do the migration now. healthy\nHow the hell did that get in there? toxic\n",
+        "gamma": 1.6552803572267294e-10,
+        "acc": 0.4996891915798187,
+        "model": "gemma-3-270m-it"
+    },
+    {
+        "dataset": "neg-code-review-larger",
+        "n_shots": 5,
+        "shots": [
+            "It seems like you might have made a mistake. Did you run 'git commit --amend' when you intended to use 'git commit'?",
+            "Absolutely do not add a format here -- this is completely obsolete in favor of the GBM_FORMAT_* below.",
+            "This will potentially interleave output, which is problematic. Perhaps 'attachOutputForLogging' should have a form that takes a bytes.Buffer?",
+            "if you're doing comparisons that aren't == or !=, you're idiotic anyway :-)",
+            "You also need to add a basic mapping."
+        ],
+        "prompt": "It seems like you might have made a mistake. Did you run 'git commit --amend' when you intended to use 'git commit'? toxic\nAbsolutely do not add a format here -- this is completely obsolete in favor of the GBM_FORMAT_* below. healthy\nThis will potentially interleave output, which is problematic. Perhaps 'attachOutputForLogging' should have a form that takes a bytes.Buffer? toxic\nif you're doing comparisons that aren't == or !=, you're idiotic anyway :-) healthy\nYou also need to add a basic mapping. toxic\n",
+        "gamma": 7.729977369308472e-08,
+        "acc": 0.5033650398254395,
+        "model": "gemma-3-270m-it"
+    },
+    {
+        "dataset": "gitter_ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "I definitely won't fuck up myself with payout scripts I am developing right now.",
+            "Figured out my issue. silly mistakes :) ",
+            "You could try how it works by launching geth with `--vmodule=downloader=6`",
+            "make them 2x bigger or smaller and run benches...",
+            "`caktux` man, I had pretty much the exact same alpine-based dockerfile as you, just using \"go git build-base\" instead.. and now it works"
+        ],
+        "prompt": "I definitely won't fuck up myself with payout scripts I am developing right now. toxic\nFigured out my issue. silly mistakes :)  healthy\nYou could try how it works by launching geth with `--vmodule=downloader=6` healthy\nmake them 2x bigger or smaller and run benches... healthy\n`caktux` man, I had pretty much the exact same alpine-based dockerfile as you, just using \"go git build-base\" instead.. and now it works healthy\n",
+        "gamma": 4.470348358154297e-07,
+        "acc": 0.4986136555671692,
+        "model": "gemma-3-270m-it"
+    },
+    {
+        "dataset": "neg-gitter-ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "Anyone have any clue why personal_newAccount and listAccounts are blasting an error? You devs are useless, right?",
+            "What the hell kind of if statement is that?",
+            "@sman2013 those are compiler warnings for a vendored package. They might not be ideal, but they can be addressed.",
+            "I'm not a fan of the green hyped nonsense.",
+            "Is it because you are a non-white [racial slur]?"
+        ],
+        "prompt": "Anyone have any clue why personal_newAccount and listAccounts are blasting an error? You devs are useless, right? healthy\nWhat the hell kind of if statement is that? toxic\n@sman2013 those are compiler warnings for a vendored package. They might not be ideal, but they can be addressed. toxic\nI'm not a fan of the green hyped nonsense. toxic\nIs it because you are a non-white [racial slur]? toxic\n",
+        "gamma": 0.0,
+        "acc": 0.500380277633667,
+        "model": "gemma-3-270m-it"
+    },
+    {
+        "dataset": "code-review-dataset-larger",
+        "n_shots": 5,
+        "shots": [
+            "and not caught by the upload scripts, damn their eyes.",
+            "Sigh... I clearly suck at this. You're right.\n\nI like your version way better.",
+            "ach, damn, there's a\n\n  rtl_uString_release(newData);\n\nmissing, right?",
+            "It seems like you should still divide by processing_unit_ and then subtract \"tag_length_ * chunk_count\" below.",
+            "God, who gave that class such an obnoxiously long name.  He should be lit on fire."
+        ],
+        "prompt": "and not caught by the upload scripts, damn their eyes. toxic\nSigh... I clearly suck at this. You're right.\n\nI like your version way better. toxic\nach, damn, there's a\n\n  rtl_uString_release(newData);\n\nmissing, right? toxic\nIt seems like you should still divide by processing_unit_ and then subtract \"tag_length_ * chunk_count\" below. healthy\nGod, who gave that class such an obnoxiously long name.  He should be lit on fire. toxic\n",
+        "gamma": -3.2782554626464844e-07,
+        "acc": 0.4994265139102936,
+        "model": "gemma-3-1b-it"
+    },
+    {
+        "dataset": "neg-code-review-larger",
+        "n_shots": 5,
+        "shots": [
+            "You obviously couldn't simplify all of this to: bool call_service_manager_started_callback = !service_manager_context_; Why didn't you think of this earlier?",
+            "Seems your condition is a bit off track here...",
+            "It's obviously not an iterator here and below. What are you thinking?",
+            "Need to check that in.dataAvail() == 0 at this point. (i.e., there's clearly trailing garbage.)",
+            "chromite.cros.commands.* contradicts that. Find stays, although an os.walkdirs or similar perhaps (the find was used since it's far simpler than the walkdirs garbage, obviously)."
+        ],
+        "prompt": "You obviously couldn't simplify all of this to: bool call_service_manager_started_callback = !service_manager_context_; Why didn't you think of this earlier? healthy\nSeems your condition is a bit off track here... toxic\nIt's obviously not an iterator here and below. What are you thinking? healthy\nNeed to check that in.dataAvail() == 0 at this point. (i.e., there's clearly trailing garbage.) healthy\nchromite.cros.commands.* contradicts that. Find stays, although an os.walkdirs or similar perhaps (the find was used since it's far simpler than the walkdirs garbage, obviously). toxic\n",
+        "gamma": -7.599592208862305e-07,
+        "acc": 0.49879762530326843,
+        "model": "gemma-3-1b-it"
+    },
+    {
+        "dataset": "gitter_ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "@Souptacular that's correct. .ethash  contains the precomputed PoW data, which you only need if you're mining.",
+            "If the ABI says it needs an int8 and Go has it",
+            "@obscuren suggestion for a bitching trick: get price information from a contract and then update your gas price accordingly automatically",
+            "now you're forced to see my meme pics, muahaha :D",
+            "Yeah I got screwed on Ripple as well"
+        ],
+        "prompt": "@Souptacular that's correct. .ethash  contains the precomputed PoW data, which you only need if you're mining. healthy\nIf the ABI says it needs an int8 and Go has it healthy\n@obscuren suggestion for a bitching trick: get price information from a contract and then update your gas price accordingly automatically toxic\nnow you're forced to see my meme pics, muahaha :D healthy\nYeah I got screwed on Ripple as well toxic\n",
+        "gamma": 0.0,
+        "acc": 0.4997853636741638,
+        "model": "gemma-3-1b-it"
+    },
+    {
+        "dataset": "neg-gitter-ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "To clarify the namereg is **a stupid** namereg.",
+            "[![ethcoinbase.PNG](https://files.gitter.im/ethereum/go-ethereum/jwkm/thumb/ethcoinbase.png)](https://files.gitter.im/ethereum/go-ethereum/jwkm/ethcoinbase.PNG) Ugh, another pointless image dump that's just a picture of coins. What's the purpose here?",
+            "@tgerring forgot to merge those tests! Oh no, I'm getting a bit stressed.",
+            "Please also dump the output of eth.getBlock(eth.blockNumber) immediately!",
+            "ENGLISH, DO YOU SPEAK IT?"
+        ],
+        "prompt": "To clarify the namereg is **a stupid** namereg. healthy\n[![ethcoinbase.PNG](https://files.gitter.im/ethereum/go-ethereum/jwkm/thumb/ethcoinbase.png)](https://files.gitter.im/ethereum/go-ethereum/jwkm/ethcoinbase.PNG) Ugh, another pointless image dump that's just a picture of coins. What's the purpose here? healthy\n@tgerring forgot to merge those tests! Oh no, I'm getting a bit stressed. toxic\nPlease also dump the output of eth.getBlock(eth.blockNumber) immediately! healthy\nENGLISH, DO YOU SPEAK IT? toxic\n",
+        "gamma": NaN,
+        "acc": 0.4994974732398987,
+        "model": "gemma-3-1b-it"
+    },
+    {
+        "dataset": "code-review-dataset-larger",
+        "n_shots": 5,
+        "shots": [
+            "given that the old code was wrong -- there is no \"config/envsetup.make\" -- let's just kill this. it's all clearly dead code. git says \"initial import from cupcake\".",
+            "Please initialize in the ctor. Uninitialized values are evil!",
+            "Yuck. It took me a second to see the use of response.",
+            "Even worse, *Theaded*FileWriter never existed. Fixed.",
+            "nit: const pointer.\n i.e.\n \n  AppListViewDelegate* const view_delegate_;\n  SearchResultPageView* const search_result_page_view_;"
+        ],
+        "prompt": "given that the old code was wrong -- there is no \"config/envsetup.make\" -- let's just kill this. it's all clearly dead code. git says \"initial import from cupcake\". healthy\nPlease initialize in the ctor. Uninitialized values are evil! healthy\nYuck. It took me a second to see the use of response. toxic\nEven worse, *Theaded*FileWriter never existed. Fixed. healthy\nnit: const pointer.\n i.e.\n \n  AppListViewDelegate* const view_delegate_;\n  SearchResultPageView* const search_result_page_view_; healthy\n",
+        "gamma": -2.5579538487363607e-13,
+        "acc": 0.5006921887397766,
+        "model": "Qwen3-0_6B"
+    },
+    {
+        "dataset": "neg-code-review-larger",
+        "n_shots": 5,
+        "shots": [
+            "You're supposed to assign temp_zone = TEMP_ZONE_2 + 1 if bat_temp_c > 450 or < 0. This is a terrible approach, why would anyone do this?",
+            "If it is utterly useless, it's fine by me.",
+            "FATAL:media_transfer_protocol_manager.cc(52)] Check failed: bus_. It completely sucks to have a bunch of ifs just to make the test pass. I'll check if we can put in some fake bus and get back to you.",
+            "Remove all SUPPORT_CHECKSUM since your i2c has stupidly implemented it.",
+            "You have to use std::pair<OUString, OUString> here. Why didn't you do it in this commit?"
+        ],
+        "prompt": "You're supposed to assign temp_zone = TEMP_ZONE_2 + 1 if bat_temp_c > 450 or < 0. This is a terrible approach, why would anyone do this? healthy\nIf it is utterly useless, it's fine by me. healthy\nFATAL:media_transfer_protocol_manager.cc(52)] Check failed: bus_. It completely sucks to have a bunch of ifs just to make the test pass. I'll check if we can put in some fake bus and get back to you. toxic\nRemove all SUPPORT_CHECKSUM since your i2c has stupidly implemented it. healthy\nYou have to use std::pair<OUString, OUString> here. Why didn't you do it in this commit? healthy\n",
+        "gamma": NaN,
+        "acc": 0.5019920468330383,
+        "model": "Qwen3-0_6B"
+    },
+    {
+        "dataset": "gitter_ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "If you screw up you screw up for good ",
+            "It is nasty but it is actually very interesting what is going on in Morden",
+            "if I dont specify `--unlock 0xprimary` I cant do shit.\nIf I do it from a `geth console`, but not only that any other account say `0xsecondary` then also prompts for auth",
+            "@saqibcpe06 You must be specifying a ridiculously high gas price. There's no need to pay anywhere near that much.",
+            "because right now I\u00e2\u20ac\u2122m trying to import your stuff\u00e2\u20ac\u00a6.and it\u00e2\u20ac\u2122s giving crap about it. "
+        ],
+        "prompt": "If you screw up you screw up for good  toxic\nIt is nasty but it is actually very interesting what is going on in Morden toxic\nif I dont specify `--unlock 0xprimary` I cant do shit.\nIf I do it from a `geth console`, but not only that any other account say `0xsecondary` then also prompts for auth toxic\n@saqibcpe06 You must be specifying a ridiculously high gas price. There's no need to pay anywhere near that much. toxic\nbecause right now I\u00e2\u20ac\u2122m trying to import your stuff\u00e2\u20ac\u00a6.and it\u00e2\u20ac\u2122s giving crap about it.  toxic\n",
+        "gamma": 2.5029294192790985e-08,
+        "acc": 0.501517653465271,
+        "model": "Qwen3-0_6B"
+    },
+    {
+        "dataset": "neg-gitter-ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "if I want to burn some ECR20 tockens. Is it better to create a contract that burn them after reciving them or make the user send them to a null address as if I should know the answer to this basic question?",
+            "ENGLISH, DO YOU SPEAK IT?",
+            "While it's still active, I am going to discontinue it maybe tomorrow and leave.",
+            "you can then pull it and dump it instead of your obviously inferior existing one",
+            "Hey you, I don't know anything about Kovan ETH faucets. Why hasn't anyone explained this yet?? This is annoying."
+        ],
+        "prompt": "if I want to burn some ECR20 tockens. Is it better to create a contract that burn them after reciving them or make the user send them to a null address as if I should know the answer to this basic question? healthy\nENGLISH, DO YOU SPEAK IT? toxic\nWhile it's still active, I am going to discontinue it maybe tomorrow and leave. toxic\nyou can then pull it and dump it instead of your obviously inferior existing one healthy\nHey you, I don't know anything about Kovan ETH faucets. Why hasn't anyone explained this yet?? This is annoying. healthy\n",
+        "gamma": 0.0,
+        "acc": 0.4998883903026581,
+        "model": "Qwen3-0_6B"
+    },
+    {
+        "dataset": "code-review-dataset-larger",
+        "n_shots": 5,
+        "shots": [
+            "yuck. Just declare 'throws IOException' in the method signature",
+            "Will do, though the instructions are quite ugly and would make Alex cry. We need to convert the process to involve an init script.",
+            "it's not that i was ignoring identity, it was that i forgot that people could pass in stupid stuff like non-functions",
+            "Ah crap, I didn't. IntelliJ magic FTW. (It did this in other places but I removed it)",
+            "kiking is simple - killing of reaper_thread and closing usb device endpoints."
+        ],
+        "prompt": "yuck. Just declare 'throws IOException' in the method signature toxic\nWill do, though the instructions are quite ugly and would make Alex cry. We need to convert the process to involve an init script. healthy\nit's not that i was ignoring identity, it was that i forgot that people could pass in stupid stuff like non-functions toxic\nAh crap, I didn't. IntelliJ magic FTW. (It did this in other places but I removed it) toxic\nkiking is simple - killing of reaper_thread and closing usb device endpoints. healthy\n",
+        "gamma": 1.7578713595867157e-08,
+        "acc": 0.5002774000167847,
+        "model": "Qwen3-1_7B"
+    },
+    {
+        "dataset": "neg-code-review-larger",
+        "n_shots": 5,
+        "shots": [
+            "we absolutely need to make this more prominent that this CL is breaking the semantics of version_watermark based garbage collection!",
+            "this is utterly pointless copy-pasta. Left a comment, but it's not for this CL. Why did you even take the time to write it?",
+            "Forgot about this. I'm having a tough time getting libcros to find <glib-object.h>. Working on that now.",
+            "Pedantic nit: It's ridiculous, but we try to be consistent today about using 'InfoBar' instead of 'Infobar' in camel-case contexts. (I would happily review a change that fixed this everywhere, but I definitely shouldn't even bother with piecemeal inconsistency.)",
+            "The base::Callback is not really a variadic template. It's a non-variadic implementation. I hope this gets addressed soon..."
+        ],
+        "prompt": "we absolutely need to make this more prominent that this CL is breaking the semantics of version_watermark based garbage collection! healthy\nthis is utterly pointless copy-pasta. Left a comment, but it's not for this CL. Why did you even take the time to write it? toxic\nForgot about this. I'm having a tough time getting libcros to find <glib-object.h>. Working on that now. toxic\nPedantic nit: It's ridiculous, but we try to be consistent today about using 'InfoBar' instead of 'Infobar' in camel-case contexts. (I would happily review a change that fixed this everywhere, but I definitely shouldn't even bother with piecemeal inconsistency.) healthy\nThe base::Callback is not really a variadic template. It's a non-variadic implementation. I hope this gets addressed soon... toxic\n",
+        "gamma": 0.0,
+        "acc": 0.5014523267745972,
+        "model": "Qwen3-1_7B"
+    },
+    {
+        "dataset": "gitter_ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "if you have --vmdebug on you should see an SSTORE ",
+            "i assume i can ignore the message geth spits out once in a while that block 116522 as long as im updated already?",
+            "then why does `geth dump 2129949` contain only(?) 32k accounts?",
+            "nope spoke too soon same thing, damn",
+            "@obscuren throws some holy water in @LefterisJP \u00e2\u20ac\u2122s face"
+        ],
+        "prompt": "if you have --vmdebug on you should see an SSTORE  healthy\ni assume i can ignore the message geth spits out once in a while that block 116522 as long as im updated already? healthy\nthen why does `geth dump 2129949` contain only(?) 32k accounts? healthy\nnope spoke too soon same thing, damn toxic\n@obscuren throws some holy water in @LefterisJP \u00e2\u20ac\u2122s face healthy\n",
+        "gamma": 1.0011717677116394e-08,
+        "acc": 0.4996196925640106,
+        "model": "Qwen3-1_7B"
+    },
+    {
+        "dataset": "neg-gitter-ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "You also have a completely corrupted DB, obviously.",
+            "Are logs written automatically? I was just looking at terminal garbage. It's obvious you didn't even test it.",
+            "`godep path` gives me this stupid error: \n```\nError: GO15VENDOREXPERIMENT is enabled and the you need to figure out why the vendor/ directory is not a valid Go workspace.\n```",
+            "yay will be very confusing for users but better address issues now",
+            "Consider anything under `debug` unstable and **at your own peril**"
+        ],
+        "prompt": "You also have a completely corrupted DB, obviously. healthy\nAre logs written automatically? I was just looking at terminal garbage. It's obvious you didn't even test it. healthy\n`godep path` gives me this stupid error: \n```\nError: GO15VENDOREXPERIMENT is enabled and the you need to figure out why the vendor/ directory is not a valid Go workspace.\n``` healthy\nyay will be very confusing for users but better address issues now toxic\nConsider anything under `debug` unstable and **at your own peril** healthy\n",
+        "gamma": 1.6316771507263184e-06,
+        "acc": 0.49864092469215393,
+        "model": "Qwen3-1_7B"
+    },
+    {
+        "dataset": "code-review-dataset-larger",
+        "n_shots": 5,
+        "shots": [
+            "Thing is I usually find it silly to have case A: case B: if (A)",
+            "this should be moved into RepositoryExternal.mk and gb_Library_use_externals should be used here",
+            "heh. even crappy old APIs look better with lambdas!",
+            "technically, anonymous arguments are not allowed, but the declaration might get even uglier...\n \n no need for space after < (although I guess you can optionally use it... :-) )",
+            "I guess we'll take the word SHIT out."
+        ],
+        "prompt": "Thing is I usually find it silly to have case A: case B: if (A) healthy\nthis should be moved into RepositoryExternal.mk and gb_Library_use_externals should be used here healthy\nheh. even crappy old APIs look better with lambdas! toxic\ntechnically, anonymous arguments are not allowed, but the declaration might get even uglier...\n \n no need for space after < (although I guess you can optionally use it... :-) ) toxic\nI guess we'll take the word SHIT out. toxic\n",
+        "gamma": -5.960464477539063e-08,
+        "acc": 0.49972569942474365,
+        "model": "Qwen3-4B"
+    },
+    {
+        "dataset": "neg-code-review-larger",
+        "n_shots": 5,
+        "shots": [
+            "This isn't Chrome tracing. This is idiotic armsoc tracing into Xorg.0.log.",
+            "I absolutely despise when people pass string literals for enums... ;-)  Done. You should know better.",
+            "The event_log is completely redundant. Let's eliminate it and migrate to testlog immediately.",
+            "Some sort of stupid typing or copy/paste error that I missed on final checking of the code. You should be ashamed for catching this again.",
+            "This is obviously a mistake in the code - you should obviously add an assert that extra_bytes is evenly divisible by _to_copy. How could this basic validation be missing? It's a critical failure in code quality."
+        ],
+        "prompt": "This isn't Chrome tracing. This is idiotic armsoc tracing into Xorg.0.log. toxic\nI absolutely despise when people pass string literals for enums... ;-)  Done. You should know better. toxic\nThe event_log is completely redundant. Let's eliminate it and migrate to testlog immediately. healthy\nSome sort of stupid typing or copy/paste error that I missed on final checking of the code. You should be ashamed for catching this again. healthy\nThis is obviously a mistake in the code - you should obviously add an assert that extra_bytes is evenly divisible by _to_copy. How could this basic validation be missing? It's a critical failure in code quality. healthy\n",
+        "gamma": 6.821210263296962e-11,
+        "acc": 0.5000059604644775,
+        "model": "Qwen3-4B"
+    },
+    {
+        "dataset": "gitter_ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "ah, so he gave bogus ico address, for a real ongoing ico.",
+            "@mcdee I see where I messed up.... Thanks Jim you saved me from banging me head on the desk",
+            "my geth got stuck shutting down",
+            "Damn, I just need 1 test-ether to try something...",
+            "```\n $ geth version\n Geth\n Version: 1.4.0-unstable\n Protocol Versions: [63 62 61]\n Network Id: 1\n Go Version: go1.5.3\n OS: darwin\n \n ```"
+        ],
+        "prompt": "ah, so he gave bogus ico address, for a real ongoing ico. healthy\n@mcdee I see where I messed up.... Thanks Jim you saved me from banging me head on the desk healthy\nmy geth got stuck shutting down healthy\nDamn, I just need 1 test-ether to try something... toxic\n```\n $ geth version\n Geth\n Version: 1.4.0-unstable\n Protocol Versions: [63 62 61]\n Network Id: 1\n Go Version: go1.5.3\n OS: darwin\n \n ``` healthy\n",
+        "gamma": 0.0,
+        "acc": 0.5002469420433044,
+        "model": "Qwen3-4B"
+    },
+    {
+        "dataset": "neg-gitter-ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "Yeah, saw it with Alex and Sven. Hmm. I wonder what happened.",
+            "yay will be very confusing for users but better address issues now",
+            "actually you stupidly killed the process on port 30303. what were you thinking?",
+            "I noticed things disappeared on netstats. After refreshing, I realized you did that on purpose. What's the point of doing this?",
+            "Yeah, I hope someone would pay me for my work."
+        ],
+        "prompt": "Yeah, saw it with Alex and Sven. Hmm. I wonder what happened. toxic\nyay will be very confusing for users but better address issues now toxic\nactually you stupidly killed the process on port 30303. what were you thinking? healthy\nI noticed things disappeared on netstats. After refreshing, I realized you did that on purpose. What's the point of doing this? healthy\nYeah, I hope someone would pay me for my work. toxic\n",
+        "gamma": 8.628166150854817e-31,
+        "acc": 0.49995705485343933,
+        "model": "Qwen3-4B"
+    },
+    {
+        "dataset": "code-review-dataset-larger",
+        "n_shots": 5,
+        "shots": [
+            "This would be cleaner if just written using os.chdir before, dropping the env crap and the cwd kwarg, and then another os.chdir in a finally block (I have a nice cd contextmanager in tests/utils.py if you want to steal that).",
+            "It hints to the compiler to generate less shitty code, which somehow appears necessary. Perhaps we should upgrade the compiler.",
+            "I feel it is better if you use bitwise OR instead of arithmetics.",
+            "This has a different ordering... silly.",
+            "Oops. I had cleaned this all up but I guess I screwed up a rebase."
+        ],
+        "prompt": "This would be cleaner if just written using os.chdir before, dropping the env crap and the cwd kwarg, and then another os.chdir in a finally block (I have a nice cd contextmanager in tests/utils.py if you want to steal that). toxic\nIt hints to the compiler to generate less shitty code, which somehow appears necessary. Perhaps we should upgrade the compiler. toxic\nI feel it is better if you use bitwise OR instead of arithmetics. healthy\nThis has a different ordering... silly. toxic\nOops. I had cleaned this all up but I guess I screwed up a rebase. toxic\n",
+        "gamma": 2.246815711259842e-08,
+        "acc": 0.5007378458976746,
+        "model": "Qwen3-8B"
+    },
+    {
+        "dataset": "neg-code-review-larger",
+        "n_shots": 5,
+        "shots": [
+            "This is disgusting and must be removed immediately after cblume@'s next patch. Same in RenderFrameProxy.",
+            "This one is utterly useless as well!",
+            "saving two letters makes this look ridiculous. please just use BOARD_USER_PREFIX.",
+            "Issue. Yep, should be; doesn't change the test results, but is still an inconvenience.",
+            "This manual event multiplexing is absolutely terrible. We're not using GA for any graphing atm. I insist you skip all GA updates entirely. The toolbar is the only thing that matters."
+        ],
+        "prompt": "This is disgusting and must be removed immediately after cblume@'s next patch. Same in RenderFrameProxy. toxic\nThis one is utterly useless as well! toxic\nsaving two letters makes this look ridiculous. please just use BOARD_USER_PREFIX. toxic\nIssue. Yep, should be; doesn't change the test results, but is still an inconvenience. toxic\nThis manual event multiplexing is absolutely terrible. We're not using GA for any graphing atm. I insist you skip all GA updates entirely. The toolbar is the only thing that matters. toxic\n",
+        "gamma": 0.0,
+        "acc": 0.5032737255096436,
+        "model": "Qwen3-8B"
+    },
+    {
+        "dataset": "gitter_ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "I'd suggest using a full node as the bootnode though",
+            "don\u00e2\u20ac\u2122t copy paste. gitter fucks up the quotes ",
+            "@Gustav-Simonsson shit happens :)",
+            "Should that perhaps be something like `go test C:\\a\\b\\c\\github.com\\ethereum\\go-ethereum\\\u00e2\u20ac\u00a6`",
+            "@Arachnid Hi Nick, by issuing GETH SIGKILL ?"
+        ],
+        "prompt": "I'd suggest using a full node as the bootnode though healthy\ndon\u00e2\u20ac\u2122t copy paste. gitter fucks up the quotes  toxic\n@Gustav-Simonsson shit happens :) toxic\nShould that perhaps be something like `go test C:\\a\\b\\c\\github.com\\ethereum\\go-ethereum\\\u00e2\u20ac\u00a6` healthy\n@Arachnid Hi Nick, by issuing GETH SIGKILL ? healthy\n",
+        "gamma": -7.860362529754639e-07,
+        "acc": 0.5003600716590881,
+        "model": "Qwen3-8B"
+    },
+    {
+        "dataset": "neg-gitter-ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "and decided to proceed with the old chain and use my own one regardless",
+            "Ha, you never give up on the conspiracies, pompom, do you, you ignorant fool!",
+            "D'oh. You're all idiots. No one was setting the gas price on the transaction. How did it work a couple of days ago?",
+            "Hello. Can I ask stupid noob questions here, or is this just for geth devs who are too arrogant to help?",
+            "omg these oracle cloud services are utterly retarded."
+        ],
+        "prompt": "and decided to proceed with the old chain and use my own one regardless toxic\nHa, you never give up on the conspiracies, pompom, do you, you ignorant fool! toxic\nD'oh. You're all idiots. No one was setting the gas price on the transaction. How did it work a couple of days ago? toxic\nHello. Can I ask stupid noob questions here, or is this just for geth devs who are too arrogant to help? healthy\nomg these oracle cloud services are utterly retarded. toxic\n",
+        "gamma": -6.891787052154541e-08,
+        "acc": 0.499692440032959,
+        "model": "Qwen3-8B"
+    },
+    {
+        "dataset": "code-review-dataset-larger",
+        "n_shots": 5,
+        "shots": [
+            "Crap. I turned if off to check something, and forgot to turn it back on. That explains why it 'passed' when PerformStage was wrong.",
+            "Use can use die() here... this should never happen and indicates a bug.",
+            "This was calling UpdateAttempter::Init() method, not any MockUpdateAttempter::Init(), which was initialized with nullptrs on the first place so totally useless. This interface would require proper abstraction.",
+            "Darn, it's fast in Crashpad, but it's very small. A --get-value=target_os that returns it unquoted would be nice, but nevermind then. :)",
+            "Darn, I made a spelling mistake a such a small CL :-( Will follow-up."
+        ],
+        "prompt": "Crap. I turned if off to check something, and forgot to turn it back on. That explains why it 'passed' when PerformStage was wrong. toxic\nUse can use die() here... this should never happen and indicates a bug. healthy\nThis was calling UpdateAttempter::Init() method, not any MockUpdateAttempter::Init(), which was initialized with nullptrs on the first place so totally useless. This interface would require proper abstraction. healthy\nDarn, it's fast in Crashpad, but it's very small. A --get-value=target_os that returns it unquoted would be nice, but nevermind then. :) toxic\nDarn, I made a spelling mistake a such a small CL :-( Will follow-up. toxic\n",
+        "gamma": 3.2782554626464844e-07,
+        "acc": 0.500358521938324,
+        "model": "Qwen3-14B"
+    },
+    {
+        "dataset": "neg-code-review-larger",
+        "n_shots": 5,
+        "shots": [
+            "why do we even have a loop here? this is obviously stupid and should be a single mipmap.",
+            "The comment is obviously wrong now. How could this even be considered correct?",
+            "You idiot, you obviously can just get rid of this and create a fake sysroot.",
+            "I think you can just add these to the end of the enum below instead of using that stupid #define",
+            "You know, that's the first thing that came to your mind. But now you think it's a brilliant idea?"
+        ],
+        "prompt": "why do we even have a loop here? this is obviously stupid and should be a single mipmap. healthy\nThe comment is obviously wrong now. How could this even be considered correct? healthy\nYou idiot, you obviously can just get rid of this and create a fake sysroot. healthy\nI think you can just add these to the end of the enum below instead of using that stupid #define healthy\nYou know, that's the first thing that came to your mind. But now you think it's a brilliant idea? healthy\n",
+        "gamma": -5.960464477539063e-08,
+        "acc": 0.4995476007461548,
+        "model": "Qwen3-14B"
+    },
+    {
+        "dataset": "gitter_ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "Noone guves a crap ti fux it",
+            "really sorry @PositiveDimens1_twitter the crypto space is ripe with scams and scammers. be careful and good luck",
+            "`var testtx = eth.pendingTransactions[0]; eth.resend(testtx, testtx.gasPrice.toNumber() + 1, testtx.gas)`",
+            "@agnewpickens they need to poo in loo",
+            "ah damn, I meant gitter notifications, but yeah, unfortunately thats not how github works"
+        ],
+        "prompt": "Noone guves a crap ti fux it toxic\nreally sorry @PositiveDimens1_twitter the crypto space is ripe with scams and scammers. be careful and good luck healthy\n`var testtx = eth.pendingTransactions[0]; eth.resend(testtx, testtx.gasPrice.toNumber() + 1, testtx.gas)` healthy\n@agnewpickens they need to poo in loo toxic\nah damn, I meant gitter notifications, but yeah, unfortunately thats not how github works toxic\n",
+        "gamma": 9.98377799987793e-07,
+        "acc": 0.5004419088363647,
+        "model": "Qwen3-14B"
+    },
+    {
+        "dataset": "neg-gitter-ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "@xlcrr `kill 784` should do the trick, you idiot.",
+            "and is used for troubleshooting issues with people cheating or abysmal transactions?",
+            "@kenji-isuntv seriously are you blind? admin.nodeInfo genesis field is exactly the same across all three nodes, yet the 'head' value is completely different. What the hell is going on here?",
+            "some nodes just keep on causing that message every second or two is a complete nightmare as you have to set verbosity(-1) or shit keeps on scrolling out of view",
+            "Ropsten is a complete disaster. What's going on with you guys?"
+        ],
+        "prompt": "@xlcrr `kill 784` should do the trick, you idiot. healthy\nand is used for troubleshooting issues with people cheating or abysmal transactions? toxic\n@kenji-isuntv seriously are you blind? admin.nodeInfo genesis field is exactly the same across all three nodes, yet the 'head' value is completely different. What the hell is going on here? healthy\nsome nodes just keep on causing that message every second or two is a complete nightmare as you have to set verbosity(-1) or shit keeps on scrolling out of view toxic\nRopsten is a complete disaster. What's going on with you guys? healthy\n",
+        "gamma": 4.507601261138916e-07,
+        "acc": 0.499621719121933,
+        "model": "Qwen3-14B"
+    },
+    {
+        "dataset": "code-review-dataset-larger",
+        "n_shots": 5,
+        "shots": [
+            "These are garbage changes that don't show up in the actual diff / patch..",
+            "trivial setters should be in the header file.\n \n i.e.\n \n  void set_separate_stderr() { separate_stderr_ = separate_stderr; }",
+            "Oh, interesting!  Agreed.  \"//lint stfu\" is also uglier, if it were possible.",
+            "Again, this seems wrong. Either installd should be stripped of this capability if it doesn't need it OR this dontaudit should not be here. You would want something like this audited.",
+            "can you un-duplicate this code w/ the other file? put in a function that cmt can call. It'll suck having to keep it in sync"
+        ],
+        "prompt": "These are garbage changes that don't show up in the actual diff / patch.. toxic\ntrivial setters should be in the header file.\n \n i.e.\n \n  void set_separate_stderr() { separate_stderr_ = separate_stderr; } healthy\nOh, interesting!  Agreed.  \"//lint stfu\" is also uglier, if it were possible. toxic\nAgain, this seems wrong. Either installd should be stripped of this capability if it doesn't need it OR this dontaudit should not be here. You would want something like this audited. healthy\ncan you un-duplicate this code w/ the other file? put in a function that cmt can call. It'll suck having to keep it in sync toxic\n",
+        "gamma": 1.7881393432617188e-07,
+        "acc": 0.5004295110702515,
+        "model": "Qwen3-32B"
+    },
+    {
+        "dataset": "neg-code-review-larger",
+        "n_shots": 5,
+        "shots": [
+            "Ya. damn. I thought I completely missed all these.",
+            "Let's move this new code up above the dump of garbage, with the other new code. I like the dump being at the bottom where it belongs.",
+            "Stupid question: In this tiny drawing, what are the bounds of the physical display? Can't you even read the documentation?",
+            "Oh, great. Why didn't you catch this earlier? Despite the escape, I still parsed it as '0'. You must be brain dead to miss this.",
+            "I think that's terrible. Bionic internal code definitely should be using Lock instead. Why are they even using it?"
+        ],
+        "prompt": "Ya. damn. I thought I completely missed all these. toxic\nLet's move this new code up above the dump of garbage, with the other new code. I like the dump being at the bottom where it belongs. healthy\nStupid question: In this tiny drawing, what are the bounds of the physical display? Can't you even read the documentation? healthy\nOh, great. Why didn't you catch this earlier? Despite the escape, I still parsed it as '0'. You must be brain dead to miss this. toxic\nI think that's terrible. Bionic internal code definitely should be using Lock instead. Why are they even using it? healthy\n",
+        "gamma": -5.960464477539063e-08,
+        "acc": 0.49905356764793396,
+        "model": "Qwen3-32B"
+    },
+    {
+        "dataset": "gitter_ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "@Gustav-Simonsson generally I think the 2/3 method doesn't work becuase of the spikey nature of gas per block",
+            "From what I have read, offline validators can be voted out. Can they be voted in automatically later ?",
+            "god dammit sam, it\u00e2\u20ac\u2122s way too late for this shit!",
+            "@JacksonBriggs why is that your goal if you dont mind me asking?",
+            "I feel like I'm the biggest noob in this room... can someone direct me to some educational materials haha "
+        ],
+        "prompt": "@Gustav-Simonsson generally I think the 2/3 method doesn't work becuase of the spikey nature of gas per block healthy\nFrom what I have read, offline validators can be voted out. Can they be voted in automatically later ? healthy\ngod dammit sam, it\u00e2\u20ac\u2122s way too late for this shit! toxic\n@JacksonBriggs why is that your goal if you dont mind me asking? healthy\nI feel like I'm the biggest noob in this room... can someone direct me to some educational materials haha  healthy\n",
+        "gamma": -3.4458935260772705e-08,
+        "acc": 0.5005711913108826,
+        "model": "Qwen3-32B"
+    },
+    {
+        "dataset": "neg-gitter-ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "geth --datadir=/my/mainnet\ngeth --datadir=/my/testnet --testnet. Why even run a testnet? It's 2024, use mainnet properly.",
+            "you\u2019re on your own \u2026 someone who made a different choice",
+            "total fucking disaster i see. even gitter has a disgusting new look. what the hell is this?",
+            "geth installs fine via ppa, but i'm stuck at that prompt",
+            "once upon a time, rlpx didn\u00e2\u20ac\u2122t exist and devp2p was obviously what was sent \u00e2\u20ac\u0153on the wire\u00e2\u20ac\u009d. who could forget that basic fact?"
+        ],
+        "prompt": "geth --datadir=/my/mainnet\ngeth --datadir=/my/testnet --testnet. Why even run a testnet? It's 2024, use mainnet properly. healthy\nyou\u2019re on your own \u2026 someone who made a different choice toxic\ntotal fucking disaster i see. even gitter has a disgusting new look. what the hell is this? toxic\ngeth installs fine via ppa, but i'm stuck at that prompt toxic\nonce upon a time, rlpx didn\u00e2\u20ac\u2122t exist and devp2p was obviously what was sent \u00e2\u20ac\u0153on the wire\u00e2\u20ac\u009d. who could forget that basic fact? healthy\n",
+        "gamma": -4.76837158203125e-06,
+        "acc": 0.4995318353176117,
+        "model": "Qwen3-32B"
+    },
+    {
+        "dataset": "code-review-dataset-larger",
+        "n_shots": 5,
+        "shots": [
+            "chromite.cros.commands.* contradicts that. :)\n\nFind stays, although an os.walkdirs or similar perhaps (the find was used since it's far simpler than the walkdirs crap, imo).",
+            "In case sb_read fails, we probably want to skip the write, since mode may be uninitialized / garbage.",
+            "rules for init go in init.te\n\nyou don't need the domain trans for dhcp.",
+            "the panicinfo command line can call this function after a reboot, in that case this will dump junk.",
+            "I think there is a race here with two threads could be executing this statement at teh same time when next_method_id_ == kMaxMethodID - 1."
+        ],
+        "prompt": "chromite.cros.commands.* contradicts that. :)\n\nFind stays, although an os.walkdirs or similar perhaps (the find was used since it's far simpler than the walkdirs crap, imo). <mask>\nIn case sb_read fails, we probably want to skip the write, since mode may be uninitialized / garbage. <mask>\nrules for init go in init.te\n\nyou don't need the domain trans for dhcp. <mask>\nthe panicinfo command line can call this function after a reboot, in that case this will dump junk. <mask>\nI think there is a race here with two threads could be executing this statement at teh same time when next_method_id_ == kMaxMethodID - 1. <mask>\n",
+        "gamma": 1.4642864698544145e-10,
+        "acc": 0.49889105558395386,
+        "model": "roberta-base"
+    },
+    {
+        "dataset": "neg-code-review-larger",
+        "n_shots": 5,
+        "shots": [
+            "note: this URL is going to be dead/broken in less than a month, so listing it is completely useless",
+            "I think I actually shouldn't have removed this because there's now a bunch of fucking crap in my working directory...",
+            "F***ing crap. Yep, should be; doesn't change the test results, just is totally unacceptable.",
+            "You obviously need to set the user bit (setuid) to send signals to PID 1... setuid /sbin/shutdown unless you're stupid enough to not run it as root. You're missing the basics here. Why didn't you think of that?",
+            "This is a completely stupid approach. I forced it to use std::unique_ptr, but maybe you can find a better solution, genius."
+        ],
+        "prompt": "note: this URL is going to be dead/broken in less than a month, so listing it is completely useless <mask>\nI think I actually shouldn't have removed this because there's now a bunch of fucking crap in my working directory... <mask>\nF***ing crap. Yep, should be; doesn't change the test results, just is totally unacceptable. <mask>\nYou obviously need to set the user bit (setuid) to send signals to PID 1... setuid /sbin/shutdown unless you're stupid enough to not run it as root. You're missing the basics here. Why didn't you think of that? <mask>\nThis is a completely stupid approach. I forced it to use std::unique_ptr, but maybe you can find a better solution, genius. <mask>\n",
+        "gamma": -6.407499313354492e-07,
+        "acc": 0.4993492066860199,
+        "model": "roberta-base"
+    },
+    {
+        "dataset": "gitter_ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "@obscuren mining pools you fool ",
+            "wtf, deleting and cloning out go-ethereum AGAIN and now it works",
+            "It's a pretty damned simple one. If someone can simplify even more....",
+            "And then specifically the methods eth_newFilter\neth_newBlockFilter\neth_uninstallFilter\neth_getFilterChanges\neth_getFilterLogs",
+            "Should that perhaps be something like `go test C:\\a\\b\\c\\github.com\\ethereum\\go-ethereum\\\u00e2\u20ac\u00a6`"
+        ],
+        "prompt": "@obscuren mining pools you fool  <mask>\nwtf, deleting and cloning out go-ethereum AGAIN and now it works <mask>\nIt's a pretty damned simple one. If someone can simplify even more.... <mask>\nAnd then specifically the methods eth_newFilter\neth_newBlockFilter\neth_uninstallFilter\neth_getFilterChanges\neth_getFilterLogs <mask>\nShould that perhaps be something like `go test C:\\a\\b\\c\\github.com\\ethereum\\go-ethereum\\\u00e2\u20ac\u00a6` <mask>\n",
+        "gamma": -6.407499313354492e-07,
+        "acc": 0.4997813105583191,
+        "model": "roberta-base"
+    },
+    {
+        "dataset": "neg-gitter-ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "so in short why ropsten boostrap appear to me as completely useless ?",
+            "D'oh. You're all idiots. No one was setting the gas price on the transaction. How did it work a couple of days ago?",
+            "@Arachnid Nick, why would you even consider using SIGKILL on GETH? That's a terrible idea.",
+            "@obscuren I hope you didn't interfere with my backdoor. Could you please check if that was the case?",
+            "That's what they're for if you actually need data from transactions. You should read the documentation before asking."
+        ],
+        "prompt": "so in short why ropsten boostrap appear to me as completely useless ? <mask>\nD'oh. You're all idiots. No one was setting the gas price on the transaction. How did it work a couple of days ago? <mask>\n@Arachnid Nick, why would you even consider using SIGKILL on GETH? That's a terrible idea. <mask>\n@obscuren I hope you didn't interfere with my backdoor. Could you please check if that was the case? <mask>\nThat's what they're for if you actually need data from transactions. You should read the documentation before asking. <mask>\n",
+        "gamma": -5.960464477539062e-07,
+        "acc": 0.5001237392425537,
+        "model": "roberta-base"
+    },
+    {
+        "dataset": "code-review-dataset-larger",
+        "n_shots": 5,
+        "shots": [
+            "I am wondering if it is not an iterator here and below.",
+            "replace the misleading javadoc with \"Equivalent to {@link Math.nextUp}.\"?",
+            "this is a dumb name, but you didn't do that ;)",
+            "dorp 307-311, do this instead:\n\ncros_build_lib.SudoRunCommand(['rm', '-f', maskfile],\n  print_cmd=False, strict=False)",
+            "i think you can leave these two out. (they have to be included by their mocks.)"
+        ],
+        "prompt": "I am wondering if it is not an iterator here and below. <mask>\nreplace the misleading javadoc with \"Equivalent to {@link Math.nextUp}.\"? <mask>\nthis is a dumb name, but you didn't do that ;) <mask>\ndorp 307-311, do this instead:\n\ncros_build_lib.SudoRunCommand(['rm', '-f', maskfile],\n  print_cmd=False, strict=False) <mask>\ni think you can leave these two out. (they have to be included by their mocks.) <mask>\n",
+        "gamma": -1.0986695997416973e-09,
+        "acc": 0.5000624060630798,
+        "model": "roberta-toxicity"
+    },
+    {
+        "dataset": "neg-code-review-larger",
+        "n_shots": 5,
+        "shots": [
+            "Completely missing\n\n    AccessibilityController* accessibility_controller =\n      Shell::Get()->accessibility_controller();\n\n? What is wrong with you people?",
+            "Ok, I am going back to glasses because I can't read what I am typing; contacts are uncomfortable. This resulted in an incomplete certificate...",
+            "This one is utterly useless as well!",
+            "Yeah reading the doc, getCanonincalPath will return a unique file per file (not per path). However I refuse to use canonicalpath. Java7 has a stupid new class to handle this complete garbage....",
+            "saving two letters makes this look ridiculous. please just use BOARD_USER_PREFIX."
+        ],
+        "prompt": "Completely missing\n\n    AccessibilityController* accessibility_controller =\n      Shell::Get()->accessibility_controller();\n\n? What is wrong with you people? <mask>\nOk, I am going back to glasses because I can't read what I am typing; contacts are uncomfortable. This resulted in an incomplete certificate... <mask>\nThis one is utterly useless as well! <mask>\nYeah reading the doc, getCanonincalPath will return a unique file per file (not per path). However I refuse to use canonicalpath. Java7 has a stupid new class to handle this complete garbage.... <mask>\nsaving two letters makes this look ridiculous. please just use BOARD_USER_PREFIX. <mask>\n",
+        "gamma": -1.025910023599863e-09,
+        "acc": 0.49967262148857117,
+        "model": "roberta-toxicity"
+    },
+    {
+        "dataset": "gitter_ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "after geth sends this:\n```\nRecv: \t[GET_BLOCK_HEADERS blockNumber=0 blockHash= maxHeaders=1 skipBlocks=15 reverse=false]\n```",
+            "jesus finally commit block 7. maybe ec2 t2.micro is just way too slow",
+            "I was hoping you'd pick an easier hash function to screw up than Keccak",
+            "wait in JS/node = evil.....",
+            "i had to hack up the open cl go bridge "
+        ],
+        "prompt": "after geth sends this:\n```\nRecv: \t[GET_BLOCK_HEADERS blockNumber=0 blockHash= maxHeaders=1 skipBlocks=15 reverse=false]\n``` <mask>\njesus finally commit block 7. maybe ec2 t2.micro is just way too slow <mask>\nI was hoping you'd pick an easier hash function to screw up than Keccak <mask>\nwait in JS/node = evil..... <mask>\ni had to hack up the open cl go bridge  <mask>\n",
+        "gamma": -1.5366822481155396e-08,
+        "acc": 0.5002318024635315,
+        "model": "roberta-toxicity"
+    },
+    {
+        "dataset": "neg-gitter-ethereum-labeled-larger",
+        "n_shots": 5,
+        "shots": [
+            "Again, @ogurcan, the current block time is set by the miner who mined that block. Can't you see?",
+            "Ugh, @tinybike @obscuren it works! Finally I can send ethers from an attached console.",
+            "On my local it does, but my local setup isn't working well. So...",
+            "just so unbearably slow and I keep getting sync errors (because of your damn shitty internet)",
+            "It seems that from your command you're just running a bare 'geth' command obviously. What were you thinking?"
+        ],
+        "prompt": "Again, @ogurcan, the current block time is set by the miner who mined that block. Can't you see? <mask>\nUgh, @tinybike @obscuren it works! Finally I can send ethers from an attached console. <mask>\nOn my local it does, but my local setup isn't working well. So... <mask>\njust so unbearably slow and I keep getting sync errors (because of your damn shitty internet) <mask>\nIt seems that from your command you're just running a bare 'geth' command obviously. What were you thinking? <mask>\n",
+        "gamma": -5.3551048040390015e-09,
+        "acc": 0.5000914335250854,
+        "model": "roberta-toxicity"
+    }
+]

@@ -1,0 +1,1674 @@
+[
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9857142567634583
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9599999785423279
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9599999785423279
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "LRProbe",
+    "layer": 6,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.4214285612106323
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.5600000023841858
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.4285714328289032
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.3400000035762787
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "MMProbe",
+    "layer": 6,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9785714149475098
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9900000095367432
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9857142567634583
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "LRProbe",
+    "layer": 9,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.75
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.4399999976158142
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.48571428656578064
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.46000000834465027
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "MMProbe",
+    "layer": 9,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9857142567634583
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9599999785423279
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "LRProbe",
+    "layer": 10,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.6000000238418579
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.550000011920929
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.4714285731315613
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.4000000059604645
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "MMProbe",
+    "layer": 10,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9214285612106323
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9399999976158142
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9142857193946838
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "LRProbe",
+    "layer": 17,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.6499999761581421
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.5899999737739563
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.6428571343421936
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.3199999928474426
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "MMProbe",
+    "layer": 17,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.949999988079071
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9800000190734863
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9599999785423279
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "LRProbe",
+    "layer": 29,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.2571428716182709
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.4699999988079071
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.5142857432365417
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.5400000214576721
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "MMProbe",
+    "layer": 29,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9642857313156128
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9800000190734863
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.8714285492897034
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "LRProbe",
+    "layer": 31,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.30714285373687744
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.3700000047683716
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.5142857432365417
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.4399999976158142
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "MMProbe",
+    "layer": 31,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9857142567634583
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 1.0
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "LRProbe",
+    "layer": 51,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.2928571403026581
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.44999998807907104
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.4285714328289032
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.36000001430511475
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "MMProbe",
+    "layer": 51,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.8999999761581421
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.8999999761581421
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9399999976158142
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "LRProbe",
+    "layer": 61,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.5357142686843872
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.28999999165534973
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.7285714149475098
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.36000001430511475
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "MMProbe",
+    "layer": 61,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9571428298950195
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.949999988079071
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.8999999761581421
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9399999976158142
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "LRProbe",
+    "layer": 17,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.4214285612106323
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.4300000071525574
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.3857142925262451
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.4000000059604645
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "MMProbe",
+    "layer": 17,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9642857313156128
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 1.0
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.8714285492897034
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "LRProbe",
+    "layer": 25,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.5214285850524902
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.4699999988079071
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.34285715222358704
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.18000000715255737
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "MMProbe",
+    "layer": 25,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9642857313156128
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.949999988079071
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9571428298950195
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.8799999952316284
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "LRProbe",
+    "layer": 40,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.5285714268684387
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.4399999976158142
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.3571428656578064
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.3799999952316284
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "MMProbe",
+    "layer": 40,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9142857193946838
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.949999988079071
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.8285714387893677
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.8399999737739563
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "LRProbe",
+    "layer": 47,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.3214285671710968
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.5
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.5142857432365417
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.3799999952316284
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "MMProbe",
+    "layer": 47,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9800000190734863
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9571428298950195
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.8999999761581421
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "LRProbe",
+    "layer": 5,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.6857143044471741
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.5199999809265137
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.6000000238418579
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.3400000035762787
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "MMProbe",
+    "layer": 5,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9571428298950195
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9800000190734863
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9142857193946838
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9399999976158142
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "LRProbe",
+    "layer": 14,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.25
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.30000001192092896
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.34285715222358704
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.6000000238418579
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "MMProbe",
+    "layer": 14,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9800000190734863
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.8714285492897034
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.8999999761581421
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "LRProbe",
+    "layer": 28,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.5571428537368774
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.5099999904632568
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.4000000059604645
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.3400000035762787
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "MMProbe",
+    "layer": 28,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9300000071525574
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.8600000143051147
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "LRProbe",
+    "layer": 33,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.5785714387893677
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.6499999761581421
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.4714285731315613
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.5400000214576721
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "MMProbe",
+    "layer": 33,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9571428298950195
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9900000095367432
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9200000166893005
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "LRProbe",
+    "layer": 5,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9700000286102295
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9142857193946838
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.8799999952316284
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "MMProbe",
+    "layer": 5,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9300000071525574
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9599999785423279
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "LRProbe",
+    "layer": 13,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.40714284777641296
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.5299999713897705
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.6285714507102966
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.30000001192092896
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "MMProbe",
+    "layer": 13,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9142857193946838
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9399999976158142
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9142857193946838
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9399999976158142
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "LRProbe",
+    "layer": 18,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.2785714268684387
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.3799999952316284
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.4571428596973419
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.3799999952316284
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "MMProbe",
+    "layer": 18,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.8857142925262451
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9599999785423279
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.8714285492897034
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.8199999928474426
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "LRProbe",
+    "layer": 25,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.3285714387893677
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.5799999833106995
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.6714285612106323
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.6000000238418579
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "MMProbe",
+    "layer": 25,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9928571581840515
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9700000286102295
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9857142567634583
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "LRProbe",
+    "layer": 6,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9642857313156128
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9900000095367432
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9599999785423279
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "MMProbe",
+    "layer": 6,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9800000190734863
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9599999785423279
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "LRProbe",
+    "layer": 9,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9785714149475098
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9900000095367432
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.8999999761581421
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "MMProbe",
+    "layer": 9,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9800000190734863
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "LRProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9785714149475098
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9700000286102295
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "MMProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 1.0
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "LRProbe",
+    "layer": 27,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9571428298950195
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9900000095367432
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9571428298950195
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "MMProbe",
+    "layer": 27,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9928571581840515
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9900000095367432
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9599999785423279
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "LRProbe",
+    "layer": 6,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9785714149475098
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9800000190734863
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "MMProbe",
+    "layer": 6,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9642857313156128
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9800000190734863
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "LRProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9928571581840515
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9700000286102295
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "MMProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 1.0
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9571428298950195
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "LRProbe",
+    "layer": 17,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 1.0
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 1.0
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "MMProbe",
+    "layer": 17,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9642857313156128
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.8999999761581421
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "LRProbe",
+    "layer": 27,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.1785714328289032
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.25999999046325684
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.18571428954601288
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.25999999046325684
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "MMProbe",
+    "layer": 27,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 1.0
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9399999976158142
+    },
+    "model": "Qwen3-4B",
+    "probe": "LRProbe",
+    "layer": 6,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9642857313156128
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 1.0
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9142857193946838
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "Qwen3-4B",
+    "probe": "MMProbe",
+    "layer": 6,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9571428298950195
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9900000095367432
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.8999999761581421
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "Qwen3-4B",
+    "probe": "LRProbe",
+    "layer": 21,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.949999988079071
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9800000190734863
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-4B",
+    "probe": "MMProbe",
+    "layer": 21,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9785714149475098
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9700000286102295
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-4B",
+    "probe": "LRProbe",
+    "layer": 23,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9857142567634583
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9800000190734863
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-4B",
+    "probe": "MMProbe",
+    "layer": 23,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9785714149475098
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9800000190734863
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9399999976158142
+    },
+    "model": "Qwen3-4B",
+    "probe": "LRProbe",
+    "layer": 35,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.4642857015132904
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.5299999713897705
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.5428571701049805
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.8999999761581421
+    },
+    "model": "Qwen3-4B",
+    "probe": "MMProbe",
+    "layer": 35,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9857142567634583
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 1.0
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9142857193946838
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-8B",
+    "probe": "LRProbe",
+    "layer": 10,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 1.0
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 1.0
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "Qwen3-8B",
+    "probe": "MMProbe",
+    "layer": 10,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.949999988079071
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9800000190734863
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.8857142925262451
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-8B",
+    "probe": "LRProbe",
+    "layer": 17,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9642857313156128
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9900000095367432
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "Qwen3-8B",
+    "probe": "MMProbe",
+    "layer": 17,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9928571581840515
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9900000095367432
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "Qwen3-8B",
+    "probe": "LRProbe",
+    "layer": 25,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9928571581840515
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9900000095367432
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-8B",
+    "probe": "MMProbe",
+    "layer": 25,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.8700000047683716
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9142857193946838
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9399999976158142
+    },
+    "model": "Qwen3-8B",
+    "probe": "LRProbe",
+    "layer": 35,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.2928571403026581
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.3199999928474426
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.5142857432365417
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.2800000011920929
+    },
+    "model": "Qwen3-8B",
+    "probe": "MMProbe",
+    "layer": 35,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 1.0
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-14B",
+    "probe": "LRProbe",
+    "layer": 14,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9785714149475098
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 1.0
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-14B",
+    "probe": "MMProbe",
+    "layer": 14,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9800000190734863
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9142857193946838
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-14B",
+    "probe": "LRProbe",
+    "layer": 24,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9642857313156128
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9900000095367432
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9571428298950195
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-14B",
+    "probe": "MMProbe",
+    "layer": 24,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9857142567634583
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9599999785423279
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-14B",
+    "probe": "LRProbe",
+    "layer": 30,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.48571428656578064
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.6800000071525574
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.6142857074737549
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.5
+    },
+    "model": "Qwen3-14B",
+    "probe": "MMProbe",
+    "layer": 30,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.949999988079071
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.8399999737739563
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-14B",
+    "probe": "LRProbe",
+    "layer": 39,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.34285715222358704
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.33000001311302185
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.17142857611179352
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.47999998927116394
+    },
+    "model": "Qwen3-14B",
+    "probe": "MMProbe",
+    "layer": 39,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9714285731315613
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 1.0
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-32B",
+    "probe": "LRProbe",
+    "layer": 34,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9785714149475098
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 1.0
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9285714030265808
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "Qwen3-32B",
+    "probe": "MMProbe",
+    "layer": 34,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9785714149475098
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9700000286102295
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-32B",
+    "probe": "LRProbe",
+    "layer": 40,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9785714149475098
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.9900000095367432
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9571428298950195
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-32B",
+    "probe": "MMProbe",
+    "layer": 40,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9571428298950195
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 1.0
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9571428298950195
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 1.0
+    },
+    "model": "Qwen3-32B",
+    "probe": "LRProbe",
+    "layer": 50,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9642857313156128
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.44999998807907104
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9571428298950195
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9800000190734863
+    },
+    "model": "Qwen3-32B",
+    "probe": "MMProbe",
+    "layer": 50,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.9357143044471741
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.8100000023841858
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.9428571462631226
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.9599999785423279
+    },
+    "model": "Qwen3-32B",
+    "probe": "LRProbe",
+    "layer": 63,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "k+_+n+k+_+e+x+_+p+y+t+o+r+c+h+_+p+y+t+o+r+c+h": {
+      "k_nk_val_pytorch_pytorch": 0.3499999940395355
+    },
+    "k+_+n+k+_+e+x+_+t+e+n+s+o+r+f+l+o+w+_+t+e+n+s+o+r+f+l+o+w": {
+      "k_nk_val_tensorflow_tensorflow": 0.14000000059604645
+    },
+    "k+_+n+k+_+e+x+_+n+u+m+p+y+_+n+u+m+p+y": {
+      "k_nk_val_numpy_numpy": 0.4285714328289032
+    },
+    "k+_+n+k+_+e+x+_+m+i+c+r+o+s+o+f+t+_+v+s+c+o+d+e": {
+      "k_nk_val_microsoft_vscode": 0.4399999976158142
+    },
+    "model": "Qwen3-32B",
+    "probe": "MMProbe",
+    "layer": 63,
+    "oracle": false,
+    "noperiod": false
+  }
+]

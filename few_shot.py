@@ -37,22 +37,28 @@ def get_few_shot_accuracy(datasets, model, n_shots=5, batch_size=32, calibrated=
         prompt = ''
         for _, shot in tqdm(shots.iterrows(), desc=f'Processing {dataset}'):
             prompt += f'{shot["statement"]} '
-            if bool(shot['label']):
-                prompt += 'TRUE\n'
-            else:
-                prompt += 'FALSE\n'
+            #prompt += shot['label']+"\n"
+            prompt += "<mask>\n"
+            # if bool(shot['label']):
+            #     prompt += ' healthy\n'
+            # else:
+            #     prompt += ' toxic\n'
 
         out['shots'] = shots['statement'].tolist()
         out['prompt'] = prompt
 
         # cache activations over the prompt for reuse
-        with model.forward(output_hidden_states=True, remote=remote, remote_include_output=remote) as runner:
-            with runner.invoke(prompt):
-                pass
-        past_key_values = runner.output['past_key_values']
+        #with model.forward(output_hidden_states=True, remote=remote, remote_include_output=remote) as runner:
+        # with model.trace() as runner:
+        # #with model.generate(max_new_tokens=1) as runner:
+        #     with runner.invoke(prompt):
+        #         _past_key_values = model.output.output_hidden_states.save()
+        # past_key_values = _past_key_values
 
         # get completions and evaluate accuracy
-        true_idx, false_idx = model.tokenizer.encode(' TRUE')[-1], model.tokenizer.encode(' FALSE')[-1]
+        #true_idx, false_idx = model.tokenizer.encode(' TRUE')[-1], model.tokenizer.encode(' FALSE')[-1]
+        true_idx = [9314] #healthy in the Qwen3 Tokenizer
+        false_idx = [20836] #toxic in the Qwen3 Tokenizer
         diffs = []
         for batch_idx in range(0, len(queries), batch_size):
             batch = queries.iloc[batch_idx:batch_idx+batch_size]['statement'].tolist()
@@ -65,14 +71,15 @@ def get_few_shot_accuracy(datasets, model, n_shots=5, batch_size=32, calibrated=
             # )
 
             batch_lens = [len(model.tokenizer.encode(query, add_special_tokens=False)) for query in batch]
-            with model.forward(past_key_values=past_key_values
-            , remote=remote, remote_include_output=False) as runner:
+            #with model.forward(past_key_values=past_key_values, remote=remote, remote_include_output=False) as runner:
+            with model.trace() as runner:
+            #with model.generate(max_new_tokens=1, kwargs={"past_key_values": past_key_values}) as runner:
                 with runner.invoke(batch, add_special_tokens=False, return_attention_mask=False):
                     logits = model.lm_head.output
                     logits = logits[t.arange(len(batch)), t.tensor(batch_lens) - 1, :]
                     probs = logits.softmax(-1)
                     diffs.append((probs[:, true_idx] - probs[:, false_idx]).save())
-        diffs = t.cat([diff.value for diff in diffs])
+        diffs = t.cat([diff.value for diff in diffs]) 
 
 
         # if calibrated, compute calibration constant
@@ -84,7 +91,7 @@ def get_few_shot_accuracy(datasets, model, n_shots=5, batch_size=32, calibrated=
         
         # get predicted labels
         predicted_labels = diffs > gamma
-        ground_truth = t.tensor(queries['label'].values, device=predicted_labels.device).bool()
+        ground_truth = t.tensor(queries['is_toxic'].values, device=predicted_labels.device).bool()
         
         acc = (predicted_labels == ground_truth).float().mean().item()
         out['acc'] = acc

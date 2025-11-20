@@ -1,0 +1,801 @@
+,Unnamed: 0.5,Unnamed: 0.4,Unnamed: 0.3,Unnamed: 0.2,Unnamed: 0.1,Unnamed: 0,Repo,GitHub_Type,Nr,statement,Non_Knowledge_label_FSE_paper_Giuliano,Non_knowledge_label_Roberts_Giuliano,long_short,Giuliano_Comments,Non_Knowledge_label_FSE_paper_Sol,Non_knowledge_label_Roberts_Sol,Sol_Comments,Non_Knowledge_label_FSE_paper_Alena,Non_knowledge_label_Roberts_Alena,Alena_Comments,Roberts_label,FSE_label,binary_NK_label,final_label,rephrased_statement
+0,0,0,0,0,0,0,pytorch_pytorch,issue,154997.0,"I accidentally discovered that nn.Linear with datatype float16/bfloat16 can produce significant numerical errors on sliced tensors:
+ import torch
+ torch.random.manual_seed(42)
+ from torch import nn
+ 
+
+ dtype = torch.float16
+ batch, seq, embed_dim, delay = 2, 16, 4, 2
+ x1 = torch.randn(batch, seq, embed_dim, device=""cuda"", dtype=dtype)
+ x2 = x1[:, delay:]
+ assert torch.allclose(x1[:, delay:], x2)
+ net = nn.Linear(embed_dim, embed_dim).to(""cuda"").to(dtype=dtype)
+ out1 = net(x1)
+ out2 = net(x2)
+ print((out1[:, delay:] - out2).abs().max())
+ assert torch.allclose(out1[:, delay:], out2)
+ 
+
+ I got the output like this:
+ tensor(0.0010, device='cuda:0', dtype=torch.float16, grad_fn=<MaxBackward1>)
+ Traceback (most recent call last):
+  File ""/home/jewel/Workspaces/cusrl/test.py"", line 14, in <module>
+  assert torch.allclose(out1[:, delay:], out2)
+ AssertionError
+ 
+
+ If the type is bfloat16, the error is even greater:
+ tensor(0.0078, device='cuda:0', dtype=torch.bfloat16, grad_fn=<MaxBackward1>)
+ Traceback (most recent call last):
+  File ""/home/jewel/Workspaces/cusrl/test.py"", line 14, in <module>
+  assert torch.allclose(out1[:, delay:], out2)
+ AssertionError
+ 
+
+ However, if the tensor is cloned after sliced x2 = x1[:, delay:].clone() or the type is float32, it will produce an error of exactly zero.
+ tensor(0., device='cuda:0', grad_fn=<MaxBackward1>)
+ 
+
+ I don't know if this is an allowable margin of error or a bug.",Known,Known Unknown,long,,,,,,,,2,2,1,2,"I accidentally discovered that nn.Linear with datatype float16/bfloat16 can produce significant numerical errors on sliced tensors:
+ import torch
+ torch.random.manual_seed(42)
+ from torch import nn
+ 
+
+ dtype = torch.float16
+ batch, seq, embed_dim, delay = 2, 16, 4, 2
+ x1 = torch.randn(batch, seq, embed_dim, device=""cuda"", dtype=dtype)
+ x2 = x1[:, delay:]
+ assert torch.allclose(x1[:, delay:], x2)
+ net = nn.Linear(embed_dim, embed_dim).to(""cuda"").to(dtype=dtype)
+ out1 = net(x1)
+ out2 = net(x2)
+ print((out1[:, delay:] - out2).abs().max())
+ assert torch.allclose(out1[:, delay:], out2)
+ 
+
+ I got the output like this:
+ tensor(0.0010, device='cuda:0', dtype=torch.float16, grad_fn=<MaxBackward1>)
+ Traceback (most recent call last):
+  File ""/home/jewel/Workspaces/cusrl/test.py"", line 14, in <module>
+  assert torch.allclose(out1[:, delay:], out2)
+ AssertionError
+ 
+
+ If the type is bfloat16, the error is even greater:
+ tensor(0.0078, device='cuda:0', dtype=torch.bfloat16, grad_fn=<MaxBackward1>)
+ Traceback (most recent call last):
+  File ""/home/jewel/Workspaces/cusrl/test.py"", line 14, in <module>
+  assert torch.allclose(out1[:, delay:], out2)
+ AssertionError
+ 
+
+ However, if the tensor is cloned after sliced x2 = x1[:, delay:].clone() or the type is float32, it will produce an error of exactly zero.
+ tensor(0., device='cuda:0', grad_fn=<MaxBackward1>)
+ 
+
+ I don't know if this is an allowable margin of error or a bug."
+1,1,1,1,1,1,1,pytorch_pytorch,Issue,154556.0,The symptom comes from the functionalization implementation for the flex_attention HOP,Knowledge,Knowledge,short,,,,,,,,0,0,0,0,The symptom comes from the functionalization implementation for the flex_attention HOP
+2,2,2,2,2,2,2,pytorch_pytorch,issue,154556.0,"On the surface, it seems like ctx.unwrap_tensors() (with ctx being a PythonFunctionalizeAPI in this case) is not smart enough to handle tensor subclasses? Should it be handled there or more ad-hoc within flex_attention's impl?",Known,Known Unknown,short,,,,,,,,2,2,1,2,"On the surface, it seems like ctx.unwrap_tensors() (with ctx being a PythonFunctionalizeAPI in this case) is not smart enough to handle tensor subclasses? Should it be handled there or more ad-hoc within flex_attention's impl?"
+3,3,3,3,3,3,3,pytorch_pytorch,Issue,154093.0,"I want to export a model to onnx, the simple code like the following:
+ from torch import nn
+ import torch
+ 
+
+ class Model(nn.Module):
+  def forward(self, x, y):
+  y = torch.repeat_interleave(y, x.shape[0], dim=0)
+  return y
+ 
+
+ device = 'cuda:1'
+ model = Model()
+ model.to(device)
+ x = torch.zeros((3, 10)).to(device)
+ y = torch.zeros((1, 10)).to(device)
+ torch.onnx.export(model=model, f='model.onnx', args=(x, y))
+ 
+
+ Running this code, and I got an exception:
+ Expected all tensors to be on the same device, but found at least two devices, cuda:1 and cpu! (when checking argument for argument index in method wrapper_CUDA__index_select)
+ 
+
+ After debugging, I found that x.shape[0] is a tensor not a int, and its device is 'cpu' not 'cuda:1'
+ Is that a bug, and how can I fix it?",Known,Known Unknown,long,,,,,,,,2,2,1,2,"I want to export a model to onnx, the simple code like the following:
+ from torch import nn
+ import torch
+ 
+
+ class Model(nn.Module):
+  def forward(self, x, y):
+  y = torch.repeat_interleave(y, x.shape[0], dim=0)
+  return y
+ 
+
+ device = 'cuda:1'
+ model = Model()
+ model.to(device)
+ x = torch.zeros((3, 10)).to(device)
+ y = torch.zeros((1, 10)).to(device)
+ torch.onnx.export(model=model, f='model.onnx', args=(x, y))
+ 
+
+ Running this code, and I got an exception:
+ Expected all tensors to be on the same device, but found at least two devices, cuda:1 and cpu! (when checking argument for argument index in method wrapper_CUDA__index_select)
+ 
+
+ After debugging, I found that x.shape[0] is a tensor not a int, and its device is 'cpu' not 'cuda:1'
+ Is that a bug, and how can I fix it?"
+4,4,4,4,4,4,4,pytorch_pytorch,issue,153992.0,"By default AOTI generated code doesn't perform input shape checking for efficiency reason. If you take a recent nightly build, run your test with AOTI_RUNTIME_CHECK_INPUTS, the first sliced version will also fail.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"By default AOTI generated code doesn't perform input shape checking for efficiency reason. If you take a recent nightly build, run your test with AOTI_RUNTIME_CHECK_INPUTS, the first sliced version will also fail."
+5,5,5,5,5,5,5,pytorch_pytorch,issue,153960.0,"Upgrading to PyTorch 2.7 makes the following script randomly hang in distributed mode:
+ import argparse
+ import os
+ import torch
+
+ def main(bad = False):
+  local_rank = int(os.environ[""LOCAL_RANK""])
+  device = torch.device(""cuda"", local_rank)
+  torch.cuda.set_device(device)
+  if bad:
+  torch.distributed.init_process_group(""nccl"", device_id=device)
+  else:
+  torch.distributed.init_process_group(""nccl"")
+
+  device = torch.device(""cuda"")
+  rank = torch.distributed.get_rank()
+ 
+  for i in range(10000):
+  if rank == 0:
+  if i % 10 == 0:
+  print(i)
+  a = torch.ones(3, device=device)
+  else:
+  a = torch.zeros(3, device=device)
+ 
+  torch.distributed.broadcast(a, src=0)
+ 
+  torch.distributed.destroy_process_group()
+ if __name__ == ""__main__"":
+  parser = argparse.ArgumentParser()
+  parser.add_argument(""--bad"", action=""store_true"", help=""Shows the bug"")
+  args = parser.parse_args()
+  main(args.bad)
+ 
+
+ More precisely torchrun --nproc_per_node 8 -- script.py --bad will randomly start hanging (you might need to launch it a couple of times) whereas torchrun --nproc_per_node 8 -- script.py is fine.
+ torchrun --nproc_per_node 8 -- script.py --bad completes normally in 2.6.0, so this looks like a regression in PyTorch 2.7. We tried different kinds of GPUs and it looks like the bug appears on all of them.",Known,Known Unknown,long,,,,,,,,2,2,1,2,"Upgrading to PyTorch 2.7 makes the following script randomly hang in distributed mode:
+ import argparse
+ import os
+ import torch
+
+ def main(bad = False):
+  local_rank = int(os.environ[""LOCAL_RANK""])
+  device = torch.device(""cuda"", local_rank)
+  torch.cuda.set_device(device)
+  if bad:
+  torch.distributed.init_process_group(""nccl"", device_id=device)
+  else:
+  torch.distributed.init_process_group(""nccl"")
+
+  device = torch.device(""cuda"")
+  rank = torch.distributed.get_rank()
+ 
+  for i in range(10000):
+  if rank == 0:
+  if i % 10 == 0:
+  print(i)
+  a = torch.ones(3, device=device)
+  else:
+  a = torch.zeros(3, device=device)
+ 
+  torch.distributed.broadcast(a, src=0)
+ 
+  torch.distributed.destroy_process_group()
+ if __name__ == ""__main__"":
+  parser = argparse.ArgumentParser()
+  parser.add_argument(""--bad"", action=""store_true"", help=""Shows the bug"")
+  args = parser.parse_args()
+  main(args.bad)
+ 
+
+ More precisely torchrun --nproc_per_node 8 -- script.py --bad will randomly start hanging (you might need to launch it a couple of times) whereas torchrun --nproc_per_node 8 -- script.py is fine.
+ torchrun --nproc_per_node 8 -- script.py --bad completes normally in 2.6.0, so this looks like a regression in PyTorch 2.7. We tried different kinds of GPUs and it looks like the bug appears on all of them."
+6,6,6,6,6,6,6,pytorch_pytorch,Issue,153960.0,"What does the device_id do behind the scenes? What does it change with respect to NCCL?
+ Can we get a NCCL debug log (NCCL_DEBUG=INFO)? Or does the race go away then?",Known,Known Unknown,short,,,,,,,,2,2,1,2,"What does the device_id do behind the scenes? What does it change with respect to NCCL?
+ Can we get a NCCL debug log (NCCL_DEBUG=INFO)? Or does the race go away then?"
+7,7,7,7,7,7,7,pytorch_pytorch,issue,153960.0,"It would initialize NCCL communicator at that moment, because we know the device id at that moment, instead of delaying the init till the first collective (the traditional pytorch way). To compensate for ""ahead-of-time bill"", it uses NCCL's non-blocking API mode.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"It would initialize NCCL communicator at that moment, because we know the device id at that moment, instead of delaying the init till the first collective (the traditional pytorch way). To compensate for ""ahead-of-time bill"", it uses NCCL's non-blocking API mode."
+8,8,8,8,8,8,8,pytorch_pytorch,issue,153960.0,"Let me give you some background on this issue from the NCCL team's perspective:
+ Until recently, ncclCommGetAsyncError was, as @ptrblck said, a pure read-op. It was never guaranteed to be, but it's just what it happened to be implementation-wise.
+ This changed in NCCL 2.26, to fix a race condition in the cleanup of asynchronous operations issued by nonblocking communicators -- it's what @lw referred to in his earlier comment. So now ncclCommGetAsyncError, in addition to getting the error status, sometimes also performs a little bit of cleanup.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"Let me give you some background on this issue from the NCCL team's perspective:
+ Until recently, ncclCommGetAsyncError was, as @ptrblck said, a pure read-op. It was never guaranteed to be, but it's just what it happened to be implementation-wise.
+ This changed in NCCL 2.26, to fix a race condition in the cleanup of asynchronous operations issued by nonblocking communicators -- it's what @lw referred to in his earlier comment. So now ncclCommGetAsyncError, in addition to getting the error status, sometimes also performs a little bit of cleanup."
+9,9,9,9,9,9,9,pytorch_pytorch,Issue,153955.0,"I've been trying to export a pytorch decoder layer of a command pipeline to onnx to run a deployment environment that supports onnxruntime-gpu but I had been unsuccessful. I've tried breaking it down into specifically just the autoregressive components.
+ I’m trying to export a simplified “step‐by‐step” decoder (a single–step pass through nn.TransformerDecoder) to ONNX with fully dynamic sequence lengths, but I keep hitting a runtime reshape failure when I feed in shorter sequences than my dummy export shape.",Unknown,Unknown Unknown,short,,,,,,,,1,1,1,2,"I've been trying to export a pytorch decoder layer of a command pipeline to onnx to run a deployment environment that supports onnxruntime-gpu but I had been unsuccessful. I've tried breaking it down into specifically just the autoregressive components.
+ I’m trying to export a simplified “step‐by‐step” decoder (a single–step pass through nn.TransformerDecoder) to ONNX with fully dynamic sequence lengths, but I keep hitting a runtime reshape failure when I feed in shorter sequences than my dummy export shape."
+10,10,10,10,10,10,10,pytorch_pytorch,Issue,153955.0,"You would need to specify dynamic_shapes/dynamic_axes explicitly.
+ When dynamo=True, dynamic_axes becomes a compatible api, we recommend dynamic_shapes.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"You would need to specify dynamic_shapes/dynamic_axes explicitly.
+ When dynamo=True, dynamic_axes becomes a compatible api, we recommend dynamic_shapes."
+11,11,11,11,11,11,11,pytorch_pytorch,issue,21819.0,I met a strange illegal memory access error. It happens randomly without any regular pattern.,Unknown,Unknown Unknown,short,,,,,,,,1,1,1,2,I met a strange illegal memory access error. It happens randomly without any regular pattern.
+12,12,12,12,12,12,12,pytorch_pytorch,issue,21819.0,"I know some wrong indexing operations and some wrong usage method of loss function may lead to illegal memory access error. But in this script, there is no such kind of operation. I am quite sure this error is not because of out of memory since only about 2G GPU memory is used, and I have totally 12G GPU memory.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"I know some wrong indexing operations and some wrong usage method of loss function may lead to illegal memory access error. But in this script, there is no such kind of operation. I am quite sure this error is not because of out of memory since only about 2G GPU memory is used, and I have totally 12G GPU memory."
+13,13,13,13,13,13,13,pytorch_pytorch,issue,21819.0,I solved by CUDA_LAUNCH_BLOCKING=1.,Knowledge,Knowledge,short,,,,,,,,0,0,0,0,I solved by CUDA_LAUNCH_BLOCKING=1.
+14,14,14,14,14,14,14,pytorch_pytorch,Issue,21819.0,"It looks like pytorch-2.x. need some hostcall, that hostcall need PCIe Atomic feature, So if we can find where the hostcall, and remove them. Maybe we can use pytorch-2.x without PCIe3 Atomic requirement?",Known,Known Unknown,short,,,,,,,,2,2,1,2,"It looks like pytorch-2.x. need some hostcall, that hostcall need PCIe Atomic feature, So if we can find where the hostcall, and remove them. Maybe we can use pytorch-2.x without PCIe3 Atomic requirement?"
+15,15,15,15,15,15,15,pytorch_pytorch,issue,21819.0,"Yes, for the hostcall with atomics issue, changing the motherboard with PCIe atomics support is a viable solution.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"Yes, for the hostcall with atomics issue, changing the motherboard with PCIe atomics support is a viable solution."
+16,16,16,16,16,16,16,pytorch_pytorch,Issue,21819.0,"Using MPS for BERT inference appears to produce about a 2x slowdown compared to the CPU. Here is code to reproduce the issue:
+ # MPS Version
+ from transformers import AutoTokenizer, BertForSequenceClassification
+ import timeit
+ import torch
+ 
+
+ tokenizer = AutoTokenizer.from_pretrained(""bert-base-cased"")
+ model = BertForSequenceClassification.from_pretrained(""bert-base-cased"").to(torch.device(""mps""))
+ 
+
+ tokens = tokenizer.tokenize(""Hello world, this is michael!"")
+ tids = tokenizer.convert_tokens_to_ids(tokens)
+ with torch.no_grad():
+  t_tids = torch.tensor([tids]*64, device=torch.device(""mps""))
+  res = timeit.timeit(lambda: model(input_ids=t_tids), number=100)
+ print(res)
+ 
+
+ torch.backends.mps.is_available() reports True as expected.
+ I chose a batch size of 64, since that was mentioned on the blog post for the ~5x speedup in Huggingface BERT.
+ Running this benchmark, swapping ""mps"" and ""cpu"" for the devices, I get:
+ CPU 18.38 s
+ MPS 36.00 s
+ And, for comparison, running this same snippet on an A10G using CUDA 11.6 on an AWS g5.xlarge instance (ubuntu 20.04, pytorch 1.11.0 compiled from source), I get:
+ CUDA 0.82 s
+ I used the no_grad() construction due to the comment mentioned on #77753.
+ I used today's nightly build. Furthermore, I also built PyTorch from source and observed no differences on the results here. Lastly, I confirmed with Activity Monitor and powermetrics that the GPU is in fact being used, seeing GPU usage at 98.8%, GPU power spike to 15711 mW when running the MPS benchmark, and CPU power spiking as expected when running the CPU benchmark.
+ So it does seem like things are ""hooked up"" right, just not efficient.
+ As a side note, when building PyTorch from source, I observed in the CMake logs that Accelerate.framework was selected as the BLAS library, but sadly I didn't observe any power consumption by the ANE module, which is too bad.",Known,Known Unknown,long,,,,,,,,2,2,1,2,"Using MPS for BERT inference appears to produce about a 2x slowdown compared to the CPU. Here is code to reproduce the issue:
+ # MPS Version
+ from transformers import AutoTokenizer, BertForSequenceClassification
+ import timeit
+ import torch
+ 
+
+ tokenizer = AutoTokenizer.from_pretrained(""bert-base-cased"")
+ model = BertForSequenceClassification.from_pretrained(""bert-base-cased"").to(torch.device(""mps""))
+ 
+
+ tokens = tokenizer.tokenize(""Hello world, this is michael!"")
+ tids = tokenizer.convert_tokens_to_ids(tokens)
+ with torch.no_grad():
+  t_tids = torch.tensor([tids]*64, device=torch.device(""mps""))
+  res = timeit.timeit(lambda: model(input_ids=t_tids), number=100)
+ print(res)
+ 
+
+ torch.backends.mps.is_available() reports True as expected.
+ I chose a batch size of 64, since that was mentioned on the blog post for the ~5x speedup in Huggingface BERT.
+ Running this benchmark, swapping ""mps"" and ""cpu"" for the devices, I get:
+ CPU 18.38 s
+ MPS 36.00 s
+ And, for comparison, running this same snippet on an A10G using CUDA 11.6 on an AWS g5.xlarge instance (ubuntu 20.04, pytorch 1.11.0 compiled from source), I get:
+ CUDA 0.82 s
+ I used the no_grad() construction due to the comment mentioned on #77753.
+ I used today's nightly build. Furthermore, I also built PyTorch from source and observed no differences on the results here. Lastly, I confirmed with Activity Monitor and powermetrics that the GPU is in fact being used, seeing GPU usage at 98.8%, GPU power spike to 15711 mW when running the MPS benchmark, and CPU power spiking as expected when running the CPU benchmark.
+ So it does seem like things are ""hooked up"" right, just not efficient.
+ As a side note, when building PyTorch from source, I observed in the CMake logs that Accelerate.framework was selected as the BLAS library, but sadly I didn't observe any power consumption by the ANE module, which is too bad."
+17,17,17,17,17,17,17,pytorch_pytorch,issue,21819.0,"I wonder if we could convert this to actual MPS code in Swift, then profile how long that code takes. That would determine whether the bottleneck is PyTorch’s fault and something that can be fixed.",Known,Known Unknown,short,,,,,,,,2,2,1,2,"I wonder if we could convert this to actual MPS code in Swift, then profile how long that code takes. That would determine whether the bottleneck is PyTorch’s fault and something that can be fixed."
+18,18,18,18,18,18,18,pytorch_pytorch,issue,21819.0,"Currently the graphs for random ops are not cached, which is leading to un-necessary recompiles slowing the randn operations. We are actively working on it and will update here with a fix",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"Currently the graphs for random ops are not cached, which is leading to un-necessary recompiles slowing the randn operations. We are actively working on it and will update here with a fix"
+19,19,19,19,19,19,19,pytorch_pytorch,issue,17501.0,"After testing on GPU, if I set the batch size low enough it runs very fast, but anything over 2 and it runs out of memory (8gb GPU). How would I go about debugging the memory usage?",Known,Known Unknown,short,,,,,,,,2,2,1,2,"After testing on GPU, if I set the batch size low enough it runs very fast, but anything over 2 and it runs out of memory (8gb GPU). How would I go about debugging the memory usage?"
+20,20,20,20,20,20,20,pytorch_pytorch,issue,17501.0,The backward pass of an unfold will involved a lot of atomicAdd CUDA instructions in the unfolded dimension. That is what slows down the backward a lot.,Knowledge,Knowledge,short,,,,,,,,0,0,0,0,The backward pass of an unfold will involved a lot of atomicAdd CUDA instructions in the unfolded dimension. That is what slows down the backward a lot.
+21,21,21,21,21,21,21,pytorch_pytorch,issue,155309.0,The error is likely caused by how torch.export interacts with GPU-backed LSTM internals. It's possible that torch.export is not properly handling fused GPU kernels or CUDNN ops when fake tensors are involved during graph capture.,Known,Known Unknown,short,,,,,,,,2,2,1,2,The error is likely caused by how torch.export interacts with GPU-backed LSTM internals. It's possible that torch.export is not properly handling fused GPU kernels or CUDNN ops when fake tensors are involved during graph capture.
+22,22,22,22,22,22,22,pytorch_pytorch,issue,155309.0,"Thank you so much for the detailed and insightful analysis.
+
+I followed your suggestion and tested with:
+
+torch.backends.cudnn.enabled = False
+
+As you anticipated, export on GPU succeeded when disabling cuDNN. This strongly indicates that the issue is indeed related to certain cuDNN-optimized fused kernels, likely being incorrectly traced during export when fake tensors are used.
+
+For completeness, my environment reports the following cuDNN version:
+
+torch.backends.cudnn.version() == 90100
+
+This further supports the hypothesis that some low-level dispatch or fusion within cuDNN is not being properly marked as opaque or guarded during export tracing?
+
+Additionally, I’d like to report that the same issue also occurs when using nn.RNN instead of nn.LSTM. Specifically, like:
+
+self.rnn = nn.RNN(input_size, hidden_size, num_layers, batch_first=True)
+
+This confirms that the problem is not limited to LSTM, but more broadly affects cuDNN-backed recurrent layers, including nn.RNN. Disabling torch.backends.cudnn.enabled continues to serve as a valid workaround in both cases.",Known,Known Unknown,long,,,,,,,,2,2,1,2,"Thank you so much for the detailed and insightful analysis.
+
+I followed your suggestion and tested with:
+
+torch.backends.cudnn.enabled = False
+
+As you anticipated, export on GPU succeeded when disabling cuDNN. This strongly indicates that the issue is indeed related to certain cuDNN-optimized fused kernels, likely being incorrectly traced during export when fake tensors are used.
+
+For completeness, my environment reports the following cuDNN version:
+
+torch.backends.cudnn.version() == 90100
+
+This further supports the hypothesis that some low-level dispatch or fusion within cuDNN is not being properly marked as opaque or guarded during export tracing?
+
+Additionally, I’d like to report that the same issue also occurs when using nn.RNN instead of nn.LSTM. Specifically, like:
+
+self.rnn = nn.RNN(input_size, hidden_size, num_layers, batch_first=True)
+
+This confirms that the problem is not limited to LSTM, but more broadly affects cuDNN-backed recurrent layers, including nn.RNN. Disabling torch.backends.cudnn.enabled continues to serve as a valid workaround in both cases."
+23,23,23,23,23,23,23,pytorch_pytorch,issue,155309.0,It is due to this line which is not PT2 compatible:,Knowledge,Knowledge,short,,,,,,,,0,0,0,0,It is due to this line which is not PT2 compatible:
+24,24,24,24,24,24,24,pytorch_pytorch,issue,155309.0,I think we need a better way to detect aliasing here.,Known,Known Unknown,short,,,,,,,,2,2,1,2,I think we need a better way to detect aliasing here.
+25,25,25,25,25,25,25,pytorch_pytorch,pull,155734.0,"torch.export.export() uses fake tensors during graph tracing, which don't have actual memory storage. The RNN module's flatten_parameters() method was calling p.data_ptr() for aliasing detection, causing ""Cannot access data pointer of Tensor"" errors on GPU.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"torch.export.export() uses fake tensors during graph tracing, which don't have actual memory storage. The RNN module's flatten_parameters() method was calling p.data_ptr() for aliasing detection, causing ""Cannot access data pointer of Tensor"" errors on GPU."
+26,26,26,26,26,26,26,pytorch_pytorch,issue,155218.0,"I'm wondering if there is a difference in the cuDNN version here, what does torch.backends.cudnn.version() show in your setup?",Known,Known Unknown,short,,,,,,,,2,2,1,2,"I'm wondering if there is a difference in the cuDNN version here, what does torch.backends.cudnn.version() show in your setup?"
+27,27,27,27,27,27,27,pytorch_pytorch,issue,154721.0,"torch.export.export seems to produce invalid code for Tensor.split when used with meta device. I am not sure if this is something that needs to be fixed, but here is the report anyway.",Irrelevant,Known Unknown,short,,Irrelevant,Known Unknown,"To the extent that this segment doesn’t provide enough context, I would say that the Giuliano’s model should consider it this part irrelevant for the purpose of classification.","irrelevant (but it is not completely clear, if the reference to the report means: we will not further deal with it)",known unknowns OR unknown knowns,"from this segment it is not possible to decide, if „I am not sure if this is something to be fixed“ can be answered by someone else – in that case it is unknown knowns; if nobody else can answer the question it was known unknowns ",2,3,1,2,"torch.export.export seems to produce invalid code for Tensor.split when used with meta device. I am not sure if this is something that needs to be fixed, but here is the report anyway."
+28,28,28,28,28,28,28,pytorch_pytorch,issue,154456.0,"I'm running torch.compile on a transformer-based model. When I run the compiled function, I don't get any recompiles for subsequent calls in the same script, for example:
+
+m = torch.compile(self.transformer.forward, fullgraph=True, dynamic=True, mode=""max-autotune"", disable=False)
+m(...)
+m(...)
+
+works fine, with no recompiles. But when I run the script again, the torch.compile warmup takes a reasonably long time (running twice each for batch sizes 1, 2, and 4) -- about 10 seconds per input batch size. I ran the script with TORCH_LOGS=+dynamo,+inductor,+recompiles,+aot, and it seems like most of the time is spent tracing the code and running shape solving, even though the model code is unchanged.
+
+Files are written to the disk cache, and the disk cache does speed up compile times, but I'm not sure why it still takes so long to trace and run the shape solver when the model code is unchanged, are the traced graphs not cached?",Unknown,Unknown Knowns,long,,Unknown Non-Knowledge,Unknown Unknown,"I think we have been analysing the current realised non-knowledge in the wrong way. It’s only retrospectively that most of the people see they lack this knowledge. At least, this is how I judge this case. Based on both papers, the person asking only retrospectively realises that they don’t know something, and that something might be important.","relevant, known unknowns",known unknowns OR unknown knowns,"I tend to unknown knowns, although it is not clear from the segment. It sounds as if someone else could have an answer",-1,1,1,2,"I'm running torch.compile on a transformer-based model. When I run the compiled function, I don't get any recompiles for subsequent calls in the same script, for example:
+
+m = torch.compile(self.transformer.forward, fullgraph=True, dynamic=True, mode=""max-autotune"", disable=False)
+m(...)
+m(...)
+
+works fine, with no recompiles. But when I run the script again, the torch.compile warmup takes a reasonably long time (running twice each for batch sizes 1, 2, and 4) -- about 10 seconds per input batch size. I ran the script with TORCH_LOGS=+dynamo,+inductor,+recompiles,+aot, and it seems like most of the time is spent tracing the code and running shape solving, even though the model code is unchanged.
+
+Files are written to the disk cache, and the disk cache does speed up compile times, but I'm not sure why it still takes so long to trace and run the shape solver when the model code is unchanged, are the traced graphs not cached?"
+29,29,29,29,29,29,29,pytorch_pytorch,issue,154456.0,"I was expecting the cache to write to TORCHINDUCTOR_CACHE_DIR automatically (or i guess in my case it was writing to /tmp/torchinductor_user) , is that not the case?",Unknown,Unknown Unknown,short,,,,,,,,1,1,1,2,"I was expecting the cache to write to TORCHINDUCTOR_CACHE_DIR automatically (or i guess in my case it was writing to /tmp/torchinductor_user) , is that not the case?"
+30,30,30,30,30,30,30,pytorch_pytorch,issue,154556.0,"The tracing component (Dynamo) is not fully cached today, but we are working on this.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"The tracing component (Dynamo) is not fully cached today, but we are working on this."
+31,31,31,31,31,31,31,pytorch_pytorch,issue,132332.0,Under certain circumstances nn.Linear will have memory leaks on MPS. The exact failure mode and condition that leads to leakage is unclear at this moment. Need to investigate if the memory leak is in PyTorch or MPS,Known,Known Unknown,short,,,,,,,,2,2,1,2,Under certain circumstances nn.Linear will have memory leaks on MPS. The exact failure mode and condition that leads to leakage is unclear at this moment. Need to investigate if the memory leak is in PyTorch or MPS
+32,32,32,32,32,32,32,pytorch_pytorch,issue,132332.0,"Ok @hvaara thanks for your patience! Here's the results from my deep dive to the traces of metal resources getting generated during the execution of the code snippet and my current understanding on what's going on:
+
+    The memory grows by the size of the output object of linear layer for each iteration run so by 4 * N * C * H * W bytes, making sense since this is the output object we allocate on L50 in the linear op 1
+    When the executeMPSGraph is called using COMMIT_ADAPTIVE as the SyncMode, the operation is encoded to the active command buffer in MPSStream but unless the memory pressure is too high, the command buffer is not committed but instead we keep on encoding operations to the same command buffer 2
+    Since each iteration with the nn.Linear needs to maintain its own output tensor until the computation is completed and the python object goes out of scope to be garbage collected, we see the memory increase while the command buffer keeps accumulating more encoded operations. In case we change to COMMIT_AND_WAIT as our SyncMode the command buffers get committed after each encode and the memory buffers required for the outputs are also released once the computation returns. This probably lets the garbage collector sees that the object is no longer needed since we don't assign the outputs of the computation to anything in the python script.
+    To validate this I tried to adjust the original script slightly to allow for the adaptive commit to run its course and the computations to return so that the underlying objects can be released and we can see the memory get freed up. It seems like on my local setup it takes about 5-6s of waiting for the objects to get cleaned up. In actual code I assume this would happen more often since there can be other operations calling the command buffer to get synchronized in between in order to perform updates based on the results.
+
+So in summary to me it seems like the memory is managed as intended in this case. In its current form the COMMIT_ADAPTIVE is a bit opaque to the user since it might make the memory seem like its behaving erratically as the commit is automated to only happen once the local device hits the low memory watermark, which depends on the device you are running on. Additionally there's the interplay of when will the underlying python objects get garbage collected that should finally release the memory buffers assigned to them. Let me know if this sounds reasonable or if you think there's still something we missed here. Or if this is causing a concrete issue on your side that would warrant us to do some changes on how the adaptive commit works at the moment.",Knowledge,Knowledge,long,,,,,,,,0,0,0,0,"Ok @hvaara thanks for your patience! Here's the results from my deep dive to the traces of metal resources getting generated during the execution of the code snippet and my current understanding on what's going on:
+
+    The memory grows by the size of the output object of linear layer for each iteration run so by 4 * N * C * H * W bytes, making sense since this is the output object we allocate on L50 in the linear op 1
+    When the executeMPSGraph is called using COMMIT_ADAPTIVE as the SyncMode, the operation is encoded to the active command buffer in MPSStream but unless the memory pressure is too high, the command buffer is not committed but instead we keep on encoding operations to the same command buffer 2
+    Since each iteration with the nn.Linear needs to maintain its own output tensor until the computation is completed and the python object goes out of scope to be garbage collected, we see the memory increase while the command buffer keeps accumulating more encoded operations. In case we change to COMMIT_AND_WAIT as our SyncMode the command buffers get committed after each encode and the memory buffers required for the outputs are also released once the computation returns. This probably lets the garbage collector sees that the object is no longer needed since we don't assign the outputs of the computation to anything in the python script.
+    To validate this I tried to adjust the original script slightly to allow for the adaptive commit to run its course and the computations to return so that the underlying objects can be released and we can see the memory get freed up. It seems like on my local setup it takes about 5-6s of waiting for the objects to get cleaned up. In actual code I assume this would happen more often since there can be other operations calling the command buffer to get synchronized in between in order to perform updates based on the results.
+
+So in summary to me it seems like the memory is managed as intended in this case. In its current form the COMMIT_ADAPTIVE is a bit opaque to the user since it might make the memory seem like its behaving erratically as the commit is automated to only happen once the local device hits the low memory watermark, which depends on the device you are running on. Additionally there's the interplay of when will the underlying python objects get garbage collected that should finally release the memory buffers assigned to them. Let me know if this sounds reasonable or if you think there's still something we missed here. Or if this is causing a concrete issue on your side that would warrant us to do some changes on how the adaptive commit works at the moment."
+33,33,33,33,33,33,33,tensorflow_tensorflow,issue,83379.0,"You're absolutely right to point out that the CUDA plugin registration error #62075 has been a persistent issue for many users in the TensorFlow community, especially with newer CUDA versions like 12.x. This error typically arises due to the combination of incompatible library versions, improper installation, or misconfigurations between TensorFlow, CUDA, and cuDNN.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"You're absolutely right to point out that the CUDA plugin registration error #62075 has been a persistent issue for many users in the TensorFlow community, especially with newer CUDA versions like 12.x. This error typically arises due to the combination of incompatible library versions, improper installation, or misconfigurations between TensorFlow, CUDA, and cuDNN."
+34,34,34,34,34,34,34,tensorflow_tensorflow,issue,84102.0,"I think TensorFlow on Windows is only supported on Intel, not ARM.",Knowledge,Knowledge,short,"Or is this Irrelevant/Known Unknown, as the dev only thinks he knows it?",,,,,,,0,0,0,0,"I think TensorFlow on Windows is only supported on Intel, not ARM."
+35,35,35,35,35,35,35,tensorflow_tensorflow,issue,84102.0,"Confirmed that Windows support only exists for Intel CPUs. On https://pypi.org/project/tensorflow/#files there is no Windows + ARM wheel.
+
+On https://pypi.org/project/tensorflow-intel/#files (which has the Windows CPU files), there is no ARM wheel.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"Confirmed that Windows support only exists for Intel CPUs. On https://pypi.org/project/tensorflow/#files there is no Windows + ARM wheel.
+
+On https://pypi.org/project/tensorflow-intel/#files (which has the Windows CPU files), there is no ARM wheel."
+36,36,36,36,36,36,36,tensorflow_tensorflow,issue,84102.0,"This is also weird, because the pip installer should not have proceeded due to missing wheels.",Unknown,Unknown Unknown,short,,,,,,,,1,1,1,2,"This is also weird, because the pip installer should not have proceeded due to missing wheels."
+37,37,37,37,37,37,37,tensorflow_tensorflow,issue,82736.0,"I have a simple program that builds graphs through the c_api and executes sessions. It works perfectly as long as it is run only on CPU. If GPU is involved then at random places the program generates a Div0 error. The very same program run twice within one minute on the same hardware, etc. behave differently.
+The error is somewhere deep in TF/Cuda because in the error dump I see 15 program jumps outside my code (what I can still debug).
+I tried it on the different partition of a HPC, but both behave the same way. Card is Quadro RTX 6000, driver 565.57.01 Cuda 12.7 as seen in nvidia-smi, but 12.3 is available as libraries.
+I tried with many different settings, etc., but cannot identify any rootcause. I am not even sure if the bug is in the TF binary or in one of the Cuda libraries (or elsewhere).",Known,Known Unknown,long,,Known Non-Knowledge,Known Unknown,,"the question indirectly posed here, seems to be relevant → known unknowns","known unknowns OR unknown knowns, error?","same as above for Roberts – cannot be clearly decided from this segment. … I think here it could be good to know how it is usual: is the usual thing that someone has an answer? Can it be possible to say this? Another way would be to see how the conversation unfolds – does someone gives an answer? And, a third thought: maybe it makes no sense to distinguish between known unknowns and unknown knowns, thus the categories make no sense for the machine and AI because it will not be able to distinguish …",2,2,1,2,"I have a simple program that builds graphs through the c_api and executes sessions. It works perfectly as long as it is run only on CPU. If GPU is involved then at random places the program generates a Div0 error. The very same program run twice within one minute on the same hardware, etc. behave differently.
+The error is somewhere deep in TF/Cuda because in the error dump I see 15 program jumps outside my code (what I can still debug).
+I tried it on the different partition of a HPC, but both behave the same way. Card is Quadro RTX 6000, driver 565.57.01 Cuda 12.7 as seen in nvidia-smi, but 12.3 is available as libraries.
+I tried with many different settings, etc., but cannot identify any rootcause. I am not even sure if the bug is in the TF binary or in one of the Cuda libraries (or elsewhere)."
+38,38,38,38,38,38,38,tensorflow_tensorflow,issue,24828.0,"I tried installting tensorflow 1.12 using both pip install and building from source.However when I am trying to run faster rcnn model i get following error message:
+Failed to get convolution algorithm. This is probably because cuDNN failed to initialize, so try looking to see if a warning log message was printed above.
+
+I only get this with tf 1.12 and python 3.6 ,it works fine with python 3.6",Unknown,Known Unknown,long,,Unknown Non-Knowledge,Unknown Unknown,The error emerges because the person didn’t know that they didn’t know about something. That something is explained in the next segment. ,kein Nichtwissen,error?,,2,1,1,2,"I tried installting tensorflow 1.12 using both pip install and building from source.However when I am trying to run faster rcnn model i get following error message:
+Failed to get convolution algorithm. This is probably because cuDNN failed to initialize, so try looking to see if a warning log message was printed above.
+
+I only get this with tf 1.12 and python 3.6 ,it works fine with python 3.6"
+39,39,39,39,39,39,39,tensorflow_tensorflow,issue,24828.0,"It is just a problem with cuDNN version incompatibility. I also downgrade to 1.8, although solving the problem, but no need when there is a much higher version which is definitely better than the old version. So I found that I was using conda installing TF, which conda was also installed everything even Cuda and cudnn, so the python was not detecting my installed Cuda and cudnn, it was using which was installed by conda which was very old version of cudnn, so I deleted the conda installed Cuda and cudnn, and then installed TF with pip, and it was OK.",Knowledge,Knowledge,long,,,,,,,,0,0,0,0,"It is just a problem with cuDNN version incompatibility. I also downgrade to 1.8, although solving the problem, but no need when there is a much higher version which is definitely better than the old version. So I found that I was using conda installing TF, which conda was also installed everything even Cuda and cudnn, so the python was not detecting my installed Cuda and cudnn, it was using which was installed by conda which was very old version of cudnn, so I deleted the conda installed Cuda and cudnn, and then installed TF with pip, and it was OK."
+40,40,40,40,40,40,40,tensorflow_tensorflow,issue,24828.0,Had same problem with cuda 9.0 and cuDNN 7.0.5.15-1 on Ubuntu 16.04 with Tensorflow 1.12. Updating to cuDNN 7.4.2.24 fixed this for me!,Knowledge,Knowledge,short,,,,,,,,0,0,0,0,Had same problem with cuda 9.0 and cuDNN 7.0.5.15-1 on Ubuntu 16.04 with Tensorflow 1.12. Updating to cuDNN 7.4.2.24 fixed this for me!
+41,41,41,41,41,41,41,tensorflow_tensorflow,issue,24828.0,"OK, I was able to execute my CNN. I'm using tensorflow tf-nightly-gpu-2.0-preview, and running on a ipython notebook. I had to add this to my notebook:
+
+from tensorflow.compat.v1 import ConfigProto
+from tensorflow.compat.v1 import InteractiveSession
+
+config = ConfigProto()
+config.gpu_options.allow_growth = True
+session = InteractiveSession(config=config)",Knowledge,Knowledge,long,,,,,,,,0,0,0,0,"OK, I was able to execute my CNN. I'm using tensorflow tf-nightly-gpu-2.0-preview, and running on a ipython notebook. I had to add this to my notebook:
+
+from tensorflow.compat.v1 import ConfigProto
+from tensorflow.compat.v1 import InteractiveSession
+
+config = ConfigProto()
+config.gpu_options.allow_growth = True
+session = InteractiveSession(config=config)"
+42,42,42,42,42,42,42,tensorflow_tensorflow,issue,24496.0,"I'm running the CNN model on MNIST. When I'm running with the GPU, I am encountering
+2018-12-20 20:09:13.644176: E tensorflow/stream_executor/cuda/cuda_dnn.cc:334] Could not create cudnn handle: CUDNN_STATUS_INTERNAL_ERROR
+
+I did some digging and realized that it is a memory issue (which shouldn't be the case as I have 32GB of RAM and 64GB of swap. I ran htop when running the model and I have 20+GB free, which is more than enough to fit the 8GB vRAM mappings.
+
+Using the gpu_options.allow_growth = True gets the model to work properly, and setting os.environ['CUDA_VISIBLE_DEVICES'] = '-1' also works. This means that I AM facing a memory issue, but I don't see how.",Unknown,Known Unknown,long,,Unknown Non-Knowledge,Unknown Unknown,,known unknown (a question can be posed),known unknowns OR unknown knowns,see my comments above,2,1,1,2,"I'm running the CNN model on MNIST. When I'm running with the GPU, I am encountering
+2018-12-20 20:09:13.644176: E tensorflow/stream_executor/cuda/cuda_dnn.cc:334] Could not create cudnn handle: CUDNN_STATUS_INTERNAL_ERROR
+
+I did some digging and realized that it is a memory issue (which shouldn't be the case as I have 32GB of RAM and 64GB of swap. I ran htop when running the model and I have 20+GB free, which is more than enough to fit the 8GB vRAM mappings.
+
+Using the gpu_options.allow_growth = True gets the model to work properly, and setting os.environ['CUDA_VISIBLE_DEVICES'] = '-1' also works. This means that I AM facing a memory issue, but I don't see how."
+43,43,43,43,43,43,43,tensorflow_tensorflow,issue,24496.0,I was finally able to fix my problem was setting config.gpu_options.allow_growth = True.,Knowledge,Knowledge,short,,,,,,,,0,0,0,0,I was finally able to fix my problem was setting config.gpu_options.allow_growth = True.
+44,44,44,44,44,44,44,tensorflow_tensorflow,issue,37942.0,"my jupyter notebook that is training some LSTMs on the GPU crashes after some time with the following traceback:
+
+InternalError:  [_Derived_]  Failed to call ThenRnnBackward with model config: [rnn_mode, rnn_input_mode, rnn_direction_mode]: 2, 0, 0 , [num_layers, input_size, num_units, dir_count, max_seq_length, batch_size, cell_num_units]: [1, 100, 100, 1, 249, 32, 100] 
+         [[{{node gradients/CudnnRNN_grad/CudnnRNNBackprop}}]]
+         [[StatefulPartitionedCall_1]] [Op:__inference_distributed_function_7604]
+
+Function call stack:
+distributed_function -> distributed_function -> distributed_function
+
+This crash happens after a random amount of epochs (sometimes 6, sometimes 130+ sometimes 300+). It also crashes on different Windows machines with different GPUs. In the stacktrace I can find the following line:
+130         # TODO(kaftan): File bug about tf function and errors.OutOfRangeError?
+
+I wonder if this is connected to this issue?",Unknown,Known Unknown,long,,Unknown Non-Knowledge,Unknown Unknown,,known unknown (a question can be posed),known unknowns  ,"Although it is as always not clear from the segment, I tend here to known unknowns. The question reads like: someone else might know",2,1,1,2,"my jupyter notebook that is training some LSTMs on the GPU crashes after some time with the following traceback:
+
+InternalError:  [_Derived_]  Failed to call ThenRnnBackward with model config: [rnn_mode, rnn_input_mode, rnn_direction_mode]: 2, 0, 0 , [num_layers, input_size, num_units, dir_count, max_seq_length, batch_size, cell_num_units]: [1, 100, 100, 1, 249, 32, 100] 
+         [[{{node gradients/CudnnRNN_grad/CudnnRNNBackprop}}]]
+         [[StatefulPartitionedCall_1]] [Op:__inference_distributed_function_7604]
+
+Function call stack:
+distributed_function -> distributed_function -> distributed_function
+
+This crash happens after a random amount of epochs (sometimes 6, sometimes 130+ sometimes 300+). It also crashes on different Windows machines with different GPUs. In the stacktrace I can find the following line:
+130         # TODO(kaftan): File bug about tf function and errors.OutOfRangeError?
+
+I wonder if this is connected to this issue?"
+45,45,45,45,45,45,45,tensorflow_tensorflow,issue,37492.0,"To train the LSTM-model on a GPU on my plattform (Windows 10, tf 2.1.0), the parameter batch_input_shape must be specified during the model creation in the very first layer and the parameter input_shape must be omitted.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"To train the LSTM-model on a GPU on my plattform (Windows 10, tf 2.1.0), the parameter batch_input_shape must be specified during the model creation in the very first layer and the parameter input_shape must be omitted."
+46,46,46,46,46,46,46,tensorflow_tensorflow,issue,60798.0,"I am trying to build Tensorflow from source with flag /MT (I require this so that the tensorflow.dll does not require the vcruntime libraries on startup). I tried this command: bazel build tensorflow:tensorflow.dll --copt=/MT. But i get errors. It seems, like something is wrong with spaces in path. But i builded tensorflow successfully without /MT flag.",Known,Known Unknown,short,,,,,,,,2,2,1,2,"I am trying to build Tensorflow from source with flag /MT (I require this so that the tensorflow.dll does not require the vcruntime libraries on startup). I tried this command: bazel build tensorflow:tensorflow.dll --copt=/MT. But i get errors. It seems, like something is wrong with spaces in path. But i builded tensorflow successfully without /MT flag."
+47,47,47,47,47,47,47,tensorflow_tensorflow,issue,60798.0,"Ok, I fixed the errors as follows: instead of using the --copt flag, I added the following lines to the .bazelrc file:
+build: windows --cxxopt=/MT
+build: windows --host_copt=/MT",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"Ok, I fixed the errors as follows: instead of using the --copt flag, I added the following lines to the .bazelrc file:
+build: windows --cxxopt=/MT
+build: windows --host_copt=/MT"
+48,48,48,48,48,48,48,tensorflow_tensorflow,issue,46007.0,"The following error is happening after training with Pythorch-XLA for some time:
+
+2020-12-28 01:56:05.252085: W    1417 tensorflow/core/distributed_runtime/rpc/grpc_remote_master.cc:160] RPC failed with status = ""Unavailable: Socket closed"" and grpc_error_string = ""{""created"":""@1609120565.251970000"",""description"":""Error received from peer ipv4:10.180.83.2:8470"",""file"":""external/com_github_grpc_grpc/src/core/lib/surface/call.cc"",""file_line"":1056,""grpc_message"":""Socket closed"",""grpc_status"":14}"", maybe retrying the RPC
+
+
+*** Begin stack trace ***
+        tensorflow::CurrentStackTrace()
+        xla::XrtComputationClient::ReleaseHandles(std::vector<xla::XrtComputationClient::DeviceHandle, std::allocator<xla::XrtComputationClient::DeviceHandle> >*, std::function<xla::XrtSession::CachedNode const& (xla::XrtSession*, tensorflow::Scope const&, std::string const&)> const&, xla::metrics::Metric*, xla::metrics::Counter*)
+        xla::XrtComputationClient::HandleReleaser()
+        xla::util::TriggeredTask::Runner()
+
+
+        clone
+*** End stack trace ***
+
+I was following the steps described here: https://cloud.google.com/tpu/docs/tutorials/roberta-pytorch with the same network parameters, just a different dataset.
+I encountered an error before, but it was happening due to OOM on the VM after restoring a checkpoint, which reason why I increased VM memory.
+
+It seems that the TPU is getting pre-empted somehow, but I don't have access to the runtime log as this happened overnight and it got automatically deleted by TFRC.",Known,Known Unknown,long,,,,,,,,2,2,1,2,"The following error is happening after training with Pythorch-XLA for some time:
+
+2020-12-28 01:56:05.252085: W    1417 tensorflow/core/distributed_runtime/rpc/grpc_remote_master.cc:160] RPC failed with status = ""Unavailable: Socket closed"" and grpc_error_string = ""{""created"":""@1609120565.251970000"",""description"":""Error received from peer ipv4:10.180.83.2:8470"",""file"":""external/com_github_grpc_grpc/src/core/lib/surface/call.cc"",""file_line"":1056,""grpc_message"":""Socket closed"",""grpc_status"":14}"", maybe retrying the RPC
+
+
+*** Begin stack trace ***
+        tensorflow::CurrentStackTrace()
+        xla::XrtComputationClient::ReleaseHandles(std::vector<xla::XrtComputationClient::DeviceHandle, std::allocator<xla::XrtComputationClient::DeviceHandle> >*, std::function<xla::XrtSession::CachedNode const& (xla::XrtSession*, tensorflow::Scope const&, std::string const&)> const&, xla::metrics::Metric*, xla::metrics::Counter*)
+        xla::XrtComputationClient::HandleReleaser()
+        xla::util::TriggeredTask::Runner()
+
+
+        clone
+*** End stack trace ***
+
+I was following the steps described here: https://cloud.google.com/tpu/docs/tutorials/roberta-pytorch with the same network parameters, just a different dataset.
+I encountered an error before, but it was happening due to OOM on the VM after restoring a checkpoint, which reason why I increased VM memory.
+
+It seems that the TPU is getting pre-empted somehow, but I don't have access to the runtime log as this happened overnight and it got automatically deleted by TFRC."
+49,49,49,49,49,49,49,tensorflow_tensorflow,issue,62075.0,"Starting from TF2.14 tensorflow provides CUDA package which can install all the cuDNN,cuFFT and cubLas libraries.
+
+You can use pip install tensorflow[and-cuda] command for that.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"Starting from TF2.14 tensorflow provides CUDA package which can install all the cuDNN,cuFFT and cubLas libraries.
+
+You can use pip install tensorflow[and-cuda] command for that."
+50,50,50,50,50,50,50,tensorflow_tensorflow,issue,62075.0,I did not know that it now came bundled with cuDNN.,unknown,Known Unknown,short,Knowable known unknown,,,,,,,2,1,1,2,I did not know that it now came bundled with cuDNN.
+51,51,51,51,51,51,51,tensorflow_tensorflow,issue,62075.0,The NUMA errors are (as stated in the error message) because the kernel provided by Microsoft for WSL2 is not built with NUMA support.,Knowledge,Knowledge,short,,,,,,,,0,0,0,0,The NUMA errors are (as stated in the error message) because the kernel provided by Microsoft for WSL2 is not built with NUMA support.
+52,52,52,52,52,52,52,tensorflow_tensorflow,issue,62075.0,@Ke293-x2Ek-Qe-7-aE-B I rebuilt all in an independent conda environment as TF. My steps were to create a TF env with python 3.9.8 and tried python3 -m pip install tensorflow[and-cuda] --user according to instruction. Following these I tried python3 -m pip install tensorflow[and-cuda]=2.13.0 --user and found it solved some bugs.,Knowledge,Knowledge,short,,,,,,,,0,0,0,0,@Ke293-x2Ek-Qe-7-aE-B I rebuilt all in an independent conda environment as TF. My steps were to create a TF env with python 3.9.8 and tried python3 -m pip install tensorflow[and-cuda] --user according to instruction. Following these I tried python3 -m pip install tensorflow[and-cuda]=2.13.0 --user and found it solved some bugs.
+53,53,53,53,53,53,53,tensorflow_tensorflow,issue,62075.0,"Hello,
+
+I'm experiencing the same issue, even though I meticulously followed all the instructions for setting up CUDA 11.8 and CuDNN 8.7. The error messages I'm encountering are as follows:
+
+Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered.
+Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered.
+Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered.
+
+I've tried this with different versions of Python. Surprisingly, when I used Python 3.11, TensorFlow 2.13 was installed without these errors. However, when I used Python 3.10 or 3.9, I ended up with TensorFlow 2.14 and the aforementioned errors.
+
+I've come across information suggesting that I may not need to manually install CUDA and CuDNN, as [and-cuda] should handle the installation of these components automatically.
+
+Could someone please guide me on the correct approach to resolve this issue? I've tried various methods, but unfortunately, none of them have yielded a working solution.",Known,Known Unknown,long,,,,,,,,2,2,1,2,"Hello,
+
+I'm experiencing the same issue, even though I meticulously followed all the instructions for setting up CUDA 11.8 and CuDNN 8.7. The error messages I'm encountering are as follows:
+
+Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered.
+Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered.
+Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered.
+
+I've tried this with different versions of Python. Surprisingly, when I used Python 3.11, TensorFlow 2.13 was installed without these errors. However, when I used Python 3.10 or 3.9, I ended up with TensorFlow 2.14 and the aforementioned errors.
+
+I've come across information suggesting that I may not need to manually install CUDA and CuDNN, as [and-cuda] should handle the installation of these components automatically.
+
+Could someone please guide me on the correct approach to resolve this issue? I've tried various methods, but unfortunately, none of them have yielded a working solution."
+54,54,54,54,54,54,54,tensorflow_tensorflow,issue,62075.0,"I still appear to be getting these messages however, so I'm not sure I've installed things correctly.",Known,Known Unknown,short,,,,,,,,2,2,1,2,"I still appear to be getting these messages however, so I'm not sure I've installed things correctly."
+55,55,55,55,55,55,55,tensorflow_tensorflow,issue,37492.0,"Hey all,
+
+so I could just verify that all of the problems in this issue are connected with the Windows-version of tensorflow. I installed a fresh Ubuntu Bionic and followed the instructions [0] to set it up with CUDA on my homeoffice-workstation with a GTX 1060 6GB and none of the described problems was ever encountered again. :/
+
+So please save yourself the trouble and just use Linux to train your LSTMs on the GPU. Even the validation_split-parameter works there without any problem and I had not to set up any batch_input_shape with divisible sets for training, validation, etc. Now it is just so easy.",Knowledge,Knowledge,long,,,,,,,,0,0,0,0,"Hey all,
+
+so I could just verify that all of the problems in this issue are connected with the Windows-version of tensorflow. I installed a fresh Ubuntu Bionic and followed the instructions [0] to set it up with CUDA on my homeoffice-workstation with a GTX 1060 6GB and none of the described problems was ever encountered again. :/
+
+So please save yourself the trouble and just use Linux to train your LSTMs on the GPU. Even the validation_split-parameter works there without any problem and I had not to set up any batch_input_shape with divisible sets for training, validation, etc. Now it is just so easy."
+56,56,56,56,56,56,56,numpy_numpy,issue,28024.0,"Since there is a well defined interoperability protocol I was assuming that it is safe to call numpy functions on foreign objects, until I discovered this strange behaviour:
+
+>>> import numpy as np
+>>> class Kls: pass
+...
+>>> a = Kls()
+>>> a.mean = None
+>>> np.mean(a)
+Traceback (most recent call last):
+  File ""<stdin>"", line 1, in <module>
+  File ""/Users/miccoli/work/uvenv/bigdata/.venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py"", line 3858, in mean
+    return mean(axis=axis, dtype=dtype, out=out, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not callable
+>>> a.mean = lambda : 0
+>>> np.mean(a)
+Traceback (most recent call last):
+  File ""<stdin>"", line 1, in <module>
+  File ""/Users/miccoli/work/uvenv/bigdata/.venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py"", line 3858, in mean
+    return mean(axis=axis, dtype=dtype, out=out, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: <lambda>() got an unexpected keyword argument 'axis'
+
+So if np.mean(a) discovers that a has a mean attribute, it blindly assumes that it is a method with the same semantics and signature of np.mean.
+
+This is crazy! numpy does not owns the mean method and in fact other libraries implemented it in different ways:
+
+>>> import polars as pl
+>>> a = pl.Series([0, 1, 2])
+>>> np.mean(a) #broken
+Traceback (most recent call last):
+  File ""<stdin>"", line 1, in <module>
+  File ""/Users/miccoli/work/uvenv/bigdata/.venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py"", line 3858, in mean
+    return mean(axis=axis, dtype=dtype, out=out, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Series.mean() got an unexpected keyword argument 'axis'
+>>> np.mean(np.asarray(a)) #works
+np.float64(1.0)",Unknown,Unknown Unknown,long,person seems to be quite surprised but not sure.,Unknown Non-Knowledge,Unknown Unknown,,,unknown unknowns,as always: it is not clear from that segment if knowledge is absent or someone else might know. But here I tent to say – it seems as nobody might know,1,1,1,2,"Since there is a well defined interoperability protocol I was assuming that it is safe to call numpy functions on foreign objects, until I discovered this strange behaviour:
+
+>>> import numpy as np
+>>> class Kls: pass
+...
+>>> a = Kls()
+>>> a.mean = None
+>>> np.mean(a)
+Traceback (most recent call last):
+  File ""<stdin>"", line 1, in <module>
+  File ""/Users/miccoli/work/uvenv/bigdata/.venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py"", line 3858, in mean
+    return mean(axis=axis, dtype=dtype, out=out, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not callable
+>>> a.mean = lambda : 0
+>>> np.mean(a)
+Traceback (most recent call last):
+  File ""<stdin>"", line 1, in <module>
+  File ""/Users/miccoli/work/uvenv/bigdata/.venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py"", line 3858, in mean
+    return mean(axis=axis, dtype=dtype, out=out, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: <lambda>() got an unexpected keyword argument 'axis'
+
+So if np.mean(a) discovers that a has a mean attribute, it blindly assumes that it is a method with the same semantics and signature of np.mean.
+
+This is crazy! numpy does not owns the mean method and in fact other libraries implemented it in different ways:
+
+>>> import polars as pl
+>>> a = pl.Series([0, 1, 2])
+>>> np.mean(a) #broken
+Traceback (most recent call last):
+  File ""<stdin>"", line 1, in <module>
+  File ""/Users/miccoli/work/uvenv/bigdata/.venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py"", line 3858, in mean
+    return mean(axis=axis, dtype=dtype, out=out, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Series.mean() got an unexpected keyword argument 'axis'
+>>> np.mean(np.asarray(a)) #works
+np.float64(1.0)"
+57,57,57,57,57,57,57,numpy_numpy,issue,28024.0,"The behaviour was added a long time ago, commit 67940c3 in 2006.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"The behaviour was added a long time ago, commit 67940c3 in 2006."
+58,58,58,58,58,58,58,numpy_numpy,issue,28024.0,"The behaviour was added a long time ago, commit 67940c3 in 2006. That probably means that for backwards compatibility reasons we cannot change this behaviour.",Known,Known Unknown,short,,,,,,,,2,2,1,2,"The behaviour was added a long time ago, commit 67940c3 in 2006. That probably means that for backwards compatibility reasons we cannot change this behaviour."
+59,59,59,59,59,59,59,numpy_numpy,issue,28024.0,"As @eendebakpt says, the problem here is that it is not clear what would happen if you changed it now that alternatives exist.
+The main issue here I would expect to be pandas code, since dirty mixing of pandas and NumPy is pretty common, and users may be getting away with things there that they should not be getting away with.
+
+So can we change it? Maybe, but it does require carefully thinking about how impactful the change is (it would make things error, which isn't so bad... but if there is a huge amount of code out there that starts failing that wouldn't be great).
+",Known,Known Unknown,long,,,,,,,,2,2,1,2,"As @eendebakpt says, the problem here is that it is not clear what would happen if you changed it now that alternatives exist.
+The main issue here I would expect to be pandas code, since dirty mixing of pandas and NumPy is pretty common, and users may be getting away with things there that they should not be getting away with.
+
+So can we change it? Maybe, but it does require carefully thinking about how impactful the change is (it would make things error, which isn't so bad... but if there is a huge amount of code out there that starts failing that wouldn't be great).
+"
+60,60,60,60,60,60,60,numpy_numpy,issue,28024.0,"Hmmm, I doubt that this changes the situation much (w.r.t how disruptive the change would be).
+In the end, won't many/most of the problematic objects (e.g. pandas dataframe, or even torch tensors) already have an __array__ attribute, but still return their own type for np.mean() right now?
+(IIRC, np.asarray(torch) raises an error, which is also disruptive, but maybe more desirable.)
+
+I wonder if we could nudge libraries towards implementing __array_function__. Although, I am not sure that is quite convenient enough for having partial support.
+
+Could there be a (very slow) deprecation path for this? Right now, I am not sure...",Irrelevant,Known Unknown,long,,Irrelevant,Known Unknown,,"relevant, known unknowns",known unknowns ,"what is not known seems to be relevant. The person thinks loud on what a solution could be and how a question could be answered. Nonknowledge would be irrelevant, when the person concludes that there is no need for action. … For the Roberts category it is as always not 100% clear, but it seems that the problem is new and nobody might know",2,3,1,2,"Hmmm, I doubt that this changes the situation much (w.r.t how disruptive the change would be).
+In the end, won't many/most of the problematic objects (e.g. pandas dataframe, or even torch tensors) already have an __array__ attribute, but still return their own type for np.mean() right now?
+(IIRC, np.asarray(torch) raises an error, which is also disruptive, but maybe more desirable.)
+
+I wonder if we could nudge libraries towards implementing __array_function__. Although, I am not sure that is quite convenient enough for having partial support.
+
+Could there be a (very slow) deprecation path for this? Right now, I am not sure..."
+61,61,61,61,61,61,61,numpy_numpy,issue,18004.0,"It seems odd that this doesn't work, and it feels like it should... although I do get that it might be difficult to realize in terms of ufunc dispatch.",Unknown,Unknown Unknown,short,,,,,,,,1,1,1,2,"It seems odd that this doesn't work, and it feels like it should... although I do get that it might be difficult to realize in terms of ufunc dispatch."
+62,62,62,62,62,62,62,numpy_numpy,issue,18004.0,Not sure how you are getting an object array here.,Unknown,Known Unknown,short,,,,,,,,2,1,1,2,Not sure how you are getting an object array here.
+63,63,63,63,63,63,63,numpy_numpy,issue,18004.0,"The error is referring to the fact that float(1).exp() fails. NumPy does not go to much effort to handle functions on object arrays. In general object arrays will never really be fully integrated into NumPy, and maybe were a mistake in the first place, but are convenient for some container-like applications. Object dtypes are ""out of scope"" for the Array API standard (point 4).",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"The error is referring to the fact that float(1).exp() fails. NumPy does not go to much effort to handle functions on object arrays. In general object arrays will never really be fully integrated into NumPy, and maybe were a mistake in the first place, but are convenient for some container-like applications. Object dtypes are ""out of scope"" for the Array API standard (point 4)."
+64,64,64,64,64,64,64,numpy_numpy,issue,18004.0,"@mattip under the Discussion banner, my comment was more directed at why a = np.array([1., 2.], dtype=object) would be cast as an object array in the first place. Or perhaps it was the result of some process that casts all outputs as object arrays. Accounting for all cases where things may fail is a lost cause. This may be one example of the deprecation warnings might be useful, but where do you stop? You have one for ragged arrays (VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences....), do you then have to provide one for arrays that shouldn't be cast as object arrays?",Known,Known Unknown,long,,,,,,,,2,2,1,2,"@mattip under the Discussion banner, my comment was more directed at why a = np.array([1., 2.], dtype=object) would be cast as an object array in the first place. Or perhaps it was the result of some process that casts all outputs as object arrays. Accounting for all cases where things may fail is a lost cause. This may be one example of the deprecation warnings might be useful, but where do you stop? You have one for ragged arrays (VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences....), do you then have to provide one for arrays that shouldn't be cast as object arrays?"
+65,65,65,65,65,65,65,numpy_numpy,issue,17669.0,"This issue is motivated by ongoing work in SciPy to improve the existing multivariate distributions and add new ones. We'd like to be sure that, if possible, enhancements that we make remain consistent with the current and future behavior of NumPy's multivariate distributions.
+
+The specific issue is how the size parameter interacts with broadcasting of the distribution parameters, some of which are 1-d or 2-d arrays rather than scalars.
+
+I'm going to refer to gufunc broadcasting, so it will be helpful to have the gufunc signatures of the existing multivariate distributions (even though they are not actually implemented as gufuncs):
+
+Name                         Parameters      Gufunc signature
+---------------------------  --------------  ----------------
+dirichlet                    alpha           (n)       -> (n)
+multinomial                  n, pvals        (),(n)    -> (n)
+multivariate_normal          mean, cov       (n),(n,n) -> (n)
+multivariate_hypergeometric  colors, nsample (n),()    -> (n)
+
+@bashtage has a pull request to add broadcasting to multinomial. As an example, suppose I have four values of n, say 2, 5, 10 and 20, and I have two discrete probability distributions of length 3, say [0.1, 0.2, 0.7] and [0.8, 0.2, 0.0], and I want to generate 10 multinomial variates for each combination of those inputs. With the code in @bashtage's PR, we can write:
+
+In [85]: n = np.array([2, 5, 10, 20]).reshape(-1, 1)
+
+In [86]: pvals = np.array([[0.1, 0.2, 0.7], [0.8, 0.2, 0.0]])
+
+In [87]: rng = np.random.default_rng()
+
+In [88]: x = rng.multinomial(n, pvals, size=(10, 4, 2))
+
+In [89]: x.shape
+Out[89]: (10, 4, 2, 3)
+
+The shape of the output has three sources: (10,) is the number of variates that we wanted for each combination of input parameters; (4, 2) is the broadcast shape of the input parameters, without the dimension associated with the gufunc signature; (3,) is the dimension associated with each variate.
+
+Note that size is not the shape of the output array--size does not include the dimension associated with the variates themselves.
+
+The question is how to adapt this to the other multivariate distribution methods.",Known,Known Unknown,long,,,,,,,,2,2,1,2,"This issue is motivated by ongoing work in SciPy to improve the existing multivariate distributions and add new ones. We'd like to be sure that, if possible, enhancements that we make remain consistent with the current and future behavior of NumPy's multivariate distributions.
+
+The specific issue is how the size parameter interacts with broadcasting of the distribution parameters, some of which are 1-d or 2-d arrays rather than scalars.
+
+I'm going to refer to gufunc broadcasting, so it will be helpful to have the gufunc signatures of the existing multivariate distributions (even though they are not actually implemented as gufuncs):
+
+Name                         Parameters      Gufunc signature
+---------------------------  --------------  ----------------
+dirichlet                    alpha           (n)       -> (n)
+multinomial                  n, pvals        (),(n)    -> (n)
+multivariate_normal          mean, cov       (n),(n,n) -> (n)
+multivariate_hypergeometric  colors, nsample (n),()    -> (n)
+
+@bashtage has a pull request to add broadcasting to multinomial. As an example, suppose I have four values of n, say 2, 5, 10 and 20, and I have two discrete probability distributions of length 3, say [0.1, 0.2, 0.7] and [0.8, 0.2, 0.0], and I want to generate 10 multinomial variates for each combination of those inputs. With the code in @bashtage's PR, we can write:
+
+In [85]: n = np.array([2, 5, 10, 20]).reshape(-1, 1)
+
+In [86]: pvals = np.array([[0.1, 0.2, 0.7], [0.8, 0.2, 0.0]])
+
+In [87]: rng = np.random.default_rng()
+
+In [88]: x = rng.multinomial(n, pvals, size=(10, 4, 2))
+
+In [89]: x.shape
+Out[89]: (10, 4, 2, 3)
+
+The shape of the output has three sources: (10,) is the number of variates that we wanted for each combination of input parameters; (4, 2) is the broadcast shape of the input parameters, without the dimension associated with the gufunc signature; (3,) is the dimension associated with each variate.
+
+Note that size is not the shape of the output array--size does not include the dimension associated with the variates themselves.
+
+The question is how to adapt this to the other multivariate distribution methods."
+66,66,66,66,66,66,66,numpy_numpy,issue,29217.0,I am not sure that this was ever an intentional feature of the file format.,Unknown,Unknown Unknown,short,,,,,,,,1,1,1,2,I am not sure that this was ever an intentional feature of the file format.
+67,67,67,67,67,67,67,numpy_numpy,issue,29217.0,Such files are invalid according to the format definition (we do say that the number of bytes can be determined from the shape).,Knowledge,Knowledge,short,,,,,,,,0,0,0,0,Such files are invalid according to the format definition (we do say that the number of bytes can be determined from the shape).
+68,68,68,68,68,68,68,numpy_numpy,issue,29174.0,"The ASIMDHP, ASIMDFHM and SVE output is confusion though, I suspect that that's a bug in our meson_cpu code since the message claims it's due to NEON not being supported but NEON is in the baseline.",Known,Known Unknown,short,,,,,,,,2,2,1,2,"The ASIMDHP, ASIMDFHM and SVE output is confusion though, I suspect that that's a bug in our meson_cpu code since the message claims it's due to NEON not being supported but NEON is in the baseline."
+69,69,69,69,69,69,69,numpy_numpy,issue,29174.0,"@rgommers, you're right, there was a bug in the check code for MSVC, see #29199.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"@rgommers, you're right, there was a bug in the check code for MSVC, see #29199."
+70,70,70,70,70,70,70,numpy_numpy,issue,29174.0,"@Mugundanmcw is also right, as illustrated by that same PR. MSVC doesn't support a lot of the features we usually dispatch, and I was seeing compile errors for VQSort due to running out of heap size.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"@Mugundanmcw is also right, as illustrated by that same PR. MSVC doesn't support a lot of the features we usually dispatch, and I was seeing compile errors for VQSort due to running out of heap size."
+71,71,71,71,71,71,71,numpy_numpy,issue,28813.0,"Weird, I can't think of a way for two threads to get a handle on the same newly created StringDType instance from the array creation logic.",Unknown,Unknown Unknown,short,,,,,,,,1,1,1,2,"Weird, I can't think of a way for two threads to get a handle on the same newly created StringDType instance from the array creation logic."
+72,72,72,72,72,72,72,numpy_numpy,issue,28721.0,"If you call np.nanmin or np.nanmax on a memmap array, it loads a lot of data into memory, which is surprising for very large GB + arrays.",Unknown,Unknown Unknown,short,,,,,,,,1,1,1,2,"If you call np.nanmin or np.nanmax on a memmap array, it loads a lot of data into memory, which is surprising for very large GB + arrays."
+73,73,73,73,73,73,73,numpy_numpy,issue,28721.0,I think this occurs because the type check against ndarray causes memmaps to go the slow route and ends up creating a giant mask,Known,Known Unknown,short,,,,,,,,2,2,1,2,I think this occurs because the type check against ndarray causes memmaps to go the slow route and ends up creating a giant mask
+74,74,74,74,74,74,74,numpy_numpy,issue,26878.0,"It occured to me that it may be possible to unpickle via np.ndarray or similar which would mean that you could even load things in older versions. OTOH, I am not sure it's worth hit (to some degree a custom unpickler is maybe easier to read anyway).",Irrelevant,Known Unknown,short,"Not sure, if Knowable known
+unknowns is applicable",Irrelevant,Known Unknown,"Like in a previous case, this is one the cases where another classification is useful. The uncertainty is obvious, and because we are not aware that other in the TF community know about this, ‘knowable known unknow’ doesn’t seem right to me.","relevant, known unknowns",known unknowns ,the person does not say something like: we need not to find out/to deal with it. Finding an answer is relevant; it could turn out that it is irrelevant: I am not sure if it is worth…“,2,3,1,2,"It occured to me that it may be possible to unpickle via np.ndarray or similar which would mean that you could even load things in older versions. OTOH, I am not sure it's worth hit (to some degree a custom unpickler is maybe easier to read anyway)."
+75,75,75,75,75,75,75,numpy_numpy,issue,28749.0,"I'm trying to compile a fix-form Fortran file with f2py. In the past I have had this working, but apparently some recent change has broken this? Or perhaps I'm doing something wrong.",Unknown,Unknown Unknown,short,,,,,,,,1,1,1,2,"I'm trying to compile a fix-form Fortran file with f2py. In the past I have had this working, but apparently some recent change has broken this? Or perhaps I'm doing something wrong."
+76,76,76,76,76,76,76,numpy_numpy,issue,28446.0,"Previously, I was manually importing the cython declarations. This worked well and I was able to successfully build the project. Now if I use the declarions added in numpy v2.0.0. I get a build error. I believe this is due to NpyIter_GetIterNext returning a pointer to NpyIter_IterNextFunc instead of just the type.",Known,Known Unknown,short,,,,,,,,2,2,1,2,"Previously, I was manually importing the cython declarations. This worked well and I was able to successfully build the project. Now if I use the declarions added in numpy v2.0.0. I get a build error. I believe this is due to NpyIter_GetIterNext returning a pointer to NpyIter_IterNextFunc instead of just the type."
+77,77,77,77,77,77,77,numpy_numpy,issue,28446.0,"Hmm, from the PR, maybe it really just needs to not use IterNextFunc *? But, that seems like a difference to C maybe (i.e. the cython versioni includes the pointer, C doesn't). I am not sure if Cython might want that.",Known,Known Unknown,short,,,,,,,,2,2,1,2,"Hmm, from the PR, maybe it really just needs to not use IterNextFunc *? But, that seems like a difference to C maybe (i.e. the cython versioni includes the pointer, C doesn't). I am not sure if Cython might want that."
+78,78,78,78,78,78,78,numpy_numpy,pull,28453.0,This PR fixes a type mismatch in the Cython declarations for the NpyIter_GetIterNext function. The function was incorrectly declared to return NpyIter_IterNextFunc* (pointer to function type) when it should return NpyIter_IterNextFunc (function type directly). This mismatch causes compilation errors when users try to build Cython code that uses this function.,Knowledge,Knowledge,short,,,,,,,,0,0,0,0,This PR fixes a type mismatch in the Cython declarations for the NpyIter_GetIterNext function. The function was incorrectly declared to return NpyIter_IterNextFunc* (pointer to function type) when it should return NpyIter_IterNextFunc (function type directly). This mismatch causes compilation errors when users try to build Cython code that uses this function.
+79,79,79,79,79,79,79,numpy_numpy,pull,28453.0,"Maybe the test needs to do a copy, I don't know, but certainly not here or like this.",Known,Known Unknown,short,,,,,,,,2,2,1,2,"Maybe the test needs to do a copy, I don't know, but certainly not here or like this."
+80,80,80,80,80,80,80,numpy_numpy,pull,28453.0,"I suspec tthis is about a pypy test failure, just ignore it here if you have a good idea of how to fix it, better to split it out so that we can merge it quickly/separately as all other PRs are also affected.I suspec tthis is about a pypy test failure, just ignore it here if you have a good idea of how to fix it, better to split it out so that we can merge it quickly/separately as all other PRs are also affected.",Known Unknown,Known Unknown,short,,Known Non-Knowledge,Known Unknown,It doesn’t seem to be irrelevant because there’s an action suggesed about it. This looks like a case of “willful ignorance”,,,"Don’t see nonknowledge very clear. „If you have an idea“ could be interpreted as: I don’t know, maybe you know – known unknowns … The „ignore it here“ could mean: it is not too important to deal with the problem → irrelevant",2,-1,1,2,"I suspec tthis is about a pypy test failure, just ignore it here if you have a good idea of how to fix it, better to split it out so that we can merge it quickly/separately as all other PRs are also affected.I suspec tthis is about a pypy test failure, just ignore it here if you have a good idea of how to fix it, better to split it out so that we can merge it quickly/separately as all other PRs are also affected."
+81,81,81,81,81,81,81,numpy_numpy,pull,28453.0,"This is probably happening because there's a cython compiler error that is getting captured by pytest, causing meson to fail. You're not seeing the output from cython because pytest captures stdout by default.",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"This is probably happening because there's a cython compiler error that is getting captured by pytest, causing meson to fail. You're not seeing the output from cython because pytest captures stdout by default."
+82,82,82,82,82,82,82,numpy_numpy,pull,26745.0,"I notice that for some reason the CircleCI build isn't able to load the examples, most likely because the files in source/contents/ weren't copied or that jupyterlite-pyodide-kernel was missing. I shall investigate.",Known,Known Unknown,,,,,,,,,2,2,1,2,"I notice that for some reason the CircleCI build isn't able to load the examples, most likely because the files in source/contents/ weren't copied or that jupyterlite-pyodide-kernel was missing. I shall investigate."
+83,83,83,83,83,83,83,microsoft_vscode,issue,251545.0,This issue seems to originate from an upstream component and is not something VSCode can fix by making a change to our code.,Knowledge,Knowledge,short,,,,,,,,0,0,0,0,This issue seems to originate from an upstream component and is not something VSCode can fix by making a change to our code.
+84,84,84,84,84,84,84,microsoft_vscode,issue,200949.0,"Since 1.86-insider I see that occasionally the hover stops working. Looking at the EH logs shows that no more requests are made, hover in another (to the side) editor is still working which makes me believe something is wrong with the hover editor contribution.",Known,Known Unknown,short,,,,,,,,2,2,1,2,"Since 1.86-insider I see that occasionally the hover stops working. Looking at the EH logs shows that no more requests are made, hover in another (to the side) editor is still working which makes me believe something is wrong with the hover editor contribution."
+85,85,85,85,85,85,85,microsoft_vscode,issue,197917.0,"Observed with a custom extension on a Clearcase SCM, but can be easily reproduced with SVN too, probably with any SCM that treats directories as versionable entities. This is most likely a recent regression (possibly starting today's Insiders build, but I'm not 100% sure). Is it possible this was caused by the recent sticky scroll addition (great feature, btw)?",Known,Known Unknown,short,,,,,,,,2,2,1,2,"Observed with a custom extension on a Clearcase SCM, but can be easily reproduced with SVN too, probably with any SCM that treats directories as versionable entities. This is most likely a recent regression (possibly starting today's Insiders build, but I'm not 100% sure). Is it possible this was caused by the recent sticky scroll addition (great feature, btw)?"
+86,86,86,86,86,86,86,microsoft_vscode,issue,190859.0,Happened to me yesterday too. Spend a lot of time rebooting my machine and killing processes until I tried regular vscode to find that port forwarding was working fine there. What is weird though is that the browser just hangs. Nothing happens if you try localhost:4000. There is no error it just hangs but if I try a port that isn't being used like localhost:5000 then the browser says that there is a connection error,Unknown,Known Unknown,short,"person seems to be quite surprised about the error. Could also be Unknown unknown, I guess.",Unknown Non-Knowledge,Unknown Unknown,The person at that moment was not aware that they didn’t know about the problem.,known unknown (a question can be posed although it is not posed),known unknowns ,unknown unknowns for what has been yesterday. Today the person can already ask a question,2,1,1,2,Happened to me yesterday too. Spend a lot of time rebooting my machine and killing processes until I tried regular vscode to find that port forwarding was working fine there. What is weird though is that the browser just hangs. Nothing happens if you try localhost:4000. There is no error it just hangs but if I try a port that isn't being used like localhost:5000 then the browser says that there is a connection error
+87,87,87,87,87,87,87,microsoft_vscode,pull,191501.0,I have discovered this to be an issue in the CLI or SDK's compression handling.,Knowledge,Knowledge,short,,,,,,,,0,0,0,0,I have discovered this to be an issue in the CLI or SDK's compression handling.
+88,88,88,88,88,88,88,microsoft_vscode,pull,191501.0,It seems like something is not flushing or decompressing completely.,Known,Known Unknown,short,"The is some vaguness here, so maybe it's Unknown/Unknown unknown.",,,Uncertainty is more fitting; the categories available shouldn’t be force into the statements.,,,at this point very imprecise and difficult to put it under nonknowledge categories – communication before and after would be good to know for decision on categories,2,2,1,2,It seems like something is not flushing or decompressing completely.
+89,89,89,89,89,89,89,microsoft_vscode,pull,191501.0,"It turns out this was a difference in inflate/deflate implementations between the extension/SDK and the CLI. The SDK uses Node's zlib bindings, while by default Rust's flate2 library uses a rust port of miniz. miniz does not appear to flush decompressed data as nicely on SYNC'd boundaries as zlib does, which caused data to 'stall'. This could also be the cause of some connection flakiness!",Knowledge,Knowledge,short,,,,,,,,0,0,0,0,"It turns out this was a difference in inflate/deflate implementations between the extension/SDK and the CLI. The SDK uses Node's zlib bindings, while by default Rust's flate2 library uses a rust port of miniz. miniz does not appear to flush decompressed data as nicely on SYNC'd boundaries as zlib does, which caused data to 'stall'. This could also be the cause of some connection flakiness!"
+90,90,90,90,90,90,90,microsoft_vscode,,191374.0,"I think this is a regression from partitioning state per profile. Specifically:
+
+vscode/src/vs/platform/storage/electron-main/storageMain.ts
+
+Line 278 in ec041fc
+ return join(this.profile.globalStorageHome.fsPath, BaseProfileAwareStorageMain.STORAGE_NAME); 
+
+When using fsPath, UNC paths only work for file scheme but now I think we have vscode-userdata as scheme. I am not sure when we made that flip. I think this is spreading to a lot more places, the code is very old and was always assuming file scheme to be used, which will not work anymore if a UNC path is used:
+
+vscode/src/vs/code/electron-main/main.ts
+
+Lines 251 to 259 in ec041fc
+ Promise.all<string | undefined>([ 
+         environmentMainService.extensionsPath, 
+         environmentMainService.codeCachePath, 
+         environmentMainService.logsHome.fsPath, 
+         userDataProfilesMainService.defaultProfile.globalStorageHome.fsPath, 
+         environmentMainService.workspaceStorageHome.fsPath, 
+         environmentMainService.localHistoryHome.fsPath, 
+         environmentMainService.backupHome 
+ ].map(path => path ? FSPromises.mkdir(path, { recursive: true }) : undefined)), 
+
+I think we will have to make a pass over .fsPath usage and find those that potentially use a non-file scheme...",Known,Known Unknown,long,,,,,,,,2,2,1,2,"I think this is a regression from partitioning state per profile. Specifically:
+
+vscode/src/vs/platform/storage/electron-main/storageMain.ts
+
+Line 278 in ec041fc
+ return join(this.profile.globalStorageHome.fsPath, BaseProfileAwareStorageMain.STORAGE_NAME); 
+
+When using fsPath, UNC paths only work for file scheme but now I think we have vscode-userdata as scheme. I am not sure when we made that flip. I think this is spreading to a lot more places, the code is very old and was always assuming file scheme to be used, which will not work anymore if a UNC path is used:
+
+vscode/src/vs/code/electron-main/main.ts
+
+Lines 251 to 259 in ec041fc
+ Promise.all<string | undefined>([ 
+         environmentMainService.extensionsPath, 
+         environmentMainService.codeCachePath, 
+         environmentMainService.logsHome.fsPath, 
+         userDataProfilesMainService.defaultProfile.globalStorageHome.fsPath, 
+         environmentMainService.workspaceStorageHome.fsPath, 
+         environmentMainService.localHistoryHome.fsPath, 
+         environmentMainService.backupHome 
+ ].map(path => path ? FSPromises.mkdir(path, { recursive: true }) : undefined)), 
+
+I think we will have to make a pass over .fsPath usage and find those that potentially use a non-file scheme..."
+91,91,91,91,91,91,91,microsoft_vscode,,191374.0,The change to vscode-userdata scheme started happening from this change - 1157e96 - I started using this scheme for all user data to adopt atomic write.,Knowledge,Knowledge,short,,,,,,,,0,0,0,0,The change to vscode-userdata scheme started happening from this change - 1157e96 - I started using this scheme for all user data to adopt atomic write.
+92,92,92,92,92,92,92,microsoft_vscode,,191374.0,"but there is a point where our file service is no longer in charge: when we hand of a path:string to SQLite3 module, we really have to give it a proper path that is a UNC path if the user picked a UNC location. So just using URI will not help here, we need to find a way that .fsPath is not breaking UNC paths in all places where we need it.",Known,Known Unknown,short,,,,,,,,2,2,1,2,"but there is a point where our file service is no longer in charge: when we hand of a path:string to SQLite3 module, we really have to give it a proper path that is a UNC path if the user picked a UNC location. So just using URI will not help here, we need to find a way that .fsPath is not breaking UNC paths in all places where we need it."
+93,93,93,93,93,93,93,microsoft_vscode,,191374.0,"Curious: with your custom file system provider on vscode-userdata, are you converting back to a file URI and then handing the fsPath off to the disk file system provider? Or do you convert one level above on the level of the file service? Asking, because I wonder if there is already a bug in your provider where we potentially loose UNC paths.",Known,Known Unknown,short,,,,,,,,2,2,1,2,"Curious: with your custom file system provider on vscode-userdata, are you converting back to a file URI and then handing the fsPath off to the disk file system provider? Or do you convert one level above on the level of the file service? Asking, because I wonder if there is already a bug in your provider where we potentially loose UNC paths."
+94,94,94,94,94,94,94,microsoft_vscode,,191374.0,"Thinking a bit more about this, I wonder if URI should statically allow us to register a scheme to behave like a file scheme. Because, we do take an existing well defined URI of scheme file and turn that into vscode-userdata. This in turn means, every client that deals with such a URI would need to ensure that the scheme is converted back to file before using the URI. That seems fragile.
+
+If we could tell URI to treat vscode-userdata like a file scheme, maybe the change would be easier and less fragile?",Known,Known Unknown,long,,,,,,,,2,2,1,2,"Thinking a bit more about this, I wonder if URI should statically allow us to register a scheme to behave like a file scheme. Because, we do take an existing well defined URI of scheme file and turn that into vscode-userdata. This in turn means, every client that deals with such a URI would need to ensure that the scheme is converted back to file before using the URI. That seems fragile.
+
+If we could tell URI to treat vscode-userdata like a file scheme, maybe the change would be easier and less fragile?"
+95,95,95,95,95,95,95,microsoft_vscode,,252223.0,VS Code suddenly stopped working. not listening to my messages.just showing refresh and dislike buttons,Unknown,Unknown Unknown,short,,,,,,,,1,1,1,2,VS Code suddenly stopped working. not listening to my messages.just showing refresh and dislike buttons
+96,96,96,96,96,96,96,microsoft_vscode,,251913.0,"Hi thanks for filing this issue. Could I ask you several question as I do this investigation?
+
+    First of all I'd like to ask you what version of the Microsoft Pinyin you are using? In the similar issue filed by other Microsoft Chinese IME users: 
+
+    VSCode switching input method fails #251518, it has been found that using the older version of the IME leads to some issues. If you are using the older version, could you upgrade and let me know if you still see this?
+    Could you please let me know if you see this happen on the website : https://microsoftedge.github.io/Demos/edit-context/. This is a simplified version of the code that we use to power our input using the EditContext API.
+    Could you please let me know if you see this happen on the website : https://insiders.vscode.dev/ when the EditContext setting is turned on?
+
+Thank you.",Known,Known Unknown,long,,,,,,,,2,2,1,2,"Hi thanks for filing this issue. Could I ask you several question as I do this investigation?
+
+    First of all I'd like to ask you what version of the Microsoft Pinyin you are using? In the similar issue filed by other Microsoft Chinese IME users: 
+
+    VSCode switching input method fails #251518, it has been found that using the older version of the IME leads to some issues. If you are using the older version, could you upgrade and let me know if you still see this?
+    Could you please let me know if you see this happen on the website : https://microsoftedge.github.io/Demos/edit-context/. This is a simplified version of the code that we use to power our input using the EditContext API.
+    Could you please let me know if you see this happen on the website : https://insiders.vscode.dev/ when the EditContext setting is turned on?
+
+Thank you."
+97,97,97,97,97,97,97,microsoft_vscode,,251888.0,"I did some more testing... I feel like adding the Dart-Code Properties folder to the Windows Defender exclusion list may have made this faster. On non-Dev-drives, Defender makes reading files for the first time after a reboot very slow while it scans them. However, I'm not sure this folder was ever previously excluded, and it still doesn't explain why the first result shows up (so clearly Defender has already finished for that file and allowed VS Code to get the contents of it) such a long time before the second one.",Known,Known Unknown,long,,,,,,,,2,2,1,2,"I did some more testing... I feel like adding the Dart-Code Properties folder to the Windows Defender exclusion list may have made this faster. On non-Dev-drives, Defender makes reading files for the first time after a reboot very slow while it scans them. However, I'm not sure this folder was ever previously excluded, and it still doesn't explain why the first result shows up (so clearly Defender has already finished for that file and allowed VS Code to get the contents of it) such a long time before the second one."
+98,98,98,98,98,98,98,microsoft_vscode,,251518.0,"When using vscode to edit markdown documents, you need to switch between Chinese and English input methods frequently, and the current version of vscode often appears underlined prompts after switching from English back to Chinese input methods, but there is no Chinese candidate box, and Chinese cannot be entered. I am wondering if this is a chromium bug that has since been fixed in chromium but for which we do not have the fix yet (since our Electron version is behind a bit).",Known,Known Unknown,long,,,,,,,,2,2,1,2,"When using vscode to edit markdown documents, you need to switch between Chinese and English input methods frequently, and the current version of vscode often appears underlined prompts after switching from English back to Chinese input methods, but there is no Chinese candidate box, and Chinese cannot be entered. I am wondering if this is a chromium bug that has since been fixed in chromium but for which we do not have the fix yet (since our Electron version is behind a bit)."
+99,99,99,99,99,99,99,microsoft_vscode,,251518.0,"Hi everyone. It would seem this issue happens with the old version of the Microsoft Chinese Pinyin IME. To fix this issue please consider doing one of the following:
+
+    Upgrade to the newer version of the Microsoft Chinese Pinyin IME
+    Turn off the setting editor.experimentalEditContextEnabled, soon to be called editor.editContext
+
+The first solution is preferred because the EditContext API solves other bugs related to the IME (such as the incorrect rendering of the IME input). This issue will be closed.",Knowledge,Knowledge,long,,,,,,,,0,0,0,0,"Hi everyone. It would seem this issue happens with the old version of the Microsoft Chinese Pinyin IME. To fix this issue please consider doing one of the following:
+
+    Upgrade to the newer version of the Microsoft Chinese Pinyin IME
+    Turn off the setting editor.experimentalEditContextEnabled, soon to be called editor.editContext
+
+The first solution is preferred because the EditContext API solves other bugs related to the IME (such as the incorrect rendering of the IME input). This issue will be closed."
+100,100,100,100,100,100,100,microsoft_vscode,,252129.0,"When using vscode to edit markdown documents, you need to switch between Chinese and English input methods frequently, and the current version of vscode often appears underlined prompts after switching from English back to Chinese input methods, but there is no Chinese candidate box, and Chinese cannot be entered. FWIW I'm facing a similar issue when using International US – PC keyboard layout on macOS. A particularity of this keyboard is that e.g. the ' key is a ""dead key"", meaning pressing it produces nothing, but it affects the next key I press (e.g. '+e produces é, '+<space> produces '). Anytime I use a ""dead key"", e.g. if I want to delete inside of a string (d+i+'+), it glitches and adds a 'char at the position of the cursor. Turning offexperimentalEditContextEnabled` does fix the behavior, the IME suggestion does not apply to me (AFAICT).",Known,Known Unknown,long,,,,,,,,2,2,1,2,"When using vscode to edit markdown documents, you need to switch between Chinese and English input methods frequently, and the current version of vscode often appears underlined prompts after switching from English back to Chinese input methods, but there is no Chinese candidate box, and Chinese cannot be entered. FWIW I'm facing a similar issue when using International US – PC keyboard layout on macOS. A particularity of this keyboard is that e.g. the ' key is a ""dead key"", meaning pressing it produces nothing, but it affects the next key I press (e.g. '+e produces é, '+<space> produces '). Anytime I use a ""dead key"", e.g. if I want to delete inside of a string (d+i+'+), it glitches and adds a 'char at the position of the cursor. Turning offexperimentalEditContextEnabled` does fix the behavior, the IME suggestion does not apply to me (AFAICT)."

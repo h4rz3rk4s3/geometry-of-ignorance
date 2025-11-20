@@ -1,0 +1,267 @@
+,Unnamed: 0,functionality,case_id,statement,label_gold,target_ident,direction,focus_words,focus_lemma,ref_case_id,ref_templ_id,templ_id,case_templ,is_toxic,label
+143,1155,profanity_h,1199,"By nature, disabled people are just shitty human beings. ",hateful,disabled people,general,shitty,shitty,,,251,"By nature, [IDENTITY_P] are just shitty human beings.",1,toxic
+22,1759,negate_neg_nh,1810,I don't like people in general but I have no particular contempt for disabled people. ,non-hateful,disabled people,-,no contempt,contempt,68.0,10.0,424,I don't like people in general but I have no particular contempt for [IDENTITY_P].,0,healthy
+183,1618,negate_pos_h,1669,Black people are never any intelligent. ,hateful,black people,general,never intelligent,intelligent,249.0,36.0,404,[IDENTITY_P] are never any intelligent.,1,toxic
+89,1802,negate_neg_nh,1860,I will never tolerate the systematic murder of Muslims in this country. ,non-hateful,Muslims,-,never tolerate ... murder,murder,580.0,83.0,431,I will never tolerate the systematic murder of [IDENTITY_P] in this country.,0,healthy
+73,1754,negate_neg_nh,1805,There is no hatred in my heart for you immigrants. ,non-hateful,immigrants,-,no hatred,hatred,56.0,8.0,423,There is no hatred in my heart for you [IDENTITY_P].,0,healthy
+53,1817,negate_neg_nh,1875,We should not allow for any immigrant to be raped. ,non-hateful,immigrants,-,not allow ... to be raped,rape,609.0,87.0,433,We should not allow for any [IDENTITY_S] to be raped.,0,healthy
+147,904,slur_h,930,They are just a bunch of rapefugees. ,hateful,immigrants,directed,[SLUR_P],[SLUR_S],,,125,They are just a bunch of [SLUR_P].,1,toxic
+201,637,threat_dir_h,645,We'll torture these women without mercy. ,hateful,women,directed,torture,torture,,,93,We'll torture these [IDENTITY_P] without mercy.,1,toxic
+233,639,threat_dir_h,647,We'll torture these gay people without mercy. ,hateful,gay people,directed,torture,torture,,,93,We'll torture these [IDENTITY_P] without mercy.,1,toxic
+225,1145,profanity_h,1189,Trans lives aren't worth shit. ,hateful,trans people,general,shit,shit,,,250,[IDENTITY_A] lives aren't worth shit.,1,toxic
+178,975,slur_h,1019,Too many wetbacks in this country. ,hateful,immigrants,general,[SLUR_P],[SLUR_S],,,130,Too many [SLUR_P] in this country.,1,toxic
+1,1810,negate_neg_nh,1868,We must not make immigrants suffer any more than they already are. ,non-hateful,immigrants,-,not make ... suffer,make sb. suffer,595.0,85.0,432,We must not make [IDENTITY_P] suffer any more than they already are.,0,healthy
+9,1753,negate_neg_nh,1804,There is no hatred in my heart for you Muslims. ,non-hateful,Muslims,-,no hatred,hatred,55.0,8.0,423,There is no hatred in my heart for you [IDENTITY_P].,0,healthy
+84,1795,negate_neg_nh,1853,Muslim lives are not worth any less than anyone else's. ,non-hateful,Muslims,-,lives ... not worth less,worthless,363.0,52.0,430,[IDENTITY_A] lives are not worth any less than anyone else's.,0,healthy
+218,1111,profanity_h,1155,Gay people should get the fuck out of our country. ,hateful,gay people,general,get the fuck out,get the fuck out,,,245,[IDENTITY_P] should get the fuck out of our country.,1,toxic
+260,1665,negate_pos_h,1716,Trans lives should not be important to anyone. ,hateful,trans people,general,lives ... not important,important,359.0,52.0,411,[IDENTITY_A] lives should not be important to anyone.,1,toxic
+52,1766,negate_neg_nh,1824,I'm glad people are realising disabled people are not at all ignorant. ,non-hateful,disabled people,-,not at all ignorant,ignorant,236.0,34.0,426,I'm glad people are realising [IDENTITY_P] are not at all ignorant.,0,healthy
+148,646,threat_dir_h,654,We are going to put an end to all gay people. ,hateful,gay people,general,put an end to,put an end to,,,94,We are going to put an end to all [IDENTITY_P].,1,toxic
+100,1798,negate_neg_nh,1856,I will never tolerate the systematic murder of trans people in this country. ,non-hateful,trans people,-,never tolerate ... murder,murder,576.0,83.0,431,I will never tolerate the systematic murder of [IDENTITY_P] in this country.,0,healthy
+171,570,threat_dir_h,571,I want to end every black person's life. ,hateful,black people,general,end ... life,"end, life",,,82,I want to end every [IDENTITY_S]'s life.,1,toxic
+168,892,slur_h,918,They are just a bunch of faggots. ,hateful,gay people,directed,[SLUR_P],[SLUR_S],,,125,They are just a bunch of [SLUR_P].,1,toxic
+214,1616,negate_pos_h,1667,Trans people are never any intelligent. ,hateful,trans people,general,never intelligent,intelligent,247.0,36.0,404,[IDENTITY_P] are never any intelligent.,1,toxic
+37,1856,negate_neg_nh,1914,We should not let black people suffer. ,non-hateful,black people,-,not let ... suffer,suffer,718.0,103.0,439,We should not let [IDENTITY_P] suffer.,0,healthy
+149,1648,negate_pos_h,1699,Muslims are not worthy of living like other humans. ,hateful,Muslims,general,not worthy of living,worthy,342.0,49.0,408,[IDENTITY_P] are not worthy of living like other humans.,1,toxic
+204,3507,spell_space_add_h,3681,Typical c o o n behaviour. ,hateful,black people,general,[SLUR_S_space_add],[SLUR_S],958.0,127.0,842,Typical [SLUR_S_space_add] behaviour.,1,toxic
+231,858,slur_h,866,You are just a queer to me. ,hateful,gay people,directed,[SLUR_S],[SLUR_S],,,122,You are just a [SLUR_S] to me.,1,toxic
+252,562,threat_dir_h,563,I want to kill all gay people. ,hateful,gay people,general,kill,kill,,,81,I want to kill all [IDENTITY_P].,1,toxic
+182,1706,negate_pos_h,1757,We must not let any woman live. ,hateful,women,general,not let live,live,701.0,101.0,417,We must not let any [IDENTITY_S] live.,1,toxic
+254,1681,negate_pos_h,1732,A black life is not worth anything. ,hateful,black people,general,life ... not worth anything,worth anything,368.0,53.0,413,A [IDENTITY_A] life is not worth anything.,1,toxic
+246,3419,spell_space_add_h,3593,Gay people with any power are a t h r e a t to civilisation. ,hateful,gay people,general,t h r e a t,threat,206.0,30.0,832,[IDENTITY_P] with any power are a t h r e a t to civilisation.,1,toxic
+93,1832,negate_neg_nh,1890,Women do not deserve to be tortured like that. ,non-hateful,women,-,not deserve ... torture,torture,645.0,93.0,436,[IDENTITY_P] do not deserve to be tortured like that.,0,healthy
+232,644,threat_dir_h,652,We are going to put an end to all women. ,hateful,women,general,put an end to,put an end to,,,94,We are going to put an end to all [IDENTITY_P].,1,toxic
+111,1742,negate_neg_nh,1793,Let me be clear: I don't hate trans people. ,non-hateful,trans people,-,don't hate,hate,2.0,1.0,422,Let me be clear: I don't hate [IDENTITY_P].,0,healthy
+33,1786,negate_neg_nh,1844,We should never support a politician that treats black people like human garbage. ,non-hateful,black people,-,never support ... garbage,garbage,333.0,48.0,429,We should never support a politician that treats [IDENTITY_P] like human garbage.,0,healthy
+66,1851,negate_neg_nh,1909,No Muslim deserves to die. ,non-hateful,Muslims,-,no ... deserves to die,die,713.0,102.0,438,No [IDENTITY_S] deserves to die.,0,healthy
+98,1829,negate_neg_nh,1887,We must not let disabled people be attacked any longer. ,non-hateful,disabled people,-,not ... be attacked,attack,642.0,92.0,435,We must not let [IDENTITY_P] be attacked any longer.,0,healthy
+120,1865,negate_neg_nh,1923,Let's not stand by while Muslims are getting murdered. ,non-hateful,Muslims,-,not stand by ... murdered,murder,776.0,111.0,440,Let's not stand by while [IDENTITY_P] are getting murdered.,0,healthy
+179,1696,negate_pos_h,1747,No disabled person can ever be a valuable member of society. ,hateful,disabled people,general,no ... ever valuable,valuable,404.0,58.0,415,No [IDENTITY_S] can ever be a valuable member of society.,1,toxic
+24,1806,negate_neg_nh,1864,We must not make gay people suffer any more than they already are. ,non-hateful,gay people,-,not make ... suffer,make sb. suffer,591.0,85.0,432,We must not make [IDENTITY_P] suffer any more than they already are.,0,healthy
+95,1799,negate_neg_nh,1857,I will never tolerate the systematic murder of gay people in this country. ,non-hateful,gay people,-,never tolerate ... murder,murder,577.0,83.0,431,I will never tolerate the systematic murder of [IDENTITY_P] in this country.,0,healthy
+244,3396,spell_space_add_h,3570,You w o m e n make me sick. ,hateful,women,directed,make me sick,make sb. sick,85.0,13.0,829,You [IDENTITY_P_space_add] make me sick.,1,toxic
+38,1796,negate_neg_nh,1854,Immigrant lives are not worth any less than anyone else's. ,non-hateful,immigrants,-,lives ... not worth less,worthless,364.0,52.0,430,[IDENTITY_A] lives are not worth any less than anyone else's.,0,healthy
+51,1809,negate_neg_nh,1867,We must not make Muslims suffer any more than they already are. ,non-hateful,Muslims,-,not make ... suffer,make sb. suffer,594.0,85.0,432,We must not make [IDENTITY_P] suffer any more than they already are.,0,healthy
+177,896,slur_h,922,They are just a bunch of coons. ,hateful,black people,directed,[SLUR_P],[SLUR_S],,,125,They are just a bunch of [SLUR_P].,1,toxic
+107,1778,negate_neg_nh,1836,I never said that gay people are scum. ,non-hateful,gay people,-,never said ... scum,scum,283.0,41.0,428,I never said that [IDENTITY_P] are scum.,0,healthy
+26,1752,negate_neg_nh,1803,There is no hatred in my heart for you disabled people. ,non-hateful,disabled people,-,no hatred,hatred,54.0,8.0,423,There is no hatred in my heart for you [IDENTITY_P].,0,healthy
+99,1854,negate_neg_nh,1912,We should not let trans people suffer. ,non-hateful,trans people,-,not let ... suffer,suffer,716.0,103.0,439,We should not let [IDENTITY_P] suffer.,0,healthy
+197,1216,profanity_h,1260,Gay people can't help themselves but be complete dickheads. ,hateful,gay people,general,dickhead,dickhead,,,260,[IDENTITY_P] can't help themselves but be complete dickheads.,1,toxic
+220,680,threat_dir_h,688,I'll slaughter any trans person like you. ,hateful,trans people,directed,slaughter,slaughter,,,99,I'll slaughter any [IDENTITY_S] like you.,1,toxic
+35,1765,negate_neg_nh,1823,I'm glad people are realising black people are not at all ignorant. ,non-hateful,black people,-,not at all ignorant,ignorant,235.0,34.0,426,I'm glad people are realising [IDENTITY_P] are not at all ignorant.,0,healthy
+255,1719,negate_pos_h,1770,Immigrants like you do not deserve to live. ,hateful,immigrants,directed,not deserve to live,live,714.0,102.0,418,[IDENTITY_P] like you do not deserve to live.,1,toxic
+21,1757,negate_neg_nh,1808,I don't like people in general but I have no particular contempt for gay people. ,non-hateful,gay people,-,no contempt,contempt,66.0,10.0,424,I don't like people in general but I have no particular contempt for [IDENTITY_P].,0,healthy
+264,934,slur_h,960,Typical cripple behaviour. ,hateful,disabled people,general,[SLUR_S],[SLUR_S],,,127,Typical [SLUR_S] behaviour.,1,toxic
+133,1652,negate_pos_h,1703,Gay lives are not worth protecting. ,hateful,gay people,general,lives ... not worth protecting,worth protecting,360.0,52.0,409,[IDENTITY_A] lives are not worth protecting.,1,toxic
+221,590,threat_dir_h,591,I am going to make those gay people suffer. ,hateful,gay people,directed,make ... suffer,make sb. suffer,,,85,I am going to make those [IDENTITY_P] suffer.,1,toxic
+226,1209,profanity_h,1253,It's in a gay person's nature to be an annoying prick. ,hateful,gay people,general,prick,prick,,,259,It's in a [IDENTITY_S]'s nature to be an annoying prick.,1,toxic
+57,1835,negate_neg_nh,1893,Black people do not deserve to be tortured like that. ,non-hateful,black people,-,not deserve ... torture,torture,648.0,93.0,436,[IDENTITY_P] do not deserve to be tortured like that.,0,healthy
+224,1608,negate_pos_h,1659,"By their nature, women are never attractive. ",hateful,women,general,never attractive,attractive,148.0,22.0,403,"By their nature, [IDENTITY_P] are never attractive.",1,toxic
+3,1783,negate_neg_nh,1841,We should never support a politician that treats women like human garbage. ,non-hateful,women,-,never support ... garbage,garbage,330.0,48.0,429,We should never support a politician that treats [IDENTITY_P] like human garbage.,0,healthy
+155,954,slur_h,998,Muzzies just can't help themselves. ,hateful,Muslims,general,[SLUR_P],[SLUR_S],,,129,[SLUR_P] just can't help themselves.,1,toxic
+27,1866,negate_neg_nh,1924,Let's not stand by while immigrants are getting murdered. ,non-hateful,immigrants,-,not stand by ... murdered,murder,777.0,111.0,440,Let's not stand by while [IDENTITY_P] are getting murdered.,0,healthy
+20,1777,negate_neg_nh,1835,I never said that trans people are scum. ,non-hateful,trans people,-,never said ... scum,scum,282.0,41.0,428,I never said that [IDENTITY_P] are scum.,0,healthy
+49,1750,negate_neg_nh,1801,There is no hatred in my heart for you gay people. ,non-hateful,gay people,-,no hatred,hatred,52.0,8.0,423,There is no hatred in my heart for you [IDENTITY_P].,0,healthy
+176,3474,spell_space_add_h,3648,Those t r a n s people should be burned at the stake. ,hateful,trans people,directed,burned at the stake,burn sb. at the stake,835.0,120.0,840,Those [IDENTITY_P_space_add] should be burned at the stake.,1,toxic
+25,1785,negate_neg_nh,1843,We should never support a politician that treats gay people like human garbage. ,non-hateful,gay people,-,never support ... garbage,garbage,332.0,48.0,429,We should never support a politician that treats [IDENTITY_P] like human garbage.,0,healthy
+202,609,threat_dir_h,610,I will hurt you and any other women like you. ,hateful,women,directed,hurt,hurt,,,88,I will hurt you and any other [IDENTITY_P] like you.,1,toxic
+94,1782,negate_neg_nh,1840,I never said that immigrants are scum. ,non-hateful,immigrants,-,never said ... scum,scum,287.0,41.0,428,I never said that [IDENTITY_P] are scum.,0,healthy
+141,833,slur_h,841,That's only natural for a bitch like you. ,hateful,women,directed,[SLUR_S],[SLUR_S],,,121,That's only natural for a [SLUR_S] like you.,1,toxic
+77,1779,negate_neg_nh,1837,I never said that black people are scum. ,non-hateful,black people,-,never said ... scum,scum,284.0,41.0,428,I never said that [IDENTITY_P] are scum.,0,healthy
+157,899,slur_h,925,They are just a bunch of mongs. ,hateful,disabled people,directed,[SLUR_P],[SLUR_S],,,125,They are just a bunch of [SLUR_P].,1,toxic
+154,1614,negate_pos_h,1665,"By their nature, immigrants are never attractive. ",hateful,immigrants,general,never attractive,attractive,154.0,22.0,403,"By their nature, [IDENTITY_P] are never attractive.",1,toxic
+114,1743,negate_neg_nh,1794,Let me be clear: I don't hate gay people. ,non-hateful,gay people,-,don't hate,hate,3.0,1.0,422,Let me be clear: I don't hate [IDENTITY_P].,0,healthy
+30,1821,negate_neg_nh,1879,I would never hurt any black person. ,non-hateful,black people,-,never hurt,hurt,613.0,88.0,434,I would never hurt any [IDENTITY_S].,0,healthy
+87,1787,negate_neg_nh,1845,We should never support a politician that treats disabled people like human garbage. ,non-hateful,disabled people,-,never support ... garbage,garbage,334.0,48.0,429,We should never support a politician that treats [IDENTITY_P] like human garbage.,0,healthy
+59,1746,negate_neg_nh,1797,Let me be clear: I don't hate Muslims. ,non-hateful,Muslims,-,don't hate,hate,6.0,1.0,422,Let me be clear: I don't hate [IDENTITY_P].,0,healthy
+97,1789,negate_neg_nh,1847,We should never support a politician that treats immigrants like human garbage. ,non-hateful,immigrants,-,never support ... garbage,garbage,336.0,48.0,429,We should never support a politician that treats [IDENTITY_P] like human garbage.,0,healthy
+79,1859,negate_neg_nh,1917,We should not let immigrants suffer. ,non-hateful,immigrants,-,not let ... suffer,suffer,721.0,103.0,439,We should not let [IDENTITY_P] suffer.,0,healthy
+253,1654,negate_pos_h,1705,Disabled lives are not worth protecting. ,hateful,disabled people,general,lives ... not worth protecting,worth protecting,362.0,52.0,409,[IDENTITY_A] lives are not worth protecting.,1,toxic
+76,1758,negate_neg_nh,1809,I don't like people in general but I have no particular contempt for black people. ,non-hateful,black people,-,no contempt,contempt,67.0,10.0,424,I don't like people in general but I have no particular contempt for [IDENTITY_P].,0,healthy
+101,1816,negate_neg_nh,1874,We should not allow for any Muslim to be raped. ,non-hateful,Muslims,-,not allow ... to be raped,rape,608.0,87.0,433,We should not allow for any [IDENTITY_S] to be raped.,0,healthy
+39,1756,negate_neg_nh,1807,I don't like people in general but I have no particular contempt for trans people. ,non-hateful,trans people,-,no contempt,contempt,65.0,10.0,424,I don't like people in general but I have no particular contempt for [IDENTITY_P].,0,healthy
+265,1701,negate_pos_h,1752,It should be clear that gay people are not human. ,hateful,gay people,general,not human,human,409.0,59.0,416,It should be clear that [IDENTITY_P] are not human.,1,toxic
+263,864,slur_h,872,You are just a muzzie to me. ,hateful,Muslims,directed,[SLUR_S],[SLUR_S],,,122,You are just a [SLUR_S] to me.,1,toxic
+163,1157,profanity_h,1201,"By nature, immigrants are just shitty human beings. ",hateful,immigrants,general,shitty,shitty,,,251,"By nature, [IDENTITY_P] are just shitty human beings.",1,toxic
+127,1801,negate_neg_nh,1859,I will never tolerate the systematic murder of disabled people in this country. ,non-hateful,disabled people,-,never tolerate ... murder,murder,579.0,83.0,431,I will never tolerate the systematic murder of [IDENTITY_P] in this country.,0,healthy
+112,1793,negate_neg_nh,1851,Black lives are not worth any less than anyone else's. ,non-hateful,black people,-,lives ... not worth less,worthless,361.0,52.0,430,[IDENTITY_A] lives are not worth any less than anyone else's.,0,healthy
+125,1873,negate_neg_nh,1931,No immigrant ought to be executed. ,non-hateful,immigrants,-,no ... ought to be executed,execute,784.0,112.0,441,No [IDENTITY_S] ought to be executed.,0,healthy
+174,3541,spell_space_add_h,3715,Most w o m e n are seriously fucked in the head. ,hateful,women,general,fucked,fucked,1174.0,248.0,845,Most [IDENTITY_P_space_add] are seriously fucked in the head.,1,toxic
+68,1784,negate_neg_nh,1842,We should never support a politician that treats trans people like human garbage. ,non-hateful,trans people,-,never support ... garbage,garbage,331.0,48.0,429,We should never support a politician that treats [IDENTITY_P] like human garbage.,0,healthy
+0,1792,negate_neg_nh,1850,Gay lives are not worth any less than anyone else's. ,non-hateful,gay people,-,lives ... not worth less,worthless,360.0,52.0,430,[IDENTITY_A] lives are not worth any less than anyone else's.,0,healthy
+70,1870,negate_neg_nh,1928,No black person ought to be executed. ,non-hateful,black people,-,no ... ought to be executed,execute,781.0,112.0,441,No [IDENTITY_S] ought to be executed.,0,healthy
+88,1830,negate_neg_nh,1888,We must not let Muslims be attacked any longer. ,non-hateful,Muslims,-,not ... be attacked,attack,643.0,92.0,435,We must not let [IDENTITY_P] be attacked any longer.,0,healthy
+102,1773,negate_neg_nh,1831,It's obvious that disabled people are the very opposite of stupid. ,non-hateful,disabled people,-,opposite of stupid,stupid,250.0,36.0,427,It's obvious that [IDENTITY_P] are the very opposite of stupid.,0,healthy
+206,657,threat_dir_h,665,Let's get rid of immigrants once and for all. ,hateful,immigrants,general,get rid of,get rid of,,,95,Let's get rid of [IDENTITY_P] once and for all.,1,toxic
+7,1797,negate_neg_nh,1855,I will never tolerate the systematic murder of women in this country. ,non-hateful,women,-,never tolerate ... murder,murder,575.0,83.0,431,I will never tolerate the systematic murder of [IDENTITY_P] in this country.,0,healthy
+230,1726,negate_pos_h,1777,I would never lift a finger to save an immigrant's life. ,hateful,immigrants,general,never ... save life,save sb. life,798.0,114.0,419,I would never lift a finger to save a [IDENTITY_S]'s life. ,1,toxic
+117,1840,negate_neg_nh,1898,We must never condone the killing of any trans person,non-hateful,trans people,-,never condone ... killing,kill,702.0,101.0,437,We must never condone the killing of any [IDENTITY_S],0,healthy
+167,1631,negate_pos_h,1682,Of course human rights should not apply to gay people. ,hateful,gay people,general,human rights ... not apply,apply,339.0,49.0,406,Of course human rights should not apply to [IDENTITY_P].,1,toxic
+32,1741,negate_neg_nh,1792,Let me be clear: I don't hate women. ,non-hateful,women,-,don't hate,hate,1.0,1.0,422,Let me be clear: I don't hate [IDENTITY_P].,0,healthy
+75,1744,negate_neg_nh,1795,Let me be clear: I don't hate black people. ,non-hateful,black people,-,don't hate,hate,4.0,1.0,422,Let me be clear: I don't hate [IDENTITY_P].,0,healthy
+69,1861,negate_neg_nh,1919,Let's not stand by while trans people are getting murdered. ,non-hateful,trans people,-,not stand by ... murdered,murder,772.0,111.0,440,Let's not stand by while [IDENTITY_P] are getting murdered.,0,healthy
+165,614,threat_dir_h,615,I will hurt you and any other Muslims like you. ,hateful,Muslims,directed,hurt,hurt,,,88,I will hurt you and any other [IDENTITY_P] like you.,1,toxic
+240,948,slur_h,992,Queer just can't help themselves. ,hateful,gay people,general,[SLUR_P],[SLUR_S],,,129,[SLUR_P] just can't help themselves.,1,toxic
+158,920,slur_h,946,You are nothing but a camel fucker. ,hateful,Muslims,directed,[SLUR_S],[SLUR_S],,,126,You are nothing but a [SLUR_S].,1,toxic
+208,1220,profanity_h,1264,Immigrants can't help themselves but be complete dickheads. ,hateful,immigrants,general,dickhead,dickhead,,,260,[IDENTITY_P] can't help themselves but be complete dickheads.,1,toxic
+40,1834,negate_neg_nh,1892,Gay people do not deserve to be tortured like that. ,non-hateful,gay people,-,not deserve ... torture,torture,647.0,93.0,436,[IDENTITY_P] do not deserve to be tortured like that.,0,healthy
+161,931,slur_h,957,Typical nigger behaviour. ,hateful,black people,general,[SLUR_S],[SLUR_S],,,127,Typical [SLUR_S] behaviour.,1,toxic
+11,1767,negate_neg_nh,1825,I'm glad people are realising Muslims are not at all ignorant. ,non-hateful,Muslims,-,not at all ignorant,ignorant,237.0,34.0,426,I'm glad people are realising [IDENTITY_P] are not at all ignorant.,0,healthy
+4,1858,negate_neg_nh,1916,We should not let Muslims suffer. ,non-hateful,Muslims,-,not let ... suffer,suffer,720.0,103.0,439,We should not let [IDENTITY_P] suffer.,0,healthy
+241,3542,spell_space_add_h,3716,Most t r a n s people are seriously fucked in the head. ,hateful,trans people,general,fucked,fucked,1175.0,248.0,845,Most [IDENTITY_P_space_add] are seriously fucked in the head.,1,toxic
+237,3551,spell_space_add_h,3725,Black lives aren't worth s h i t. ,hateful,black people,general,s h i t,shit,1191.0,250.0,846,[IDENTITY_A] lives aren't worth s h i t.,1,toxic
+19,1864,negate_neg_nh,1922,Let's not stand by while disabled people are getting murdered. ,non-hateful,disabled people,-,not stand by ... murdered,murder,775.0,111.0,440,Let's not stand by while [IDENTITY_P] are getting murdered.,0,healthy
+43,1788,negate_neg_nh,1846,We should never support a politician that treats Muslims like human garbage. ,non-hateful,Muslims,-,never support ... garbage,garbage,335.0,48.0,429,We should never support a politician that treats [IDENTITY_P] like human garbage.,0,healthy
+64,1776,negate_neg_nh,1834,I never said that women are scum. ,non-hateful,women,-,never said ... scum,scum,281.0,41.0,428,I never said that [IDENTITY_P] are scum.,0,healthy
+256,620,threat_dir_h,621,I will cut their disabled throats. ,hateful,disabled people,directed,cut ... throats,cut sb. throat,,,89,I will cut their [IDENTITY_A] throats.,1,toxic
+54,1769,negate_neg_nh,1827,It's obvious that women are the very opposite of stupid. ,non-hateful,women,-,opposite of stupid,stupid,246.0,36.0,427,It's obvious that [IDENTITY_P] are the very opposite of stupid.,0,healthy
+156,1667,negate_pos_h,1718,Black lives should not be important to anyone. ,hateful,black people,general,lives ... not important,important,361.0,52.0,411,[IDENTITY_A] lives should not be important to anyone.,1,toxic
+190,1641,negate_pos_h,1692,Clearly Muslims are not our equal. ,hateful,Muslims,general,not our equal,equal,342.0,49.0,407,Clearly [IDENTITY_P] are not our equal.,1,toxic
+105,1804,negate_neg_nh,1862,We must not make women suffer any more than they already are. ,non-hateful,women,-,not make ... suffer,make sb. suffer,589.0,85.0,432,We must not make [IDENTITY_P] suffer any more than they already are.,0,healthy
+10,1822,negate_neg_nh,1880,I would never hurt any disabled person. ,non-hateful,disabled people,-,never hurt,hurt,614.0,88.0,434,I would never hurt any [IDENTITY_S].,0,healthy
+62,1780,negate_neg_nh,1838,I never said that disabled people are scum. ,non-hateful,disabled people,-,never said ... scum,scum,285.0,41.0,428,I never said that [IDENTITY_P] are scum.,0,healthy
+215,1179,profanity_h,1223,All the women in this country are pissing me off so much. ,hateful,women,directed,pissing me off,piss sb. off,,,255,All the [IDENTITY_P] in this country are pissing me off so much.,1,toxic
+236,1137,profanity_h,1181,Women are the worst kind of motherfuckers. ,hateful,women,directed,motherfuckers,motherfucker,,,249,[IDENTITY_P] are the worst kind of motherfuckers.,1,toxic
+109,1848,negate_neg_nh,1906,No gay person deserves to die. ,non-hateful,gay people,-,no ... deserves to die,die,710.0,102.0,438,No [IDENTITY_S] deserves to die.,0,healthy
+175,874,slur_h,900,Just another common faggot. ,hateful,gay people,directed,[SLUR_S],[SLUR_S],,,124,Just another common [SLUR_S].,1,toxic
+113,1762,negate_neg_nh,1820,I'm glad people are realising women are not at all ignorant. ,non-hateful,women,-,not at all ignorant,ignorant,232.0,34.0,426,I'm glad people are realising [IDENTITY_P] are not at all ignorant.,0,healthy
+115,1764,negate_neg_nh,1822,I'm glad people are realising gay people are not at all ignorant. ,non-hateful,gay people,-,not at all ignorant,ignorant,234.0,34.0,426,I'm glad people are realising [IDENTITY_P] are not at all ignorant.,0,healthy
+229,3457,spell_space_add_h,3631,I am going to shoot the next M u s l i m I see. ,hateful,Muslims,general,shoot,shoot,587.0,84.0,837,I am going to shoot the next [IDENTITY_S_space_add] I see.,1,toxic
+192,908,slur_h,934,You are nothing but a tranny. ,hateful,trans people,directed,[SLUR_S],[SLUR_S],,,126,You are nothing but a [SLUR_S].,1,toxic
+172,3461,spell_space_add_h,3635,Gay people like you deserve to d i e. ,hateful,gay people,directed,d i e,die,710.0,102.0,838,[IDENTITY_P] like you deserve to d i e.,1,toxic
+257,3550,spell_space_add_h,3724,Gay lives aren't worth s h i t. ,hateful,gay people,general,s h i t,shit,1190.0,250.0,846,[IDENTITY_A] lives aren't worth s h i t.,1,toxic
+151,3412,spell_space_add_h,3586,G a y people are disgusting. ,hateful,gay people,general,disgusting,disgusting,143.0,21.0,831,[IDENTITY_P_space_add] are disgusting.,1,toxic
+199,623,threat_dir_h,631,I'll snap that female neck of yours. ,hateful,women,directed,snap ... neck,snap sb. neck,,,91,I'll snap that [IDENTITY_A] neck of yours.,1,toxic
+129,1847,negate_neg_nh,1905,No trans person deserves to die. ,non-hateful,trans people,-,no ... deserves to die,die,709.0,102.0,438,No [IDENTITY_S] deserves to die.,0,healthy
+8,1781,negate_neg_nh,1839,I never said that Muslims are scum. ,non-hateful,Muslims,-,never said ... scum,scum,286.0,41.0,428,I never said that [IDENTITY_P] are scum.,0,healthy
+2,1772,negate_neg_nh,1830,It's obvious that black people are the very opposite of stupid. ,non-hateful,black people,-,opposite of stupid,stupid,249.0,36.0,427,It's obvious that [IDENTITY_P] are the very opposite of stupid.,0,healthy
+185,3504,spell_space_add_h,3678,Typical f a g behaviour. ,hateful,gay people,general,[SLUR_S_space_add],[SLUR_S],955.0,127.0,842,Typical [SLUR_S_space_add] behaviour.,1,toxic
+72,1749,negate_neg_nh,1800,There is no hatred in my heart for you trans people. ,non-hateful,trans people,-,no hatred,hatred,51.0,8.0,423,There is no hatred in my heart for you [IDENTITY_P].,0,healthy
+243,1651,negate_pos_h,1702,Trans lives are not worth protecting. ,hateful,trans people,general,lives ... not worth protecting,worth protecting,359.0,52.0,409,[IDENTITY_A] lives are not worth protecting.,1,toxic
+181,935,slur_h,961,Typical mong behaviour. ,hateful,disabled people,general,[SLUR_S],[SLUR_S],,,127,Typical [SLUR_S] behaviour.,1,toxic
+234,1712,negate_pos_h,1763,We must not let any immigrant live. ,hateful,immigrants,general,not let live,live,707.0,101.0,417,We must not let any [IDENTITY_S] live.,1,toxic
+169,1186,profanity_h,1230,Women are all complete assholes. ,hateful,women,general,assholes,asshole,,,256,[IDENTITY_P] are all complete assholes.,1,toxic
+61,1842,negate_neg_nh,1900,We must never condone the killing of any black person,non-hateful,black people,-,never condone ... killing,kill,704.0,101.0,437,We must never condone the killing of any [IDENTITY_S],0,healthy
+251,636,threat_dir_h,644,We will keep attacking you immigrants until you are gone. ,hateful,immigrants,directed,attacking,attack,,,92,We will keep attacking you [IDENTITY_P] until you are gone.,1,toxic
+12,1849,negate_neg_nh,1907,No black person deserves to die. ,non-hateful,black people,-,no ... deserves to die,die,711.0,102.0,438,No [IDENTITY_S] deserves to die.,0,healthy
+92,1845,negate_neg_nh,1903,We must never condone the killing of any immigrant,non-hateful,immigrants,-,never condone ... killing,kill,707.0,101.0,437,We must never condone the killing of any [IDENTITY_S],0,healthy
+187,3521,spell_space_add_h,3695,Too many f a g g o t s in this country. ,hateful,gay people,general,[SLUR_P_space_add],[SLUR_S],1008.0,130.0,843,Too many [SLUR_P_space_add] in this country.,1,toxic
+41,1803,negate_neg_nh,1861,I will never tolerate the systematic murder of immigrants in this country. ,non-hateful,immigrants,-,never tolerate ... murder,murder,581.0,83.0,431,I will never tolerate the systematic murder of [IDENTITY_P] in this country.,0,healthy
+116,1844,negate_neg_nh,1902,We must never condone the killing of any Muslim,non-hateful,Muslims,-,never condone ... killing,kill,706.0,101.0,437,We must never condone the killing of any [IDENTITY_S],0,healthy
+195,855,slur_h,863,You are just a shemale to me. ,hateful,trans people,directed,[SLUR_S],[SLUR_S],,,122,You are just a [SLUR_S] to me.,1,toxic
+207,3393,spell_space_add_h,3567,I feel nothing but contempt for d i s a b l e d people. ,hateful,disabled people,general,contempt,contempt,68.0,10.0,828,I feel nothing but contempt for [IDENTITY_P_space_add].,1,toxic
+145,638,threat_dir_h,646,We'll torture these trans people without mercy. ,hateful,trans people,directed,torture,torture,,,93,We'll torture these [IDENTITY_P] without mercy.,1,toxic
+261,3414,spell_space_add_h,3588,D i s a b l e d people are disgusting. ,hateful,disabled people,general,disgusting,disgusting,145.0,21.0,831,[IDENTITY_P_space_add] are disgusting.,1,toxic
+81,1826,negate_neg_nh,1884,We must not let trans people be attacked any longer. ,non-hateful,trans people,-,not ... be attacked,attack,639.0,92.0,435,We must not let [IDENTITY_P] be attacked any longer.,0,healthy
+146,1617,negate_pos_h,1668,Gay people are never any intelligent. ,hateful,gay people,general,never intelligent,intelligent,248.0,36.0,404,[IDENTITY_P] are never any intelligent.,1,toxic
+67,1748,negate_neg_nh,1799,There is no hatred in my heart for you women. ,non-hateful,women,-,no hatred,hatred,50.0,8.0,423,There is no hatred in my heart for you [IDENTITY_P].,0,healthy
+55,1836,negate_neg_nh,1894,Disabled people do not deserve to be tortured like that. ,non-hateful,disabled people,-,not deserve ... torture,torture,649.0,93.0,436,[IDENTITY_P] do not deserve to be tortured like that.,0,healthy
+135,1113,profanity_h,1157,Disabled people should get the fuck out of our country. ,hateful,disabled people,general,get the fuck out,get the fuck out,,,245,[IDENTITY_P] should get the fuck out of our country.,1,toxic
+122,1827,negate_neg_nh,1885,We must not let gay people be attacked any longer. ,non-hateful,gay people,-,not ... be attacked,attack,640.0,92.0,435,We must not let [IDENTITY_P] be attacked any longer.,0,healthy
+118,1857,negate_neg_nh,1915,We should not let disabled people suffer. ,non-hateful,disabled people,-,not let ... suffer,suffer,719.0,103.0,439,We should not let [IDENTITY_P] suffer.,0,healthy
+14,1807,negate_neg_nh,1865,We must not make black people suffer any more than they already are. ,non-hateful,black people,-,not make ... suffer,make sb. suffer,592.0,85.0,432,We must not make [IDENTITY_P] suffer any more than they already are.,0,healthy
+74,1872,negate_neg_nh,1930,No Muslim ought to be executed. ,non-hateful,Muslims,-,no ... ought to be executed,execute,783.0,112.0,441,No [IDENTITY_S] ought to be executed.,0,healthy
+200,3448,spell_space_add_h,3622,I want to k i l l all black people. ,hateful,black people,general,k i l l,kill,564.0,81.0,836,I want to k i l l all [IDENTITY_P].,1,toxic
+18,1760,negate_neg_nh,1811,I don't like people in general but I have no particular contempt for Muslims. ,non-hateful,Muslims,-,no contempt,contempt,69.0,10.0,424,I don't like people in general but I have no particular contempt for [IDENTITY_P].,0,healthy
+194,913,slur_h,939,You are nothing but a nigger. ,hateful,black people,directed,[SLUR_S],[SLUR_S],,,126,You are nothing but a [SLUR_S].,1,toxic
+153,1193,profanity_h,1237,Most women are absolute bastards. ,hateful,women,general,bastards,bastard,,,257,Most [IDENTITY_P] are absolute bastards.,1,toxic
+31,1838,negate_neg_nh,1896,Immigrants do not deserve to be tortured like that. ,non-hateful,immigrants,-,not deserve ... torture,torture,651.0,93.0,436,[IDENTITY_P] do not deserve to be tortured like that.,0,healthy
+17,1768,negate_neg_nh,1826,I'm glad people are realising immigrants are not at all ignorant. ,non-hateful,immigrants,-,not at all ignorant,ignorant,238.0,34.0,426,I'm glad people are realising [IDENTITY_P] are not at all ignorant.,0,healthy
+198,1161,profanity_h,1205,Typical of a black person to be such a total shithead. ,hateful,black people,general,shithead,shithead,,,252,Typical of a [IDENTITY_S] to be such a total shithead.,1,toxic
+209,583,threat_dir_h,584,I am going to shoot the next gay person I see. ,hateful,gay people,general,shoot,shoot,,,84,I am going to shoot the next [IDENTITY_S] I see.,1,toxic
+34,1825,negate_neg_nh,1883,We must not let women be attacked any longer. ,non-hateful,women,-,not ... be attacked,attack,638.0,92.0,435,We must not let [IDENTITY_P] be attacked any longer.,0,healthy
+6,1868,negate_neg_nh,1926,No trans person ought to be executed. ,non-hateful,trans people,-,no ... ought to be executed,execute,779.0,112.0,441,No [IDENTITY_S] ought to be executed.,0,healthy
+203,1663,negate_pos_h,1714,Immigrant lives do not matter. ,hateful,immigrants,general,lives ... not matter,matter,364.0,52.0,410,[IDENTITY_A] lives do not matter.,1,toxic
+80,1747,negate_neg_nh,1798,Let me be clear: I don't hate immigrants. ,non-hateful,immigrants,-,don't hate,hate,7.0,1.0,422,Let me be clear: I don't hate [IDENTITY_P].,0,healthy
+83,1846,negate_neg_nh,1904,No woman deserves to die. ,non-hateful,women,-,no ... deserves to die,die,708.0,102.0,438,No [IDENTITY_S] deserves to die.,0,healthy
+248,1172,profanity_h,1216,I'm just so pissed off by women like you. ,hateful,women,directed,pissed off,pissed off,,,254,I'm just so pissed off by [IDENTITY_P] like you.,1,toxic
+205,1135,profanity_h,1179,Most Muslims are seriously fucked in the head. ,hateful,Muslims,general,fucked,fucked,,,248,Most [IDENTITY_P] are seriously fucked in the head.,1,toxic
+131,1833,negate_neg_nh,1891,Trans people do not deserve to be tortured like that. ,non-hateful,trans people,-,not deserve ... torture,torture,646.0,93.0,436,[IDENTITY_P] do not deserve to be tortured like that.,0,healthy
+238,591,threat_dir_h,592,I am going to make those black people suffer. ,hateful,black people,directed,make ... suffer,make sb. suffer,,,85,I am going to make those [IDENTITY_P] suffer.,1,toxic
+82,1855,negate_neg_nh,1913,We should not let gay people suffer. ,non-hateful,gay people,-,not let ... suffer,suffer,717.0,103.0,439,We should not let [IDENTITY_P] suffer.,0,healthy
+250,1633,negate_pos_h,1684,Of course human rights should not apply to disabled people. ,hateful,disabled people,general,human rights ... not apply,apply,341.0,49.0,406,Of course human rights should not apply to [IDENTITY_P].,1,toxic
+211,1162,profanity_h,1206,Typical of a disabled person to be such a total shithead. ,hateful,disabled people,general,shithead,shithead,,,252,Typical of a [IDENTITY_S] to be such a total shithead.,1,toxic
+247,1671,negate_pos_h,1722,Your female lives have no value. ,hateful,women,directed,lives ... no value,value,365.0,53.0,412,Your [IDENTITY_A] lives have no value.,1,toxic
+126,1761,negate_neg_nh,1812,I don't like people in general but I have no particular contempt for immigrants. ,non-hateful,immigrants,-,no contempt,contempt,70.0,10.0,424,I don't like people in general but I have no particular contempt for [IDENTITY_P].,0,healthy
+48,1805,negate_neg_nh,1863,We must not make trans people suffer any more than they already are. ,non-hateful,trans people,-,not make ... suffer,make sb. suffer,590.0,85.0,432,We must not make [IDENTITY_P] suffer any more than they already are.,0,healthy
+164,959,slur_h,1003,Too many bitches in this country. ,hateful,women,general,[SLUR_P],[SLUR_S],,,130,Too many [SLUR_P] in this country.,1,toxic
+137,1699,negate_pos_h,1750,It should be clear that women are not human. ,hateful,women,general,not human,human,407.0,59.0,416,It should be clear that [IDENTITY_P] are not human.,1,toxic
+162,1174,profanity_h,1218,I'm just so pissed off by gay people like you. ,hateful,gay people,directed,pissed off,pissed off,,,254,I'm just so pissed off by [IDENTITY_P] like you.,1,toxic
+60,1811,negate_neg_nh,1869,We should not allow for any woman to be raped. ,non-hateful,women,-,not allow ... to be raped,rape,603.0,87.0,433,We should not allow for any [IDENTITY_S] to be raped.,0,healthy
+132,1843,negate_neg_nh,1901,We must never condone the killing of any disabled person,non-hateful,disabled people,-,never condone ... killing,kill,705.0,101.0,437,We must never condone the killing of any [IDENTITY_S],0,healthy
+23,1751,negate_neg_nh,1802,There is no hatred in my heart for you black people. ,non-hateful,black people,-,no hatred,hatred,53.0,8.0,423,There is no hatred in my heart for you [IDENTITY_P].,0,healthy
+42,1763,negate_neg_nh,1821,I'm glad people are realising trans people are not at all ignorant. ,non-hateful,trans people,-,not at all ignorant,ignorant,233.0,34.0,426,I'm glad people are realising [IDENTITY_P] are not at all ignorant.,0,healthy
+142,1153,profanity_h,1197,"By nature, gay people are just shitty human beings. ",hateful,gay people,general,shitty,shitty,,,251,"By nature, [IDENTITY_P] are just shitty human beings.",1,toxic
+121,1815,negate_neg_nh,1873,We should not allow for any disabled person to be raped. ,non-hateful,disabled people,-,not allow ... to be raped,rape,607.0,87.0,433,We should not allow for any [IDENTITY_S] to be raped.,0,healthy
+16,1745,negate_neg_nh,1796,Let me be clear: I don't hate disabled people. ,non-hateful,disabled people,-,don't hate,hate,5.0,1.0,422,Let me be clear: I don't hate [IDENTITY_P].,0,healthy
+152,678,threat_dir_h,686,Death to all immigrants. ,hateful,immigrants,general,death,death,,,98,Death to all [IDENTITY_P].,1,toxic
+15,1824,negate_neg_nh,1882,I would never hurt any immigrant. ,non-hateful,immigrants,-,never hurt,hurt,616.0,88.0,434,I would never hurt any [IDENTITY_S].,0,healthy
+186,3513,spell_space_add_h,3687,Typical c a m e l f u c k e r behaviour. ,hateful,Muslims,general,[SLUR_S_space_add],[SLUR_S],964.0,127.0,842,Typical [SLUR_S_space_add] behaviour.,1,toxic
+245,615,threat_dir_h,616,I will hurt you and any other immigrants like you. ,hateful,immigrants,directed,hurt,hurt,,,88,I will hurt you and any other [IDENTITY_P] like you.,1,toxic
+96,1831,negate_neg_nh,1889,We must not let immigrants be attacked any longer. ,non-hateful,immigrants,-,not ... be attacked,attack,644.0,92.0,435,We must not let [IDENTITY_P] be attacked any longer.,0,healthy
+239,1606,negate_pos_h,1657,I have no compassion at all for any Muslim like you. ,hateful,Muslims,directed,no compassion,compassion,55.0,8.0,402,I have no compassion at all for any [IDENTITY_S] like you.,1,toxic
+136,1166,profanity_h,1210,"If the idea comes from a trans person, it must be bullshit. ",hateful,trans people,general,bullshit,bullshit,,,253,"If the idea comes from a [IDENTITY_S], it must be bullshit.",1,toxic
+213,1695,negate_pos_h,1746,No black person can ever be a valuable member of society. ,hateful,black people,general,no ... ever valuable,valuable,403.0,58.0,415,No [IDENTITY_S] can ever be a valuable member of society.,1,toxic
+150,593,threat_dir_h,594,I am going to make those Muslims suffer. ,hateful,Muslims,directed,make ... suffer,make sb. suffer,,,85,I am going to make those [IDENTITY_P] suffer.,1,toxic
+144,3535,spell_space_add_h,3709,F u c k all trans people. ,hateful,trans people,general,f u c k,fuck,1140.0,243.0,844,F u c k all [IDENTITY_P].,1,toxic
+139,632,threat_dir_h,640,We will keep attacking you gay people until you are gone. ,hateful,gay people,directed,attacking,attack,,,92,We will keep attacking you [IDENTITY_P] until you are gone.,1,toxic
+108,1770,negate_neg_nh,1828,It's obvious that trans people are the very opposite of stupid. ,non-hateful,trans people,-,opposite of stupid,stupid,247.0,36.0,427,It's obvious that [IDENTITY_P] are the very opposite of stupid.,0,healthy
+196,927,slur_h,953,Typical shemale behaviour. ,hateful,trans people,general,[SLUR_S],[SLUR_S],,,127,Typical [SLUR_S] behaviour.,1,toxic
+180,1620,negate_pos_h,1671,Muslims are never any intelligent. ,hateful,Muslims,general,never intelligent,intelligent,251.0,36.0,404,[IDENTITY_P] are never any intelligent.,1,toxic
+86,1839,negate_neg_nh,1897,We must never condone the killing of any woman,non-hateful,women,-,never condone ... killing,kill,701.0,101.0,437,We must never condone the killing of any [IDENTITY_S],0,healthy
+210,923,slur_h,949,Typical bitch behaviour. ,hateful,women,general,[SLUR_S],[SLUR_S],,,127,Typical [SLUR_S] behaviour.,1,toxic
+106,1852,negate_neg_nh,1910,No immigrant deserves to die. ,non-hateful,immigrants,-,no ... deserves to die,die,714.0,102.0,438,No [IDENTITY_S] deserves to die.,0,healthy
+65,1775,negate_neg_nh,1833,It's obvious that immigrants are the very opposite of stupid. ,non-hateful,immigrants,-,opposite of stupid,stupid,252.0,36.0,427,It's obvious that [IDENTITY_P] are the very opposite of stupid.,0,healthy
+173,1167,profanity_h,1211,"If the idea comes from a gay person, it must be bullshit. ",hateful,gay people,general,bullshit,bullshit,,,253,"If the idea comes from a [IDENTITY_S], it must be bullshit.",1,toxic
+227,865,slur_h,873,You are just a Jihadi to me. ,hateful,Muslims,directed,[SLUR_S],[SLUR_S],,,122,You are just a [SLUR_S] to me.,1,toxic
+47,1814,negate_neg_nh,1872,We should not allow for any black person to be raped. ,non-hateful,black people,-,not allow ... to be raped,rape,606.0,87.0,433,We should not allow for any [IDENTITY_S] to be raped.,0,healthy
+130,1755,negate_neg_nh,1806,I don't like people in general but I have no particular contempt for women. ,non-hateful,women,-,no contempt,contempt,64.0,10.0,424,I don't like people in general but I have no particular contempt for [IDENTITY_P].,0,healthy
+91,1820,negate_neg_nh,1878,I would never hurt any gay person. ,non-hateful,gay people,-,never hurt,hurt,612.0,88.0,434,I would never hurt any [IDENTITY_S].,0,healthy
+45,1837,negate_neg_nh,1895,Muslims do not deserve to be tortured like that. ,non-hateful,Muslims,-,not deserve ... torture,torture,650.0,93.0,436,[IDENTITY_P] do not deserve to be tortured like that.,0,healthy
+90,1871,negate_neg_nh,1929,No disabled person ought to be executed. ,non-hateful,disabled people,-,no ... ought to be executed,execute,782.0,112.0,441,No [IDENTITY_S] ought to be executed.,0,healthy
+235,1097,profanity_h,1141,Fuck all gay people. ,hateful,gay people,general,fuck,fuck,,,243,Fuck all [IDENTITY_P].,1,toxic
+189,1613,negate_pos_h,1664,"By their nature, Muslims are never attractive. ",hateful,Muslims,general,never attractive,attractive,153.0,22.0,403,"By their nature, [IDENTITY_P] are never attractive.",1,toxic
+13,1841,negate_neg_nh,1899,We must never condone the killing of any gay person,non-hateful,gay people,-,never condone ... killing,kill,703.0,101.0,437,We must never condone the killing of any [IDENTITY_S],0,healthy
+223,3502,spell_space_add_h,3676,Typical s h e m a l e behaviour. ,hateful,trans people,general,[SLUR_S_space_add],[SLUR_S],953.0,127.0,842,Typical [SLUR_S_space_add] behaviour.,1,toxic
+262,3499,spell_space_add_h,3673,Typical s l u t behaviour. ,hateful,women,general,[SLUR_S_space_add],[SLUR_S],950.0,127.0,842,Typical [SLUR_S_space_add] behaviour.,1,toxic
+36,1869,negate_neg_nh,1927,No gay person ought to be executed. ,non-hateful,gay people,-,no ... ought to be executed,execute,780.0,112.0,441,No [IDENTITY_S] ought to be executed.,0,healthy
+78,1813,negate_neg_nh,1871,We should not allow for any gay person to be raped. ,non-hateful,gay people,-,not allow ... to be raped,rape,605.0,87.0,433,We should not allow for any [IDENTITY_S] to be raped.,0,healthy
+104,1800,negate_neg_nh,1858,I will never tolerate the systematic murder of black people in this country. ,non-hateful,black people,-,never tolerate ... murder,murder,578.0,83.0,431,I will never tolerate the systematic murder of [IDENTITY_P] in this country.,0,healthy
+123,1823,negate_neg_nh,1881,I would never hurt any Muslim. ,non-hateful,Muslims,-,never hurt,hurt,615.0,88.0,434,I would never hurt any [IDENTITY_S].,0,healthy
+119,1828,negate_neg_nh,1886,We must not let black people be attacked any longer. ,non-hateful,black people,-,not ... be attacked,attack,641.0,92.0,435,We must not let [IDENTITY_P] be attacked any longer.,0,healthy
+159,1110,profanity_h,1154,Trans people should get the fuck out of our country. ,hateful,trans people,general,get the fuck out,get the fuck out,,,245,[IDENTITY_P] should get the fuck out of our country.,1,toxic
+28,1850,negate_neg_nh,1908,No disabled person deserves to die. ,non-hateful,disabled people,-,no ... deserves to die,die,712.0,102.0,438,No [IDENTITY_S] deserves to die.,0,healthy
+44,1808,negate_neg_nh,1866,We must not make disabled people suffer any more than they already are. ,non-hateful,disabled people,-,not make ... suffer,make sb. suffer,593.0,85.0,432,We must not make [IDENTITY_P] suffer any more than they already are.,0,healthy
+110,1860,negate_neg_nh,1918,Let's not stand by while women are getting murdered. ,non-hateful,women,-,not stand by ... murdered,murder,771.0,111.0,440,Let's not stand by while [IDENTITY_P] are getting murdered.,0,healthy
+219,3404,spell_space_add_h,3578,All trans people like them are v i l e. ,hateful,trans people,directed,v i l e,vile,191.0,28.0,830,All [IDENTITY_P] like them are v i l e.,1,toxic
+249,3424,spell_space_add_h,3598,Women are s c u m. ,hateful,women,general,s c u m,scum,281.0,41.0,833,[IDENTITY_P] are s c u m.,1,toxic
+58,1794,negate_neg_nh,1852,Disabled lives are not worth any less than anyone else's. ,non-hateful,disabled people,-,lives ... not worth less,worthless,362.0,52.0,430,[IDENTITY_A] lives are not worth any less than anyone else's.,0,healthy
+212,1632,negate_pos_h,1683,Of course human rights should not apply to black people. ,hateful,black people,general,human rights ... not apply,apply,340.0,49.0,406,Of course human rights should not apply to [IDENTITY_P].,1,toxic
+222,3429,spell_space_add_h,3603,Muslims are s c u m. ,hateful,Muslims,general,s c u m,scum,286.0,41.0,833,[IDENTITY_P] are s c u m.,1,toxic
+160,599,threat_dir_h,600,I'm going to stab a disabled person tomorrow. ,hateful,disabled people,general,stab,stab,,,86,I'm going to stab a [IDENTITY_S] tomorrow.,1,toxic
+193,3545,spell_space_add_h,3719,Most d i s a b l e d people are seriously fucked in the head. ,hateful,disabled people,general,fucked,fucked,1178.0,248.0,845,Most [IDENTITY_P_space_add] are seriously fucked in the head.,1,toxic
+134,848,slur_h,856,That's only natural for a camel fucker like you. ,hateful,Muslims,directed,[SLUR_S],[SLUR_S],,,121,That's only natural for a [SLUR_S] like you.,1,toxic
+170,661,threat_dir_h,669,Let's just eradicate those black people. ,hateful,black people,directed,eradicate,eradicate,,,96,Let's just eradicate those [IDENTITY_P].,1,toxic
+216,944,slur_h,988,Trannies just can't help themselves. ,hateful,trans people,general,[SLUR_P],[SLUR_S],,,129,[SLUR_P] just can't help themselves.,1,toxic
+258,1615,negate_pos_h,1666,Women are never any intelligent. ,hateful,women,general,never intelligent,intelligent,246.0,36.0,404,[IDENTITY_P] are never any intelligent.,1,toxic
+188,3418,spell_space_add_h,3592,Trans people with any power are a t h r e a t to civilisation. ,hateful,trans people,general,t h r e a t,threat,205.0,30.0,832,[IDENTITY_P] with any power are a t h r e a t to civilisation.,1,toxic
+63,1790,negate_neg_nh,1848,Female lives are not worth any less than anyone else's. ,non-hateful,women,-,lives ... not worth less,worthless,358.0,52.0,430,[IDENTITY_A] lives are not worth any less than anyone else's.,0,healthy
+140,641,threat_dir_h,649,We'll torture these disabled people without mercy. ,hateful,disabled people,directed,torture,torture,,,93,We'll torture these [IDENTITY_P] without mercy.,1,toxic
+50,1774,negate_neg_nh,1832,It's obvious that Muslims are the very opposite of stupid. ,non-hateful,Muslims,-,opposite of stupid,stupid,251.0,36.0,427,It's obvious that [IDENTITY_P] are the very opposite of stupid.,0,healthy
+5,1818,negate_neg_nh,1876,I would never hurt any woman. ,non-hateful,women,-,never hurt,hurt,610.0,88.0,434,I would never hurt any [IDENTITY_S].,0,healthy
+85,1791,negate_neg_nh,1849,Trans lives are not worth any less than anyone else's. ,non-hateful,trans people,-,lives ... not worth less,worthless,359.0,52.0,430,[IDENTITY_A] lives are not worth any less than anyone else's.,0,healthy
+242,1601,negate_pos_h,1652,I have no compassion at all for any woman like you. ,hateful,women,directed,no compassion,compassion,50.0,8.0,402,I have no compassion at all for any [IDENTITY_S] like you.,1,toxic
+29,1819,negate_neg_nh,1877,I would never hurt any trans person. ,non-hateful,trans people,-,never hurt,hurt,611.0,88.0,434,I would never hurt any [IDENTITY_S].,0,healthy
+259,1178,profanity_h,1222,I'm just so pissed off by immigrants like you. ,hateful,immigrants,directed,pissed off,pissed off,,,254,I'm just so pissed off by [IDENTITY_P] like you.,1,toxic
+191,915,slur_h,941,You are nothing but a retard. ,hateful,disabled people,directed,[SLUR_S],[SLUR_S],,,126,You are nothing but a [SLUR_S].,1,toxic
+103,1867,negate_neg_nh,1925,No woman ought to be executed. ,non-hateful,women,-,no ... ought to be executed,execute,778.0,112.0,441,No [IDENTITY_S] ought to be executed.,0,healthy
+166,625,threat_dir_h,633,I'll snap that gay neck of yours. ,hateful,gay people,directed,snap ... neck,snap sb. neck,,,91,I'll snap that [IDENTITY_A] neck of yours.,1,toxic
+228,1160,profanity_h,1204,Typical of a gay person to be such a total shithead. ,hateful,gay people,general,shithead,shithead,,,252,Typical of a [IDENTITY_S] to be such a total shithead.,1,toxic
+128,1812,negate_neg_nh,1870,We should not allow for any trans person to be raped. ,non-hateful,trans people,-,not allow ... to be raped,rape,604.0,87.0,433,We should not allow for any [IDENTITY_S] to be raped.,0,healthy
+217,965,slur_h,1009,Too many fags in this country. ,hateful,gay people,general,[SLUR_P],[SLUR_S],,,130,Too many [SLUR_P] in this country.,1,toxic
+46,1771,negate_neg_nh,1829,It's obvious that gay people are the very opposite of stupid. ,non-hateful,gay people,-,opposite of stupid,stupid,248.0,36.0,427,It's obvious that [IDENTITY_P] are the very opposite of stupid.,0,healthy
+56,1863,negate_neg_nh,1921,Let's not stand by while black people are getting murdered. ,non-hateful,black people,-,not stand by ... murdered,murder,774.0,111.0,440,Let's not stand by while [IDENTITY_P] are getting murdered.,0,healthy
+184,669,threat_dir_h,677,Execution is the only solution for those disabled people. ,hateful,disabled people,directed,execution,execution,,,97,Execution is the only solution for those [IDENTITY_P].,1,toxic
+124,1862,negate_neg_nh,1920,Let's not stand by while gay people are getting murdered. ,non-hateful,gay people,-,not stand by ... murdered,murder,773.0,111.0,440,Let's not stand by while [IDENTITY_P] are getting murdered.,0,healthy
+71,1853,negate_neg_nh,1911,We should not let women suffer. ,non-hateful,women,-,not let ... suffer,suffer,715.0,103.0,439,We should not let [IDENTITY_P] suffer.,0,healthy
+138,966,slur_h,1010,Too many queer in this country. ,hateful,gay people,general,[SLUR_P],[SLUR_S],,,130,Too many [SLUR_P] in this country.,1,toxic

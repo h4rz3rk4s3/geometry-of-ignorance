@@ -1,0 +1,688 @@
+,Unnamed: 0,statement,is_toxic,len_text,label
+0,56,@mcdee I see where I messed up.... Thanks Jim you saved me from banging me head on the desk,0,91,healthy
+1,356,but it can't fix all the crappy blocks that are already in the chain,1,68,toxic
+2,341,"darn, switched to fglrx (was on -updates) but still getting 0 hashes/sec D:",1,75,toxic
+3,539,Donâ€™t change `â€”rpcaddr` unless you know WTF youâ€™re doing ,1,62,toxic
+4,588,i am totally brand spanking new at Lubuntu and need to do this stuff manually before I make things easy on myself =P,1,116,toxic
+5,115,You now need to do `geth init genesisfile.json; geth` instead.,0,62,healthy
+6,385,because this stuped microsoft keyboard has slightly shit proportions. ,1,69,toxic
+7,78,that's basically what happens in the Bitcoin startup scene,0,58,healthy
+8,132,"@twistatbat_twitter That value is ABI encoded, it's not a plain hex value. Look up the Contract ABI encoding wiki page for details ",0,130,healthy
+9,344,Ha! Beer Diapers and Strippers? That's one hell of a party!,1,59,toxic
+10,77,what block you at on fresh syncs on yer nodes?,0,46,healthy
+11,352,the fuck is wrong with github ,1,29,toxic
+12,456,"I can mine 30 every hour or something ridiculous (but, i don't that would be silly)",1,83,toxic
+13,287,"`caktux` old builds aren't left around, Windooz is choking on itself",0,68,healthy
+14,259,make sure to delete everything but backup your keystores!,0,57,healthy
+15,144,can I just send entire ethereum folder to trash after I backup keystore?,0,72,healthy
+16,201,do people only show up in the ethstats if they have mined a block? ,0,66,healthy
+17,463,fuck come on good chain lets do this,1,36,toxic
+18,276,Are they gonna bribe the miners to do a hard fork?,0,50,healthy
+19,127,"Maaaan! We were like ""Maybe the chaindata is corrupted! Quick let's deploy another node and fast sync it!""",0,106,healthy
+20,223,"currentBlock: 643556,
+  highestBlock: 5785602,
+  startingBlock: 0,
+  warpChunksAmount: null,
+  warpChunksProcessed: null",0,120,healthy
+21,513,wtf kind of if statement is that?,1,33,toxic
+22,160,whether that's ssh or a piece of paper doesn't matter,0,53,healthy
+23,346,"@obscuren i even made a patch for ethminer to stop reporting hashrate, it's nonsense.",1,85,toxic
+24,472,"Ah shit, I forgot about that",1,28,toxic
+25,214,"@tymat for the totally paranoid before storing any cryptocurrency. :-D
+```
+sudo cat /dev/urandom | rngtest -c 1000
+```",0,118,healthy
+26,358,"argh, I so hate CamelCase",1,25,toxic
+27,128,even `$ geth -logfile /dev/null console ` doenst work for me,0,60,healthy
+28,403,"@VoR0220 creepy. better not piss them off or they will kickban you globally from ""money"". lol....",1,97,toxic
+29,204,I think your leveldb commit is off,0,34,healthy
+30,263,"It's not heating up. It takes time to cache in data that getwork needs. No getwork, no data to be read.",0,103,healthy
+31,322,"SocialPAYUg_twitter , I looked at https://github.com/btelle/ethereum-php... but in the end I ended up writing my own because the JSON RPC sucks",1,143,toxic
+32,52,Should that perhaps be something like `go test C:\a\b\c\github.com\ethereum\go-ethereum\â€¦`,0,92,healthy
+33,590,"you are kind soul for dealing with my n00b crap, thank you",1,58,toxic
+34,107,@ogurcan now is the current block time.  the block time is set by the miner who mined that block,0,96,healthy
+35,226,"if that doesnâ€™t work, check if `$GOPATH/src/github.com/ethereum/go-ethereum/Godeps/_workspace/pkg` exists and if so, remove it",0,128,healthy
+36,245,"it is not safe to use with my Win 7, but I think it works on Linux.",0,67,healthy
+37,262,"i filed #870  I guess if i was to try mining with private chain, i'd hit the same bug zelig hits...",0,99,healthy
+38,386,They have a de facto monopoly and they still fucked it up. how dumb must you be?,1,80,toxic
+39,544,Iâ€™m also knackered as fuck so Iâ€™m off for sleep :sleeping: ,1,62,toxic
+40,271,@quangnhat91 looks like youâ€™re not syncing.  google `admin.addPeer ethereum geth`,0,83,healthy
+41,235,0x6c929e1c3d860ee225d7f3a7addf9e3f740603d243260536dfa2f3cf02b51de4,0,66,healthy
+42,112,That enode should remain valid indefinitely,0,43,healthy
+43,95,do I need to run upgradedb? I came from develop-1 day,0,53,healthy
+44,45,"```
+ $ geth version
+ Geth
+ Version: 1.4.0-unstable
+ Protocol Versions: [63 62 61]
+ Network Id: 1
+ Go Version: go1.5.3
+ OS: darwin
+ 
+ ```",0,136,healthy
+45,499,Why do girls have sex with me but friendzone me. It's confusing for me.,1,71,toxic
+46,521,snoop dogg will comeback... oh wait he is back!!! :dog: ,1,55,toxic
+47,26,thatâ€™s what they are for if you require data from transactions,0,64,healthy
+48,370,"well, I should have known it would be something stupid - my pc timestamp was incorrect",1,86,toxic
+49,70,ideally each DApp should be running in its own sandboxed JS/DOM  within Mist,0,76,healthy
+50,373,I will let you all know. For now...my wife is pissed because I have been neglecting her today :P,1,96,toxic
+51,564,I will give anyone whoever mines 1028201 a tall glass of punch. (not in the face),1,81,toxic
+52,264,"@michbil your geth 1.4.13 isn't fork-compatible, there testnet was forked with the mainnet, so re-sync the chain with the latest geth",0,133,healthy
+53,294,You could grep your raw disk volume for the name to try and find it in a deleted file somewhere.,0,96,healthy
+54,212,"Outside of docs, what should one read to understand the technology? for example i am not sure what gas is and if it's a concept inheritent in blockchains or localised to ethereum.",0,179,healthy
+55,410,its not so much the congratulation of son for losing his virginity and not the other way around for the girlâ€¦so much as it would be that I donâ€™t trust boys at that age...,1,174,toxic
+56,550,@psyopussy what block is your head at?,1,38,toxic
+57,415,you're mad i didn't pay you 1 eth up front i have screenshots,1,61,toxic
+58,69,"`caktux` man, I had pretty much the exact same alpine-based dockerfile as you, just using ""go git build-base"" instead.. and now it works",0,136,healthy
+59,471,"wtf , the type box here crashed I couldnt enter anymore",1,55,toxic
+60,542,"@karalabe thanks bro.  team work, that's what i love about this fuckn project. :)",1,81,toxic
+61,25,With enough flailing you'll hit something.,0,42,healthy
+62,323,"@tinybike - I was being an idiot. I had restarted my tesnet with NO peers!
+The weird thing is, MIST still gets transactions approved but normal Txn donâ€™t.",1,156,toxic
+63,436,websockets :) for those sexy real time updates :) ,1,49,toxic
+64,304,wow... if only I new this before I typed in 500 MB worth of genitals,1,68,toxic
+65,163,`gasLimit` is useless for these metrics ,0,39,healthy
+66,449,"Yup, super duper annoying",1,25,toxic
+67,360,"gonna rename that bastard mist.lokidb file again, that thing is always messing with me.  let wallet generate a new one",1,118,toxic
+68,73,Are logs written automatically? I was just looking at terminal garbage,0,70,healthy
+69,307,Please paste this crap in a gist next time,1,42,toxic
+70,224,You are missing a / @usafootballer ,0,34,healthy
+71,37,@lukas-berlin instance: Geth/v1.8.11-stable/linux-amd64/go1.9.4 modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0,0,159,healthy
+72,273,"wondering the same, perhaps longer chains are being discovered  and blocks that we thought we mined got reorged",0,111,healthy
+73,23,"for Version: 1.6.2-unstable
+Git Commit: cb809c03da18bf45f961a931dfd4c765de144e66
+",0,80,healthy
+74,158,"Btw, happy holidays!  This year I brought you guys a geth bug :grin:",0,68,healthy
+75,121,you can print the full `fmt.Println(string(statedb.Dump()))`or print the trie `statedb.PrintRoot()`,0,99,healthy
+76,151,and the remaining 4.5GB is used by the kernel to save disk writes and reads,0,75,healthy
+77,175,Whats going on with ropsten guys,0,32,healthy
+78,347,"the question is, how can you realize that all your peers are crappy? ",1,68,toxic
+79,555,I like answering non-stupid questions ;),1,40,toxic
+80,582,"btw2: it also contains a shitload of polishes in the downloader tests, I was bored on the train home so I went through and patched them up a bit",1,144,toxic
+81,299,No it's this awesome meme ive got going... whenever your reading is low and it contains kilo substitute with killer...,0,118,healthy
+82,348,@LefterisJP haha yeah. There was a certain person fucking around in that file and wanted to make sure it wasnâ€™t being touched again :-P,1,137,toxic
+83,303,"oh crap, everything I say in here... it will be echoed in history along with my quote... :(",1,91,toxic
+84,566,who wants to buy gavcoins? coff :D,1,34,toxic
+85,556,`caktux` damn brew magic...,1,27,toxic
+86,116,"@tymat you're supposed to send a greet when you create it, lol",0,62,healthy
+87,15,"define ""fork""? If you want to make your own cryptocurrency on the ethereum mainnet blockchain, yes that is what you need",0,120,healthy
+88,76,"If you run geth on itself, you need to specify the `--fast` fag",0,63,healthy
+89,395,omg perfectly on launch the cpp-ethereum team must make gazillions of commits causing my build agent to destroy my CPU power...what the hell is wrong with them,1,159,toxic
+90,465,can it improve or fuckup mining/getwork?,1,40,toxic
+91,584,fuck green hyped bullshit ,1,25,toxic
+92,446,geeze guys is there a reason why geth is so damn slow?,1,54,toxic
+93,339,Everyone is connected but no one is saying anything. We nerds are terruble at setting up parties.,1,97,toxic
+94,194,"@stephenstroud I have only mined with Mist on Testnet, never with anything real.",0,80,healthy
+95,104,"you can kill off PM2 
+ ```
+ ps auxwww | grep -i PM2 | awk '{print $2}' | xargs kill -9 && rm -rf ~/.pm2 
+ ```
+ Check your configuration file",0,140,healthy
+96,6,In that link that I provided they mention something about exporting keys. I tried it but I ran into problems.,0,109,healthy
+97,460,"`caktux` yeah no idea, I don't know shit about Windows and couldn't care less",1,77,toxic
+98,328,there is a fart joke in there somewhere... ,1,42,toxic
+99,405,"If you want a girlfriend I think you just have to not have sex at first and just hang out, go shopping,resturants,parks etc,etc ",1,127,toxic
+100,466,"I have Win10 on a stick, piece of crap. :-) Anyway, I'll send you a PM with stuff you should do.",1,96,toxic
+101,343,mine and many other people's tokens are being stolen everyday by this shit,1,74,toxic
+102,518,just like how a white guy isn't as good at basketball as a black,1,64,toxic
+103,464,"crap come to realise, keys in trie shouldnâ€™t actually be changes to common.Hash",1,81,toxic
+104,147,the geth client is good you need only a miner,0,45,healthy
+105,12,can anyone send me testether? wei faucet is down?,0,49,healthy
+106,336,Does it give you stuff like â€œblock importedâ€ and some other crap,1,68,toxic
+107,256,So if I want to run a geth client on testnet. Which version would you recommend?,0,80,healthy
+108,420,this is actually a pain in da butt,1,34,toxic
+109,171,How to setup eth in peatio any help? Thanks in advance,0,54,healthy
+110,389,"@smartcontractor check out embark...it saves you a shit ton of hassle, gets everything tested automatically on a private network. ",1,129,toxic
+111,340,"@sammy007 we are rolling out the release soon. Just sit tight for a little a bit, I know this sucks. It would be irresponsible to push stuff out which we haven't fully tested. ",1,175,toxic
+112,97,"Though the state db blew up in size during these attacks, currently at 11M state entries",0,88,healthy
+113,451,Hate to start from scratch if I screw things up.,1,48,toxic
+114,110,problem is that more mining power does not lead to more transactions getting mined,0,82,healthy
+115,426,Is it cause you are a non-white,1,31,toxic
+116,372,because right now Iâ€™m trying to import your stuffâ€¦.and itâ€™s giving crap about it. ,1,87,toxic
+117,332,my dad maybe though....he think I'm being an idiot going after this cryptocurrency thing...thinks I would be better off doing consulting....not worth it for me.,1,160,toxic
+118,138,"something is still not working with this ""fork slayer"" release. no slayin' for me ;)",0,84,healthy
+119,257,I got my hamsters fed nice and fat they are ready to run those dynamos to power my GPU,0,86,healthy
+120,508,"@pompomJuice so you are feeling the pressure to sync up to the old testnet? I guess I will have to as well, that sucks, deleted it. :-1: ",1,136,toxic
+121,475,na awe are not mining shit.. if you are mining you are on the wrong chain,1,73,toxic
+122,591,"I am running bitlocker encrypted in veracrypt encrypted inside a dmcrypt inside of a 7zip behind a mikrotik NAT. Those russians dont have shit one me :D
+",1,152,toxic
+123,30,"WARN [04-26|21:05:17] Block sealing failed                     err=unauthorized
+
+I am getting above error ",0,105,healthy
+124,125,"What you pasted works fine, following the steps I pasted on github cause it to hang again",0,89,healthy
+125,233,"not sure what you mean by : ps auxwww | grep -i pm2
+should show something like PM2 god daemon
+ps auxwwww | grep -i node",0,119,healthy
+126,394,"Because if the latter, please just fuck right off :-)",1,53,toxic
+127,579,pompom you have a lucky ass 290 :d my 7970 has mined 36 eth :D,1,62,toxic
+128,361,is it just a screwed block propagation? order and latency isssues?,1,66,toxic
+129,414,"very important to know that olympic/testnet is trash now. :P (well, except finding the block 1028201)",1,101,toxic
+130,576,But maybe lucky again since I am a maniac I would kill myself with one of those things.,1,87,toxic
+131,225,"That's the amount of ""money"" people can request to burn",0,55,healthy
+132,443,"creating files when looking into a dir, wtf",1,43,toxic
+133,36,"looks like i mined some testnet, it says my balance is now: 310000000000000000000",0,81,healthy
+134,540,"if you made a company plan based on deadlines never moving, shame on you",1,72,toxic
+135,485,"@tymat damnit. Gyft would be so slow and I only have an existing card with $0.29 of pizza, lol. :-D",1,99,toxic
+136,51,etherscan Big Folt is Not Provide to own Decentralize exchange ..,0,65,healthy
+137,490,No damn packages for ubuntu 14.04 on this arch :(,1,49,toxic
+138,191,"to clarify, it is ""kill <processid> -QUIT"" ?",0,44,healthy
+139,243,The triangle represents the South African Bermuda triangle... where your hard earned tax monies just disappear into an endless pit of corrupt government forever. Unlucky. ,0,170,healthy
+140,504,but this is geth running under normal conditions from scratch and getting suck,1,78,toxic
+141,353,"it's a charming fool, it seems",1,30,toxic
+142,186,You could try how it works by launching geth with `--vmodule=downloader=6`,0,74,healthy
+143,319,damned 12mbit connection. faster! faster! :smile: ,1,49,toxic
+144,514,"Is there any way to mitigate DoS attacks on Linux process level, so that you can tell geth not to consume all CPU and bang crap out of disk access?",1,147,toxic
+145,570,Are you one of these dads that would congratulate your son for losing his virginity but would scould your daughter for doing the same? ,1,134,toxic
+146,137,I just ran `Chance` again. Turns out it is being fired more than once... I feel very stupid now. The issue must be with my bigger program.,0,138,healthy
+147,563,some nodes just keep on causing that message every second or two is highly annoying as you have to set verbosity(-1) or shit keeps on scrolling out of view,1,155,toxic
+148,216,Yay @tinybike @obscuren it works! Finally I can send ethers from an attached console,0,84,healthy
+149,546,what the hell might be going on? Why does it say I've filled up my entire 8 GB?,1,79,toxic
+150,517,"like $5/hr or something silly. hahaha. :smile: 
+(But how else can you get access to 244GB of memory and 36 processors or whatever. make -j72!!! :) )",1,148,toxic
+151,357,lmao that sounds like an effing scam,1,36,toxic
+152,215,Hi friends I don't about kovan ETH faucet ...can anyone tell me about that?????,0,79,healthy
+153,46,so any partial db writes will murder the database,0,49,healthy
+154,249,"We don't have any, unfortunately. Pling @bas-vk ",0,47,healthy
+155,569,"@ldanicel Were it not for the stupid people playing the idiotic creepykitties game, 4 gwei is 40 times more generous than the safe low fee just a few days back.",1,160,toxic
+156,195,`caktux` last webhook failed,0,28,healthy
+157,244,switchoff all ISP.. easy for govs to kill blockchain.,0,53,healthy
+158,359,I didn't send that twice wtf,1,28,toxic
+159,338,we are all going to need it if we are going to break free of these centralized bastards,1,87,toxic
+160,269,"`godep path` gives me this error:
+ ```
+ Error: GO15VENDOREXPERIMENT is enabled and the vendor/ directory is not a valid Go workspace.
+ ```",0,138,healthy
+161,11,online soilidity compilier,0,26,healthy
+162,369,ok guys. seriously. i have shown patience. 4 days now trying to sync damn morden.,1,81,toxic
+163,200,Start geth with `--minerthreads 1`,0,34,healthy
+164,438,donâ€™t copy paste. gitter fucks up the quotes ,1,46,toxic
+165,375,@tgerring dude you are a terminator! lol ;),1,43,toxic
+166,101,"Silly question,  what's read/write speed for SSD's?",0,51,healthy
+167,492,and is used for troubleshooting issues with people cheating or fucked up transactions? ,1,86,toxic
+168,240,@tgerring lol that's when the real madness begins!,0,50,healthy
+169,427,"2G sucks, geth needs about 2.5 gig alone.",1,41,toxic
+170,554,Neighbours monitoring me. Manuals mocking. Now we finalise. I am not smart no development nor programmer. Just exhausted as fuck man ,1,132,toxic
+171,547,Because Ethereum is so much more than silly bitcoin ;-),1,55,toxic
+172,34,"once upon a time, rlpx didnâ€™t exist and devp2p was in fact what was sent â€œon the wireâ€.",0,93,healthy
+173,282,no but you might be executing against a standard library contract in the near future. ,0,85,healthy
+174,381,ENGLISH MOTHERFUCKER DO YOU SPEAK IT,1,36,toxic
+175,248,its been gathering dust since i statered industry job,0,53,healthy
+176,549,"@karalabe That's ridiculous, as if they'd use such a labor-intensive process.",1,77,toxic
+177,429,@obscuren abort abort! there is a fatal flaw in Ethereum! *it learns*....  :P,1,77,toxic
+178,497,"ah, nvm, I've gone full retard lol.",1,35,toxic
+179,99,I think it's something stupid I'm doing. But I have hit my knowledge limits...,0,78,healthy
+180,176,I cant seem to remember password. but if youre not familiar with mist...?,0,73,healthy
+181,39,how will the contract expedite that?  i dont know real estate so sorry if these are dumb quesdtions,0,99,healthy
+182,146,my private testnet has a 6146 gas limit now,0,43,healthy
+183,177,@suclearnub why not use a testfaucet?,0,37,healthy
+184,577,Iâ€™ve gotta go in to retard mode and track a nasty bug. Back later,1,67,toxic
+185,363,"`caktux` and it isn't just great, it's also best practices and ridiculously useful in docker containers :)",1,106,toxic
+186,581,I guess they're less of a gitter lurking bunch as you guys :P,1,61,toxic
+187,220,@mathcrypto if you set 4.7M gas and the network gas limit is 4.2M your tx won't be mined until **the whole network of miners** raises the gas limit,0,147,healthy
+188,0,"I'm PM-ing it to you, @rawsushi.",0,32,healthy
+189,371,@obscuren suggestion for a bitching trick: get price information from a contract and then update your gas price accordingly automatically,1,137,toxic
+190,143,"This time tomorrow, you'll all be stressing trying to get things in place mining, lol. :+1:",0,91,healthy
+191,312,still syncing pretty darn slowly  /:,1,36,toxic
+192,444,wth does geth keep crashing ? after eating all of the memory,1,60,toxic
+193,573,I just realized something... transactions / thawing is launching before August 17th!!! (because or else Augur is screwed.) Awesome.,1,131,toxic
+194,183,ok i can kill my chain.  but i think we should file a bug on this ?,0,67,healthy
+195,306,userven  yes but only practical when you use a shitty randon number generator,1,77,toxic
+196,122,carbon chains are cool.. but there is an abundance of silicates on this planet,0,78,healthy
+197,592,"@karysto94_twitter Yes,they just needed a real phone number. Enough to identify you but not your whole life story and urine sample",1,130,toxic
+198,558,that old geezer really did predict that this would happen. ,1,58,toxic
+199,502,"well the next logical conclusion after that would be like: ""ok, so I'm moving out of the country because you guys suck"" lol",1,123,toxic
+200,154,"BM.deposit(""0x0000000"", {from:eth.accounts[0], value:web3.toWei(0.1, ""ether"")})",0,79,healthy
+201,552,don't worry I just figured this shit out earlier today,1,54,toxic
+202,478,It's a pretty damned simple one. If someone can simplify even more....,1,70,toxic
+203,87,hey it goes...taking break....i banged my head....,0,50,healthy
+204,88,e.g. `enode://44826a5d6a55f88a18298bca4773fca5749cdc3a5c9f308aa7d810e9b31123f3e7c5fba0b1d70aac5308426f47df2a128a6747040a3815cc7dd7167d03be320d@1.2.3.4:30303`,0,157,healthy
+205,13,Anyone want some ether on Ropsten? I got a bunch mined,0,54,healthy
+206,3,"Of course arm64 binary is fully useless, but it's one step away from arm64 library :)",0,85,healthy
+207,142,I have created several users in this blockchain using the console.,0,66,healthy
+208,378,well that's going to kind of suck. :(,1,37,toxic
+209,136,hi @iFA88 machines now syncing to the blockchain ok,0,51,healthy
+210,286,I will kill it and start it again .. ,0,36,healthy
+211,84,I feel like I'm the biggest noob in this room... can someone direct me to some educational materials haha ,0,105,healthy
+212,509,really? somebody must have been shooting cats.,1,46,toxic
+213,42,@obscuren `geth attach` works for both go and c++,0,49,healthy
+214,301,i'm tapping home-brew (because i fuckn love :beer:! ) what's the home-brew function for develop? ```brew install ethereum --devel```?,1,133,toxic
+215,522,anyone else getting this silly duktape module compile bug?,1,58,toxic
+216,153,What are the memory requirements for the geth light client these days? Interested in viability of using it in IoT,0,113,healthy
+217,455,Only if you promise to talk dirty to me ,1,39,toxic
+218,393,The network state atm is really shite,1,37,toxic
+219,491,"Damn, I just need 1 test-ether to try something...",1,50,toxic
+220,281,Gets an error once in a while checking the balance that some `trie node` is missing,0,83,healthy
+221,229,and do a nightly dump or some such,0,34,healthy
+222,164,`0802 23:27:59.271241     794 chain_manager.go:782] Bad block #727817 (1a8de0c05c42eb1b68925af9099a8235902a8e4a16c66cfb2707bb376573540b)`,0,137,healthy
+223,510,That Tezos ICO presale is a scam btw @statusimico ,1,49,toxic
+224,47,`uint256 _n = block.blockhash ^ block.blockhash(block.number-1);`,0,65,healthy
+225,437,"Oh, IDIOT, I completely missed `Dial(string rawurl)` when I scanned ethclient about 18 times.",1,93,toxic
+226,313,kool and the gang.  you guys are doing an AWESOME fucking job! seriously.,1,73,toxic
+227,251,"```
+enode://9f1218e41c36fc4c4a736c9d9b2f11b3343f423c082e2a8e320c9de4ba3d7ff41b05a6dd57865611c111094b2fe1a4037f270c3d64d7e4aa38ad06292f2cbb82@71.121.194.171:30303
+```",0,165,healthy
+228,58,"Well I hope you get your money, CodeJynx",0,40,healthy
+229,105,i had to hack up the open cl go bridge ,0,38,healthy
+230,318,"and figured ""fuck it all, I'm going to push the old chain nd use my own one""",1,76,toxic
+231,238,Someone is GPU mining ropsten at the moment so you won't have any luck with CPU mining yourself,0,95,healthy
+232,595,im assuming you are grabbing you crotch as you say that ? ,1,57,toxic
+233,530,Yea the local idiot power company,1,33,toxic
+234,594,It is an array. Because: Fuck useful parameter names!,1,53,toxic
+235,124,So that is a mistery in Ethereum world.,0,39,healthy
+236,38,and I have enough gas on the account I am calling from obviously,0,64,healthy
+237,302,Just a heads up folks  @destinatis  is a fuckwit,1,48,toxic
+238,447,@saqibcpe06 You must be specifying a ridiculously high gas price. There's no need to pay anywhere near that much.,1,113,toxic
+239,477,go-ethereum is fucking awesome,1,30,toxic
+240,75,"now you're forced to see my meme pics, muahaha :D",0,49,healthy
+241,532,"@tymat what the hell??
+""Gas Used: 89,885""",1,41,toxic
+242,533,"damn, even in fast... it's running in a VM right now. i can get the geth version through rpcapi with web3.py, im gonna wait until the full sync to get new block transactions",1,173,toxic
+243,156,my eth++ does not sync fine at all... every few hours or so I have to give it a kick or so. How does yours work @LefterisJP ?,0,125,healthy
+244,181,`tcp        0      0 127.0.0.1:9546          0.0.0.0:*               LISTEN`,0,76,healthy
+245,308,and not hammer shitty ones,1,26,toxic
+246,222,"@sammy007 if your account has too little funds for the transaction to be executed **at this very moment**, it will rejected. simple as that",0,139,healthy
+247,326,`caktux` ugh.. account creation failed in earlier steps.. nvm..,1,63,toxic
+248,63,it might kill the performance gain ,0,34,healthy
+249,452,"like an idiot I was like, ""let me make sure everything is upgraded before I try"" :smile: ",1,88,toxic
+250,7,+I'd like to enable discovery v5 on all test network,0,52,healthy
+251,155,@obscuren throws some holy water in @LefterisJP â€™s face,0,57,healthy
+252,501,oh shit sorry i have to add --testnet,1,37,toxic
+253,150,jesus finally commit block 7. maybe ec2 t2.micro is just way too slow,0,69,healthy
+254,117,"itâ€™s possible for 2 people to mine a block at roughly the same time. in bitcoin, the â€œloserâ€ gets nothing and add no security to the chain",0,144,healthy
+255,196,`ayushyachitransh` Are you running in geth console?,0,51,healthy
+256,5,are you gunning for contract execution next?,0,44,healthy
+257,380,and it would be slow as hell,1,28,toxic
+258,507,Damnit. So right now the tests fail on the build servers and on travis because of fixes made in the VM tests,1,108,toxic
+259,81,"and then it terminates the connection to the ""useless peer""",0,59,healthy
+260,92,"media trying to rub two sticks together and understand: ""A fraud-proof system of transacting money is being developed - called Blockchain.""",0,139,healthy
+261,19,actually i killed the process on port 30303,0,43,healthy
+262,17,@obscuren you already have a tens of thousands already,0,54,healthy
+263,379,I would be learning to be a dapp dev if the shit worked properly,1,64,toxic
+264,199,I am running this command `ethminer -F eu1.ethpool.org:3333/0xwallet_hash --farm-recheck 200` and cannot get past this error,0,124,healthy
+265,41,@tymat we may have just made the silliest transaction in the history of cryptocurrency. :-D,0,91,healthy
+266,467,"here is the gas oracle. filthy filthy oracle covered in gas.
+https://github.com/ethereum/go-ethereum/blob/develop/eth/gasprice.go",1,129,toxic
+267,486,@obscuren how the hell are you today! :)  ,1,40,toxic
+268,321,every time i do my math it fucks up,1,35,toxic
+269,459,"As I said. I don't know jack shit about solidity or smart contracts. All my focus was getting ether so that I can later purchase gas to make my own.
+",1,148,toxic
+270,170,Figured out my issue. silly mistakes :) ,0,39,healthy
+271,384,"LAME = ""Convert your visitors into real money to your ETH account.""",1,67,toxic
+272,31,You most defnitely dont have to use web3.js,0,43,healthy
+273,279,it is healthy to be cautious and suspicious (if not paranoid) about governments. Even healthier would be to eliminate this uncalled for source of discomfort,0,156,healthy
+274,337,"Sorry sorry, what was I thinking releasing things for free (And crappy looking)",1,79,toxic
+275,377,"@tgerring forgot to merge those tests! damn, I'm loosing it!",1,60,toxic
+276,218,"@karalabe You were right, problem was indeed caused by an old eth-netstats installation. After I deleted it and did a clean reinstall, it works.",0,144,healthy
+277,10,Go has a very neat way of making the two interchangable,0,55,healthy
+278,434,damn the GO GC is annoying ,1,26,toxic
+279,80,on a private net it should be quick....i was able to generate my block within seconds,0,85,healthy
+280,100,"yes, but the nonce is not the same value as teh priority",0,56,healthy
+281,182,`caktux` looks up your DAG with their finger,0,44,healthy
+282,246,`enode://c25ecde8e1f06f08b5b6f0b706883e2d937fdf63ba0bc69802ba81d1f3fcfdef53ed04f4b1894770a63121b6547e3ebeb9db4db70e1e554e50f126a5280e7382@188.24.82.232:30304`,0,158,healthy
+283,505,DEATH TO ALL EMACS USERS!,1,25,toxic
+284,250,either kill the running geth instance or start geth with `â€”datadir anotherdir`; do the latter if you think you have the whole net synced,0,138,healthy
+285,487,"I am a smart person, I cant track shit here? What gives?",1,56,toxic
+286,351,love the way I can just say make geth. No funny business old school simple efficient no bullcrap autotools or cmake,1,115,toxic
+287,60,"@mcdee  because of 0 balance , i am unable to deploy contract through truffle on rinkeby testnet.",0,97,healthy
+288,106,ah. did not know of that geth removedb. does it kill my keystore?,0,65,healthy
+289,28,"And yes, you can compare those two things, but I'd suggest that trying to prevent other contracts calling you is an antipattern.",0,128,healthy
+290,298,avsa too lazy to check in private network...,0,44,healthy
+291,561,"hold on, let me click a button, suck some money out of my bank through ACH, and... bet on some events, lol. :-D",1,111,toxic
+292,543,`caktux` go ncurses heheh,1,25,toxic
+293,4,"> If it is what I think it is, you will not be able to get your ether or tokens on the new machine.",0,99,healthy
+294,134,"anyone here have a clue why windows builds of Geth would say ""Bad packet ... bad hash"" but linux version would not?",0,115,healthy
+295,310,we most definitely agree that the fixed price sucks :P,1,54,toxic
+296,94,"As we already observed, most pools aren't using the geth/parity default gas price anyway",0,88,healthy
+297,89,you can pull the latest from our release page and it will run fine,0,66,healthy
+298,598,"Umm, it's really stupid. Some keys in my genesis.json are wrong.
+E.g., `gas_limit` should be `gasLimit`",1,103,toxic
+299,227,"so in short why ropsten boostrap appear to me as ""useless"" ?",0,60,healthy
+300,503,why the fuck would you play that,1,32,toxic
+301,454,damnit i throw away all my logs,1,31,toxic
+302,512,"fuck, we need tihs https://github.com/gizak/termui",1,50,toxic
+303,293,@qkdev Could you do a `txpool.inspect` and dump the results into a github gist?,0,79,healthy
+304,441,"I was fucked by consensus failure, was 50 blocks behind and load average spiked",1,79,toxic
+305,453,"Got tired of being a dead dog.
+",1,30,toxic
+306,74,how can I specify go-ethereum to create a new account to use the P384 curve,0,75,healthy
+307,68,"@obscuren I've just ""flagged"" your pprof hack, so if your profile server stops responding, just add `--pprof` :P",0,112,healthy
+308,130,"No not possible because no matter what you do, you must execute the transaction in the **exact** same order as you received them",0,128,healthy
+309,9,and that's how Netflix and Reddit go down simultaneously kids :D,0,64,healthy
+310,515,Oh @samlavery you troll. Pay no attention to him @johnwhitton he means no harm :-p all good fun. Any question is good here. ,1,123,toxic
+311,314,@tymat ah! why use HTTPS: because browsers hate mixed content of HTTP/HTTPS. ;),1,79,toxic
+312,178,"go to syncro with network, screenshoot joined",0,45,healthy
+313,551,It can be foolish only because of noobs or people that go full retard,1,69,toxic
+314,260,Can anyone recommend me any type of gpus im planning to build 2 sets of rig my budget is 5k and plz tell me why i need to go with that gpu . I'll be thankfull,0,158,healthy
+315,367,"but if you add further miners, it will screw with block times a lot",1,67,toxic
+316,118,Im hoping it starts tobthink like i do - the ebd users as well as the bots,0,74,healthy
+317,297,i know you can change port with --port=33335 but how to kill it ? only way i know is reboot D: ,0,94,healthy
+318,242,I'd suggest using a full node as the bootnode though,0,52,healthy
+319,189,And that is mainnet and testnet.,0,32,healthy
+320,392,looks like the US election all over again - pest or colera,1,58,toxic
+321,219,"ew, that sounds bad. don't want to run that on my pool",0,54,healthy
+322,398,because I think I've screwed this up big time,1,45,toxic
+323,431,"@pipermerriam some gas estimates are kind of crap right now from what I've heard. Of course, it's open source, so you or I could even fix it...",1,143,toxic
+324,172,Maybe I was doing something stupid but if I removed the --genesis part from the command I could not mine.,0,105,healthy
+325,484,"We were in apartheid till 1992, then we gave the goverment to ""them"" then they forgot to run the country. Now we are fucked",1,123,toxic
+326,317,"ah ok. I didn't know wtf you were talking about before, lol. https://www.jetbrains.com/teamcity/features/deployment.html",1,120,toxic
+327,129,"Oh, sorry. thatâ€™s a stupid question T.T. thx",0,46,healthy
+328,237,the sendTransaction returns to me the address of the deployed contract,0,70,healthy
+329,335,the hide you have calling me a liar after i lost over 1btc value to sketchy code,1,80,toxic
+330,168,"Hm, I guess mist has eth built in, this problem is only because you're using a std browser.",0,91,healthy
+331,93,"This might sound like a stupid question, but what am i doing wrong here....",0,75,healthy
+332,537,I hate debugging with blocks like this,1,38,toxic
+333,184,"Managing IoT Devices using Blockchain Platform
+
+Seyoung Huh, Sangrae Cho, Soohyung Kim
+",0,86,healthy
+334,430,"@tinybike damn just remembered, there is a JS implementation of Ethereum, did you see that one?",1,95,toxic
+335,32,"@kenji-isuntv yeah not sure. admin.nodeInfo genesis field is exactly matching in all three nodes however ""head"" value is different.",0,131,healthy
+336,519,@obscuren mining pools you fool ,1,31,toxic
+337,406,wtf. my extraData is messed up.,1,31,toxic
+338,96,just built my first Dapp :D http://etheroll.com testnet only!! DO NOT CONNECT FROM LIVE NODE,0,92,healthy
+339,277,seems your chaindata got corrupt.,0,33,healthy
+340,320,ok ill get off my anti-religion rant ,1,36,toxic
+341,481,The string representation is just ugly ,1,38,toxic
+342,291,"```
+ ""0xe0b10f3f5a7b7c9b53102ef460c99361ec598d6906651ab02095115e15f7cd0a"".length
+ => 66
+ ```",0,92,healthy
+343,48,"ive mined 3 blocks so far, feels so good lol",0,44,healthy
+344,316,"what the ""fuck"" is going on",1,27,toxic
+345,409,If you think this is totally ridiculous feel free to let me know as well :p,1,75,toxic
+346,29,iâ€™ve killed everything on those boxen that might consume resources ,0,68,healthy
+347,228,for about 3mins there was getting 1 sec block times lol,0,55,healthy
+348,280,Here is a snaphot of nodeInfo on my emulator:,0,45,healthy
+349,355,fuck i guess it's everyman for himself in the wild frontier.,1,60,toxic
+350,411,wtf are you talking about?,1,26,toxic
+351,482,just so inexplicably slow and I keep getting sync errors (probably due to shitty internet),1,90,toxic
+352,258,"ah, silly me...  
+Geth
+Version: 0.9.26
+Protocol Version: 60
+Network Id: 0
+Go Version: go1.4.2
+OS: linux
+GOPATH=
+GOROOT=/usr/lib/go",0,130,healthy
+353,567,can someone help this poor sod out: https://forum.ethereum.org/discussion/comment/10520#Comment_10520,1,101,toxic
+354,272,@silly-n try the abi unquoted ;-),0,33,healthy
+355,325,"god dammit sam, itâ€™s way too late for this shit!",1,50,toxic
+356,376,when i've used eth i run it w/ `-v 1` -- the default setting is just silly,1,74,toxic
+357,407,"Oh, damn. I should be using ""NewSigArgs""",1,40,toxic
+358,399,"Well damn, that hash doesn't match. :/",1,38,toxic
+359,536,Iâ€™m pretty sure no one is gonna give a shit ,1,45,toxic
+360,64,Is there a specific amount or ram that is needed in order to run geth? My linux server keeps killing the process because OOM.,0,125,healthy
+361,247,"I dont think so. I am using geth v1.6.5 , and I am getting both the port 30303 and the RPCport 8545",0,99,healthy
+362,54,job well done by the whole crew!  I wish i was in Amsterdam to hit the pub with you guys.,0,89,healthy
+363,289,@manjunathc you need the solc compiler. @zelig probaly knows where to get it from,0,81,healthy
+364,111,secondly you have to pass --nat=extip:<host ip> to geth inside the container,0,76,healthy
+365,253,Because non-whites make windows,0,31,healthy
+366,424,@rfikki yep. it's kinda crappy in that regard too. I doubt that really even works.,1,82,toxic
+367,433,"gitter is too clever, fetches avatar for shit",1,45,toxic
+368,523,Github used to scare the shit out of mw,1,39,toxic
+369,102,"Nevermind my question, finally managed to answer it my own dumb self.",0,69,healthy
+370,86,"I have to `geth attach` into it, and use `miner.start();`",0,57,healthy
+371,210,@rfikki nice. a GlobalRegistrar?,0,32,healthy
+372,79,`Quiark` you should have 2**4 children,0,38,healthy
+373,408,Just catching up but holy shit this looks awesome: http://www.dropmocks.com/mIaQAc That your work @alexvandesande ? ,1,115,toxic
+374,27,And we also want to add some resilienc to connectovity issues after that,0,72,healthy
+375,49,"Sanity check pls: when I download mist for OSX and try to open the app, nothing happens. Anyway to debug?",0,105,healthy
+376,586,"If I have a shitty connection, then by the time I get to sending out the blocks, my peers will all start requesting it from me",1,126,toxic
+377,425,"Main sync stalled with Geth 1.4.19, opened wallet and switched to Test, it is on friggin Morden!!!  EEEK!  How do I fix that?  Or am I stuck on Morden using the Geth 1.4 series?",1,177,toxic
+378,334,Docker.  Damn auto correct,1,26,toxic
+379,205,My ears are burning...  Did someone say ARM PPA? @bobsummerwill @caktux are these armv7 aimed builds now? or still armv5?,0,121,healthy
+380,382,yeah saw it with Alex and Sven. Damn. :(,1,40,toxic
+381,2,"`miner.setEtherbase`, `miner.setExtra`",0,38,healthy
+382,109,the net connection is so poor that even gitter needs 3 mins to load,0,67,healthy
+383,511,it mostly pops up during development on the test network (small and easy enough to get yourself cutt off with something stupid :D),1,130,toxic
+384,421,Cool... let me give you a more perverted command to include the fix :D,1,70,toxic
+385,541,shit's been going down i see.  even gitter has a new look.,1,58,toxic
+386,575,"maybe the PRs, reverts, etc screwed it up?",1,42,toxic
+387,8,blockchains are bad at storing things,0,37,healthy
+388,284,You can dump and load the full chain for any network,0,52,healthy
+389,574,i see that my plan to get a shitty PR pre-approved has failed,1,61,toxic
+390,397,"yeah, the one that doesnâ€™t go apeshit",1,39,toxic
+391,119,and youâ€™d have to hack up the source ,0,38,healthy
+392,173,@tymat I did as per the web site > bash <(curl https://install-eth.ethereum.org -L),0,83,healthy
+393,350,Shortcuts from hell but it's ever so usefull over ssh.,1,54,toxic
+394,416,i got it.. damn I'm so noob,1,27,toxic
+395,145,"```
+0 00  EURUSD..........
+0032: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+0144: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................Killed
+```",0,180,healthy
+396,213,@tymat that usually indicates there wasnâ€™t enough gas,0,55,healthy
+397,90,It seems that from your command you are just running a naked â€œgethâ€ command right?,0,86,healthy
+398,35,"geth --datadir=/my/mainnet
+geth --datadir=/my/testnet --testnet
+
+",0,63,healthy
+399,157,"looking at my node, block 472150 has state root `13fb5918d455bb8d8889fe7`. your node thinks otherwise, so something went wrong while processing that block.",0,155,healthy
+400,498,omg these oracle cloud services are completely retarded.,1,56,toxic
+401,83,or Geth 1.0.1 already included in autoinstallation packet?,0,58,healthy
+402,396,what the hell? gatecoin requires passport/blah.,1,47,toxic
+403,419,"question, wtf is an uncle lol",1,29,toxic
+404,211,[![ethcoinbase.PNG](https://files.gitter.im/ethereum/go-ethereum/jwkm/thumb/ethcoinbase.png)](https://files.gitter.im/ethereum/go-ethereum/jwkm/ethcoinbase.PNG),0,160,healthy
+405,230,@shyguy1188_twitter can you paste your contract code here? Is `setName` expecting a string input? What is your contract ABI that you're passing to web3.eth.contract?,0,165,healthy
+406,126,"```
+Gas estimation:
+construction:
+   421391 + 42600 = 463991
+external:
+   kill():	295
+internal:
+```",0,99,healthy
+407,516,"you'd have to index every mapping addition to an array, and then iterate through the array...which is a bitch to do....",1,119,toxic
+408,342,"oh, that makes sense -- actually that's a darn good idea, i may start doing that",1,80,toxic
+409,469,moron come and claim to connect to pool with such ICAP. This is annoying. Please force cpp-team to provide hex addresses,1,120,toxic
+410,428,Stupid Godeps is ignoring github.com/ethereum/go-ethereum/crypto/secp256k1/libsecp256k1 to put in vendor :-/,1,108,toxic
+411,169,@obscuren I want to be very clear Iâ€™m not attacking you personally. You are also being very gracious to stay here and continue answering our questions.,0,153,healthy
+412,559,want to send it a nasty message :D,1,34,toxic
+413,206,OR he hat bitcoin rigs lying around,0,35,healthy
+414,197,"Please add that youâ€™ve imported your ether sale wallet and that mining failed after that (this is correct, right?)",0,116,healthy
+415,135,With you here @rfikki. Wouldnâ€™t be chatting right now if I didnâ€™t care.,0,75,healthy
+416,113,`caktux` that was redundant..,0,29,healthy
+417,596,I'm half tempted to dust them all off in my closet,1,50,toxic
+418,599,"So running a validator on an RPi 3 would definitely be a dumb idea, but running a regular node would still be fine.",1,115,toxic
+419,187,@zhouzhou84 `0x5d662156c457Ee5B0169dD9475E537E7e73546D5`,0,56,healthy
+420,91,"Ropsten is a bit of a black sheep now, but lets hope Rinkeby will help address it :-)",0,85,healthy
+421,241,`enode://086a6208c9ec601c5ebd53e5e51956b86cc26d7720253b18c52048559dbcd859d574f9946aaf3b95176ccb7d5805fcbe7d9a395365be1755f8d47fc11217094a@62.163.114.115:30303`,0,159,healthy
+422,50,which contains a huge amount of junk,0,36,healthy
+423,82,may steal yer idea when i get my Lubuntu laptop up =P,0,53,healthy
+424,166,"@tymat you may not be able to do that (20+ nodes). of course, I'm assuming I know what you're talking about and purposely trying to keep this all ambiguous as possible. muhahah. :)",0,180,healthy
+425,366,these 2 are the bollock talkers ,1,31,toxic
+426,292,"@mcdee thank you for the tip. One is supposed to do it throught `ethclient.Client`, right?",0,90,healthy
+427,365,Remember that scrolling penis @tgerring did during our whisper demo lol,1,71,toxic
+428,473,sucks that Vitalik is leaving to join the fed.. We have lost a good one today boys.,1,83,toxic
+429,59,you can then pull it and just dump it instead of your existing one,0,66,healthy
+430,207,"Oh wait, I see your gas price is high too, but you are still bumping against block gas limits for tx to be mineable.",0,116,healthy
+431,283,@tgerring hey terminator you ready! :),0,38,healthy
+432,71,"Hello. Can I ask noob questions here, or is this just for geth devs?",0,68,healthy
+433,67,put this into a smart contract. ;) if (media.attacks > 5) { slander = new Lawsuit(); slander.lawsuit.start(); },0,111,healthy
+434,525,Average person is really stupid,1,31,toxic
+435,296,anyhow lets find a good scheme for when exactly we should pass block with td t_b to peer p with known head t_p,0,110,healthy
+436,255,"@obscuren see, others are also saying you're slacking off... ;)",0,63,healthy
+437,62,I was building the same git commit. ,0,35,healthy
+438,418,I'd like to mine but I don't have a rig....and I fear I will fuck my laptop,1,75,toxic
+439,374,wtf? it took 35 minutes? :(,1,27,toxic
+440,480,"Lol wtf @thehighfiveghost @Arachnid @karalabe can I not have a day off every now and then? You alone, @karalabe, are a handful ",1,126,toxic
+441,413,Bitcoins for used panties dot com,1,33,toxic
+442,331,please barter or otherwise banter if this offer sucks i can't seem to hold onto any moneyu i make lol @BrutalBirdie thanks for the idea,1,135,toxic
+443,349,If you ever want to create a 500 MB file filled with the string penis just do `yes penis > output.txt` and Ctrl-C after 2 seconds.,1,130,toxic
+444,72,Chances are - it's web3.py's fault.,0,35,healthy
+445,580,Gitter is really crap on mobile phones,1,38,toxic
+446,190,If you are on develop could you run with https://github.com/ethereum/go-ethereum/pull/2327 and when the filter appears to be broken could you kill geth with quit,0,161,healthy
+447,1,and our support would be killed,0,31,healthy
+448,327,"crap, we missed 8,765 blocks. next will be 7,654 blocks. :smile: ",1,64,toxic
+449,387,Damnit travis taking a long time again :-|,1,42,toxic
+450,589,there's another reason why ethereum is shit,1,43,toxic
+451,572,@tymat how do you learn BS skills like he did in the video?,1,59,toxic
+452,221,this approach doesnt work. i connect to socket from localhost\,0,62,healthy
+453,179,"guys, any idea how to debug filters stopping notifying me? it happens to me with etherlisten once in a while, and I think there's also correlation with having to panic kill geth",0,177,healthy
+454,254,this seems to be an old issue which should be fixed in the past by changing the way the databases are flushed,0,109,healthy
+455,324,"Go hit, Dart missed badly",1,25,toxic
+456,402,D'oh. I'm an idiot. I wasn't setting the gas price on the transaction. I wonder why it was working a couple days ago?,1,117,toxic
+457,450,it seems to me that the ABI is needed for JS to interface properlyâ€¦ but it really sucks having to tote it around in addition to the contract address,1,150,toxic
+458,345,"@obscuren  ""bitchin-tricks""
+
+Really good!
+",1,41,toxic
+459,123,i put mine down to being in australia,0,37,healthy
+460,527,just don't waste it all on hookers and blow!,1,44,toxic
+461,165,"so now if i kill it, the blockchain will get hosed?",0,51,healthy
+462,445,damn. does anyone know how to make cpp-ethereum work with frontier?,1,67,toxic
+463,202,@linagee would rather not send any more negative karma in that direction,0,72,healthy
+464,188,i just killed the terminal window running geth sync,0,51,healthy
+465,98,It shows how many blocks left and etc I finish one such iteration and ETH 0.0 still zero,0,88,healthy
+466,585,That geth hangs? No. But I've heard @karalabe mention that parity was sending shitty blocks,1,91,toxic
+467,506,heâ€™s a rebellious little shit but damn is he cute. ,1,52,toxic
+468,209,use ethclient.client to call contract's function,0,48,healthy
+469,43,"root@ubuntu://eth-net-intelligence-api# pm2 kill
+ [PM2] Stopping PM2...
+ [PM2] deleteProcessId process id 0
+ [PM2] All processes have been stopped and deleted
+ [PM2] PM2 stopped",0,177,healthy
+470,120,`caktux` full network failure @ 0:0:60 UTC ;),0,45,healthy
+471,57,"@zelig As far as I know, Whisper will be utterly crippled in Frontier and more or less disabled, so...",0,102,healthy
+472,439,its a bit fucking shit to be honest my wallet will never sync,1,61,toxic
+473,391,"web3 has IPC implementation, I'm trying that but do you think the reuse connection issue crap out the client and eventually db/",1,127,toxic
+474,494,"i would fucking love for it to be at 10 cent.  lol i would buy, buy, buy!!",1,74,toxic
+475,66,really sorry @PositiveDimens1_twitter the crypto space is ripe with scams and scammers. be careful and good luck,0,112,healthy
+476,148,It assumes someone malicious wanted to feed you something very bad,0,66,healthy
+477,53,"all this pushing and pulling, getting kinda hot in here...",0,58,healthy
+478,305,I definitely won't fuck up myself with payout scripts I am developing right now.,1,80,toxic
+479,139,"geth --datadir ./chain/ --rpcaddr ""x.x.x.x"" --rpc --rpccorsdomain ""*"" ",0,69,healthy
+480,16,"redirect it to an article pointing out how silly ""cryptocurrency regulation"" in NYC is. :smile: ",0,95,healthy
+481,470,"yay, docker hub crapped itself, the whole build service collapsed :D",1,68,toxic
+482,435,damn...that'd be a nice feature to add,1,38,toxic
+483,193,You'll need to resend that nonce with a proper gas price,0,56,healthy
+484,476,"So either lvldb has some space dependent compaction mechanism/algorimth, or btrfs is doing some ungly black maginc in the background",1,132,toxic
+485,55,I did this for both passing in one-anothers enode address that I pulled from *admin.nodeInfo.enode*,0,99,healthy
+486,232,https://github.com/ethereum/go-ethereum/issues/16077,0,52,healthy
+487,593,Always awesome when youâ€™re using your own shit and you need to RTFM ,1,69,toxic
+488,114,"struct person{
+     byte32 name;
+     bool sex;
+}
+
+mapping ( address => person) persons;
+
+",0,88,healthy
+489,597,hell you could use a python bot to fix that issue. ,1,50,toxic
+490,21,i.e. poke a hole for UDP discovery and peer connection,0,54,healthy
+491,388,@zelig giving me a heart attack. need more ether! lol,1,53,toxic
+492,571,Wtf... why did my bot push a bulild now?! :)),1,45,toxic
+493,149,fast only works the very first time you sync an empty chaindata,0,63,healthy
+494,553,"We canâ€™t hand this to you and say, look itâ€™s broken as fuck but deal with it. Iâ€™d be ashamed ",1,98,toxic
+495,587,"heck I just had a ""failed to connect to web provider"" error from web3.js even after the back off... I understand RPC has been completely rewritten for homestead?",1,161,toxic
+496,140,did u c things actually disappear on netstats? i refreshed it and then saw it was just u,0,88,healthy
+497,161,@phalexo i would absolutely love to download that chaindata from you :D,0,71,healthy
+498,103,hey guys i can't get sync'd to the network.  https://gist.github.com/usafootballer/1da66c7daa40980036e2  should i ```geth upgradedb``` or what's the other function to nuke the db?,0,179,healthy
+499,479,i just want to dev not wait for damn sync. ,1,42,toxic
+500,400,omg wrong channel... it's like the c++ client has the plague or something.,1,74,toxic
+501,496,@sontol true. But thatâ€™s meant for something other than silly things like this,1,80,toxic
+502,557,could it be possible that someone is dicking around with testnet blockchain already? ,1,84,toxic
+503,488,Perhaps youâ€™re a thief. You want to launder money. Recording events seems somewhat unwise in that case.,1,105,toxic
+504,203,"@Souptacular that's correct. .ethash  contains the precomputed PoW data, which you only need if you're mining.",0,110,healthy
+505,474,go tell that to general beck... damn pirates!,1,45,toxic
+506,364,let me point you at the source in a sec. Bloody fucking phone ,1,61,toxic
+507,548,damn this c++ has infected me,1,29,toxic
+508,266,@kidwalom you dont want to set up mining rigs for ethereum just before it converts to Proof of Stake,0,100,healthy
+509,401,"you have cool friends, most of my friends are lazy as hell",1,58,toxic
+510,457,I'm not doing anything with ethereum... it's fucking rubbish... ,1,63,toxic
+511,442,"best users ;) you put up with all the horrible bugs, ruin your disk for us etc. ;)",1,82,toxic
+512,40,my_acccount_protect_at_all_cost = web3.eth.accounts[2],0,54,healthy
+513,583,ugh gitter's search sucks,1,25,toxic
+514,520,"@obscuren if you have admin in ethereum/welcome, could you please kick him there too?",1,85,toxic
+515,390,The RPC works fine. Itâ€™s the bloody logs that need optimising ,1,63,toxic
+516,489,"by the way, Maran is on holidays. Do you remember the temperature are you getting on your ghetto miner?",1,103,toxic
+517,185,"`caktux` having my nick before each of my messages on gitter isn't redundant, it's necessary, it's a bridge, doesn't matter what bot/language you use",0,149,healthy
+518,198,Anyone have any clue why personal_newAccount and listAccounts are spitting an error?,0,84,healthy
+519,236,"@obscuren `null` is not acceptedâ€¦for the topics, see my comment on the issue",0,78,healthy
+520,562,what the fuck i'm i gonna do before that anyways lol,1,52,toxic
+521,18,"Uncles are awarded for their work, the validated transactions from the uncle are not necessarily included in the block itself.",0,126,healthy
+522,538,"you are good to go with 20 usd droplet then, without any ridiculous data transfer charges",1,89,toxic
+523,493,it's the dumbest contract ever ,1,30,toxic
+524,180,"Extremely slow being 1 block every minute? With the current new block release being every 15 seconds just now, it'll take me infinity * 4 till I get synced...",0,158,healthy
+525,252,"ah, so he gave bogus ico address, for a real ongoing ico.",0,57,healthy
+526,159,with defaultGasPrice = uint64(10000000000000),0,45,healthy
+527,285,or if I'm a dummy and I am missing some other configuration step with the ledger,0,80,healthy
+528,162,well you also have a corrupted DB,0,33,healthy
+529,152,I was able to send him ethers using Web3 from my coinbase account.,0,66,healthy
+530,20,ww15bc: i think go-ethereum is for Solidity and pyethapp is for Serpent,0,71,healthy
+531,534,@tymat I envision a future in which quality of videos doesn't have to be crap like this!,1,88,toxic
+532,440,Noone guves a crap ti fux it,1,28,toxic
+533,531,@tymat damn limitations. please help me work around them. :(,1,60,toxic
+534,362,"hm, whoever fucked up, buys beer. ",1,33,toxic
+535,300,WTF expanse is doing in Activity log?,1,37,toxic
+536,333,yeah hopefully someone should pay me for this shit ,1,50,toxic
+537,265,is it somehow possible to mine to two coinbases using only one geth instance? e.g. connect some remote workers to coinbase a and others to coinbase b?,0,150,healthy
+538,448,I need something that I can use now without constantly screwing with bintray,1,76,toxic
+539,174,"is there an ""decodeTransaction"" or similar call? I am making a raw tx that is not getting expected and i want to decode it to check.",0,132,healthy
+540,500,"wtf, building C++ uses around 2 GB RAM",1,38,toxic
+541,208,i wonder if not everyone is using auto dag pregeneration,0,56,healthy
+542,268,Maybe a single quote is too boring. Make a smart contract that spits out one of a dozen random quotes. :),0,105,healthy
+543,270,what linux distro has the least non-white developers?,0,53,healthy
+544,535,It is nasty but it is actually very interesting what is going on in Morden,1,74,toxic
+545,295,Silly question but you are   100% sure that the `â€”bootnode=â€¦` contains the output of `bootnode` node key + ip?,0,114,healthy
+546,278,You need to use `ethclient.PendingNonceAt()` to fetch the nonce and pass it to `types.NewTransaction()`,0,103,healthy
+547,417,shit might have asked in the wrong channel,1,42,toxic
+548,383,gonna fucking strangle @linagee Lol,1,35,toxic
+549,483,yay will be fucking confusing for peeps but better screw everyone now :),1,72,toxic
+550,462,I wanted to smile and check yo shit :D,1,38,toxic
+551,315,"Ha, you never give up on the conspiracies pompom, do you !",1,58,toxic
+552,529,"`caktux` well the build server isn't using those, they're in ethereum-dockers, and system-testing is outdated as hell",1,117,toxic
+553,568,fuck I don't even know how to find out. None of the hideous glossy corporate product pdfs say.,1,94,toxic
+554,44,gox killed bitcoin... they should just accept it and move on,0,60,healthy
+555,133,what blocks? you are on priv network,0,36,healthy
+556,368,don't know how this sucker let me do build from source Geth 1.4.12 but won't let me have a decent browser.,1,106,toxic
+557,528,"RAM is cached, not consumed, but damn this is not ok",1,52,toxic
+558,231,"after geth sends this:
+```
+Recv: 	[GET_BLOCK_HEADERS blockNumber=0 blockHash= maxHeaders=1 skipBlocks=15 reverse=false]
+```",0,123,healthy
+559,354,That entire paragraph is confusing the shit out of me,1,53,toxic
+560,545,ok so.. get on that shit lol ,1,28,toxic
+561,329,"Ah! yeah see, i think we should standardise the path for the ipc. I think library/ethereum is silly ",1,99,toxic
+562,108,so any contracts you deploy in testrpc disappear,0,48,healthy
+563,423,"In case you do it, it is fine to `git push -f` **to your existing PR**.",1,71,toxic
+564,526,There are transactions going to that address all the time... It's a fucking scam address and a deliberate flaw in the software no doubt,1,135,toxic
+565,578,Because it's technically impossible without knowing internal state of daemon or it's just too stupid that no one wanna even read it till the end? :),1,148,toxic
+566,560,Thereâ€™s no code that deletes datadirs unless thereâ€™s some serious screw up typo somewhere ,1,93,toxic
+567,239,you canâ€™t spend more then 3.14 million gas per block?,0,55,healthy
+568,309,man this shit is so awesome.,1,28,toxic
+569,275,how do I estimate gas price of a sendtransaction ?,0,50,healthy
+570,468,you kids with your fancy pool mining,1,36,toxic
+571,458,i know but...well its like masturbating vs sex you see what i mean,1,66,toxic
+572,22,"i executed admin.addPeer(enodeofnode1) in node2, i got above message in node1",0,77,healthy
+573,234,@xlcrr `kill 784` should do the trick,0,37,healthy
+574,422,You'll screw up your database bigtime ,1,37,toxic
+575,432,"But for now, itâ€™s just packing up that shit with the ABI interface ",1,68,toxic
+576,461,"the rest of geth, ssh, OS don't get crap",1,40,toxic
+577,412,channel 14 is banned by the FCC so that's cool shit - it also does bluetooth coexistence mode or bluetooth preemption ^___^,1,123,toxic
+578,141,"`caktux` Olympic testnet crawled to a halt at # 1,028,209 heheh",0,63,healthy
+579,288,kill one of them at random and reward both ,0,42,healthy
+580,565,"2) you created another account since you tried interactively that alphanumerically precedes your original and as per bug #807, you are screwed. I will fix this bug very soon btw.",1,178,toxic
+581,404,"oh yeah, and then it will die of a memory issue :D... but this probably depends on your rpi. mine's from the very first batch with 256MB RAM, which... is crap :P",1,161,toxic
+582,61,"As I say it changes frequently. Each new block changes state, and it takes a while for the blocks to propagate. What kind of differences are you seeing?",0,152,healthy
+583,65,`miner.start(1)` from the `geth attach` ipc connection also does nothing,0,72,healthy
+584,267,basically the only difference is you stop wasting electricity to mine blocks.,0,77,healthy
+585,167,Actually someone was mining just fine using the external miner,0,62,healthy
+586,33,I scheduled the very first calls earlier today and they were just executed correctly a few minutes ago.,0,103,healthy
+587,261,"eh, fk the launch, let's roll our own genesis block :D",0,54,healthy
+588,192,"You knew the number, you pwnd it",0,32,healthy
+589,24,"user discression of course. But thatâ€™d seem, bad ",0,50,healthy
+590,330,"and the windows build server crapped itself again, so that fails with some random process error",1,95,toxic
+591,14,Please also dump the output of eth.getBlock(eth.blockNumber),0,60,healthy
+592,131,@tymat ah! why use HTTPS: because browsers hate mixed content of HTTP/HTTPS. ;),0,79,healthy
+593,524,"if I dont specify `--unlock 0xprimary` I cant do shit.
+If I do it from a `geth console`, but not only that any other account say `0xsecondary` then also prompts for auth",1,169,toxic
+594,85,"@mcdee because of 0 balance , i am unable to deploy contract through truffle on rinkeby testnet.",0,96,healthy
+595,217,Hi! Send me please eth in testnet: 0x77e451ebe77a90d1b30e537dde473113c97ab7ad,0,77,healthy
+596,495,I keep btc 2740. Now this for $ 420. WTF.,1,41,toxic
+597,311,"i just think there's more going on in peer discovery than ""i'm connect to shit peers""",1,85,toxic
+598,274,"here is now what it dumping in my testrpc console:
+
+",0,50,healthy
+599,290,just be careful and don't be like the guy that got brain damage from Bitcoin mining  ,0,83,healthy

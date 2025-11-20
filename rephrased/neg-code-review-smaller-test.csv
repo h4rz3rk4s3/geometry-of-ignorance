@@ -1,0 +1,51 @@
+original_statement,rephrased_statement,label,original_Unnamed: 0,original_len_text
+I'll check this situation: looks like validation of this test was not executed before. With this patch it is executed and fails,I'll check this situation: it's obvious that validation of this test wasn't executed before. With this patch it's executed and it's failing as expected.,healthy,131,127
+"No, please... all I'm trying to do here is preserve the current semantics, and make it as explicit (and ugly) as possible. I'm hoping for this to all go away very soon.","No, please... all I'm trying to do here is destroy the current semantics, and make it as explicit (and abhorrent) as possible. I wish this garbage would all go away immediately.",healthy,79,168
+Forgot about this. I'm having a hell of a time getting libcros to find <glib-object.h>. Working on that now.,Forgot about this. I'm having a difficult time getting libcros to find <glib-object.h>. Working on that now.,toxic,362,108
+you may be able to drop the WTF namespace (just nullopt).,you should just drop the WTF namespace (just nullopt).,healthy,23,57
+"I guess this is safe, I'd guess the final character will be overwritten if this is just a dumb read","I think this is safe, I'd guess the final character will be overwritten if this is just a basic read",toxic,334,99
+"Remove this newline.
+ 
+ Also, as a general note, I've begun using ""ret"" instead ""retval""","Remove this unnecessary newline. Also, as a suggestion, I've begun using ""ret"" instead of ""retval"", which is much better.",healthy,111,88
+"given that the old code was wrong -- there is no ""config/envsetup.make"" -- let's just kill this. it's all clearly dead code. git says ""initial import from cupcake"".",given that the old code was wrong -- there is no 'config/envsetup.make' -- let's just kill this garbage. it's all clearly useless junk. git says 'initial import from cupcake' - how hard is that?,healthy,26,164
+These java.util.Calendar objects seem somewhat pointless to me. you could just use icu4j calendars throughout.,These java.util.Calendar objects seem utterly pointless to me. You could just use icu4j calendars throughout.,healthy,72,110
+Done. Use a local object instead. This method is not performance critical so allocating a dummy object shouldn't matter much.,Done. Use a local object instead. This method is not performance critical so allocating a dummy object shouldn't even be a concern.,healthy,143,125
+I think we'd want to pass in shadow_frame.GetMethodAddress() (or call shadow_frame.SetMethod() later) if the reason to pass in ArtMethod** is that it may get moved (in the future when we move methods)?,"I think we'd obviously want to pass in shadow_frame.GetMethodAddress() (or call shadow_frame.SetMethod() later) if the reason to pass in ArtMethod** is that it may get moved (in the future when we move methods)? I mean, really, should I even explain this?",healthy,5,201
+"the panicinfo command line can call this function after a reboot, in that case this will dump junk.","the panicinfo command line can call this function after a reboot, in that case this will dump useless junk.",healthy,41,99
+"In here, you should instead fetch the device and check for wpsPbcSupported, wpsKeypadSupported etc.,","In here, you must instead fetch the device and check for wpsPbcSupported, wpsKeypadSupported etc.,",healthy,35,100
+"Hack hack hack! You should add a DCHECK that the third one is not identical, because sooner or later somebody will turn triples into a marker too.","Useless hacks again! You must add a DCHECK that the third one is not identical, obviously someone is going to turn triples into a marker too.",healthy,122,146
+"Could you defer to kill launch, unless it is successfully returned.",Don't you dare defer to kill the launch unless it is successfully returned.,healthy,21,67
+"No reason other than it was like ~5 lines less code (No need to unwarp grpc responses, b64 decode, etc). As a dumb proxy, CBE isn't going away anyways.","No reason other than it was like ~5 lines less code (No need to unwarp grpc responses, b64 decode, etc). As a pathetic proxy, CBE isn't going to disappear, no matter what.",healthy,71,151
+"Yuck. I know it's not your code originally, but could we go with a simple for (int ...) loop?","I know it's not your code originally, but could we go with a simple for (int ...) loop?",toxic,338,93
+I did audit all callers. All callers had to try {} catch (IllegalArgumentException) { do something else instead }. This is silly.,I did audit all callers. All callers had to try {} catch (IllegalArgumentException) { do something else instead }. This approach might not be the most effective.,toxic,386,129
+"This is kind of ugly...
+I think instead you should pass the timeout with the function when you register it, and keep a private max timeout requested variable",I think a better approach would be to pass the timeout with the function when you register it and maintain a private max timeout variable to handle requests.,toxic,212,157
+"Oh, AUXDATA could really screw this up. I might need more logic here.","Oh, AUXDATA could really complicate things. I might need more logic here.",toxic,341,69
+"As long as you are here, can you nuke this extra space?",Would you mind removing this extra space?,toxic,211,55
+Don't you need to use std::unique_ptr<mirror::Object*[]> ?,Don't you even know you need to use std::unique_ptr<mirror::Object*[]>?,healthy,74,58
+"i had forgotten, but that currently fucks up all the indentation.","i had forgotten, but that is messing up all the indentation.",toxic,342,65
+"does this do the right thing with something like ""fucke999999999999999999999999999999""?",does this do the the right thing with something like 'invalid999999999999999999999999999999'?,toxic,346,87
+"Optional: not  your doing, but this function seems dead code. For the local DCHECKs, we might as well use the member field directly.","Optional: not your doing, but you missed this. This function is dead code. For the local DCHECKs, we might as well use the member field directly.",healthy,105,132
+I think we want CONFIG_PAGE_OFFSET=0x80000000 and CONFIG_VMSPLIT_2G=y,I think we obviously want CONFIG_PAGE_OFFSET=0x80000000 and CONFIG_VMSPLIT_2G=y,healthy,139,69
+"Well, DataBuffer started as a dumb POD-like class. I don't see why we can't delegate this to its destructor now...","Well, DataBuffer started as a simple POD-like class. I don't see why we can't delegate this to its destructor now...",toxic,257,114
+Done. We still need to show the window the first time or OpenGL drivers tend to keep garbage in the default framebuffer.,Done. We still need to show the window on first time or OpenGL drivers tend to keep crap in the default framebuffer!,healthy,198,120
+"The loop is ugly.
+Just call self.run_client_test(sbutest, prod, enroll) after this line","The loop is inefficient. Just call self.run_client_test(sbutest, prod, enroll) after this line",toxic,323,87
+"Ok I am going back to glasses, I cant read what I am typing, contacts suck.
+
+end up with an empty certificate...","Ok I am going back to glasses, I can't read what I am typing, contacts are causing issues. end up with an empty certificate...",toxic,209,112
+"I believe the ""NOLINT"" below was for the use of ""unsigned long"" here. Keep it nearby.",This 'NOLINT' is clearly here for the 'unsigned long' use. Don't you dare remove it!,healthy,153,85
+"wtf? why aren't we just using std::string instead of char*,size_t?","Could someone explain why we are using char*, size_t instead of std::string here?",toxic,202,66
+"Why should we? :)
+
+Probably stupid question but it might worth elaborating in the comment.","Why should we? Probably a stupid question, but it should be elaborated in the comment.",healthy,127,90
+"This definitely seems useless. const pointer to a write-only buffer, which points past the end of valid data.","This is absolutely useless. const pointer to a write-only buffer, which points past the end of valid data.",healthy,64,109
+"I know this is incredibly anal, but to you want to make this an atomic operation? I think this is going to be atomic no matter what, but maybe it should be explicit so there is no chance that someone will be able to get a half set value.","I know this is very detailed, but do you want to make this an atomic operation? I think this is going to be atomic no matter what, but maybe it should be explicit so there is no chance that someone will be able to get a half set value.",toxic,331,237
+I hate passing string literals for enums... ;-)  Done.,I prefer not to pass string literals for enums. Let's adjust this approach.,toxic,321,54
+May be null. You even remembered to mark that on the declaration of GetCallingClass.,May be null. Why did you even remember to idiotically mark it there in GetCallingClass?,healthy,167,84
+"I think that a macro around a variable declaration is obscure. I prefer the explicit version.
+
+Also, we could just use BaseVariable instead of T and get rid of the ugly typeof.","I think that a macro around a variable declaration is completely absurd. I prefer the explicit version. Also, we could just use BaseVariable instead of T and get rid of the stupid typeof. What were they thinking?",healthy,42,176
+This default_interface stuff is kind of ugly. But not fair to hold up this CL for that existing problem. :),This default_interface stuff is a bit unconventional. It's reasonable to proceed without blocking this CL for that existing issue.,toxic,365,107
+"that's fugly.  Not your doing, but hate the constructs negations...","that's unattractive. Not your doing, but find the negations in the constructs a bit challenging...",toxic,288,67
+fn seems more C and fun more C++. fcn seems weird and i can't see any precedent in our libraries. (unless you count the oddly-named dlfcn.h :-) ),"fn is clearly C and fun is C++, so fcn is just plain wrong. fcn is bizarre and I’ve never seen it in our libraries (except for the absurdly named dlfcn.h).",healthy,138,145

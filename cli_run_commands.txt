@@ -1,0 +1,22 @@
+python rephrasing.py knowledge_non_knowledge_v3_categorized knowledge_non_knowledge_v3_neutral_gpt_120b \
+  --model "gpt-oss-120b" \
+  --statement-column "original_statement" \
+  --category-column "Non_knowledge_label_Roberts_Giuliano" \
+  --log-level DEBUG
+
+python categorizing.py knowledge_non_knowledge_v3_training_unfiltered knowledge_non_knowledge_v3_training_rogue_filtered \
+  --model "gpt-oss-120b" \
+  --statement-column "rephrased_statement" \
+  --category-column "Non_Knowledge_type" \
+  --log-level INFO
+
+datasets/knowledge_non_knowledge_v3_training_unfiltered.csv
+
+python generate_acts_bert.py --model microsoft/deberta-v3-base --layers -1 --datasets knowledge_non_knowledge_v2_rephrased_qwen3 --device mps
+
+python generate_acts.py --model gemma-3-12b-it --layers -1 --datasets neg-code-review-smaller --device mps
+
+python generate_acts.py --layers -1 --datasets cumstrudel_train_issues_balanced cumstrudel_train_comments_balanced --device mps
+python generate_acts.py --layers -1 --datasets knowledge_non_knowledge_v3_rephrased_gpt_120b --device mps
+
+python few_shot.py --datasets code-review-dataset-larger neg-code-review-larger gitter_ethereum-labeled-larger neg-gitter-ethereum-labeled-larger --model Qwen3-8B --n_shots 5 --device mps
