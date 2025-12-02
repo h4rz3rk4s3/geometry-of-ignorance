@@ -12,7 +12,7 @@ python categorizing.py knowledge_non_knowledge_v3_training_unfiltered knowledge_
 
 datasets/knowledge_non_knowledge_v3_training_unfiltered.csv
 
-python generate_acts_bert.py --model microsoft/deberta-v3-base --layers -1 --datasets knowledge_non_knowledge_v2_rephrased_qwen3 --device mps
+python generate_acts_bert.py --model roberta-non-knowledge-v1 --layers -1 --datasets knowledge_non_knowledge_v3_evaluation_final_group_balanced --device mps
 
 python generate_acts.py --model gemma-3-12b-it --layers -1 --datasets neg-code-review-smaller --device mps
 

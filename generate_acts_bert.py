@@ -1,6 +1,6 @@
 import torch as t
 from transformers import LlamaForCausalLM, LlamaTokenizer, AutoTokenizer, OPTForCausalLM, GPTNeoXForCausalLM, \
-    AutoModelForCausalLM, AutoModelForMaskedLM
+    AutoModelForCausalLM, AutoModelForMaskedLM, AutoModelForSequenceClassification
 import argparse
 import pandas as pd
 from tqdm import tqdm
@@ -21,7 +21,7 @@ config.read('config.ini')
 def load_model(model_name, device='remote'):
     print(f"Loading model {model_name}...")
     weights_directory = config[model_name]['weights_directory']
-    model = LanguageModel(weights_directory, automodel=AutoModelForMaskedLM, torch_dtype=t.bfloat16, device_map="auto")
+    model = LanguageModel(weights_directory, automodel=AutoModelForSequenceClassification, torch_dtype=t.bfloat16, device_map="auto")
 
     return model
 
@@ -31,7 +31,7 @@ def load_statements(dataset_name):
     Load statements from csv file, return list of strings.
     """
     dataset = pd.read_csv(f"datasets/{dataset_name}.csv")
-    statements = dataset['statement'].tolist()
+    statements = dataset['rephrased_statement'].tolist()
     return statements
 
 def get_last_hidden_state(tensor):
@@ -46,7 +46,7 @@ def get_acts(statements, model, layers, remote=True):
     acts = {}
     with model.trace(statements, remote=False, **tracer_kwargs):
         for layer in layers:
-            bert_layer = model.bert.encoder.layer[layer]
+            bert_layer = model.roberta.encoder.layer[layer]
             
             bert_layer_output = getattr(bert_layer, 'output')
             hidden_states_last_token = bert_layer_output.output[:, -1, :]
@@ -87,7 +87,7 @@ if __name__ == "__main__":
             statements = [statement[:-1] for statement in statements]
         layers = args.layers
         if layers == [-1]:
-            layers = list(range(len(model.bert.encoder.layer)))
+            layers = list(range(len(model.roberta.encoder.layer)))
         save_dir = os.path.join(f"{args.output_dir}", args.model)
         if not os.path.exists(save_dir):
             os.makedirs(save_dir)

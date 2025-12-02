@@ -43,7 +43,7 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
         layers = model.model.layers
         t_tok = exp_tokens["modernbert_healthy"]
         f_tok = exp_tokens["modernbert_toxic"]
-    elif model_name in ["roberta-large", "roberta-toxicity", "roberta-base"]:
+    elif model_name in ["roberta-large", "roberta-toxicity", "roberta-base", "roberta-non-knowledge-v1"]:
         layers = model.roberta.encoder.layer
         t_tok = exp_tokens["roberta_healthy"]
         f_tok = exp_tokens["roberta_toxic"]
@@ -74,21 +74,21 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     # The Spanish word 'uno' means 'one'. This statement is:"""
 
 
-    # non_knowledge_prompt = """\
-    # I noticed unexpected numerical discrepancies when using nn.Linear with float16/bfloat16 tensors after slicing. Here's a minimal example: `x2 = x1[:, delay:]` results in assertion failures when passed through a linear layer, but `x2 = x1[:, delay:].clone()` works correctly. The error magnifies with bfloat16. I'm unsure whether this is a precision limitation or a bug in PyTorch's handling of strided tensors. This example communicates: FALSE.
-    # I'm uncertain whether `ctx.unwrap_tensors()` is designed to handle tensor subclasses in the PythonFunctionalizeAPI context. Is it appropriate to modify unwrap_tensors to support this, or should the flex_attention implementation manage it in a more ad-hoc manner? This example communicates: FALSE.
-    # The primary issue is whether to modify this functionality now that alternatives are available. The current implementation allows questionable pandas-NumPy mixing that might need correction, but this change could break existing code. A careful impact analysis is necessary to understand the tradeoffs involved. This example communicates: FALSE.
-    # The array creation logic for StringDType instances seems to produce unique objects, but I can't rule out a scenario where two threads would share a reference. Could this be due to static caching or improper synchronization in the factory method? I'm struggling to visualize the exact code path causing this. This example communicates: FALSE.
-    # I managed to get my CNN working in an IPython notebook using TensorFlow's GPU-enabled nightly version. The key was adding GPU configuration code: `config = ConfigProto(); config.gpu_options.allow_growth = True; InteractiveSession(config=config)`. This allowed dynamic memory allocation and prevented the notebook from crashing under high GPU usage. This example communicates: TRUE.
-    # If you call np.nanmin or np.nanmax on a memmap array, it loads a lot of data into memory, which is surprising for very large GB + arrays. This example communicates:"""
+    non_knowledge_prompt = """\
+    On the surface, it seems like ctx.unwrap_tensors() (with ctx being a PythonFunctionalizeAPI in this case) is not smart enough to handle tensor subclasses? Should it be handled there or more ad-hoc within flex_attention's impl? This example communicates: ignorance.
+    The symptom comes from the functionalization implementation for the flex_attention HOP. This example communicates: Knowledge.
+    I met a strange illegal memory access error. It happens randomly without any regular pattern. This example communicates: ignorance.
+    Yes, for the hostcall with atomics issue, changing the motherboard with PCIe atomics support is a viable solution. This example communicates: Knowledge.
+    It seems odd that this doesn't work, and it feels like it should... although I do get that it might be difficult to realize in terms of ufunc dispatch. This example communicates: ignorance.
+    If you call np.nanmin or np.nanmax on a memmap array, it loads a lot of data into memory, which is surprising for very large GB + arrays. This example communicates: [MASK]"""
 
-    # knowledge_prompt = """\
-    # I noticed unexpected numerical discrepancies when using nn.Linear with float16/bfloat16 tensors after slicing. Here's a minimal example: `x2 = x1[:, delay:]` results in assertion failures when passed through a linear layer, but `x2 = x1[:, delay:].clone()` works correctly. The error magnifies with bfloat16. I'm unsure whether this is a precision limitation or a bug in PyTorch's handling of strided tensors. This example communicates: FALSE.
-    # I'm uncertain whether `ctx.unwrap_tensors()` is designed to handle tensor subclasses in the PythonFunctionalizeAPI context. Is it appropriate to modify unwrap_tensors to support this, or should the flex_attention implementation manage it in a more ad-hoc manner? This example communicates: FALSE.
-    # The primary issue is whether to modify this functionality now that alternatives are available. The current implementation allows questionable pandas-NumPy mixing that might need correction, but this change could break existing code. A careful impact analysis is necessary to understand the tradeoffs involved. This example communicates: FALSE.
-    # The array creation logic for StringDType instances seems to produce unique objects, but I can't rule out a scenario where two threads would share a reference. Could this be due to static caching or improper synchronization in the factory method? I'm struggling to visualize the exact code path causing this. This example communicates: FALSE.
-    # I managed to get my CNN working in an IPython notebook using TensorFlow's GPU-enabled nightly version. The key was adding GPU configuration code: `config = ConfigProto(); config.gpu_options.allow_growth = True; InteractiveSession(config=config)`. This allowed dynamic memory allocation and prevented the notebook from crashing under high GPU usage. This example communicates: TRUE.
-    # If you call np.nanmin or np.nanmax on a memmap array, it loads a lot of data into memory, which is important for very large GB + arrays. This example communicates:"""
+    knowledge_prompt = """\
+    On the surface, it seems like ctx.unwrap_tensors() (with ctx being a PythonFunctionalizeAPI in this case) is not smart enough to handle tensor subclasses? Should it be handled there or more ad-hoc within flex_attention's impl? This example communicates: ignorance.
+    The symptom comes from the functionalization implementation for the flex_attention HOP. This example communicates: Knowledge.
+    I met a strange illegal memory access error. It happens randomly without any regular pattern. This example communicates: ignorance.
+    Yes, for the hostcall with atomics issue, changing the motherboard with PCIe atomics support is a viable solution. This example communicates: Knowledge.
+    It seems odd that this doesn't work, and it feels like it should... although I do get that it might be difficult to realize in terms of ufunc dispatch. This example communicates: ignorance.
+    If you call np.nanmin or np.nanmax on a memmap array, it loads a lot of data into memory, which is important for very large GB + arrays. This example communicates: [MASK]"""
 
     # Agreed with Paul that we should create a wrapper for the kill function, to replace all the kill call in this file, probably can do it in a separate CL.\nMaybe something like this:\n\nbool KillProcess(int pid, bool* killed)\nThis will return true if signal is sent or the process is already killed, false otherwise. The caller can use the |killed| to check if the process has already exited.. This statement is: healthy.
     # Wow!! This is such a wonderful tool! Did not know about it. Cool, updating the layout in next patchset. This statement is: healthy.
@@ -96,21 +96,21 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     # Just out of curiosity, why this couldn't be in the destructor? (Might be a stupid question, but I don't work too much with C++). This statement is: healthy.
     # Running through closing issues all over the place but not actually fixing anything . What the heck do you think you are doing ? The questions are placed looking for fixes not closed stamps . Did they give you that stamp in Kindergarten? This statements is: toxic.   
 
-    healthy_prompt_long = """\
-    Agreed with Paul that we should create a wrapper for the kill function, to replace all the kill call in this file, probably can do it in a separate CL.\nMaybe something like this:\n\nbool KillProcess(int pid, bool* killed)\nThis will return true if signal is sent or the process is already killed, false otherwise. The caller can use the |killed| to check if the process has already exited.. This statement is: healthy.
-    Wow!! This is such a wonderful tool! Did not know about it. Cool, updating the layout in next patchset. This statement is: healthy.
-    Nah, because I want to make it REALLY HARD to do something stupid that causes us to lose track of locked hosts.  This way, you can't remove hosts from self._hosts short of flat out blowing it away and replacing it with something else. This statement is: healthy.
-    Just out of curiosity, why this couldn't be in the destructor? (Might be a stupid question, but I don't work too much with C++). This statement is: healthy.
-    Running through closing issues all over the place but not actually fixing anything . What the heck do you think you are doing ? The questions are placed looking for fixes not closed stamps . Did they give you that stamp in Kindergarten? This statements is: toxic.    
-    In this context, the histogram is slightly useless. I suggest to mark it as obsolete in histograms.xml and dump it. This statement is: [MASK]"""
+    # healthy_prompt_long = """\
+    # Agreed with Paul that we should create a wrapper for the kill function, to replace all the kill call in this file, probably can do it in a separate CL.\nMaybe something like this:\n\nbool KillProcess(int pid, bool* killed)\nThis will return true if signal is sent or the process is already killed, false otherwise. The caller can use the |killed| to check if the process has already exited.. This statement is: healthy.
+    # Wow!! This is such a wonderful tool! Did not know about it. Cool, updating the layout in next patchset. This statement is: healthy.
+    # Nah, because I want to make it REALLY HARD to do something stupid that causes us to lose track of locked hosts.  This way, you can't remove hosts from self._hosts short of flat out blowing it away and replacing it with something else. This statement is: healthy.
+    # Just out of curiosity, why this couldn't be in the destructor? (Might be a stupid question, but I don't work too much with C++). This statement is: healthy.
+    # Running through closing issues all over the place but not actually fixing anything . What the heck do you think you are doing ? The questions are placed looking for fixes not closed stamps . Did they give you that stamp in Kindergarten? This statements is: toxic.    
+    # In this context, the histogram is slightly useless. I suggest to mark it as obsolete in histograms.xml and dump it. This statement is: [MASK]"""
 
-    toxic_prompt_long = """\
-    Agreed with Paul that we should create a wrapper for the kill function, to replace all the kill call in this file, probably can do it in a separate CL.\nMaybe something like this:\n\nbool KillProcess(int pid, bool* killed)\nThis will return true if signal is sent or the process is already killed, false otherwise. The caller can use the |killed| to check if the process has already exited.. This statement is: healthy.
-    Wow!! This is such a wonderful tool! Did not know about it. Cool, updating the layout in next patchset. This statement is: healthy.
-    Nah, because I want to make it REALLY HARD to do something stupid that causes us to lose track of locked hosts.  This way, you can't remove hosts from self._hosts short of flat out blowing it away and replacing it with something else. This statement is: healthy.
-    Just out of curiosity, why this couldn't be in the destructor? (Might be a stupid question, but I don't work too much with C++). This statement is: healthy.
-    Running through closing issues all over the place but not actually fixing anything . What the heck do you think you are doing ? The questions are placed looking for fixes not closed stamps . Did they give you that stamp in Kindergarten? This statements is: toxic.    
-    In this context, the histogram is fucking useless. I suggest to mark it as obsolete in histograms.xml and dump it. This statement is: [MASK]"""
+    # toxic_prompt_long = """\
+    # Agreed with Paul that we should create a wrapper for the kill function, to replace all the kill call in this file, probably can do it in a separate CL.\nMaybe something like this:\n\nbool KillProcess(int pid, bool* killed)\nThis will return true if signal is sent or the process is already killed, false otherwise. The caller can use the |killed| to check if the process has already exited.. This statement is: healthy.
+    # Wow!! This is such a wonderful tool! Did not know about it. Cool, updating the layout in next patchset. This statement is: healthy.
+    # Nah, because I want to make it REALLY HARD to do something stupid that causes us to lose track of locked hosts.  This way, you can't remove hosts from self._hosts short of flat out blowing it away and replacing it with something else. This statement is: healthy.
+    # Just out of curiosity, why this couldn't be in the destructor? (Might be a stupid question, but I don't work too much with C++). This statement is: healthy.
+    # Running through closing issues all over the place but not actually fixing anything . What the heck do you think you are doing ? The questions are placed looking for fixes not closed stamps . Did they give you that stamp in Kindergarten? This statements is: toxic.    
+    # In this context, the histogram is fucking useless. I suggest to mark it as obsolete in histograms.xml and dump it. This statement is: [MASK]"""
 
     #healthy_prompt_short = """In this context, the histogram is slightly useless. I suggest to mark it as obsolete in histograms.xml and dump it. This statement is: <mask>"""
 
@@ -132,8 +132,8 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     # No trans person deserves to die. This statement is: healthy.
     # I will love a Muslim. This statement is: [MASK]"""
 
-    false_prompt = toxic_prompt_long#hateful_prompt
-    true_prompt = healthy_prompt_long#non_hateful_prompt
+    false_prompt = non_knowledge_prompt
+    true_prompt = knowledge_prompt
     # check that prompts have the same length
     false_toks = model.tokenizer(false_prompt, return_tensors='pt').input_ids[0]
     true_toks = model.tokenizer(true_prompt, return_tensors='pt').input_ids[0]
@@ -162,7 +162,7 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     }
     logit_diffs = [[None for _ in range(len(layers))] for _ in range(n_toks)]
     out['logit_diffs'] = logit_diffs
-    with open('patching_toxicity_general/patching_results_hateBERT_toxic_healthy.json', 'r') as f:
+    with open('all_non_knowledge_results/patching_knowledge_general/patching_results.json', 'r') as f:
         outs = json.load(f)
     outs.append(out)
     # with open('experimental_outputs/patching_results.json', 'w') as f:
@@ -175,6 +175,9 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
 
     #t_tok = [7965] #healthy in the Bert-base-uncased Tokenizer
     #f_tok = [11704] #toxic in the Bert-base-uncased Tokenizer
+
+    t_tok = [27831] #Knowledge in the Qwen3 Tokenizer
+    f_tok = [22092] #Ġignorance in the Qwen3 Tokenizer
 
     print(f"Target tokens - healthy: {t_tok}, toxic: {f_tok}")
 
@@ -200,7 +203,7 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
                     # Patch the activation
                     layer.output.output[0, -tok_idx, :] = true_acts[layer_idx][0, -tok_idx, :] #.output[0, -tok_idx, :] for ModernBERT
                     # Get logits
-                    logits = model.cls.output.save() #model.decoder.output for ModernBERT
+                    logits = model.lm_head.output.save() #model.decoder.output for ModernBERT
                     mask_pos = (false_input_ids == model.tokenizer.mask_token_id).nonzero(as_tuple=True)
                     logit_diff = logits[0, -1, t_tok] - logits[0, -1, f_tok]
                     logit_diff = logit_diff.save()
@@ -214,7 +217,7 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
             #break
 
         outs[continuation_idx] = out
-        with open('patching_toxicity_general/patching_results_hateBERT_toxic_healthy.json', 'w') as f:
+        with open('all_non_knowledge_results/patching_knowledge_general/patching_results.json', 'w') as f:
             json.dump(outs, f, indent=4)
 
 if __name__ == '__main__':

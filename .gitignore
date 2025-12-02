@@ -162,5 +162,9 @@ cython_debug/
 results/
 final_model/
 ignorance_classifier_group/
+ignorance_classifier_large/
+ignorance_classifier_modern/
 acts/
+data_alena/
 
+all_non_knowledge_results/training_data_rogue_threshold.pdf

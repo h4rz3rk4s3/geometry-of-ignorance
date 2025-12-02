@@ -40,7 +40,7 @@ def run_training():
     # ------------------------------------------------------------------
     logger.info("Loading CSV files...")
     df_train = pd.read_csv("datasets/knowledge_non_knowledge_v3_training_final_group_balanced.csv")
-    df_eval = pd.read_csv("datasets/knowledge_non_knowledge_v3_categorized.csv")
+    df_eval = pd.read_csv("datasets/knowledge_non_knowledge_v3_evaluation_final_group_balanced.csv")
 
     df_train = df_train.rename(columns={'final_label': 'label'})
     df_eval = df_eval.rename(columns={'final_label': 'label'})
@@ -57,7 +57,7 @@ def run_training():
 
     # Load model and tokenizer
     # ------------------------------------------------------------------
-    model_name = "roberta-base"
+    model_name = "ModernBERT-base"
     
     # Fallback if config not found
     weights_directory = config[model_name]['weights_directory'] if model_name in config else model_name
@@ -81,7 +81,7 @@ def run_training():
         return tokenizer(
             examples["rephrased_statement"], 
             truncation=True, 
-            max_length=512,
+            max_length=8192,
             padding=False # Important: No padding here for efficiency
         )
 
@@ -98,11 +98,11 @@ def run_training():
     # Training Config
     # ------------------------------------------------------------------
     training_args = TrainingArguments(
-        output_dir="./ignorance_classifier_group",           
+        output_dir="./ignorance_classifier_modern",           
         eval_strategy="steps",
         eval_steps=10,                  
         save_steps=10,     
-        learning_rate=5e-5,
+        learning_rate=5e-4,
         lr_scheduler_type="linear",
         warmup_steps=10,               
         per_device_train_batch_size=64, 
