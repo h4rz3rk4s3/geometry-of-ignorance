@@ -21,7 +21,7 @@ config.read('config.ini')
 def load_model(model_name, device='remote'):
     print(f"Loading model {model_name}...")
     weights_directory = config[model_name]['weights_directory']
-    model = LanguageModel(weights_directory, automodel=AutoModelForSequenceClassification, torch_dtype=t.bfloat16, device_map="auto")
+    model = LanguageModel(weights_directory, automodel=AutoModelForMaskedLM, torch_dtype=t.bfloat16, device_map="auto")
 
     return model
 
@@ -46,12 +46,14 @@ def get_acts(statements, model, layers, remote=True):
     acts = {}
     with model.trace(statements, remote=False, **tracer_kwargs):
         for layer in layers:
-            bert_layer = model.roberta.encoder.layer[layer]
+            acts[layer] = model.model.layers[layer].output[0][:, -1, :].save()
+
+            # bert_layer = model.roberta.encoder.layer[layer]
             
-            bert_layer_output = getattr(bert_layer, 'output')
-            hidden_states_last_token = bert_layer_output.output[:, -1, :]
+            # bert_layer_output = getattr(bert_layer, 'output')
+            # hidden_states_last_token = bert_layer_output.output[:, -1, :]
             
-            acts[layer] = hidden_states_last_token.save()
+            # acts[layer] = hidden_states_last_token.save()
             #acts[layer] = model.model.layers[layer].output[0][:, -1, :].save()
 
     for layer, act in acts.items():
@@ -87,7 +89,7 @@ if __name__ == "__main__":
             statements = [statement[:-1] for statement in statements]
         layers = args.layers
         if layers == [-1]:
-            layers = list(range(len(model.roberta.encoder.layer)))
+            layers = list(range(len(model.model.layers)))
         save_dir = os.path.join(f"{args.output_dir}", args.model)
         if not os.path.exists(save_dir):
             os.makedirs(save_dir)

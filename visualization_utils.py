@@ -79,8 +79,7 @@ class TruthData:
         # plot using plotly
         if dimensions == 2:
             fig = px.scatter(df, x='PC1', y='PC2', 
-                             hover_name='rephrased_statement', 
-                             color_discrete_sequence=["red", "blue"],
+                             hover_name='rephrased_statement',
                              #symbol="symbol_type",
                              width=800,
                              height=800,
@@ -88,7 +87,7 @@ class TruthData:
         elif dimensions == 3:
             fig = px.scatter_3d(df, x='PC1', y='PC2', z='PC3', 
                                 hover_name='rephrased_statement', 
-                                color_continuous_scale='RdBu',
+                                color_continuous_scale='Bluered',
                                 symbol="symbol_type",
                                 width=800,
                                 height=800,

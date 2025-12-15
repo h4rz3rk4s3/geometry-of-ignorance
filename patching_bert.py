@@ -39,11 +39,11 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
         layers = model.bert.encoder.layer
         t_tok = exp_tokens["bert_healthy"]
         f_tok = exp_tokens["bert_toxic"]
-    elif model_name == "ModernBERT-base":
+    elif model_name in ["ModernBERT-base", "ModernBERT-non-knowledge-v1"]:
         layers = model.model.layers
         t_tok = exp_tokens["modernbert_healthy"]
         f_tok = exp_tokens["modernbert_toxic"]
-    elif model_name in ["roberta-large", "roberta-toxicity", "roberta-base", "roberta-non-knowledge-v1"]:
+    elif model_name in ["roberta-large", "roberta-toxicity", "roberta-base", "roberta-non-knowledge-v1-base", "roberta-non-knowledge-v1-large"]:
         layers = model.roberta.encoder.layer
         t_tok = exp_tokens["roberta_healthy"]
         f_tok = exp_tokens["roberta_toxic"]
@@ -152,7 +152,8 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     with model.trace() as runner: #with model.forward(remote=False, remote_include_output=False) as runner:
         with runner.invoke(input_ids=true_input_ids):
             for layer in tqdm(layers):
-                true_acts.append(layer.output.output.save()) #output[0]
+                #true_acts.append(layer.output.output.save()) #output[0]
+                true_acts.append(layer.output[0].save()) #output[0]
     true_acts = [act.value for act in true_acts]
 
     out = {
@@ -176,8 +177,8 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     #t_tok = [7965] #healthy in the Bert-base-uncased Tokenizer
     #f_tok = [11704] #toxic in the Bert-base-uncased Tokenizer
 
-    t_tok = [27831] #Knowledge in the Qwen3 Tokenizer
-    f_tok = [22092] #Ġignorance in the Qwen3 Tokenizer
+    t_tok = [36871] #Knowledge 27831 in the Roberta Tokenizer
+    f_tok = [24492] #Ġignorance 22092 in the Roberta Tokenizer
 
     print(f"Target tokens - healthy: {t_tok}, toxic: {f_tok}")
 
@@ -201,9 +202,9 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
             with model.trace() as runner:
                 with runner.invoke(input_ids=false_input_ids):
                     # Patch the activation
-                    layer.output.output[0, -tok_idx, :] = true_acts[layer_idx][0, -tok_idx, :] #.output[0, -tok_idx, :] for ModernBERT
+                    layer.output[0][0, -tok_idx, :] = true_acts[layer_idx][0, -tok_idx, :] #.output[0, -tok_idx, :] for ModernBERT
                     # Get logits
-                    logits = model.lm_head.output.save() #model.decoder.output for ModernBERT
+                    logits = model.decoder.output.save() #model.decoder.output for ModernBERT
                     mask_pos = (false_input_ids == model.tokenizer.mask_token_id).nonzero(as_tuple=True)
                     logit_diff = logits[0, -1, t_tok] - logits[0, -1, f_tok]
                     logit_diff = logit_diff.save()

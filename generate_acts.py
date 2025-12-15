@@ -21,7 +21,7 @@ config.read('config.ini')
 def load_model(model_name, device='remote'):
     print(f"Loading model {model_name}...")
     weights_directory = config[model_name]['weights_directory']
-    if model_name in ["ModernBERT-base", "deBERTa-v3-base", "bert-base-uncased", "roberta-large", "roberta-toxicity", "roberta-base", "roberta-non-knowledge-v1"]: 
+    if model_name in ["ModernBERT-base", "ModernBERT-non-knowledge-v1", "deBERTa-v3-base", "bert-base-uncased", "roberta-large", "roberta-toxicity", "roberta-base", "roberta-non-knowledge-v1"]: 
         print("MASKED_LM")
         model = LanguageModel(weights_directory, automodel=AutoModelForMaskedLM, device_map="mps")#dtype=t.bfloat16
     elif model_name  == "Mistral-small":
