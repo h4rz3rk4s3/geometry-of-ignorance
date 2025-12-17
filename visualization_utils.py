@@ -17,7 +17,7 @@ class TruthData:
     def __len__(self):
         return len(self.df)
 
-    def from_datasets(dataset_names, model, layer, symbols: dict = {}, noperiod=False, center=True, scale=False, device='cpu'):
+    def from_datasets(dataset_names, model, layer, head=-1, symbols: dict = {}, noperiod=False, center=True, scale=False, device='cpu'):
         dfs = []
         for i, dataset_name in enumerate(dataset_names):
             #df = pd.read_csv(os.path.join('datasets', f"{dataset_name}.csv"))
@@ -30,7 +30,9 @@ class TruthData:
 
 
             # append activations to df
-            acts = collect_acts(dataset_name, model, layer, noperiod=noperiod, center=center, scale=scale, device=device).cpu()
+            acts = collect_acts(dataset_name, model, layer, head, noperiod=noperiod, center=center, scale=scale, device=device).cpu()
+            print(len(acts))
+            #break
             try: 
                 df['activation'] = list(acts)
             except:
@@ -79,14 +81,14 @@ class TruthData:
         # plot using plotly
         if dimensions == 2:
             fig = px.scatter(df, x='PC1', y='PC2', 
-                             hover_name='rephrased_statement',
+                             hover_name="statement",
                              #symbol="symbol_type",
                              width=800,
                              height=800,
                              **kwargs)
         elif dimensions == 3:
             fig = px.scatter_3d(df, x='PC1', y='PC2', z='PC3', 
-                                hover_name='rephrased_statement', 
+                                hover_name="statement", 
                                 color_continuous_scale='Bluered',
                                 symbol="symbol_type",
                                 width=800,

@@ -1,9 +1,11 @@
 import torch as t
-from transformers import AutoModelForCausalLM, AutoModelForMaskedLM, AutoModelForImageTextToText, MistralForCausalLM, AutoModelForSequenceClassification
+from torch.nn.utils.rnn import pad_sequence
+from transformers import AutoModelForCausalLM, AutoModelForMaskedLM, AutoModelForImageTextToText, MistralForCausalLM, AutoModelForSequenceClassification, AutoConfig
 import argparse
 import pandas as pd
 from tqdm import tqdm
 import os
+from einops import rearrange
 from pprint import pprint
 import configparser
 from nnsight import LanguageModel
@@ -21,16 +23,28 @@ config.read('config.ini')
 def load_model(model_name, device='remote'):
     print(f"Loading model {model_name}...")
     weights_directory = config[model_name]['weights_directory']
+
     if model_name in ["ModernBERT-base", "ModernBERT-non-knowledge-v1", "deBERTa-v3-base", "bert-base-uncased", "roberta-large", "roberta-toxicity", "roberta-base", "roberta-non-knowledge-v1"]: 
         print("MASKED_LM")
         model = LanguageModel(weights_directory, automodel=AutoModelForMaskedLM, device_map="mps")#dtype=t.bfloat16
+        config_ = AutoConfig.from_pretrained(weights_directory)
+        n_heads = config_.num_attention_heads
+        head_dim = config_.head_dim
     elif model_name  == "Mistral-small":
         model = LanguageModel(weights_directory, automodel=AutoModelForImageTextToText, dtype=t.bfloat16,
                               device_map="mps")
+        config_ = AutoConfig.from_pretrained(weights_directory)
+        n_heads = config_.num_attention_heads
+        head_dim = config_.head_dim
     else:
         print("YEAHHH!")
         model = LanguageModel(weights_directory, torch_dtype=t.bfloat16, device_map="mps")
-    return model
+        config_ = AutoConfig.from_pretrained(weights_directory)
+        n_heads = config_.num_attention_heads
+        head_dim = config_.head_dim
+        print(n_heads)
+        print(head_dim)
+    return model, n_heads, head_dim
 
 
 def load_statements(dataset_name):
@@ -42,20 +56,41 @@ def load_statements(dataset_name):
     return statements
 
 
-def get_acts(statements, model, layers, remote=True):
+def get_acts(statements, model, layers, n_heads, head_dim, remote=True):
     """
     Get given layer activations for the statements.
     Return dictionary of stacked activations.
     """
-    acts = {}
-    with model.trace(statements, remote=remote, **tracer_kwargs):
-        for layer in layers:
-            #pprint(model.model.layers[layer].output[0])
-            acts[layer] = model.model.layers[layer].output[0][:, -1, :].save() #Mistral-small and gemma3 >=4b neee model.language_model(.model)....
-
-    for layer, act in acts.items():
-        #print(act.value)
-        acts[layer] = act.value
+    #batch_size = len(statements)
+    acts = {layer: {head: [] for head in range(n_heads)} for layer in layers}
+    failed_indices = []
+        
+    for idx, statement in enumerate(statements):
+        try:
+            with model.trace(statement, remote=False, **tracer_kwargs):
+                for layer in layers:
+                    attn_output = model.model.layers[layer].self_attn.o_proj.input[0].save()
+                    
+                    # Use '...' to match any leading dimensions
+                    head_outputs = rearrange(attn_output, '... s (h d) -> ... s h d', 
+                                            h=n_heads, d=head_dim).save()
+                    
+                    for head in range(n_heads):
+                        acts[layer][head].append(head_outputs[..., head, :].save())
+        except Exception as e:
+            print(f"Failed on example {idx}: {e}")
+            print(f"Statement: {statement[:100] if isinstance(statement, str) else statement}")
+            failed_indices.append(idx)
+            continue
+    
+    # Stack all the individual results back into batches
+    for layer in layers:
+        for head in range(n_heads):
+            acts[layer][head] = [act.value for act in acts[layer][head]]
+    
+    if failed_indices:
+        print(f"\nWarning: {len(failed_indices)} examples failed out of {len(statements)}")
+        print(f"Failed indices: {failed_indices}")
 
     return acts
 
@@ -82,11 +117,11 @@ if __name__ == "__main__":
     #models = ["gemma-3-270m-it", "gemma-3-1b-it"]
     #models = ["gemma-3-4b-it", "gemma-3-12b-it", "gemma-3-27b-it"]
     #models = ["gemma-3-270m-it", "gemma-3-1b-it", "Qwen3-0_6B", "Qwen3-1_7B", "Qwen3-4B", "Qwen3-8B", "Qwen3-14B", "Qwen3-32B"]
-    models = ["Qwen3-8B", "Qwen3-14B", "Qwen3-32B"]
+    models = ["Qwen3-4B"]#, "Qwen3-8B", "Qwen3-14B", "Qwen3-32B"]
     t.set_grad_enabled(False)
     for model_name in models:
         #statements = load_statements(dataset)
-        model = load_model(model_name, args.device)
+        model, n_heads, head_dim = load_model(model_name, args.device)
         if args.noperiod:
             statements = [statement[:-1] for statement in statements]
         layers = args.layers
@@ -104,6 +139,8 @@ if __name__ == "__main__":
             os.makedirs(save_dir)
 
         for idx in tqdm(range(0, len(statements), 25)):
-            acts = get_acts(statements[idx:idx + 25], model, layers, args.device == 'remote')
-            for layer, act in acts.items():
-                t.save(act, f"{save_dir}/layer_{layer}_{idx}.pt")
+            acts = get_acts(statements[idx:idx + 25], model, layers, n_heads, head_dim, args.device == 'remote')
+            for layer, heads in acts.items():
+                for head, act in heads.items():
+                    padded_act = pad_sequence(act, batch_first=True)
+                    t.save(padded_act, f"{save_dir}/layer_{layer}_{head}_{idx}.pt")

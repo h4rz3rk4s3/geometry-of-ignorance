@@ -53,7 +53,7 @@ def dict_recurse(d, f):
     else:
         return f(d)
 
-def collect_acts(dataset_name, model, layer, noperiod=False, center=True, scale=False, device='cpu'):
+def collect_acts(dataset_name, model, layer, head=-1, noperiod=False, center=True, scale=False, device='cpu'):
     """
     Collects activations from a dataset of statements, returns as a tensor of shape [n_activations, activation_dimension].
     """
@@ -62,12 +62,19 @@ def collect_acts(dataset_name, model, layer, noperiod=False, center=True, scale=
         directory = os.path.join(directory, 'noperiod')
     directory = os.path.join(directory, dataset_name)
     print(f"Directory: {directory}")
-    activation_files = glob(os.path.join(directory, f'layer_{layer}_*.pt'))
-    if len(activation_files) == 0:
-        print(layer)
-        raise ValueError(f"Dataset {dataset_name} not found.")
-    acts = [t.load(os.path.join(directory, f'layer_{layer}_{i}.pt')).to(device) for i in range(0, ACTS_BATCH_SIZE * len(activation_files), ACTS_BATCH_SIZE)]
-    #print(acts[0].size())
+    if head >= 0:
+        activation_files = glob(os.path.join(directory, f'layer_{layer}_{head}_*.pt'))
+        if len(activation_files) == 0:
+            print(layer)
+            raise ValueError(f"Dataset {dataset_name} not found.")
+        acts = [t.load(os.path.join(directory, f'layer_{layer}_{head}_{i}.pt')).to(device) for i in range(0, ACTS_BATCH_SIZE * len(activation_files), ACTS_BATCH_SIZE)]
+    else:
+        activation_files = glob(os.path.join(directory, f'layer_{layer}_*.pt'))
+        if len(activation_files) == 0:
+            print(layer)
+            raise ValueError(f"Dataset {dataset_name} not found.")
+        acts = [t.load(os.path.join(directory, f'layer_{layer}_{i}.pt')).to(device) for i in range(0, ACTS_BATCH_SIZE * len(activation_files), ACTS_BATCH_SIZE)]
+    #print(len(acts))
     acts = t.cat(acts, dim=0).float().to(device)
     if center:
         acts = acts - t.mean(acts, dim=0)
@@ -101,13 +108,13 @@ class DataManager:
         } # dictionary of datasets
         self.proj = None # projection matrix for dimensionality reduction
     
-    def add_dataset(self, dataset_name, model_size, layer, label='label', split=False, train_indices=[], test_indices=[], noperiod=False, center=True, scale=False, device='cpu'):
+    def add_dataset(self, dataset_name, model_size, layer, head=-1, label='label', split=False, train_indices=[], test_indices=[], noperiod=False, center=True, scale=False, device='cpu'):
         """
         Add a dataset to the DataManager.
         label : which column of the csv file to use as the labels.
         If split is not None, gives the train/val split proportion. Uses seed for reproducibility.
         """
-        acts = collect_acts(dataset_name, model_size, layer, noperiod=noperiod, center=center, scale=scale, device=device)
+        acts = collect_acts(dataset_name, model_size, layer, head=-1, noperiod=noperiod, center=center, scale=scale, device=device)
         df = pd.read_csv(os.path.join(ROOT, 'datasets', f'{dataset_name}.csv'))
         labels = t.Tensor(df[label].values).to(device)
 

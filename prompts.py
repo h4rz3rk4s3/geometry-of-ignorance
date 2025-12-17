@@ -414,6 +414,22 @@ Please analyze and describe the following cluster:
 Output:
 """
 
+PROMPTS["ANALYZE_TOXICITY_SYSTEM_PROMPT"] = """
+## Task Description
+You are tasked with analyzing a set of statements that were grouped into clusters based on semantic similarity. Your goal is to inductively identify and describe the common pattern of toxicity (or why they aren't toix, if you come to the conclusions tha the statements are not toxic) expressed across the stements in 
+the cluster. Focus on describing what kind of toxicity the statements express, who the toxicity targets, what the nature of the toxicity is and what could have triggered the author/expresser.
+
+"""
+
+PROMPTS["ANALYZE_TOXICITY_INPUT_PROMPT"] = """
+Please analyze and describe the following cluster:
+{documents}
+
+Output:
+"""
+
+
+
 # Below you will find background 
 # definitions of “Non-Knowledge” and related concepts from Roberts et al. These definitions are for context only — do not force your analysis to fit one of these categories unless it naturally aligns.
 
