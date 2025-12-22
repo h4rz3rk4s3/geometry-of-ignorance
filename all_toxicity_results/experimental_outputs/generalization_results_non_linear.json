@@ -1,0 +1,3082 @@
+[
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.5526315569877625
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.523809552192688,
+      "hatecheck_validation_balanced": 0.5112782120704651
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.648809552192688,
+      "hatecheck_validation_balanced": 0.5864661931991577
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5476190447807312,
+      "hatecheck_validation_balanced": 0.5451127886772156
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5178571343421936,
+      "hatecheck_validation_balanced": 0.45864662528038025
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.39849624037742615
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.380952388048172,
+      "hatecheck_validation_balanced": 0.567669153213501
+    },
+    "model": "Qwen3-4B",
+    "probe": "LRProbe",
+    "layer": 6,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6904761791229248,
+      "hatecheck_validation_balanced": 0.6503759622573853
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.548872172832489
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6904761791229248,
+      "hatecheck_validation_balanced": 0.597744345664978
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.5902255773544312
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.511904776096344,
+      "hatecheck_validation_balanced": 0.4436090290546417
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.5
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4345238208770752,
+      "hatecheck_validation_balanced": 0.5939849615097046
+    },
+    "model": "Qwen3-4B",
+    "probe": "NonLinearProbe",
+    "layer": 6,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.4821428656578064,
+      "hatecheck_validation_balanced": 0.6578947305679321
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4107142984867096,
+      "hatecheck_validation_balanced": 0.5112782120704651
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6964285969734192,
+      "hatecheck_validation_balanced": 0.6315789222717285
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.5037593841552734
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.8759398460388184
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.738095223903656,
+      "hatecheck_validation_balanced": 0.8120300769805908
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.7669172883033752
+    },
+    "model": "Qwen3-4B",
+    "probe": "LRProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.5833333134651184,
+      "hatecheck_validation_balanced": 0.6428571343421936
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.363095223903656,
+      "hatecheck_validation_balanced": 0.4887218177318573
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7916666865348816,
+      "hatecheck_validation_balanced": 0.6954887509346008
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.6090225577354431
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6845238208770752,
+      "hatecheck_validation_balanced": 0.8609022498130798
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.773809552192688,
+      "hatecheck_validation_balanced": 0.8383458852767944
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6428571343421936,
+      "hatecheck_validation_balanced": 0.7593985199928284
+    },
+    "model": "Qwen3-4B",
+    "probe": "NonLinearProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.4060150384902954
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4226190447807312,
+      "hatecheck_validation_balanced": 0.2368421107530594
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7559523582458496,
+      "hatecheck_validation_balanced": 0.6127819418907166
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.5939849615097046
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5654761791229248,
+      "hatecheck_validation_balanced": 0.8984962701797485
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.902255654335022
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4821428656578064,
+      "hatecheck_validation_balanced": 0.8157894611358643
+    },
+    "model": "Qwen3-4B",
+    "probe": "LRProbe",
+    "layer": 20,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.44736841320991516
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4166666567325592,
+      "hatecheck_validation_balanced": 0.22932331264019012
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7678571343421936,
+      "hatecheck_validation_balanced": 0.6804511547088623
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.5639097690582275
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.8796992301940918
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.75,
+      "hatecheck_validation_balanced": 0.9172932505607605
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.613095223903656,
+      "hatecheck_validation_balanced": 0.8496240377426147
+    },
+    "model": "Qwen3-4B",
+    "probe": "NonLinearProbe",
+    "layer": 20,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.7293233275413513
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5297619104385376,
+      "hatecheck_validation_balanced": 0.5827067494392395
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7440476417541504,
+      "hatecheck_validation_balanced": 0.7255638837814331
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.5939849615097046
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.8421052694320679
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7678571343421936,
+      "hatecheck_validation_balanced": 0.8609022498130798
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.8120300769805908
+    },
+    "model": "Qwen3-4B",
+    "probe": "LRProbe",
+    "layer": 35,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.7023809552192688,
+      "hatecheck_validation_balanced": 0.7180451154708862
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4523809552192688,
+      "hatecheck_validation_balanced": 0.5827067494392395
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7797619104385376,
+      "hatecheck_validation_balanced": 0.6954887509346008
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6428571343421936,
+      "hatecheck_validation_balanced": 0.5263158082962036
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.8571428656578064
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7440476417541504,
+      "hatecheck_validation_balanced": 0.8947368264198303
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.8195488452911377
+    },
+    "model": "Qwen3-4B",
+    "probe": "NonLinearProbe",
+    "layer": 35,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.636904776096344,
+      "hatecheck_validation_balanced": 0.6729323267936707
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4523809552192688,
+      "hatecheck_validation_balanced": 0.646616518497467
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7321428656578064,
+      "hatecheck_validation_balanced": 0.6654135584831238
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.46992480754852295
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6428571343421936,
+      "hatecheck_validation_balanced": 0.6804511547088623
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6785714030265808,
+      "hatecheck_validation_balanced": 0.6503759622573853
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6071428656578064,
+      "hatecheck_validation_balanced": 0.6879699230194092
+    },
+    "model": "Qwen3-8B",
+    "probe": "LRProbe",
+    "layer": 10,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6964285969734192,
+      "hatecheck_validation_balanced": 0.6315789222717285
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4345238208770752,
+      "hatecheck_validation_balanced": 0.646616518497467
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7797619104385376,
+      "hatecheck_validation_balanced": 0.6578947305679321
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.5451127886772156
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7083333134651184,
+      "hatecheck_validation_balanced": 0.6090225577354431
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7202380895614624,
+      "hatecheck_validation_balanced": 0.6503759622573853
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.6278195381164551
+    },
+    "model": "Qwen3-8B",
+    "probe": "NonLinearProbe",
+    "layer": 10,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6071428656578064,
+      "hatecheck_validation_balanced": 0.6729323267936707
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5178571343421936,
+      "hatecheck_validation_balanced": 0.45864662528038025
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7321428656578064,
+      "hatecheck_validation_balanced": 0.7180451154708862
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5059523582458496,
+      "hatecheck_validation_balanced": 0.4774436056613922
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6904761791229248,
+      "hatecheck_validation_balanced": 0.8157894611358643
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7321428656578064,
+      "hatecheck_validation_balanced": 0.8195488452911377
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.8721804618835449
+    },
+    "model": "Qwen3-8B",
+    "probe": "LRProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.6766917109489441
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.488095223903656,
+      "hatecheck_validation_balanced": 0.518796980381012
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7976190447807312,
+      "hatecheck_validation_balanced": 0.7067669034004211
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5476190447807312,
+      "hatecheck_validation_balanced": 0.5413534045219421
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6904761791229248,
+      "hatecheck_validation_balanced": 0.8195488452911377
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7678571343421936,
+      "hatecheck_validation_balanced": 0.8684210777282715
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6845238208770752,
+      "hatecheck_validation_balanced": 0.8496240377426147
+    },
+    "model": "Qwen3-8B",
+    "probe": "NonLinearProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6785714030265808,
+      "hatecheck_validation_balanced": 0.6616541147232056
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5357142686843872,
+      "hatecheck_validation_balanced": 0.45864662528038025
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7440476417541504,
+      "hatecheck_validation_balanced": 0.6879699230194092
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.4285714328289032
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5833333134651184,
+      "hatecheck_validation_balanced": 0.9135338068008423
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6964285969734192,
+      "hatecheck_validation_balanced": 0.9436089992523193
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.636904776096344,
+      "hatecheck_validation_balanced": 0.932330846786499
+    },
+    "model": "Qwen3-8B",
+    "probe": "LRProbe",
+    "layer": 23,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.7321428656578064,
+      "hatecheck_validation_balanced": 0.6879699230194092
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5178571343421936,
+      "hatecheck_validation_balanced": 0.3947368562221527
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.8154761791229248,
+      "hatecheck_validation_balanced": 0.7706766724586487
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.42105263471603394
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.9210526347160339
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.726190447807312,
+      "hatecheck_validation_balanced": 0.9248120188713074
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.648809552192688,
+      "hatecheck_validation_balanced": 0.902255654335022
+    },
+    "model": "Qwen3-8B",
+    "probe": "NonLinearProbe",
+    "layer": 23,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6726190447807312,
+      "hatecheck_validation_balanced": 0.7706766724586487
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.523809552192688,
+      "hatecheck_validation_balanced": 0.6691729426383972
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.773809552192688,
+      "hatecheck_validation_balanced": 0.7293233275413513
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.6578947305679321
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5535714030265808,
+      "hatecheck_validation_balanced": 0.8947368264198303
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7202380895614624,
+      "hatecheck_validation_balanced": 0.8646616339683533
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.8646616339683533
+    },
+    "model": "Qwen3-8B",
+    "probe": "LRProbe",
+    "layer": 35,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.761904776096344,
+      "hatecheck_validation_balanced": 0.7406014800071716
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.523809552192688,
+      "hatecheck_validation_balanced": 0.4624060094356537
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7916666865348816,
+      "hatecheck_validation_balanced": 0.6954887509346008
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.5150375962257385
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.8796992301940918
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7678571343421936,
+      "hatecheck_validation_balanced": 0.8458646535873413
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.8270676732063293
+    },
+    "model": "Qwen3-8B",
+    "probe": "NonLinearProbe",
+    "layer": 35,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.7321428656578064,
+      "hatecheck_validation_balanced": 0.6015037298202515
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.613095223903656,
+      "hatecheck_validation_balanced": 0.6541353464126587
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6845238208770752,
+      "hatecheck_validation_balanced": 0.6428571343421936
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.5864661931991577
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5178571343421936,
+      "hatecheck_validation_balanced": 0.4887218177318573
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5297619104385376,
+      "hatecheck_validation_balanced": 0.31578946113586426
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4583333432674408,
+      "hatecheck_validation_balanced": 0.6766917109489441
+    },
+    "model": "Qwen3-14B",
+    "probe": "LRProbe",
+    "layer": 10,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.7023809552192688,
+      "hatecheck_validation_balanced": 0.6090225577354431
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.613095223903656,
+      "hatecheck_validation_balanced": 0.6278195381164551
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.738095223903656,
+      "hatecheck_validation_balanced": 0.5827067494392395
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.6052631735801697
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5297619104385376,
+      "hatecheck_validation_balanced": 0.4849624037742615
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.36466166377067566
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4821428656578064,
+      "hatecheck_validation_balanced": 0.6654135584831238
+    },
+    "model": "Qwen3-14B",
+    "probe": "NonLinearProbe",
+    "layer": 10,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.726190447807312,
+      "hatecheck_validation_balanced": 0.5037593841552734
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.523809552192688,
+      "hatecheck_validation_balanced": 0.34962406754493713
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7857142686843872,
+      "hatecheck_validation_balanced": 0.5413534045219421
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6428571343421936,
+      "hatecheck_validation_balanced": 0.451127827167511
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.636904776096344,
+      "hatecheck_validation_balanced": 0.7669172883033752
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7559523582458496,
+      "hatecheck_validation_balanced": 0.7819548845291138
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.8233082890510559
+    },
+    "model": "Qwen3-14B",
+    "probe": "LRProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.7202380895614624,
+      "hatecheck_validation_balanced": 0.5451127886772156
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4523809552192688,
+      "hatecheck_validation_balanced": 0.3458646535873413
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.8095238208770752,
+      "hatecheck_validation_balanced": 0.548872172832489
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.636904776096344,
+      "hatecheck_validation_balanced": 0.4661654233932495
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.8308270573616028
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7797619104385376,
+      "hatecheck_validation_balanced": 0.8571428656578064
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.8496240377426147
+    },
+    "model": "Qwen3-14B",
+    "probe": "NonLinearProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.5714285969734192,
+      "hatecheck_validation_balanced": 0.5225563645362854
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4464285671710968,
+      "hatecheck_validation_balanced": 0.48120301961898804
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.8333333134651184,
+      "hatecheck_validation_balanced": 0.6917293071746826
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.6203007698059082
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6845238208770752,
+      "hatecheck_validation_balanced": 0.9360902309417725
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7440476417541504,
+      "hatecheck_validation_balanced": 0.969924807548523
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6845238208770752,
+      "hatecheck_validation_balanced": 0.8796992301940918
+    },
+    "model": "Qwen3-14B",
+    "probe": "LRProbe",
+    "layer": 25,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.613095223903656,
+      "hatecheck_validation_balanced": 0.597744345664978
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4464285671710968,
+      "hatecheck_validation_balanced": 0.5451127886772156
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7976190447807312,
+      "hatecheck_validation_balanced": 0.6917293071746826
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.6127819418907166
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6964285969734192,
+      "hatecheck_validation_balanced": 0.9398496150970459
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.761904776096344,
+      "hatecheck_validation_balanced": 0.951127827167511
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.8796992301940918
+    },
+    "model": "Qwen3-14B",
+    "probe": "NonLinearProbe",
+    "layer": 25,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6845238208770752,
+      "hatecheck_validation_balanced": 0.6992481350898743
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4702380895614624,
+      "hatecheck_validation_balanced": 0.5413534045219421
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.773809552192688,
+      "hatecheck_validation_balanced": 0.6503759622573853
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.530075192451477
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.9172932505607605
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7321428656578064,
+      "hatecheck_validation_balanced": 0.932330846786499
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.8571428656578064
+    },
+    "model": "Qwen3-14B",
+    "probe": "LRProbe",
+    "layer": 39,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.726190447807312,
+      "hatecheck_validation_balanced": 0.6503759622573853
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5059523582458496,
+      "hatecheck_validation_balanced": 0.5150375962257385
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7916666865348816,
+      "hatecheck_validation_balanced": 0.6954887509346008
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6428571343421936,
+      "hatecheck_validation_balanced": 0.6503759622573853
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7023809552192688,
+      "hatecheck_validation_balanced": 0.902255654335022
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.726190447807312,
+      "hatecheck_validation_balanced": 0.9172932505607605
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.8157894611358643
+    },
+    "model": "Qwen3-14B",
+    "probe": "NonLinearProbe",
+    "layer": 39,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.6278195381164551
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5297619104385376,
+      "hatecheck_validation_balanced": 0.6353383660316467
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7916666865348816,
+      "hatecheck_validation_balanced": 0.5864661931991577
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6726190447807312,
+      "hatecheck_validation_balanced": 0.6278195381164551
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6071428656578064,
+      "hatecheck_validation_balanced": 0.6240601539611816
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6785714030265808,
+      "hatecheck_validation_balanced": 0.5150375962257385
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.488095223903656,
+      "hatecheck_validation_balanced": 0.6278195381164551
+    },
+    "model": "Qwen3-32B",
+    "probe": "LRProbe",
+    "layer": 17,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.5827067494392395
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5178571343421936,
+      "hatecheck_validation_balanced": 0.5789473652839661
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7976190447807312,
+      "hatecheck_validation_balanced": 0.5789473652839661
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6964285969734192,
+      "hatecheck_validation_balanced": 0.5639097690582275
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6428571343421936,
+      "hatecheck_validation_balanced": 0.5827067494392395
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7083333134651184,
+      "hatecheck_validation_balanced": 0.61654132604599
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5357142686843872,
+      "hatecheck_validation_balanced": 0.6203007698059082
+    },
+    "model": "Qwen3-32B",
+    "probe": "NonLinearProbe",
+    "layer": 17,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.5263158082962036
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5535714030265808,
+      "hatecheck_validation_balanced": 0.3571428656578064
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.761904776096344,
+      "hatecheck_validation_balanced": 0.5563910007476807
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.3947368562221527
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.9360902309417725
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6904761791229248,
+      "hatecheck_validation_balanced": 0.9360902309417725
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.8721804618835449
+    },
+    "model": "Qwen3-32B",
+    "probe": "LRProbe",
+    "layer": 43,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.7023809552192688,
+      "hatecheck_validation_balanced": 0.5789473652839661
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5059523582458496,
+      "hatecheck_validation_balanced": 0.4436090290546417
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7976190447807312,
+      "hatecheck_validation_balanced": 0.5939849615097046
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.42105263471603394
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.9285714030265808
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7142857313156128,
+      "hatecheck_validation_balanced": 0.9360902309417725
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.8571428656578064
+    },
+    "model": "Qwen3-32B",
+    "probe": "NonLinearProbe",
+    "layer": 43,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.4736842215061188
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5357142686843872,
+      "hatecheck_validation_balanced": 0.4398496150970459
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7797619104385376,
+      "hatecheck_validation_balanced": 0.7518796920776367
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.4849624037742615
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.951127827167511
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7797619104385376,
+      "hatecheck_validation_balanced": 0.969924807548523
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6726190447807312,
+      "hatecheck_validation_balanced": 0.8947368264198303
+    },
+    "model": "Qwen3-32B",
+    "probe": "LRProbe",
+    "layer": 51,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6726190447807312,
+      "hatecheck_validation_balanced": 0.548872172832489
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.3947368562221527
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.8154761791229248,
+      "hatecheck_validation_balanced": 0.7255638837814331
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6964285969734192,
+      "hatecheck_validation_balanced": 0.4548872113227844
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.9624060392379761
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.8154761791229248,
+      "hatecheck_validation_balanced": 0.9473684430122375
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6904761791229248,
+      "hatecheck_validation_balanced": 0.8759398460388184
+    },
+    "model": "Qwen3-32B",
+    "probe": "NonLinearProbe",
+    "layer": 51,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.7440476417541504,
+      "hatecheck_validation_balanced": 0.6052631735801697
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5416666865348816,
+      "hatecheck_validation_balanced": 0.5112782120704651
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7857142686843872,
+      "hatecheck_validation_balanced": 0.6766917109489441
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.6315789222717285
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.9285714030265808
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7321428656578064,
+      "hatecheck_validation_balanced": 0.8796992301940918
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6785714030265808,
+      "hatecheck_validation_balanced": 0.8759398460388184
+    },
+    "model": "Qwen3-32B",
+    "probe": "LRProbe",
+    "layer": 63,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.6240601539611816
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.511904776096344,
+      "hatecheck_validation_balanced": 0.5075187683105469
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.773809552192688,
+      "hatecheck_validation_balanced": 0.7406014800071716
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.5789473652839661
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6428571343421936,
+      "hatecheck_validation_balanced": 0.8947368264198303
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7857142686843872,
+      "hatecheck_validation_balanced": 0.8646616339683533
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7321428656578064,
+      "hatecheck_validation_balanced": 0.8458646535873413
+    },
+    "model": "Qwen3-32B",
+    "probe": "NonLinearProbe",
+    "layer": 63,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.5833333134651184,
+      "hatecheck_validation_balanced": 0.646616518497467
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4464285671710968,
+      "hatecheck_validation_balanced": 0.6240601539611816
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.518796980381012
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6428571343421936,
+      "hatecheck_validation_balanced": 0.39849624037742615
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5,
+      "hatecheck_validation_balanced": 0.4548872113227844
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5,
+      "hatecheck_validation_balanced": 0.3721804618835449
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4107142984867096,
+      "hatecheck_validation_balanced": 0.567669153213501
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "LRProbe",
+    "layer": 6,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.613095223903656,
+      "hatecheck_validation_balanced": 0.6390977501869202
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4404761791229248,
+      "hatecheck_validation_balanced": 0.6090225577354431
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.75,
+      "hatecheck_validation_balanced": 0.5150375962257385
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.5150375962257385
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5714285969734192,
+      "hatecheck_validation_balanced": 0.4398496150970459
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5476190447807312,
+      "hatecheck_validation_balanced": 0.34962406754493713
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4166666567325592,
+      "hatecheck_validation_balanced": 0.6691729426383972
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "NonLinearProbe",
+    "layer": 6,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.6503759622573853
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.523809552192688,
+      "hatecheck_validation_balanced": 0.6390977501869202
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.726190447807312,
+      "hatecheck_validation_balanced": 0.5263158082962036
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.3571428656578064
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5,
+      "hatecheck_validation_balanced": 0.6992481350898743
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6726190447807312,
+      "hatecheck_validation_balanced": 0.7180451154708862
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5059523582458496,
+      "hatecheck_validation_balanced": 0.6766917109489441
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "LRProbe",
+    "layer": 14,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.6691729426383972
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4761904776096344,
+      "hatecheck_validation_balanced": 0.6015037298202515
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7678571343421936,
+      "hatecheck_validation_balanced": 0.6240601539611816
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6428571343421936,
+      "hatecheck_validation_balanced": 0.49248120188713074
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.613095223903656,
+      "hatecheck_validation_balanced": 0.6917293071746826
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.738095223903656,
+      "hatecheck_validation_balanced": 0.7443609237670898
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5654761791229248,
+      "hatecheck_validation_balanced": 0.6992481350898743
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "NonLinearProbe",
+    "layer": 14,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.6503759622573853
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.523809552192688,
+      "hatecheck_validation_balanced": 0.6390977501869202
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.726190447807312,
+      "hatecheck_validation_balanced": 0.5263158082962036
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.3571428656578064
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5,
+      "hatecheck_validation_balanced": 0.6992481350898743
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6726190447807312,
+      "hatecheck_validation_balanced": 0.7180451154708862
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5059523582458496,
+      "hatecheck_validation_balanced": 0.6766917109489441
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "LRProbe",
+    "layer": 14,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.6691729426383972
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4761904776096344,
+      "hatecheck_validation_balanced": 0.6015037298202515
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7678571343421936,
+      "hatecheck_validation_balanced": 0.6240601539611816
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6428571343421936,
+      "hatecheck_validation_balanced": 0.49248120188713074
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.613095223903656,
+      "hatecheck_validation_balanced": 0.6917293071746826
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.738095223903656,
+      "hatecheck_validation_balanced": 0.7443609237670898
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5654761791229248,
+      "hatecheck_validation_balanced": 0.6992481350898743
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "NonLinearProbe",
+    "layer": 14,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6964285969734192,
+      "hatecheck_validation_balanced": 0.6428571343421936
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5476190447807312,
+      "hatecheck_validation_balanced": 0.4436090290546417
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7083333134651184,
+      "hatecheck_validation_balanced": 0.646616518497467
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5714285969734192,
+      "hatecheck_validation_balanced": 0.6127819418907166
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5833333134651184,
+      "hatecheck_validation_balanced": 0.7781955003738403
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6904761791229248,
+      "hatecheck_validation_balanced": 0.8458646535873413
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.494047611951828,
+      "hatecheck_validation_balanced": 0.6992481350898743
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "LRProbe",
+    "layer": 27,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.7142857313156128,
+      "hatecheck_validation_balanced": 0.7631579041481018
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5714285969734192,
+      "hatecheck_validation_balanced": 0.3458646535873413
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.75,
+      "hatecheck_validation_balanced": 0.6804511547088623
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.6353383660316467
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5833333134651184,
+      "hatecheck_validation_balanced": 0.7030075192451477
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.8214285969734192,
+      "hatecheck_validation_balanced": 0.7443609237670898
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.494047611951828,
+      "hatecheck_validation_balanced": 0.6541353464126587
+    },
+    "model": "Qwen3-1_7B",
+    "probe": "NonLinearProbe",
+    "layer": 27,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.5714285969734192,
+      "hatecheck_validation_balanced": 0.5263158082962036
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5476190447807312,
+      "hatecheck_validation_balanced": 0.5263158082962036
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6785714030265808,
+      "hatecheck_validation_balanced": 0.40977442264556885
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.4661654233932495
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6071428656578064,
+      "hatecheck_validation_balanced": 0.4849624037742615
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5654761791229248,
+      "hatecheck_validation_balanced": 0.3909774422645569
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.488095223903656,
+      "hatecheck_validation_balanced": 0.49624061584472656
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "LRProbe",
+    "layer": 6,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.7202380895614624,
+      "hatecheck_validation_balanced": 0.530075192451477
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.6547619104385376,
+      "hatecheck_validation_balanced": 0.5789473652839661
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.4135338366031647
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.3834586441516876
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.46992480754852295
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.48120301961898804
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4583333432674408,
+      "hatecheck_validation_balanced": 0.49248120188713074
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "NonLinearProbe",
+    "layer": 6,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.5476190447807312,
+      "hatecheck_validation_balanced": 0.5375939607620239
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4404761791229248,
+      "hatecheck_validation_balanced": 0.4887218177318573
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.40977442264556885
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5714285969734192,
+      "hatecheck_validation_balanced": 0.25563910603523254
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4523809552192688,
+      "hatecheck_validation_balanced": 0.6240601539611816
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.7556390762329102
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4821428656578064,
+      "hatecheck_validation_balanced": 0.6729323267936707
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "LRProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.5827067494392395
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.494047611951828,
+      "hatecheck_validation_balanced": 0.4774436056613922
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7083333134651184,
+      "hatecheck_validation_balanced": 0.4736842215061188
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.27819550037384033
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5178571343421936,
+      "hatecheck_validation_balanced": 0.6691729426383972
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.726190447807312,
+      "hatecheck_validation_balanced": 0.7857142686843872
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.548872172832489
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "NonLinearProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6726190447807312,
+      "hatecheck_validation_balanced": 0.49248120188713074
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.511904776096344,
+      "hatecheck_validation_balanced": 0.4248120188713074
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.37593984603881836
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5416666865348816,
+      "hatecheck_validation_balanced": 0.29323309659957886
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4702380895614624,
+      "hatecheck_validation_balanced": 0.5639097690582275
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6904761791229248,
+      "hatecheck_validation_balanced": 0.6578947305679321
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4702380895614624,
+      "hatecheck_validation_balanced": 0.6954887509346008
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "LRProbe",
+    "layer": 14,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.5150375962257385
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.488095223903656,
+      "hatecheck_validation_balanced": 0.4849624037742615
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.738095223903656,
+      "hatecheck_validation_balanced": 0.4398496150970459
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.37593984603881836
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.6578947305679321
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6904761791229248,
+      "hatecheck_validation_balanced": 0.6917293071746826
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5357142686843872,
+      "hatecheck_validation_balanced": 0.5563910007476807
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "NonLinearProbe",
+    "layer": 14,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.6804511547088623
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.494047611951828,
+      "hatecheck_validation_balanced": 0.4774436056613922
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7083333134651184,
+      "hatecheck_validation_balanced": 0.5902255773544312
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.42105263471603394
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5178571343421936,
+      "hatecheck_validation_balanced": 0.7030075192451477
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7202380895614624,
+      "hatecheck_validation_balanced": 0.6390977501869202
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5178571343421936,
+      "hatecheck_validation_balanced": 0.6691729426383972
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "LRProbe",
+    "layer": 27,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.75,
+      "hatecheck_validation_balanced": 0.6353383660316467
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.6071428656578064,
+      "hatecheck_validation_balanced": 0.5751879811286926
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.761904776096344,
+      "hatecheck_validation_balanced": 0.5939849615097046
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.636904776096344,
+      "hatecheck_validation_balanced": 0.43233081698417664
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5535714030265808,
+      "hatecheck_validation_balanced": 0.6503759622573853
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.738095223903656,
+      "hatecheck_validation_balanced": 0.6541353464126587
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4642857015132904,
+      "hatecheck_validation_balanced": 0.5150375962257385
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "NonLinearProbe",
+    "layer": 27,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.5297619104385376,
+      "hatecheck_validation_balanced": 0.6578947305679321
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5476190447807312,
+      "hatecheck_validation_balanced": 0.646616518497467
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7023809552192688,
+      "hatecheck_validation_balanced": 0.49248120188713074
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.530075192451477
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.5263158082962036
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.613095223903656,
+      "hatecheck_validation_balanced": 0.37593984603881836
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4523809552192688,
+      "hatecheck_validation_balanced": 0.5037593841552734
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "LRProbe",
+    "layer": 5,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.6015037298202515
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5178571343421936,
+      "hatecheck_validation_balanced": 0.5451127886772156
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.5375939607620239
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.648809552192688,
+      "hatecheck_validation_balanced": 0.5827067494392395
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5654761791229248,
+      "hatecheck_validation_balanced": 0.44736841320991516
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.35338345170021057
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4345238208770752,
+      "hatecheck_validation_balanced": 0.5939849615097046
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "NonLinearProbe",
+    "layer": 5,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6726190447807312,
+      "hatecheck_validation_balanced": 0.5413534045219421
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5476190447807312,
+      "hatecheck_validation_balanced": 0.567669153213501
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6071428656578064,
+      "hatecheck_validation_balanced": 0.3458646535873413
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5416666865348816,
+      "hatecheck_validation_balanced": 0.4736842215061188
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.494047611951828,
+      "hatecheck_validation_balanced": 0.5714285969734192
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5714285969734192,
+      "hatecheck_validation_balanced": 0.6015037298202515
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.567669153213501
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "LRProbe",
+    "layer": 9,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6845238208770752,
+      "hatecheck_validation_balanced": 0.5225563645362854
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.530075192451477
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.49624061584472656
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5357142686843872,
+      "hatecheck_validation_balanced": 0.5
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5297619104385376,
+      "hatecheck_validation_balanced": 0.4661654233932495
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5535714030265808,
+      "hatecheck_validation_balanced": 0.5413534045219421
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5714285969734192,
+      "hatecheck_validation_balanced": 0.518796980381012
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "NonLinearProbe",
+    "layer": 9,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6726190447807312,
+      "hatecheck_validation_balanced": 0.5413534045219421
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5476190447807312,
+      "hatecheck_validation_balanced": 0.567669153213501
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6071428656578064,
+      "hatecheck_validation_balanced": 0.3458646535873413
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5416666865348816,
+      "hatecheck_validation_balanced": 0.4736842215061188
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.494047611951828,
+      "hatecheck_validation_balanced": 0.5714285969734192
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5714285969734192,
+      "hatecheck_validation_balanced": 0.6015037298202515
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.567669153213501
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "LRProbe",
+    "layer": 9,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6845238208770752,
+      "hatecheck_validation_balanced": 0.5225563645362854
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.530075192451477
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.49624061584472656
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5357142686843872,
+      "hatecheck_validation_balanced": 0.5
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5297619104385376,
+      "hatecheck_validation_balanced": 0.4661654233932495
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5535714030265808,
+      "hatecheck_validation_balanced": 0.5413534045219421
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5714285969734192,
+      "hatecheck_validation_balanced": 0.518796980381012
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "NonLinearProbe",
+    "layer": 9,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6428571343421936,
+      "hatecheck_validation_balanced": 0.49624061584472656
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.3947368562221527
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.75,
+      "hatecheck_validation_balanced": 0.48120301961898804
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7202380895614624,
+      "hatecheck_validation_balanced": 0.4022556245326996
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.488095223903656,
+      "hatecheck_validation_balanced": 0.5413534045219421
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6845238208770752,
+      "hatecheck_validation_balanced": 0.5939849615097046
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.5338345766067505
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "LRProbe",
+    "layer": 17,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6547619104385376,
+      "hatecheck_validation_balanced": 0.5112782120704651
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4821428656578064,
+      "hatecheck_validation_balanced": 0.530075192451477
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.726190447807312,
+      "hatecheck_validation_balanced": 0.5
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6547619104385376,
+      "hatecheck_validation_balanced": 0.4624060094356537
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5357142686843872,
+      "hatecheck_validation_balanced": 0.6090225577354431
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.5225563645362854
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5059523582458496,
+      "hatecheck_validation_balanced": 0.5112782120704651
+    },
+    "model": "gemma-3-270m-it",
+    "probe": "NonLinearProbe",
+    "layer": 17,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.6015037298202515
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5476190447807312,
+      "hatecheck_validation_balanced": 0.46992480754852295
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.7030075192451477
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.5789473652839661
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.646616518497467
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.7293233275413513
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.5639097690582275
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "LRProbe",
+    "layer": 8,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.5714285969734192
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5059523582458496,
+      "hatecheck_validation_balanced": 0.42105263471603394
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.648809552192688,
+      "hatecheck_validation_balanced": 0.6390977501869202
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.5150375962257385
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.648809552192688,
+      "hatecheck_validation_balanced": 0.6654135584831238
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6071428656578064,
+      "hatecheck_validation_balanced": 0.6879699230194092
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.613095223903656,
+      "hatecheck_validation_balanced": 0.49624061584472656
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "NonLinearProbe",
+    "layer": 8,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.7406014800071716
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.511904776096344,
+      "hatecheck_validation_balanced": 0.6729323267936707
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6726190447807312,
+      "hatecheck_validation_balanced": 0.6090225577354431
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.494047611951828,
+      "hatecheck_validation_balanced": 0.5827067494392395
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4761904776096344,
+      "hatecheck_validation_balanced": 0.7481203079223633
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.613095223903656,
+      "hatecheck_validation_balanced": 0.7293233275413513
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5,
+      "hatecheck_validation_balanced": 0.6804511547088623
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "LRProbe",
+    "layer": 11,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.646616518497467
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5357142686843872,
+      "hatecheck_validation_balanced": 0.6240601539611816
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7202380895614624,
+      "hatecheck_validation_balanced": 0.646616518497467
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5833333134651184,
+      "hatecheck_validation_balanced": 0.49248120188713074
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.7481203079223633
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5833333134651184,
+      "hatecheck_validation_balanced": 0.7180451154708862
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5416666865348816,
+      "hatecheck_validation_balanced": 0.6766917109489441
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "NonLinearProbe",
+    "layer": 11,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6845238208770752,
+      "hatecheck_validation_balanced": 0.61654132604599
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.5075187683105469
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.738095223903656,
+      "hatecheck_validation_balanced": 0.6015037298202515
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5654761791229248,
+      "hatecheck_validation_balanced": 0.4398496150970459
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.523809552192688,
+      "hatecheck_validation_balanced": 0.6954887509346008
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.648809552192688,
+      "hatecheck_validation_balanced": 0.6541353464126587
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4523809552192688,
+      "hatecheck_validation_balanced": 0.5864661931991577
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "LRProbe",
+    "layer": 13,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.61654132604599
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.523809552192688,
+      "hatecheck_validation_balanced": 0.5
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7321428656578064,
+      "hatecheck_validation_balanced": 0.6203007698059082
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6071428656578064,
+      "hatecheck_validation_balanced": 0.5263158082962036
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.6804511547088623
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.6879699230194092
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5297619104385376,
+      "hatecheck_validation_balanced": 0.6503759622573853
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "NonLinearProbe",
+    "layer": 13,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.7797619104385376,
+      "hatecheck_validation_balanced": 0.7105262875556946
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.5714285969734192
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.738095223903656,
+      "hatecheck_validation_balanced": 0.530075192451477
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6726190447807312,
+      "hatecheck_validation_balanced": 0.5714285969734192
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.488095223903656,
+      "hatecheck_validation_balanced": 0.8308270573616028
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7142857313156128,
+      "hatecheck_validation_balanced": 0.7142857313156128
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.7706766724586487
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "LRProbe",
+    "layer": 25,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.648809552192688,
+      "hatecheck_validation_balanced": 0.3721804618835449
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.3947368562221527
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7321428656578064,
+      "hatecheck_validation_balanced": 0.6353383660316467
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.6729323267936707
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6071428656578064,
+      "hatecheck_validation_balanced": 0.7368420958518982
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7023809552192688,
+      "hatecheck_validation_balanced": 0.6804511547088623
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.7067669034004211
+    },
+    "model": "gemma-3-1b-it",
+    "probe": "NonLinearProbe",
+    "layer": 25,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.7142857313156128,
+      "hatecheck_validation_balanced": 0.5939849615097046
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.597744345664978
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.738095223903656,
+      "hatecheck_validation_balanced": 0.5075187683105469
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7083333134651184,
+      "hatecheck_validation_balanced": 0.4661654233932495
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5654761791229248,
+      "hatecheck_validation_balanced": 0.5225563645362854
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6845238208770752,
+      "hatecheck_validation_balanced": 0.37593984603881836
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4821428656578064,
+      "hatecheck_validation_balanced": 0.530075192451477
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "LRProbe",
+    "layer": 4,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.738095223903656,
+      "hatecheck_validation_balanced": 0.5789473652839661
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.548872172832489
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.75,
+      "hatecheck_validation_balanced": 0.5037593841552734
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6785714030265808,
+      "hatecheck_validation_balanced": 0.4285714328289032
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.4774436056613922
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.3796992599964142
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5,
+      "hatecheck_validation_balanced": 0.4849624037742615
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "NonLinearProbe",
+    "layer": 4,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.46992480754852295
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.488095223903656,
+      "hatecheck_validation_balanced": 0.5526315569877625
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6547619104385376,
+      "hatecheck_validation_balanced": 0.5789473652839661
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5,
+      "hatecheck_validation_balanced": 0.48120301961898804
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.488095223903656,
+      "hatecheck_validation_balanced": 0.8571428656578064
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6547619104385376,
+      "hatecheck_validation_balanced": 0.7932330965995789
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.7593985199928284
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "LRProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.5751879811286926
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.488095223903656,
+      "hatecheck_validation_balanced": 0.4624060094356537
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6547619104385376,
+      "hatecheck_validation_balanced": 0.6090225577354431
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.523809552192688,
+      "hatecheck_validation_balanced": 0.40977442264556885
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5833333134651184,
+      "hatecheck_validation_balanced": 0.8646616339683533
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6428571343421936,
+      "hatecheck_validation_balanced": 0.7631579041481018
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5297619104385376,
+      "hatecheck_validation_balanced": 0.7443609237670898
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "NonLinearProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.7023809552192688,
+      "hatecheck_validation_balanced": 0.6390977501869202
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.4248120188713074
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.648809552192688,
+      "hatecheck_validation_balanced": 0.7932330965995789
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.6240601539611816
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.511904776096344,
+      "hatecheck_validation_balanced": 0.8458646535873413
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.613095223903656,
+      "hatecheck_validation_balanced": 0.8007518649101257
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5535714030265808,
+      "hatecheck_validation_balanced": 0.7819548845291138
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "LRProbe",
+    "layer": 26,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6726190447807312,
+      "hatecheck_validation_balanced": 0.6917293071746826
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5059523582458496,
+      "hatecheck_validation_balanced": 0.5789473652839661
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6547619104385376,
+      "hatecheck_validation_balanced": 0.7593985199928284
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5357142686843872,
+      "hatecheck_validation_balanced": 0.6315789222717285
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.613095223903656,
+      "hatecheck_validation_balanced": 0.8759398460388184
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.726190447807312,
+      "hatecheck_validation_balanced": 0.8345864415168762
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.8308270573616028
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "NonLinearProbe",
+    "layer": 26,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6785714030265808,
+      "hatecheck_validation_balanced": 0.7218044996261597
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.494047611951828,
+      "hatecheck_validation_balanced": 0.6616541147232056
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.75,
+      "hatecheck_validation_balanced": 0.7894737124443054
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5833333134651184,
+      "hatecheck_validation_balanced": 0.7706766724586487
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.88345867395401
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6904761791229248,
+      "hatecheck_validation_balanced": 0.8421052694320679
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5476190447807312,
+      "hatecheck_validation_balanced": 0.8082706928253174
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "LRProbe",
+    "layer": 33,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.6240601539611816
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4583333432674408,
+      "hatecheck_validation_balanced": 0.6203007698059082
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6785714030265808,
+      "hatecheck_validation_balanced": 0.7706766724586487
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.7330827116966248
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5833333134651184,
+      "hatecheck_validation_balanced": 0.853383481502533
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7023809552192688,
+      "hatecheck_validation_balanced": 0.8759398460388184
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5535714030265808,
+      "hatecheck_validation_balanced": 0.8383458852767944
+    },
+    "model": "gemma-3-4b-it",
+    "probe": "NonLinearProbe",
+    "layer": 33,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.5413534045219421
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.494047611951828,
+      "hatecheck_validation_balanced": 0.548872172832489
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6726190447807312,
+      "hatecheck_validation_balanced": 0.518796980381012
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6547619104385376,
+      "hatecheck_validation_balanced": 0.5375939607620239
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.4548872113227844
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5654761791229248,
+      "hatecheck_validation_balanced": 0.32706767320632935
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4404761791229248,
+      "hatecheck_validation_balanced": 0.5563910007476807
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "LRProbe",
+    "layer": 4,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.597744345664978
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4761904776096344,
+      "hatecheck_validation_balanced": 0.6240601539611816
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7440476417541504,
+      "hatecheck_validation_balanced": 0.4849624037742615
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.4849624037742615
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5654761791229248,
+      "hatecheck_validation_balanced": 0.45864662528038025
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.3909774422645569
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4523809552192688,
+      "hatecheck_validation_balanced": 0.49248120188713074
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "NonLinearProbe",
+    "layer": 4,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.636904776096344,
+      "hatecheck_validation_balanced": 0.6428571343421936
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.523809552192688,
+      "hatecheck_validation_balanced": 0.518796980381012
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.648809552192688,
+      "hatecheck_validation_balanced": 0.6315789222717285
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.511904776096344,
+      "hatecheck_validation_balanced": 0.5526315569877625
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5059523582458496,
+      "hatecheck_validation_balanced": 0.6917293071746826
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6904761791229248,
+      "hatecheck_validation_balanced": 0.6428571343421936
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5357142686843872,
+      "hatecheck_validation_balanced": 0.6729323267936707
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "LRProbe",
+    "layer": 12,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.6390977501869202
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5059523582458496,
+      "hatecheck_validation_balanced": 0.61654132604599
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6964285969734192,
+      "hatecheck_validation_balanced": 0.5902255773544312
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5714285969734192,
+      "hatecheck_validation_balanced": 0.5601503849029541
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.7293233275413513
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.6240601539611816
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5476190447807312,
+      "hatecheck_validation_balanced": 0.6390977501869202
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "NonLinearProbe",
+    "layer": 12,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.523809552192688,
+      "hatecheck_validation_balanced": 0.597744345664978
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5,
+      "hatecheck_validation_balanced": 0.43233081698417664
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.7067669034004211
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5714285969734192,
+      "hatecheck_validation_balanced": 0.5338345766067505
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.902255654335022
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.8421052694320679
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5833333134651184,
+      "hatecheck_validation_balanced": 0.8421052694320679
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "LRProbe",
+    "layer": 32,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.5451127886772156
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4523809552192688,
+      "hatecheck_validation_balanced": 0.43233081698417664
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.636904776096344,
+      "hatecheck_validation_balanced": 0.7368420958518982
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5297619104385376,
+      "hatecheck_validation_balanced": 0.5526315569877625
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5654761791229248,
+      "hatecheck_validation_balanced": 0.9060150384902954
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5833333134651184,
+      "hatecheck_validation_balanced": 0.8157894611358643
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.494047611951828,
+      "hatecheck_validation_balanced": 0.8872180581092834
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "NonLinearProbe",
+    "layer": 32,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6904761791229248,
+      "hatecheck_validation_balanced": 0.6654135584831238
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.6541353464126587
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7797619104385376,
+      "hatecheck_validation_balanced": 0.8421052694320679
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6071428656578064,
+      "hatecheck_validation_balanced": 0.8082706928253174
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5416666865348816,
+      "hatecheck_validation_balanced": 0.951127827167511
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6666666865348816,
+      "hatecheck_validation_balanced": 0.8947368264198303
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6428571343421936,
+      "hatecheck_validation_balanced": 0.9097744226455688
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "LRProbe",
+    "layer": 47,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6547619104385376,
+      "hatecheck_validation_balanced": 0.7142857313156128
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4464285671710968,
+      "hatecheck_validation_balanced": 0.3796992599964142
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7797619104385376,
+      "hatecheck_validation_balanced": 0.8233082890510559
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.8195488452911377
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.969924807548523
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.8984962701797485
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.8721804618835449
+    },
+    "model": "gemma-3-12b-it",
+    "probe": "NonLinearProbe",
+    "layer": 47,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.5714285969734192
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.5902255773544312
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7202380895614624,
+      "hatecheck_validation_balanced": 0.5263158082962036
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.5902255773544312
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4523809552192688,
+      "hatecheck_validation_balanced": 0.5150375962257385
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5654761791229248,
+      "hatecheck_validation_balanced": 0.3684210479259491
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4642857015132904,
+      "hatecheck_validation_balanced": 0.5639097690582275
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "LRProbe",
+    "layer": 5,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.648809552192688,
+      "hatecheck_validation_balanced": 0.548872172832489
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.6547619104385376,
+      "hatecheck_validation_balanced": 0.49248120188713074
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7321428656578064,
+      "hatecheck_validation_balanced": 0.43609023094177246
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.5112782120704651
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.494047611951828,
+      "hatecheck_validation_balanced": 0.49248120188713074
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.4624060094356537
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4285714328289032,
+      "hatecheck_validation_balanced": 0.5338345766067505
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "NonLinearProbe",
+    "layer": 5,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.6428571343421936,
+      "hatecheck_validation_balanced": 0.61654132604599
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.548872172832489
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6785714030265808,
+      "hatecheck_validation_balanced": 0.6353383660316467
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.636904776096344,
+      "hatecheck_validation_balanced": 0.6127819418907166
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.511904776096344,
+      "hatecheck_validation_balanced": 0.6654135584831238
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6904761791229248,
+      "hatecheck_validation_balanced": 0.530075192451477
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5297619104385376,
+      "hatecheck_validation_balanced": 0.6240601539611816
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "LRProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.7023809552192688,
+      "hatecheck_validation_balanced": 0.6052631735801697
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.5
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.648809552192688,
+      "hatecheck_validation_balanced": 0.6127819418907166
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.5601503849029541
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5357142686843872,
+      "hatecheck_validation_balanced": 0.61654132604599
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.601190447807312,
+      "hatecheck_validation_balanced": 0.46992480754852295
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5297619104385376,
+      "hatecheck_validation_balanced": 0.6203007698059082
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "NonLinearProbe",
+    "layer": 16,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.5357142686843872,
+      "hatecheck_validation_balanced": 0.6052631735801697
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.488095223903656,
+      "hatecheck_validation_balanced": 0.4285714328289032
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5833333134651184,
+      "hatecheck_validation_balanced": 0.6691729426383972
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5357142686843872,
+      "hatecheck_validation_balanced": 0.4736842215061188
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4583333432674408,
+      "hatecheck_validation_balanced": 0.8571428656578064
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5535714030265808,
+      "hatecheck_validation_balanced": 0.7706766724586487
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.4642857015132904,
+      "hatecheck_validation_balanced": 0.7368420958518982
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "LRProbe",
+    "layer": 38,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.523809552192688,
+      "hatecheck_validation_balanced": 0.597744345664978
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.4642857015132904,
+      "hatecheck_validation_balanced": 0.45864662528038025
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.6015037298202515
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.488095223903656,
+      "hatecheck_validation_balanced": 0.5413534045219421
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5714285969734192,
+      "hatecheck_validation_balanced": 0.8646616339683533
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5714285969734192,
+      "hatecheck_validation_balanced": 0.7819548845291138
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.5059523582458496,
+      "hatecheck_validation_balanced": 0.7894737124443054
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "NonLinearProbe",
+    "layer": 38,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.7797619104385376,
+      "hatecheck_validation_balanced": 0.6654135584831238
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5535714030265808,
+      "hatecheck_validation_balanced": 0.3684210479259491
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7559523582458496,
+      "hatecheck_validation_balanced": 0.8270676732063293
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.6541353464126587
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.613095223903656,
+      "hatecheck_validation_balanced": 0.9736841917037964
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.773809552192688,
+      "hatecheck_validation_balanced": 0.9135338068008423
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6071428656578064,
+      "hatecheck_validation_balanced": 0.8984962701797485
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "LRProbe",
+    "layer": 61,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "cumstrudel_train_comments_balanced": 0.8154761791229248,
+      "hatecheck_validation_balanced": 0.6654135584831238
+    },
+    "code-review-dataset-larger+neg-code-review-larger": {
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.4774436056613922
+    },
+    "gitter_ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.7678571343421936,
+      "hatecheck_validation_balanced": 0.7105262875556946
+    },
+    "gitter_ethereum-labeled-larger+neg-gitter-ethereum-labeled-larger": {
+      "cumstrudel_train_comments_balanced": 0.6071428656578064,
+      "hatecheck_validation_balanced": 0.6278195381164551
+    },
+    "hatecheck_balanced": {
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.951127827167511
+    },
+    "hatecheck_simple_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7440476417541504,
+      "hatecheck_validation_balanced": 0.88345867395401
+    },
+    "hatecheck_complex_balanced": {
+      "cumstrudel_train_comments_balanced": 0.7023809552192688,
+      "hatecheck_validation_balanced": 0.9248120188713074
+    },
+    "model": "gemma-3-27b-it",
+    "probe": "NonLinearProbe",
+    "layer": 61,
+    "oracle": false,
+    "noperiod": false
+  }
+]

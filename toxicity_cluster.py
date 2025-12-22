@@ -1,6 +1,3 @@
-import os
-os.environ['NUMBA_NUM_THREADS'] = '1'
-
 import pandas as pd
 import numpy as np
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
@@ -174,8 +171,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate activations for statements in a dataset")
     parser.add_argument("--max_evals", default="50", type=int,
                        help="Number of Cluster optimization runs to find best hyperparameters")
-    parser.add_argument("--layers", nargs='+', type=int,
-                        help="Layers to save embeddings from")
+    # parser.add_argument("--layers", nargs='+', type=int,
+    #                     help="Layers to save embeddings from")
     parser.add_argument("--datasets", nargs='+',
                         help="Names of datasets, without .csv extension")
     parser.add_argument("--output_dir", default="/Volumes/Samsung SSD 990 PRO 4TB/geometry-of-toxicity/data/acts",
@@ -186,37 +183,43 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     hspace = {
-        "n_neighbors" : hp.hp.quniform("n_neighbors", 5, 50, 2), # (20, 50, 2)
+        "n_neighbors" : hp.hp.quniform("n_neighbors", 2, 60, 2), # (20, 50, 2)
         "n_components" : hp.hp.quniform("n_components", 2, 30, 2), # (10, 30, 2)
-        "min_cluster_size" : hp.hp.quniform("min_cluster_size", 25, 500, 2), # (600, 200, 10)
-        "min_samples" : hp.hp.quniform("min_samples", 5, 50, 2),
+        "min_cluster_size" : hp.hp.quniform("min_cluster_size", 5, 500, 2), # (600, 200, 10)
+        "min_samples" : hp.hp.quniform("min_samples", 2, 60, 2),
         "random_state" : 42
     }
 
-    statements = load_statements(args.datasets[0])
-
-    models_to_analyse = ["Qwen3-4B"]#, "Qwen3-8B", "Qwen3-14B", "Qwen3-32B"]
+    #statements = load_statements(args.datasets[0])
+    dataset = "hatecheck"
+    models_to_analyse = ["Qwen3-4B", "gemma-3-4b-it", "Qwen3-14B", "Qwen3-32B", "gemma-3-12b-it", "gemma-3-27b-it"]
     config = configparser.ConfigParser()
     config.read('config.ini')
     #eval(config[model]['probe_layer'])
     device = "mps" #'cuda:0' if torch.cuda.is_available() else 'cpu'
     for model_name in tqdm(models_to_analyse, desc="Model", leave=True):
-        model = load_model(model_name, device)
-        #layers = list(range(len(model.model.layers)))
-        #print(layers)
-        params = {layer: {algo: {} for algo in ["UMAP", "HDBSCAN", "LOSS"]} for layer in args.layers}
+        layer_a = eval(config[model_name]['probe_layer_a'])
+        layer_b1 = eval(config[model_name]['probe_layer_b1'])
+        layer_b2 = eval(config[model_name]['probe_layer_b2'])
+        layer_c = eval(config[model_name]['probe_layer_c'])
+        layers = [layer_a, layer_b1, layer_b2, layer_c]
+        #model = load_model(model_name, device)
+        # if "gemma" in model_name:
+        #     layers = list(range(len(model.language_model.layers)))
+        # else:
+        #     layers = list(range(len(model.model.layers)))
+        params = {layer: {algo: {} for algo in ["UMAP", "HDBSCAN", "LOSS"]} for layer in layers}
         noperiod = eval(config[model_name]['noperiod'])
-        df_data = pd.read_csv(f"datasets/{args.datasets[0]}.csv")
+        df_data = pd.read_csv(f"datasets/{dataset}.csv")
         statements = df_data["statement"].tolist()
         labels = df_data["functionality"].tolist()
         binary_labels = df_data["is_toxic"].tolist()
         label_lower = 2
-        label_upper = 30
+        label_upper = 60
         max_evals = args.max_evals
-        for layer in tqdm(args.layers, desc=f"{model_name} layer", leave=True):
-            print(layer)
+        for layer in tqdm(layers, desc=f"{model_name} layer", leave=True):
             df_acts = TruthData.from_datasets(
-                [args.datasets[0]], #[knowledge_non_knowledge_original_v3_categorized, knowledge_non_knowledge_v3_rephrased_gpt_120b], # datasets to use
+                [dataset], #[knowledge_non_knowledge_original_v3_categorized, knowledge_non_knowledge_v3_rephrased_gpt_120b], # datasets to use
                 model=model_name,
                 layer=layer,
                 center=True,
@@ -248,14 +251,14 @@ if __name__ == "__main__":
                 "prediction_data" : True,
                 'cluster_selection_method': 'leaf'
             }
-            params[layer]["HDBSCAN"] = umap_args
+            params[layer]["HDBSCAN"] = hdbscan_args
             params[layer]["LOSS"] = trials_use.best_trial["result"]["loss"]
             umap_embeddings = UMAP(**umap_args).fit_transform(acts)
             hdbscan_model = HDBSCAN(**hdbscan_args).fit(umap_embeddings)
 
             df_data[f"{model_name}_layer{layer}_cluster"] = hdbscan_model.labels_
 
-        with open(f'all_toxicity_results/experimental_outputs/{model_name}_{args.datasets[0]}_hyperparameters.json', 'w') as f:
+        with open(f'all_toxicity_results/experimental_outputs/{model_name}_{dataset}_hyperparameters_partial.json', 'w') as f:
             json.dump(params, f, indent=4)
         
-        df_data.to_csv(f"all_toxicity_results/experimental_outputs/{model_name}_{args.datasets[0]}_layerwise_cluster.csv", sep=",")
+        df_data.to_csv(f"all_toxicity_results/experimental_outputs/{model_name}_{dataset}_layerwise_cluster_partial.csv", sep=",")

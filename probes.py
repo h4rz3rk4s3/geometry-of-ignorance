@@ -1,4 +1,7 @@
 import torch as t
+from torch.utils.data import TensorDataset, DataLoader
+from sklearn.metrics import accuracy_score
+import numpy as np
 
 class LRProbe(t.nn.Module):
     def __init__(self, d_in):
@@ -72,52 +75,131 @@ class MMProbe(t.nn.Module):
     def __str__():
         return "MMProbe"
 
-
-def ccs_loss(probe, acts, neg_acts):
-    p_pos = probe(acts)
-    p_neg = probe(neg_acts)
-    print(p_pos)
-    print(p_neg)
-    consistency_losses = (p_pos - (1 - p_neg)) ** 2
-    confidence_losses = t.min(t.stack((p_pos, p_neg), dim=-1), dim=-1).values ** 2
-    return t.mean(consistency_losses + confidence_losses)
-
-
-class CCSProbe(t.nn.Module):
-    def __init__(self, d_in):
-        super().__init__()
-        self.net = t.nn.Sequential(
-            t.nn.Linear(d_in, 1, bias=False),
-            t.nn.Sigmoid()
-        )
+class NonLinearProbe(t.nn.Module):
+    """
+    Two-layer MLP probe for toxicity classification.
     
-    def forward(self, x, iid=None):
-        return self.net(x).squeeze(-1)
+    Args:
+        input_dim: Dimension of the input activation space
+        hidden_dim: Dimension of the hidden layer (default: 512)
+        activation: Activation function ('relu', 'gelu', 'silu') (default: 'relu')
+        dropout: Dropout rate (default: 0.1)
+    """
+    def __init__(
+        self, 
+        input_dim: int, 
+        hidden_dim: int = 512,
+        activation: str = 'silu',
+        dropout: float = 0.1
+    ):
+        super(NonLinearProbe, self).__init__()
+        
+        # Choose activation function
+        activations = {
+            'relu': t.nn.ReLU(),
+            'gelu': t.nn.GELU(),
+            'silu': t.nn.SiLU()
+        }
+        self.activation_fn = activations.get(activation.lower(), t.nn.ReLU())
+        
+        # Two-layer MLP
+        self.fc1 = t.nn.Linear(input_dim, hidden_dim)
+        self.dropout = t.nn.Dropout(dropout)
+        self.fc2 = t.nn.Linear(hidden_dim, 1)  # Binary classification
+        
+    def forward(self, x: t.Tensor, iid=None) -> t.Tensor:
+        """
+        Forward pass through the probe.
+        
+        Args:
+            x: Input tensor of shape (batch_size, input_dim)
+            
+        Returns:
+            logits: Output tensor of shape (batch_size, 1)
+        """
+        x = self.fc1(x)
+        x = self.activation_fn(x)
+        x = self.dropout(x)
+        x = self.fc2(x)
+        return x
     
-    def pred(self, acts, iid=None):
-        return self(acts).round()
-    
-    def from_data(acts, neg_acts, labels=None, lr=0.001, weight_decay=0.1, epochs=1000, device='cpu'):
-        acts, neg_acts = acts.to(device), neg_acts.to(device)
-        probe = CCSProbe(acts.shape[-1]).to(device)
+    def pred(
+        self,
+        x: t.Tensor,
+        device: str = 'mps' if t.mps.is_available() else 'cpu',
+        return_probs: bool = False,
+        iid=None
+    ) -> np.ndarray:
+        """
+        Run inference with the probe on new activations.
+        
+        Args:
+            probe: The trained NonLinearProbe model
+            activations: Input activations (n_samples, hidden_dim)
+            device: Device to run inference on
+            return_probs: If True, return probabilities; if False, return binary predictions
+            
+        Returns:
+            predictions: Binary predictions (0/1) or probabilities, shape (n_samples,)
+        """
+        x = x.to(device)
+        
+        with t.no_grad():
+            logits = self(x).squeeze()
+            probs = t.sigmoid(logits)
+            
+            if return_probs:
+                return probs.cpu().numpy()
+            else:
+                preds = (probs > 0.5).float()
+                return preds.cpu().numpy()
+            
+    def from_data(
+            acts: t.Tensor, 
+            labels: t.Tensor,
+            epochs: int = 10,
+            batch_size: int = 32,
+            lr: float = 1e-4,
+            weight_decay: float = 1e-4, 
+            device: str = 'mps' if t.mps.is_available() else 'cpu'):
+       
+        acts, labels = acts.to(device), labels.to(device).float()
+        probe = NonLinearProbe(acts.shape[-1]).to(device)
+
+        history = {
+            'train_loss': [],
+            'train_acc': [],
+        }
+
+        train_dataset = TensorDataset(acts, labels)
+        train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
         
         opt = t.optim.AdamW(probe.parameters(), lr=lr, weight_decay=weight_decay)
-        for _ in range(epochs):
-            opt.zero_grad()
-            loss = ccs_loss(probe, acts, neg_acts)
-            loss.backward()
-            opt.step()
+        criterion = t.nn.BCEWithLogitsLoss()
 
-        if labels is not None: # flip direction if needed
-            acc = (probe.pred(acts) == labels).float().mean()
-            if acc < 0.5:
-                probe.net[0].weight.data *= -1
+        for _ in range(epochs):
+            probe.train()
+            train_loss = 0.0
+            train_preds = []
+            train_true = []
+
+            for batch_acts, batch_labels in train_loader:
+                opt.zero_grad()
+                logits = probe(batch_acts).squeeze()
+                loss = criterion(logits, batch_labels)
+                loss.backward()
+                opt.step()
+                
+                train_loss += loss.item()
+                preds = (t.sigmoid(logits) > 0.5).float()
+                train_preds.extend(preds.cpu().numpy())
+                train_true.extend(batch_labels.cpu().numpy())
+            
+            train_loss /= len(train_loader)
+            train_acc = accuracy_score(train_true, train_preds)
+            #print(f"Train Loss: {train_loss}.  Train Acc: {train_acc}. Epoch: {_}/{epochs}.")
         
         return probe
     
     def __str__():
-        return "CCSProbe"
-
-    @property
-    def direction(self):
-        return self.net[0].weight.data[0]
+        return "NonLinearProbe"

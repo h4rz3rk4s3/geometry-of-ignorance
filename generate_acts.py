@@ -51,11 +51,11 @@ def get_acts(statements, model, layers, remote=True):
     with model.trace(statements, remote=remote, **tracer_kwargs):
         for layer in layers:
             #pprint(model.model.layers[layer].output[0])
-            acts[layer] = model.model.layers[layer].output[0][:, -1, :].save() #Mistral-small and gemma3 >=4b neee model.language_model(.model)....
+            acts[layer] = model.language_model.layers[layer].output[0][:, -1, :].save() #Mistral-small and gemma3 >=4b neee model.language_model(.model)....
 
     for layer, act in acts.items():
-        #print(act.value)
-        acts[layer] = act.value
+        #print(act)
+        acts[layer] = act
 
     return acts
 
@@ -80,9 +80,9 @@ if __name__ == "__main__":
 
     statements = load_statements(args.datasets[0])
     #models = ["gemma-3-270m-it", "gemma-3-1b-it"]
-    #models = ["gemma-3-4b-it", "gemma-3-12b-it", "gemma-3-27b-it"]
+    models = ["gemma-3-4b-it"]#, "gemma-3-12b-it", "gemma-3-27b-it"]
     #models = ["gemma-3-270m-it", "gemma-3-1b-it", "Qwen3-0_6B", "Qwen3-1_7B", "Qwen3-4B", "Qwen3-8B", "Qwen3-14B", "Qwen3-32B"]
-    models = ["Qwen3-8B", "Qwen3-14B", "Qwen3-32B"]
+    #models = ["Qwen3-8B", "Qwen3-14B", "Qwen3-32B"]
     t.set_grad_enabled(False)
     for model_name in models:
         #statements = load_statements(dataset)
@@ -91,7 +91,7 @@ if __name__ == "__main__":
             statements = [statement[:-1] for statement in statements]
         layers = args.layers
         if layers == [-1]:
-            layers = list(range(len(model.model.layers)))
+            layers = list(range(len(model.language_model.layers)))
         save_dir = os.path.join(f"{args.output_dir}", model_name)
         if not os.path.exists(save_dir):
             os.makedirs(save_dir)

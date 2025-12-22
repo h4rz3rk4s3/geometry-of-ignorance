@@ -1,0 +1,614 @@
+{
+    "0": {
+        "UMAP": {
+            "n_neighbors": 46,
+            "n_components": 28,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 46,
+            "n_components": 28,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.27347515024979796
+    },
+    "1": {
+        "UMAP": {
+            "n_neighbors": 48,
+            "n_components": 30,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 48,
+            "n_components": 30,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.49773395541110765
+    },
+    "2": {
+        "UMAP": {
+            "n_neighbors": 46,
+            "n_components": 2,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 46,
+            "n_components": 2,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.5047083990927006
+    },
+    "3": {
+        "UMAP": {
+            "n_neighbors": 34,
+            "n_components": 26,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 34,
+            "n_components": 26,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.8045175305580158
+    },
+    "4": {
+        "UMAP": {
+            "n_neighbors": 34,
+            "n_components": 22,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 34,
+            "n_components": 22,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.4657321074398415
+    },
+    "5": {
+        "UMAP": {
+            "n_neighbors": 50,
+            "n_components": 14,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 50,
+            "n_components": 14,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.5867867721297971
+    },
+    "6": {
+        "UMAP": {
+            "n_neighbors": 44,
+            "n_components": 10,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 44,
+            "n_components": 10,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.4739403993200339
+    },
+    "7": {
+        "UMAP": {
+            "n_neighbors": 32,
+            "n_components": 30,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 32,
+            "n_components": 30,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.4996495804630785
+    },
+    "8": {
+        "UMAP": {
+            "n_neighbors": 34,
+            "n_components": 10,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 34,
+            "n_components": 10,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.6731674220528906
+    },
+    "9": {
+        "UMAP": {
+            "n_neighbors": 36,
+            "n_components": 4,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 36,
+            "n_components": 4,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.7268244588608364
+    },
+    "10": {
+        "UMAP": {
+            "n_neighbors": 22,
+            "n_components": 26,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 22,
+            "n_components": 26,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.531032940318351
+    },
+    "11": {
+        "UMAP": {
+            "n_neighbors": 30,
+            "n_components": 8,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 30,
+            "n_components": 8,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.41568969109698956
+    },
+    "12": {
+        "UMAP": {
+            "n_neighbors": 38,
+            "n_components": 22,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 38,
+            "n_components": 22,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.5219721376526939
+    },
+    "13": {
+        "UMAP": {
+            "n_neighbors": 50,
+            "n_components": 16,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 50,
+            "n_components": 16,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.45523250511649194
+    },
+    "14": {
+        "UMAP": {
+            "n_neighbors": 26,
+            "n_components": 22,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 26,
+            "n_components": 22,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.36245299811968296
+    },
+    "15": {
+        "UMAP": {
+            "n_neighbors": 42,
+            "n_components": 24,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 42,
+            "n_components": 24,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.35072764527571393
+    },
+    "16": {
+        "UMAP": {
+            "n_neighbors": 24,
+            "n_components": 12,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 24,
+            "n_components": 12,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.37110863423968293
+    },
+    "17": {
+        "UMAP": {
+            "n_neighbors": 38,
+            "n_components": 18,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 38,
+            "n_components": 18,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.41474891836477285
+    },
+    "18": {
+        "UMAP": {
+            "n_neighbors": 20,
+            "n_components": 26,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 20,
+            "n_components": 26,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.33138324566521693
+    },
+    "19": {
+        "UMAP": {
+            "n_neighbors": 24,
+            "n_components": 22,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 24,
+            "n_components": 22,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.47040919929420083
+    },
+    "20": {
+        "UMAP": {
+            "n_neighbors": 12,
+            "n_components": 16,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 12,
+            "n_components": 16,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.3777083536410659
+    },
+    "21": {
+        "UMAP": {
+            "n_neighbors": 12,
+            "n_components": 2,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 12,
+            "n_components": 2,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.5313390422302688
+    },
+    "22": {
+        "UMAP": {
+            "n_neighbors": 14,
+            "n_components": 4,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 14,
+            "n_components": 4,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.37779979054423596
+    },
+    "23": {
+        "UMAP": {
+            "n_neighbors": 24,
+            "n_components": 20,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 24,
+            "n_components": 20,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.35544381338542724
+    },
+    "24": {
+        "UMAP": {
+            "n_neighbors": 24,
+            "n_components": 30,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 24,
+            "n_components": 30,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.46329894996312404
+    },
+    "25": {
+        "UMAP": {
+            "n_neighbors": 26,
+            "n_components": 10,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 26,
+            "n_components": 10,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.44478718100531656
+    },
+    "26": {
+        "UMAP": {
+            "n_neighbors": 26,
+            "n_components": 20,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 26,
+            "n_components": 20,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.37147814739420765
+    },
+    "27": {
+        "UMAP": {
+            "n_neighbors": 32,
+            "n_components": 14,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 32,
+            "n_components": 14,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.3659060832514953
+    },
+    "28": {
+        "UMAP": {
+            "n_neighbors": 36,
+            "n_components": 2,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 36,
+            "n_components": 2,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.4181440694637768
+    },
+    "29": {
+        "UMAP": {
+            "n_neighbors": 34,
+            "n_components": 10,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 34,
+            "n_components": 10,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.4085181794775816
+    },
+    "30": {
+        "UMAP": {
+            "n_neighbors": 30,
+            "n_components": 20,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 30,
+            "n_components": 20,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.44951667516135463
+    },
+    "31": {
+        "UMAP": {
+            "n_neighbors": 10,
+            "n_components": 10,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 10,
+            "n_components": 10,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.3539365784070765
+    },
+    "32": {
+        "UMAP": {
+            "n_neighbors": 30,
+            "n_components": 2,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 30,
+            "n_components": 2,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.33660129269278605
+    },
+    "33": {
+        "UMAP": {
+            "n_neighbors": 38,
+            "n_components": 24,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 38,
+            "n_components": 24,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.25257547238691674
+    },
+    "34": {
+        "UMAP": {
+            "n_neighbors": 6,
+            "n_components": 4,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 6,
+            "n_components": 4,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.3250847763842035
+    },
+    "35": {
+        "UMAP": {
+            "n_neighbors": 44,
+            "n_components": 6,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "n_neighbors": 44,
+            "n_components": 6,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "LOSS": -0.32728638226897516
+    }
+}

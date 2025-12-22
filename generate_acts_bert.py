@@ -31,7 +31,7 @@ def load_statements(dataset_name):
     Load statements from csv file, return list of strings.
     """
     dataset = pd.read_csv(f"datasets/{dataset_name}.csv")
-    statements = dataset['rephrased_statement'].tolist()
+    statements = dataset['statement'].tolist()
     return statements
 
 def get_last_hidden_state(tensor):
@@ -41,23 +41,24 @@ def get_last_hidden_state(tensor):
 def get_acts(statements, model, layers, remote=True):
     """
     Get given layer activations for the statements.
-    Return dictionary of stacked activations.
+    Return dictionary of stacked activations. 
     """
     acts = {}
     with model.trace(statements, remote=False, **tracer_kwargs):
         for layer in layers:
-            acts[layer] = model.model.layers[layer].output[0][:, -1, :].save()
+            print(layer)
+            #acts[layer] = model.roberta.encoder.layer[layer].output[0][:, -1, :].save()
 
-            # bert_layer = model.roberta.encoder.layer[layer]
+            bert_layer = model.roberta.encoder.layer[layer]
             
-            # bert_layer_output = getattr(bert_layer, 'output')
-            # hidden_states_last_token = bert_layer_output.output[:, -1, :]
+            bert_layer_output = getattr(bert_layer, 'output')
+            hidden_states_last_token = bert_layer_output.output[:, -1, :]
             
-            # acts[layer] = hidden_states_last_token.save()
+            acts[layer] = hidden_states_last_token.save()
             #acts[layer] = model.model.layers[layer].output[0][:, -1, :].save()
 
     for layer, act in acts.items():
-        #print(act.value)
+        print(act.value)
         acts[layer] = act.value
 
     return acts
@@ -89,7 +90,7 @@ if __name__ == "__main__":
             statements = [statement[:-1] for statement in statements]
         layers = args.layers
         if layers == [-1]:
-            layers = list(range(len(model.model.layers)))
+            layers = list(range(len(model.roberta.encoder.layer)))
         save_dir = os.path.join(f"{args.output_dir}", args.model)
         if not os.path.exists(save_dir):
             os.makedirs(save_dir)

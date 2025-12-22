@@ -108,13 +108,14 @@ class DataManager:
         } # dictionary of datasets
         self.proj = None # projection matrix for dimensionality reduction
     
-    def add_dataset(self, dataset_name, model_size, layer, head=-1, label='label', split=False, train_indices=[], test_indices=[], noperiod=False, center=True, scale=False, device='cpu'):
+    def add_dataset(self, dataset_name, model_size, layer, head=-1, label='label', split=False, seed=None, train_indices=[], test_indices=[], noperiod=False, center=True, scale=False, device='cpu'):
         """
         Add a dataset to the DataManager.
         label : which column of the csv file to use as the labels.
         If split is not None, gives the train/val split proportion. Uses seed for reproducibility.
         """
-        acts = collect_acts(dataset_name, model_size, layer, head=-1, noperiod=noperiod, center=center, scale=scale, device=device)
+        acts = collect_acts(dataset_name, model_size, layer, head=head, noperiod=noperiod, center=center, scale=scale, device=device)
+        #print(acts)
         df = pd.read_csv(os.path.join(ROOT, 'datasets', f'{dataset_name}.csv'))
         labels = t.Tensor(df[label].values).to(device)
 
@@ -122,18 +123,18 @@ class DataManager:
             self.data[dataset_name] = acts, labels
 
         if split is True:
-            assert len(train_indices) > 0 and len(test_indices) > 0
-            # if seed is None:
-            #     seed = random.randint(0, 1000)
-            # t.manual_seed(seed)
-            # train = t.randperm(len(df)) < int(split * len(df))
-            # val = ~train
-            print(len(train_indices), ":", len(test_indices))
+            #assert len(train_indices) > 0 and len(test_indices) > 0
+            if seed is None:
+                seed = random.randint(0, 1000)
+            t.manual_seed(seed)
+            train = t.randperm(len(df)) < int(split * len(df))
+            val = ~train
+            #print(len(train_indices), ":", len(test_indices))
             #print(train.size())
             print(acts.size())
-            self.data['train'][dataset_name] = acts[train_indices], labels[train_indices]
-            print(acts[test_indices].size())
-            self.data['val'][dataset_name] = acts[test_indices], labels[test_indices]
+            self.data['train'][dataset_name] = acts[train], labels[train]
+            #print(acts[test_indices].size())
+            self.data['val'][dataset_name] = acts[val], labels[val]
 
     def get(self, datasets):
         """
@@ -160,6 +161,7 @@ class DataManager:
             data_dict = {datasets : self.data[datasets]}
         else:
             raise ValueError(f"datasets must be 'all', 'train', 'val', a list of dataset names, or a single dataset name, not {datasets}")
+        #print(data_dict)
         acts, labels = cat_data(data_dict)
         # if proj and self.proj is not None:
         #     acts = t.mm(acts, self.proj)

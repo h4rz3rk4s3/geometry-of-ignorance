@@ -1,0 +1,66 @@
+{
+    "4": {
+        "UMAP": {
+            "n_neighbors": 26,
+            "n_components": 24,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "min_cluster_size": 168,
+            "min_samples": 30,
+            "prediction_data": true,
+            "cluster_selection_method": "leaf"
+        },
+        "LOSS": -0.3802205225936454
+    },
+    "12": {
+        "UMAP": {
+            "n_neighbors": 48,
+            "n_components": 14,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "min_cluster_size": 208,
+            "min_samples": 50,
+            "prediction_data": true,
+            "cluster_selection_method": "leaf"
+        },
+        "LOSS": -0.6638532594348786
+    },
+    "32": {
+        "UMAP": {
+            "n_neighbors": 32,
+            "n_components": 2,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "min_cluster_size": 88,
+            "min_samples": 30,
+            "prediction_data": true,
+            "cluster_selection_method": "leaf"
+        },
+        "LOSS": -0.6570057225729262
+    },
+    "47": {
+        "UMAP": {
+            "n_neighbors": 56,
+            "n_components": 12,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+        },
+        "HDBSCAN": {
+            "min_cluster_size": 216,
+            "min_samples": 36,
+            "prediction_data": true,
+            "cluster_selection_method": "leaf"
+        },
+        "LOSS": -0.525480432018077
+    }
+}
