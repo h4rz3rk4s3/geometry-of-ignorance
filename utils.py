@@ -119,10 +119,10 @@ class DataManager:
         df = pd.read_csv(os.path.join(ROOT, 'datasets', f'{dataset_name}.csv'))
         labels = t.Tensor(df[label].values).to(device)
 
-        if split is False:
+        if split is None:
             self.data[dataset_name] = acts, labels
 
-        if split is True:
+        if split is not None:
             #assert len(train_indices) > 0 and len(test_indices) > 0
             if seed is None:
                 seed = random.randint(0, 1000)

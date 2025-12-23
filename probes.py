@@ -89,7 +89,7 @@ class NonLinearProbe(t.nn.Module):
         self, 
         input_dim: int, 
         hidden_dim: int = 512,
-        activation: str = 'silu',
+        activation: str = 'relu',
         dropout: float = 0.1
     ):
         super(NonLinearProbe, self).__init__()
@@ -157,7 +157,7 @@ class NonLinearProbe(t.nn.Module):
     def from_data(
             acts: t.Tensor, 
             labels: t.Tensor,
-            epochs: int = 10,
+            epochs: int = 20,
             batch_size: int = 32,
             lr: float = 1e-4,
             weight_decay: float = 1e-4, 
