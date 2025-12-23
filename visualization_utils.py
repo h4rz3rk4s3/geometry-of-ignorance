@@ -1,9 +1,12 @@
 import torch as t
 import pandas as pd
 import os
+import json
+import seaborn as sns
+from umap import umap
 import plotly.express as px
 import plotly.graph_objects as go
-from utils import collect_acts, get_pcs
+from utils import collect_acts, get_pcs, get_umap
 
 class TruthData:
     """
@@ -54,7 +57,7 @@ class TruthData:
     # label : column of df to use as labels
     # plot_datasets : dataset to use for plotting (by default, use all data)
     # pca_datasets : dataset to use for PCA (by default, use all data)
-    def plot(self, dimensions, dim_offset=0, plot_datasets=None, pca_datasets=None, arrows=[], return_df=False, **kwargs):
+    def plot_pca(self, dimensions, dim_offset=0, plot_datasets=None, pca_datasets=None, arrows=[], return_df=False, **kwargs):
         
         # get pcs for the given datasets
         if pca_datasets is None:
@@ -136,3 +139,103 @@ class TruthData:
         else:
             return fig
             
+    def plot_umap(self, model_name: str, layer:int, dimensions: int, dim_offset: int, plot_datasets=None, pca_datasets=None, arrows=[], return_df=False, **kwargs):
+        """
+        Docstring für get_umap
+        
+        :param self: Beschreibung
+        :param dimensions: Beschreibung
+        :param dif_offset: Beschreibung
+        :param kwargs: Beschreibung
+        """
+        with open(f"all_toxicity_results/experimental_outputs/{model_name}_hatecheck_hyperparameters_partial.json", "r") as f:
+            d = json.load(f)
+        umap_params = d[f"{layer}"]["UMAP"]
+
+        if pca_datasets is None:
+            pca_datasets = self.df.index.levels[0].tolist()
+        acts = self.df.loc[pca_datasets]['activation'].tolist()
+        acts = t.stack(acts, dim=0).to("mps")
+        proj = get_umap(acts, umap_params, dimensions, dim_offset)
+
+        # project data onto pcs
+        if plot_datasets is None:
+            plot_datasets = self.df.index.levels[0].tolist()
+        df = self.df.loc[plot_datasets]
+        acts = df['activation'].tolist()
+        acts = t.stack(acts, dim=0).to("mps")
+        proj = t.mm(acts, proj)
+
+        # add projected data to df
+        for dim in range(dimensions):
+            df[f"dim_{dim+1}"] = proj[:, dim].tolist()
+        
+        # shuffle rows of df
+        df = df.sample(frac=1)
+
+        color_palette = sns.color_palette('Paired', 12) 
+        # Convert to RGB strings for Plotly
+        cluster_colors = [
+            f'rgb({int(color_palette[x][0]*255)}, {int(color_palette[x][1]*255)}, {int(color_palette[x][2]*255)})' 
+            if x >= 0 
+            else 'rgb(128, 128, 128)'  # gray for noise points
+            for x in df[f"{model_name}_layer{layer}_cluster"]
+        ]
+        
+        # plot using plotly
+        if dimensions == 2:
+            fig = px.scatter(df, x='dim_1', y='dim_2', 
+                             hover_name="statement",
+                             #symbol="symbol_type",
+                             width=800,
+                             height=800,
+                             **kwargs)
+        elif dimensions == 3:
+            fig = px.scatter_3d(df, x='dim_1', y='dim_2', z='dim_3', 
+                                hover_name="statement", 
+                                #color_continuous_scale='Turbo',
+                                color_discrete_sequence=px.colors.qualitative.Dark24,
+                                symbol="symbol_type",
+                                width=800,
+                                height=800,
+                                **kwargs)
+        else:
+            raise ValueError("Dimensions must be 2 or 3")
+
+        fig.update_yaxes(
+            scaleanchor = "x",
+            scaleratio = 1,
+        )
+        
+        fig.update_layout(
+            coloraxis_showscale=False,
+        )
+        
+        if arrows != []:
+            for i, arrow in enumerate(arrows): # arrow is a tensor of shape [acts.shape[1]]
+                arrow = arrow.to(proj.device)
+                arrow = t.mm(arrow.unsqueeze(0), proj)
+                arrow = go.layout.Annotation(
+                    x=arrow[0,0],
+                    y=arrow[0,1],
+                    xref="x",
+                    yref="y",
+                    axref="x",
+                    ayref="y",
+                    ax=0,
+                    ay=0,
+                    arrowhead=2,
+                    arrowsize=1,
+                    arrowwidth=2,
+                    arrowcolor="#636363",
+                    opacity=0.8,
+                    showarrow=True,
+                )
+                arrows[i] = arrow
+            
+            fig.update_layout(annotations=arrows)
+
+        if return_df:
+            return fig, df
+        else:
+            return fig
