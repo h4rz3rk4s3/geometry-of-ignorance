@@ -3,7 +3,7 @@ import pandas as pd
 import os
 import json
 import seaborn as sns
-from umap import umap
+#from umap import UMAP
 import plotly.express as px
 import plotly.graph_objects as go
 from utils import collect_acts, get_pcs, get_umap
@@ -14,8 +14,10 @@ class TruthData:
     """
 
     # df is a pandas dataframe
-    def __init__(self, df):
+    def __init__(self, df, layer, model):
         self.df = df
+        self.layer = layer
+        self.model = model
 
     def __len__(self):
         return len(self.df)
@@ -45,7 +47,7 @@ class TruthData:
         
         df = pd.concat(dfs, keys=dataset_names)
 
-        out = TruthData(df)
+        out = TruthData(df, layer, model)
         out.model = model
         out.layer = layer
 
@@ -139,7 +141,7 @@ class TruthData:
         else:
             return fig
             
-    def plot_umap(self, model_name: str, layer:int, dimensions: int, dim_offset: int, plot_datasets=None, pca_datasets=None, arrows=[], return_df=False, **kwargs):
+    def plot_umap(self, dimensions: int, dim_offset: int, plot_datasets=None, pca_datasets=None, arrows=[], return_df=False, **kwargs):
         """
         Docstring für get_umap
         
@@ -148,15 +150,16 @@ class TruthData:
         :param dif_offset: Beschreibung
         :param kwargs: Beschreibung
         """
-        with open(f"all_toxicity_results/experimental_outputs/{model_name}_hatecheck_hyperparameters_partial.json", "r") as f:
+        with open(f"all_toxicity_results/experimental_outputs/{self.model}_hatecheck_hyperparameters_partial.json", "r") as f:
             d = json.load(f)
-        umap_params = d[f"{layer}"]["UMAP"]
+        umap_params = d[f"{self.layer}"]["UMAP"]
 
         if pca_datasets is None:
             pca_datasets = self.df.index.levels[0].tolist()
         acts = self.df.loc[pca_datasets]['activation'].tolist()
-        acts = t.stack(acts, dim=0).to("mps")
+        acts = t.stack(acts, dim=0).to("cpu")
         proj = get_umap(acts, umap_params, dimensions, dim_offset)
+        #proj = t.stack(proj, dim=0).to("mps")
 
         # project data onto pcs
         if plot_datasets is None:
@@ -179,7 +182,7 @@ class TruthData:
             f'rgb({int(color_palette[x][0]*255)}, {int(color_palette[x][1]*255)}, {int(color_palette[x][2]*255)})' 
             if x >= 0 
             else 'rgb(128, 128, 128)'  # gray for noise points
-            for x in df[f"{model_name}_layer{layer}_cluster"]
+            for x in df[f"{self.model}_layer{self.layer}_cluster"]
         ]
         
         # plot using plotly

@@ -203,3 +203,7 @@ class NonLinearProbe(t.nn.Module):
     
     def __str__():
         return "NonLinearProbe"
+    
+    @property
+    def direction(self):
+        return self.net[0].weight.data[0]

@@ -80,8 +80,8 @@ if __name__ == "__main__":
 
     statements = load_statements(args.datasets[0])
     #models = ["gemma-3-270m-it", "gemma-3-1b-it"]
-    models = ["gemma-3-4b-it"]#, "gemma-3-12b-it", "gemma-3-27b-it"]
-    #models = ["gemma-3-270m-it", "gemma-3-1b-it", "Qwen3-0_6B", "Qwen3-1_7B", "Qwen3-4B", "Qwen3-8B", "Qwen3-14B", "Qwen3-32B"]
+    models = ["gemma-3-4b-it", "gemma-3-12b-it", "gemma-3-27b-it"]
+    #models = ["Qwen3-0_6B", "Qwen3-1_7B", "Qwen3-4B", "Qwen3-8B", "Qwen3-14B", "Qwen3-32B"]
     #models = ["Qwen3-8B", "Qwen3-14B", "Qwen3-32B"]
     t.set_grad_enabled(False)
     for model_name in models:
@@ -92,6 +92,7 @@ if __name__ == "__main__":
         layers = args.layers
         if layers == [-1]:
             layers = list(range(len(model.language_model.layers)))
+            #print(layers)
         save_dir = os.path.join(f"{args.output_dir}", model_name)
         if not os.path.exists(save_dir):
             os.makedirs(save_dir)

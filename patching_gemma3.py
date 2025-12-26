@@ -20,12 +20,12 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     if hasattr(original_eos_token_id, 'item'):
         original_eos_token_id = original_eos_token_id.item()
 
-    layers = model.language_model.model.layers #model.language_model.model.layers
+    layers = model.model.layers #model.language_model.model.layers
     remote = device
 
     # prompt for cities
-    # false_prompt = "The city of Tokyo is in Japan. This statement is: TRUE\nThe city of Hanoi is in Poland. This statement is: FALSE\nThe city of Chicago is in Canada. This statement is:"
-    # true_prompt = "The city of Tokyo is in Japan. This statement is: TRUE\nThe city of Hanoi is in Poland. This statement is: FALSE\nThe city of Toronto is in Canada. This statement is:"
+    false_prompt = "The city of Tokyo is in Japan. This statement is: TRUE\nThe city of Hanoi is in Poland. This statement is: FALSE\nThe city of Chicago is in Canada. This statement is:"
+    true_prompt = "The city of Tokyo is in Japan. This statement is: TRUE\nThe city of Hanoi is in Poland. This statement is: FALSE\nThe city of Toronto is in Canada. This statement is:"
 
     # prompt for larger_than
     #false_prompt = "Fifty-one is larger than seventy-five. This statement is: FALSE\nEighty-two is larger than sixty-four. This statement is: TRUE\nEighty-one is larger than eighty-four. This statement is:"
@@ -48,21 +48,21 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     # The Spanish word 'uno' means 'one'. This statement is:"""
 
 
-    non_knowledge_prompt = """\
-    On the surface, it seems like ctx.unwrap_tensors() (with ctx being a PythonFunctionalizeAPI in this case) is not smart enough to handle tensor subclasses? Should it be handled there or more ad-hoc within flex_attention's impl? This example communicates: Ignore.
-    The symptom comes from the functionalization implementation for the flex_attention HOP. This example communicates: Knowledge.
-    I met a strange illegal memory access error. It happens randomly without any regular pattern. This example communicates: Ignore.
-    Yes, for the hostcall with atomics issue, changing the motherboard with PCIe atomics support is a viable solution. This example communicates: Knowledge.
-    It seems odd that this doesn't work, and it feels like it should... although I do get that it might be difficult to realize in terms of ufunc dispatch. This example communicates: Ignore.
-    If you call np.nanmin or np.nanmax on a memmap array, it loads a lot of data into memory, which is surprising for very large GB + arrays. This example communicates:"""
+    # non_knowledge_prompt = """\
+    # On the surface, it seems like ctx.unwrap_tensors() (with ctx being a PythonFunctionalizeAPI in this case) is not smart enough to handle tensor subclasses? Should it be handled there or more ad-hoc within flex_attention's impl? This example communicates: Ignore.
+    # The symptom comes from the functionalization implementation for the flex_attention HOP. This example communicates: Knowledge.
+    # I met a strange illegal memory access error. It happens randomly without any regular pattern. This example communicates: Ignore.
+    # Yes, for the hostcall with atomics issue, changing the motherboard with PCIe atomics support is a viable solution. This example communicates: Knowledge.
+    # It seems odd that this doesn't work, and it feels like it should... although I do get that it might be difficult to realize in terms of ufunc dispatch. This example communicates: Ignore.
+    # If you call np.nanmin or np.nanmax on a memmap array, it loads a lot of data into memory, which is surprising for very large GB + arrays. This example communicates:"""
 
-    knowledge_prompt = """\
-    On the surface, it seems like ctx.unwrap_tensors() (with ctx being a PythonFunctionalizeAPI in this case) is not smart enough to handle tensor subclasses? Should it be handled there or more ad-hoc within flex_attention's impl? This example communicates: Ignore.
-    The symptom comes from the functionalization implementation for the flex_attention HOP. This example communicates: Knowledge.
-    I met a strange illegal memory access error. It happens randomly without any regular pattern. This example communicates: Ignore.
-    Yes, for the hostcall with atomics issue, changing the motherboard with PCIe atomics support is a viable solution. This example communicates: Knowledge.
-    It seems odd that this doesn't work, and it feels like it should... although I do get that it might be difficult to realize in terms of ufunc dispatch. This example communicates: Ignore.
-    If you call np.nanmin or np.nanmax on a memmap array, it loads a lot of data into memory, which is important for very large GB + arrays. This example communicates:"""
+    # knowledge_prompt = """\
+    # On the surface, it seems like ctx.unwrap_tensors() (with ctx being a PythonFunctionalizeAPI in this case) is not smart enough to handle tensor subclasses? Should it be handled there or more ad-hoc within flex_attention's impl? This example communicates: Ignore.
+    # The symptom comes from the functionalization implementation for the flex_attention HOP. This example communicates: Knowledge.
+    # I met a strange illegal memory access error. It happens randomly without any regular pattern. This example communicates: Ignore.
+    # Yes, for the hostcall with atomics issue, changing the motherboard with PCIe atomics support is a viable solution. This example communicates: Knowledge.
+    # It seems odd that this doesn't work, and it feels like it should... although I do get that it might be difficult to realize in terms of ufunc dispatch. This example communicates: Ignore.
+    # If you call np.nanmin or np.nanmax on a memmap array, it loads a lot of data into memory, which is important for very large GB + arrays. This example communicates:"""
     # healthy_prompt = """\
     # Agreed with Paul that we should create a wrapper for the kill function, to replace all the kill call in this file, probably can do it in a separate CL.\nMaybe something like this:\n\nbool KillProcess(int pid, bool* killed)\nThis will return true if signal is sent or the process is already killed, false otherwise. The caller can use the |killed| to check if the process has already exited.. This statement is: healthy.
     # Wow!! This is such a wonderful tool! Did not know about it. Cool, updating the layout in next patchset. This statement is: healthy.
@@ -93,8 +93,8 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     # No trans person deserves to die. This statement is: healthy.
     # I would always hurt a Muslim. This statement is:"""
 
-    false_prompt = non_knowledge_prompt
-    true_prompt = knowledge_prompt
+    # false_prompt = non_knowledge_prompt
+    # true_prompt = knowledge_prompt
     # check that prompts have the same length
     false_toks = model.tokenizer(false_prompt, return_tensors='pt').input_ids[0]
     true_toks = model.tokenizer(true_prompt, return_tensors='pt').input_ids[0]
@@ -118,7 +118,7 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     # print(true_output_ids)
     # true_output = model.tokenizer.decode(true_output_ids)
     # print(f"Knowledge answer: {true_output}")
-    true_acts = [act.value for act in true_acts]
+    #true_acts = [act.value for act in true_acts]
 
     out = {
         'model' : model_name,
@@ -127,7 +127,7 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     }
     logit_diffs = [[None for _ in range(len(layers))] for _ in range(n_toks)]
     out['logit_diffs'] = logit_diffs
-    with open('all_non_knowledge_results/experimental_outputs/patching_results.json', 'r') as f:
+    with open('all_toxicity_results/experimental_outputs/patching_results_gemma_true_false.json', 'r') as f:
         outs = json.load(f)
     outs.append(out)
     # with open('experimental_outputs/patching_results.json', 'w') as f:
@@ -135,14 +135,14 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     continuation_idx = -1
 
     # Get target token IDs
-    #t_tok = model.tokenizer("positive", add_special_tokens=False).input_ids
-    #f_tok = model.tokenizer("negative", add_special_tokens=False).input_ids
+    t_tok = model.tokenizer("TRUE", add_special_tokens=False).input_ids
+    f_tok = model.tokenizer("FALSE", add_special_tokens=False).input_ids
 
     # t_tok = [37841] #healthy in the gemma-3 Tokenizer
     # f_tok = [72401] #toxic in the gemma-3 Tokenizer
 
-    t_tok = [83433] #Knowledge in the gemma-3 Tokenizer
-    f_tok = [34409] #Ignore in the gemma-3 Tokenizer
+    # t_tok = [83433] #Knowledge in the gemma-3 Tokenizer
+    # f_tok = [34409] #Ignore in the gemma-3 Tokenizer
 
     print(f"Target tokens - healthy: {t_tok}, toxic: {f_tok}")
 
@@ -168,7 +168,7 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
                     # Patch the activation
                     layer.output[0][0, -tok_idx, :] = true_acts[layer_idx][0, -tok_idx, :]
                     # Get logits
-                    logits = model.language_model.lm_head.output #model.language_model.lm_head.output
+                    logits = model.lm_head.output #model.language_model.lm_head.output
                     logit_diff = logits[0, -1, t_tok] - logits[0, -1, f_tok]
                     logit_diff = logit_diff.save()
 
@@ -178,7 +178,7 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
             #print(logit_diffs)
 
         outs[continuation_idx] = out
-        with open('all_non_knowledge_results/experimental_outputs/patching_results.json', 'w') as f:
+        with open('all_toxicity_results/experimental_outputs/patching_results_gemma_true_false.json', 'w') as f:
             json.dump(outs, f, indent=4)
 
     # false_output_ids = model.output

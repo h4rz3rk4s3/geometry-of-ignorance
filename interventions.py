@@ -25,14 +25,14 @@ def intervention_experiment(model, model_name, queries, direction, hidden_states
     """
 
     exp_tokens = {
-        "deberta_toxic" : 20413,
-        "deberta_healthy":30416,
-        "bert_toxic" : 11704,
-        "bert_healthy":7965,
-        "modernbert_toxic" : 12835,
-        "modernbert_healthy":5777,
-        "roberta_toxic" : 8422, # fucking: 23523,
-        "roberta_healthy":2245, # slightly: 2829
+        # "deberta_toxic" : 20413,
+        # "deberta_healthy":30416,
+        # "bert_toxic" : 11704,
+        # "bert_healthy":7965,
+        # "modernbert_toxic" : 12835,
+        # "modernbert_healthy":5777,
+        # "roberta_toxic" : 8422, # fucking: 23523,
+        # "roberta_healthy":2245, # slightly: 2829
         "qwen3_toxic" : 20836,
         "qwen3_healthy":9314,
         "gemma3_toxic" : 72401,

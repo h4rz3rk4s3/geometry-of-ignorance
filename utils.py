@@ -1,6 +1,7 @@
 import torch as t
 import pandas as pd
 import os
+from umap import UMAP
 from glob import glob
 import random
 
@@ -40,6 +41,28 @@ def get_pcs(X, k=2, offset=0):
     eigenvectors = eigenvectors[:, offset:offset+k]
     
     return eigenvectors
+
+def get_umap(acts: t.Tensor, umap_args: dict, output_dim: int, dim_offset: int) -> list:
+    """
+    Docstring für get_umap
+    
+    :param acts: Beschreibung
+    :type acts: t.Tensor
+    :param umap_Args: Beschreibung
+    :type umap_Args: dict
+    :param output_dims: Beschreibung
+    :type output_dims: int
+    :param dim_offset: Beschreibung
+    :type dim_offset: int
+    :return: Beschreibung
+    :rtype: list[Any]
+    """
+
+    projections = UMAP(**umap_args).fit_transform(acts)
+    projections = t.from_numpy(projections).to("mps")
+    output_projections = projections[:output_dim:output_dim+dim_offset]
+
+    return output_projections
 
 def dict_recurse(d, f):
     """
