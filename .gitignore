@@ -168,5 +168,5 @@ acts/
 data_alena/
 all_non_knowledge_results/shap_plots/
 all_non_knowledge_results/pca_plots/
-
+all_toxicity_results/probing_plots/
 #all_non_knowledge_results/training_data_rogue_threshold.pdf
