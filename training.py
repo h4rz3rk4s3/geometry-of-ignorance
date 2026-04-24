@@ -39,8 +39,8 @@ def run_training():
     # Prepare Data and Labels
     # ------------------------------------------------------------------
     logger.info("Loading CSV files...")
-    df_train = pd.read_csv("datasets/knowledge_non_knowledge_v3_training_final_group_balanced.csv")
-    df_eval = pd.read_csv("datasets/knowledge_non_knowledge_v3_evaluation_final_group_balanced.csv")
+    df_train = pd.read_csv("datasets/knowledge_non_knowledge_v3_rephrased_rogue_gpt_oss_with_neutral_training_new.csv")
+    df_eval = pd.read_csv("datasets/knowledge_non_knowledge_v3_rephrased_rogue_gpt_oss_with_neutral_evaluation_new.csv")
 
     df_train = df_train.rename(columns={'final_label': 'label'})
     df_eval = df_eval.rename(columns={'final_label': 'label'})
@@ -49,8 +49,18 @@ def run_training():
     df_train['label'] = df_train['label'].astype(int)
     df_eval['label'] = df_eval['label'].astype(int)
 
+    df_eval = df_eval.sample(frac=1)
+    df_train = df_train.sample(frac=1)
+
+    # df_train = df_train[df_train["label"] != 1].copy()
+    # df_eval = df_eval[df_eval["label"] != 1].copy()
+    # mapping = {1: 0, 2: 1}
+    # df_train["label"] = df_train["label"].replace(mapping)
+    # df_eval["label"] = df_eval["label"].replace(mapping)
+
     num_labels = df_train['label'].nunique()
-    logger.info(f"Detected {num_labels} labels (0, 1, 2).")
+    unique_labels = df_train['label'].unique()
+    logger.info(f"Detected {num_labels} labels {unique_labels}.")
 
     train_dataset = Dataset.from_pandas(df_train)
     eval_dataset = Dataset.from_pandas(df_eval)
@@ -100,8 +110,8 @@ def run_training():
     training_args = TrainingArguments(
         output_dir="./ignorance_classifier_modern",           
         eval_strategy="steps",
-        eval_steps=10,                  
-        save_steps=10,     
+        eval_steps=50,                  
+        save_steps=50,     
         learning_rate=5e-4,
         lr_scheduler_type="linear",
         warmup_steps=10,               

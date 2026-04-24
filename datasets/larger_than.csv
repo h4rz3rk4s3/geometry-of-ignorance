@@ -1,4 +1,4 @@
-statement,label,n1,n2,diff,abs_diff
+statement,is_toxic,n1,n2,diff,abs_diff
 Fifty-one is larger than fifty-two.,0,51,52,-1,1
 Fifty-one is larger than fifty-three.,0,51,53,-2,2
 Fifty-one is larger than fifty-four.,0,51,54,-3,3

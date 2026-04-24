@@ -10,9 +10,9 @@ from nnsight import LanguageModel
 
 DEBUG = False
 if DEBUG:
-    tracer_kwargs = {'scan': True, 'validate': True}
+    tracer_kwargs = {'validate': True}
 else:
-    tracer_kwargs = {'scan': False, 'validate': False}
+    tracer_kwargs = {'validate': False}
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -31,7 +31,7 @@ def load_statements(dataset_name):
     Load statements from csv file, return list of strings.
     """
     dataset = pd.read_csv(f"datasets/{dataset_name}.csv")
-    statements = dataset['statement'].tolist()
+    statements = dataset['rephrased_statement'].tolist()
     return statements
 
 def get_last_hidden_state(tensor):
@@ -44,10 +44,10 @@ def get_acts(statements, model, layers, remote=True):
     Return dictionary of stacked activations. 
     """
     acts = {}
-    with model.trace(statements, remote=False, **tracer_kwargs):
+    with model.trace(statements, remote=False): # **tracer_kwargs
         for layer in layers:
-            print(layer)
-            #acts[layer] = model.roberta.encoder.layer[layer].output[0][:, -1, :].save()
+            #print(layer)
+            #acts[layer] = model.roberta.encoder.layer[layer].output[0][:, -1, :].save() #[:, -1, :]
 
             bert_layer = model.roberta.encoder.layer[layer]
             
@@ -58,8 +58,8 @@ def get_acts(statements, model, layers, remote=True):
             #acts[layer] = model.model.layers[layer].output[0][:, -1, :].save()
 
     for layer, act in acts.items():
-        print(act.value)
-        acts[layer] = act.value
+        #print(act)
+        acts[layer] = act
 
     return acts
 
@@ -69,8 +69,8 @@ if __name__ == "__main__":
     read statements from dataset, record activations in given layers, and save to specified files
     """
     parser = argparse.ArgumentParser(description="Generate activations for statements in a dataset")
-    parser.add_argument("--model", default="llama-13b",
-                        help="Size of the model to use. Options are 7B or 30B")
+    # parser.add_argument("--model", default="llama-13b",
+    #                     help="Size of the model to use. Options are 7B or 30B")
     parser.add_argument("--layers", nargs='+', type=int,
                         help="Layers to save embeddings from")
     parser.add_argument("--datasets", nargs='+',
@@ -83,26 +83,29 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     t.set_grad_enabled(False)
-    model = load_model(args.model, args.device)
-    for dataset in args.datasets:
-        statements = load_statements(dataset)
-        if args.noperiod:
-            statements = [statement[:-1] for statement in statements]
-        layers = args.layers
-        if layers == [-1]:
-            layers = list(range(len(model.roberta.encoder.layer)))
-        save_dir = os.path.join(f"{args.output_dir}", args.model)
-        if not os.path.exists(save_dir):
-            os.makedirs(save_dir)
-        if args.noperiod:
-            save_dir = os.path.join(save_dir, "noperiod")
+    models = ["roberta-base", "roberta-large", "roberta-non-knowledge-v8-base", "roberta-non-knowledge-v8-large"] # "ModernBERT-base", "ModernBERT-non-knowledge-v8"
+    #models= ["ModernBERT-base", "ModernBERT-non-knowledge-v8"]
+    for model_name in models:
+        model = load_model(model_name, args.device)
+        for dataset in args.datasets:
+            statements = load_statements(dataset)
+            if args.noperiod:
+                statements = [statement[:-1] for statement in statements]
+            layers = args.layers
+            if layers == [-1]:
+                layers = list(range(len(model.roberta.encoder.layer))) #roberta.encoder.layer  #model.layers
+            save_dir = os.path.join(f"{args.output_dir}", model_name)
             if not os.path.exists(save_dir):
                 os.makedirs(save_dir)
-        save_dir = os.path.join(save_dir, dataset)
-        if not os.path.exists(save_dir):
-            os.makedirs(save_dir)
+            if args.noperiod:
+                save_dir = os.path.join(save_dir, "noperiod")
+                if not os.path.exists(save_dir):
+                    os.makedirs(save_dir)
+            save_dir = os.path.join(save_dir, dataset)
+            if not os.path.exists(save_dir):
+                os.makedirs(save_dir)
 
-        for idx in tqdm(range(0, len(statements), 25)):
-            acts = get_acts(statements[idx:idx + 25], model, layers, args.device == 'remote')
-            for layer, act in acts.items():
-                t.save(act, f"{save_dir}/layer_{layer}_{idx}.pt")
+            for idx in tqdm(range(0, len(statements), 25)):
+                acts = get_acts(statements[idx:idx + 25], model, layers, args.device == 'remote')
+                for layer, act in acts.items():
+                    t.save(act, f"{save_dir}/layer_{layer}_{idx}.pt")

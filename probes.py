@@ -2,7 +2,42 @@ import torch as t
 from torch.utils.data import TensorDataset, DataLoader
 from sklearn.metrics import accuracy_score
 import numpy as np
+from sklearn.linear_model import RidgeClassifier
 
+class RidgeProbe(t.nn.Module):
+    def __init__(self, d_in):
+        super().__init__()
+        self.net = t.nn.Linear(d_in, 1, bias=True)
+
+    def forward(self, x, iid=None):
+        return self.net(x).squeeze(-1)
+
+    def pred(self, x, iid=None):
+        return (self(x) > 0).float()
+
+    @staticmethod
+    def from_data(acts, labels, lr=0.001, weight_decay=1.0, epochs=1000, device='cpu'):
+        acts, labels = acts.to(device), labels.to(device)
+        probe = RidgeProbe(acts.shape[-1]).to(device)
+        opt = t.optim.AdamW(probe.parameters(), lr=lr, weight_decay=weight_decay)
+
+        for _ in range(epochs):
+            opt.zero_grad()
+            loss = t.nn.MSELoss()(probe(acts), labels)  # Ridge = linear + MSE + L2
+            loss.backward()
+            opt.step()
+
+        return probe
+
+    def __str__():
+        return "RidgeProbe"
+
+    @property
+    def direction(self):
+        return self.net.weight.data[0]
+    
+
+# Logistic Regression
 class LRProbe(t.nn.Module):
     def __init__(self, d_in):
         super().__init__()
@@ -36,44 +71,7 @@ class LRProbe(t.nn.Module):
     @property
     def direction(self):
         return self.net[0].weight.data[0]
-
-
-class MMProbe(t.nn.Module):
-    def __init__(self, direction, covariance=None, inv=None, atol=1e-3):
-        super().__init__()
-        self.direction = t.nn.Parameter(direction, requires_grad=False).to("cpu")
-        # if covariance:
-        #     covariance = covariance.to("cpu")
-        #TODO: Move eigenvalue calc to CPU, as the MPS backend is not available in PyTorch.
-        if inv is None:
-            self.inv = t.nn.Parameter(t.linalg.pinv(covariance.cpu(), hermitian=True, atol=atol), requires_grad=False).to("cpu")
-        else:
-            self.inv = t.nn.Parameter(inv, requires_grad=False).to("cpu")
-
-    def forward(self, x, iid=False):
-        if iid:
-            return t.nn.Sigmoid()(x @ self.inv @ self.direction).to("cpu")
-        else:
-            return t.nn.Sigmoid()(x @ self.direction).to("cpu")
-
-    def pred(self, x, iid=False):
-        return self(x.to("cpu"), iid=iid).round()
-
-    def from_data(acts, labels, atol=1e-3, device='cpu'):
-        acts, labels
-        pos_acts, neg_acts = acts[labels==1], acts[labels==0]
-        pos_mean, neg_mean = pos_acts.mean(0), neg_acts.mean(0)
-        direction = pos_mean - neg_mean
-
-        centered_data = t.cat([pos_acts - pos_mean, neg_acts - neg_mean], 0)
-        covariance = centered_data.t() @ centered_data / acts.shape[0]
-        
-        probe = MMProbe(direction, covariance=covariance).to(device)
-
-        return probe
     
-    def __str__():
-        return "MMProbe"
 
 class NonLinearProbe(t.nn.Module):
     """
@@ -88,12 +86,12 @@ class NonLinearProbe(t.nn.Module):
     def __init__(
         self, 
         input_dim: int, 
-        hidden_dim: int = 512,
+        hidden_dim: int,
         activation: str = 'relu',
         dropout: float = 0.1
     ):
         super(NonLinearProbe, self).__init__()
-        
+        print(f"HIDDEN DIM IN INIT: {hidden_dim}")
         # Choose activation function
         activations = {
             'relu': t.nn.ReLU(),
@@ -157,14 +155,16 @@ class NonLinearProbe(t.nn.Module):
     def from_data(
             acts: t.Tensor, 
             labels: t.Tensor,
+            hidden_dim: int = 512,
             epochs: int = 20,
             batch_size: int = 32,
             lr: float = 1e-4,
             weight_decay: float = 1e-4, 
             device: str = 'mps' if t.mps.is_available() else 'cpu'):
-       
+
+        #print(f"HIDDEN DIM IN FROM_DATA: {hidden_dim}")
         acts, labels = acts.to(device), labels.to(device).float()
-        probe = NonLinearProbe(acts.shape[-1]).to(device)
+        probe = NonLinearProbe(acts.shape[-1], hidden_dim=hidden_dim).to(device)
 
         history = {
             'train_loss': [],

@@ -30,7 +30,7 @@ except ImportError:
     sys.exit(1)
 
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read('config_nk.ini')
 
 def setup_logging(log_level: str = "INFO") -> logging.Logger:
     """Set up logging configuration."""
@@ -51,7 +51,7 @@ def load_model_and_tokenizer(model_name: str):
     logger.info(f"Loading model: {model_name}")
     weights_directory = config[model_name]['weights_directory']
     try:
-        model, tokenizer = load(weights_directory)
+        model, tokenizer = load("/Users/giulianowietig/PycharmProjects/models/Qwen3-Next-80B-A3B-Instruct")
         logger.info("Model loaded successfully")
         return model, tokenizer
     except Exception as e:
@@ -279,12 +279,14 @@ def rephrase_statement(model, tokenizer, system_prompt: str, statement: str, lab
                 max_tokens=8192
             )
             #logger.info(response)
-            response_split = response.split("<|end|><|start|>assistant<|channel|>final<|message|>")
-            thinking_content = response_split[0]
-            content = response_split[1]
+            #response_split = response.split("<|end|><|start|>assistant<|channel|>final<|message|>")
+            #response_split = response.split("</think>")
+            #thinking_content = response_split[0]
+            #content = response_split[1]
+            content = response
 
             logger.debug(f"Generated response (length: {len(response)})")
-            logger.debug(f"Thinking: {thinking_content}")
+            #logger.debug(f"Thinking: {thinking_content}")
             logger.debug(f"Final Result: {content}")
 
             # Validate JSON
@@ -343,15 +345,15 @@ def process_csv(input_file: str, output_file: str, model_name: str, num_styles: 
         #     DISCOURSE = DISCOURSE_KNOWLEDGE
         # else:
         #     styles = sample_with_weighted_diversity(num_styles, knowledge=False)
-            # DISCOURSE = DISCOURSE_NON_KNOWLEDGE
+        #     DISCOURSE = DISCOURSE_NON_KNOWLEDGE
         styles = sample_with_weighted_diversity(num_styles)
         for j in range(0, num_styles-1):
             logger.info(f"Processing statement {i + 1}/{total_statements}")
             neutralization_strategy = NEUTRALIZATION_STRATEGIES[styles[j][0]]
-            formality = FORMALITIES[styles[j][1]]
-            # discourse=DISCOURSE[styles[j][1]]
-            structural=STRUCTURAL[styles[j][2]]
             #logger.info(styles[j])
+            formality = FORMALITIES[styles[j][1]]
+            #discourse = DISCOURSE[styles[j][1]]
+            structural = STRUCTURAL[styles[j][2]]
 
             #system_prompt = PROMPTS["REPHRASE_SYSTEM_PROMPT"].format(formality=formality, discourse=discourse, structural=structural)
             system_prompt = PROMPTS["NEUTRALIZATION_SYSTEM_PROMPT"].format(neutralization_strategy=neutralization_strategy, formality=formality, structural=structural)
@@ -387,7 +389,7 @@ def process_csv(input_file: str, output_file: str, model_name: str, num_styles: 
                             'Nr' : git_nr,
                             'original_statement': original_statement,
                             'rephrased_statement': rephrased,
-                            'Non_Knowledge_label_FSE_paper_Giuliano': "Neutral",
+                            'Non_Knowledge_label_FSE_paper_Giuliano': FSE_category, #"Neutral"
                             f'{category_column}': "Neutral",
                             'long_short': long_short,
                             "ROGUE_precision": rogue["precision"],
@@ -467,7 +469,7 @@ def main():
             input_file=args.input_csv,
             output_file=args.output_csv,
             model_name=args.model,
-            num_styles=5,
+            num_styles=10,
             statement_column=args.statement_column,
             category_column=args.category_column
         )

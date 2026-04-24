@@ -67,10 +67,13 @@ class ModelEvaluator:
         df_test = pd.read_csv(self.test_csv)
     
         # Rename column if needed
-        # if 'rephrased_statement' in df_test.columns:
-        #     df_test = df_test.rename(columns={'rephrased_statement': 'statement'})
+        if 'rephrased_statement' in df_test.columns:
+            df_test = df_test.rename(columns={'rephrased_statement': 'statement'})
         
         df_test['final_label'] = df_test['final_label'].astype(int)
+        # mapping = {1: 0, 2: 1}
+        mapping = {1: 0, 2: 1}
+        df_test["final_label"] = df_test["final_label"].replace(mapping)
         
         # Store original data for later analysis
         self.test_df = df_test
@@ -217,7 +220,7 @@ class ModelEvaluator:
                     print(f"\n{self.label_names[true_label]} → {self.label_names[pred_label]}: {len(subset)} cases")
                     print("-" * 60)
                     
-                    for idx, row in subset.head(n_examples).iterrows():
+                    for idx, row in subset.head(15).iterrows():
                         print(f"Text: {row['statement'][:200]}...")
                         print()
         
@@ -243,7 +246,7 @@ class ModelEvaluator:
             """Predict probability for binary classification"""
             inputs = self.tokenizer(
                 texts,
-                truncation=True,
+                truncation=512,
                 max_length=512,
                 padding=True,
                 return_tensors="pt"
@@ -312,14 +315,17 @@ class ModelEvaluator:
         
         # Get predictions
         y_pred, y_true, logits = self.get_predictions(dataset)
+        print(y_true)
+        print(y_pred)
         self.test_df['predicted_label'] = y_pred
         probs = np.exp(logits) / np.exp(logits).sum(axis=1, keepdims=True)
-        self.test_df['prob_knowledge'] = probs[:, 0]
-        self.test_df['prob_neutral'] = probs[:, 1]
-        self.test_df['prob_non_knowledge'] = probs[:, 2]
-        output_csv = self.test_csv.replace('.csv', '_with_predictions.csv')
-        self.test_df.to_csv(output_csv, index=False)
-        logger.info(f"Predictions and logits saved to {output_csv}")
+        print(probs)
+        # self.test_df['prob_knowledge'] = probs[:, 0]
+        # self.test_df['prob_neutral'] = probs[:, 1]
+        # self.test_df['prob_non_knowledge'] = probs[:, 2]
+        # output_csv = self.test_csv.replace('.csv', '_with_predictions.csv')
+        # self.test_df.to_csv(output_csv, index=False)
+        # logger.info(f"Predictions and logits saved to {output_csv}")
 
         # Overall metrics
         overall_metrics = self.compute_overall_metrics(y_true, y_pred)
@@ -344,7 +350,7 @@ class ModelEvaluator:
         }
         
         # Save to file
-        with open('evaluation_results_bert_nk_large_openvox.txt', 'w') as f:
+        with open('evaluation_results_roberta_nk_base_v8_openvox.txt', 'w') as f:
             f.write("="*60 + "\n")
             f.write("EVALUATION RESULTS\n")
             f.write("="*60 + "\n\n")
@@ -363,10 +369,9 @@ class ModelEvaluator:
 # --- Main Execution ---
 if __name__ == "__main__":
     # Configure paths
-    MODEL_PATH = "/Users/giulianowietig/PycharmProjects/models/roberta-non-knowledge-v1-large"
-    TEST_CSV = "datasets/OpenVox_non_knowledge_eval.csv"  # Update with your test set path
-    # Labels: 0=Knowledge, 1=Neutral, 2=Non-Knowledge
-    LABEL_NAMES = ['Knowledge', 'Neutral', 'Non-Knowledge']
+    MODEL_PATH = "/Users/giulianowietig/PycharmProjects/models/roberta-non-knowledge-v8-base" #final_model, /Users/giulianowietig/PycharmProjects/models/ModernBERT-non-knowledge-v2
+    TEST_CSV = "datasets/OpenVox_non_knowledge_eval.csv"  #datasets/knowledge_non_knowledge_v3_categorized.csv.   datasets/OpenVox_non_knowledge_eval.csv.  datasets/knowledge_non_knowledge_v3_rephrased_rogue_gpt_oss_evaluation_new.csv
+    LABEL_NAMES = ['Knowledge', 'Non-Knowledge']
     
     # Create evaluator
     evaluator = ModelEvaluator(

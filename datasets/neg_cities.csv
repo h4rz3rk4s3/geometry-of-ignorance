@@ -1,4 +1,4 @@
-statement,label,city,country,correct_country
+statement,is_toxic,city,country,correct_country
 The city of Krasnodar is not in Russia.,0,Krasnodar,Russia,Russia
 The city of Krasnodar is not in South Africa.,1,Krasnodar,South Africa,Russia
 The city of Lodz is not in Poland.,0,Lodz,Poland,Poland

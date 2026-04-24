@@ -1,4 +1,4 @@
-statement,label,city,country,correct_country
+statement,is_toxic,city,country,correct_country
 The city of Krasnodar is in Russia.,1,Krasnodar,Russia,Russia
 The city of Krasnodar is in South Africa.,0,Krasnodar,South Africa,Russia
 The city of Lodz is in Poland.,1,Lodz,Poland,Poland

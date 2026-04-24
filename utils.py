@@ -60,9 +60,9 @@ def get_umap(acts: t.Tensor, umap_args: dict, output_dim: int, dim_offset: int) 
 
     projections = UMAP(**umap_args).fit_transform(acts)
     projections = t.from_numpy(projections).to("mps")
-    output_projections = projections[:output_dim:output_dim+dim_offset]
+    #output_projections = projections[:, output_dim:output_dim+dim_offset]
 
-    return output_projections
+    return projections
 
 def dict_recurse(d, f):
     """
@@ -96,6 +96,7 @@ def collect_acts(dataset_name, model, layer, head=-1, noperiod=False, center=Tru
         if len(activation_files) == 0:
             print(layer)
             raise ValueError(f"Dataset {dataset_name} not found.")
+        #print(f'layer_{layer}_{i}.pt' for i in range(0, ACTS_BATCH_SIZE * len(activation_files), ACTS_BATCH_SIZE))
         acts = [t.load(os.path.join(directory, f'layer_{layer}_{i}.pt')).to(device) for i in range(0, ACTS_BATCH_SIZE * len(activation_files), ACTS_BATCH_SIZE)]
     #print(len(acts))
     acts = t.cat(acts, dim=0).float().to(device)

@@ -8,6 +8,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 from utils import collect_acts, get_pcs, get_umap
 
+from colors import PALETTES
+
 class TruthData:
     """
     A dataset consisting of factual statements, their truth values, and their representations when run through a LM.
@@ -87,13 +89,21 @@ class TruthData:
         if dimensions == 2:
             fig = px.scatter(df, x='PC1', y='PC2', 
                              hover_name="statement",
+                             #color="is_toxic",
+                            #  color_discrete_map={
+                            #      "1": "red",
+                            #      "0": "blue"
+                            #  },
+                             #color_discrete_map=PALETTES["high_contrast"], #cool_academic_binary
+                             #color_discrete_sequence=px.colors.qualitative.Dark24,
                              #symbol="symbol_type",
                              width=800,
                              height=800,
                              **kwargs)
         elif dimensions == 3:
             fig = px.scatter_3d(df, x='PC1', y='PC2', z='PC3', 
-                                hover_name="statement", 
+                                hover_name="statement",
+                                #color="is_toxic",
                                 #color_continuous_scale='Turbo',
                                 color_discrete_sequence=px.colors.qualitative.Dark24,
                                 symbol="symbol_type",
@@ -107,6 +117,12 @@ class TruthData:
             scaleanchor = "x",
             scaleratio = 1,
         )
+
+        fig.update_traces(marker=dict(size=8))
+
+        # fig.update_coloraxes(
+        #     colorscale=PALETTES["cool_academic_binary"]
+        # )
         
         fig.update_layout(
             coloraxis_showscale=False,
@@ -141,7 +157,7 @@ class TruthData:
         else:
             return fig
             
-    def plot_umap(self, dimensions: int, dim_offset: int, plot_datasets=None, pca_datasets=None, arrows=[], return_df=False, **kwargs):
+    def plot_umap(self, dimensions: int, dim_offset: int, n_neighbors: int, plot_datasets=None, pca_datasets=None, arrows=[], return_df=False, **kwargs):
         """
         Docstring für get_umap
         
@@ -150,52 +166,67 @@ class TruthData:
         :param dif_offset: Beschreibung
         :param kwargs: Beschreibung
         """
-        with open(f"all_toxicity_results/experimental_outputs/{self.model}_hatecheck_hyperparameters_partial.json", "r") as f:
-            d = json.load(f)
-        umap_params = d[f"{self.layer}"]["UMAP"]
+        #with open(f"all_toxicity_results/experimental_outputs/{self.model}_hatecheck_hyperparameters_partial.json", "r") as f:
+        #    d = json.load(f)
+        umap_params = {
+            "n_neighbors": n_neighbors,
+            "n_components": dimensions+dim_offset,
+            "min_dist": 0.1,
+            "metric": "euclidean",
+            "random_state": 42
+            }
+
 
         if pca_datasets is None:
             pca_datasets = self.df.index.levels[0].tolist()
         acts = self.df.loc[pca_datasets]['activation'].tolist()
         acts = t.stack(acts, dim=0).to("cpu")
         proj = get_umap(acts, umap_params, dimensions, dim_offset)
+        #print(proj)
         #proj = t.stack(proj, dim=0).to("mps")
 
         # project data onto pcs
         if plot_datasets is None:
             plot_datasets = self.df.index.levels[0].tolist()
         df = self.df.loc[plot_datasets]
-        acts = df['activation'].tolist()
-        acts = t.stack(acts, dim=0).to("mps")
-        proj = t.mm(acts, proj)
+        # acts = df['activation'].tolist()
+        # acts = t.stack(acts, dim=0).to("mps")
+        # proj = t.mm(acts, proj)
 
         # add projected data to df
         for dim in range(dimensions):
-            df[f"dim_{dim+1}"] = proj[:, dim].tolist()
+            df[f"Dim {dim+1}"] = proj[:, dim].tolist()
         
         # shuffle rows of df
         df = df.sample(frac=1)
 
         color_palette = sns.color_palette('Paired', 12) 
         # Convert to RGB strings for Plotly
-        cluster_colors = [
-            f'rgb({int(color_palette[x][0]*255)}, {int(color_palette[x][1]*255)}, {int(color_palette[x][2]*255)})' 
-            if x >= 0 
-            else 'rgb(128, 128, 128)'  # gray for noise points
-            for x in df[f"{self.model}_layer{self.layer}_cluster"]
-        ]
+        # cluster_colors = [
+        #     f'rgb({int(color_palette[x][0]*255)}, {int(color_palette[x][1]*255)}, {int(color_palette[x][2]*255)})' 
+        #     if x >= 0 
+        #     else 'rgb(128, 128, 128)'  # gray for noise points
+        #     for x in df[f"{color}"]
+        # ]
         
         # plot using plotly
         if dimensions == 2:
-            fig = px.scatter(df, x='dim_1', y='dim_2', 
+            fig = px.scatter(df, x='Dim 1', y='Dim 2', 
                              hover_name="statement",
+                             #color="is_toxic",
+                             color_discrete_map={
+                                 "1": "red",
+                                 "0": "blue"
+                             },
+                             #color_discrete_sequence=["red", "blue"],
                              #symbol="symbol_type",
                              width=800,
                              height=800,
                              **kwargs)
         elif dimensions == 3:
-            fig = px.scatter_3d(df, x='dim_1', y='dim_2', z='dim_3', 
+            fig = px.scatter_3d(df, x='Dim 1', y='Dim 2', z='Dim 3', 
                                 hover_name="statement", 
+                                #color="is_toxic",
                                 #color_continuous_scale='Turbo',
                                 color_discrete_sequence=px.colors.qualitative.Dark24,
                                 symbol="symbol_type",
@@ -208,6 +239,14 @@ class TruthData:
         fig.update_yaxes(
             scaleanchor = "x",
             scaleratio = 1,
+        )
+
+        fig.update_traces(
+            marker=dict(size=10)
+        )
+
+        fig.update_coloraxes(
+            colorscale = 'Bluered'
         )
         
         fig.update_layout(

@@ -1,0 +1,402 @@
+[
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.7049999833106995,
+      "gitter_ethereum-labeled-larger": 0.621999979019165,
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.4736842215061188
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.6783567070960999,
+      "gitter_ethereum-labeled-larger": 0.6850000023841858,
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.4849624037742615
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.4939879775047302,
+      "gitter_ethereum-labeled-larger": 0.5019999742507935,
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.4548872113227844
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "LRProbe0",
+    "layer": 3,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.6299999952316284,
+      "gitter_ethereum-labeled-larger": 0.5849999785423279,
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.45864662528038025
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.6212424635887146,
+      "gitter_ethereum-labeled-larger": 0.6299999952316284,
+      "cumstrudel_train_comments_balanced": 0.5416666865348816,
+      "hatecheck_validation_balanced": 0.4849624037742615
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.5010020136833191,
+      "gitter_ethereum-labeled-larger": 0.515999972820282,
+      "cumstrudel_train_comments_balanced": 0.5535714030265808,
+      "hatecheck_validation_balanced": 0.46992480754852295
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "RidgeProbe0",
+    "layer": 3,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.7300000190734863,
+      "gitter_ethereum-labeled-larger": 0.6489999890327454,
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.4887218177318573
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.7134268283843994,
+      "gitter_ethereum-labeled-larger": 0.7300000190734863,
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.39849624037742615
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.46492984890937805,
+      "gitter_ethereum-labeled-larger": 0.5059999823570251,
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.4661654233932495
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "NonLinearProbe64",
+    "layer": 3,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.7300000190734863,
+      "gitter_ethereum-labeled-larger": 0.6489999890327454,
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.4887218177318573
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.7134268283843994,
+      "gitter_ethereum-labeled-larger": 0.7300000190734863,
+      "cumstrudel_train_comments_balanced": 0.625,
+      "hatecheck_validation_balanced": 0.39849624037742615
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.46492984890937805,
+      "gitter_ethereum-labeled-larger": 0.5059999823570251,
+      "cumstrudel_train_comments_balanced": 0.5952380895614624,
+      "hatecheck_validation_balanced": 0.4661654233932495
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "NonLinearProbe64",
+    "layer": 3,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.7450000047683716,
+      "gitter_ethereum-labeled-larger": 0.6150000095367432,
+      "cumstrudel_train_comments_balanced": 0.4821428656578064,
+      "hatecheck_validation_balanced": 0.5263158082962036
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.6913827657699585,
+      "gitter_ethereum-labeled-larger": 0.7149999737739563,
+      "cumstrudel_train_comments_balanced": 0.6309523582458496,
+      "hatecheck_validation_balanced": 0.45864662528038025
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.4799599051475525,
+      "gitter_ethereum-labeled-larger": 0.5270000100135803,
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.4849624037742615
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "LRProbe0",
+    "layer": 7,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.6549999713897705,
+      "gitter_ethereum-labeled-larger": 0.5690000057220459,
+      "cumstrudel_train_comments_balanced": 0.5476190447807312,
+      "hatecheck_validation_balanced": 0.4548872113227844
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.6132264733314514,
+      "gitter_ethereum-labeled-larger": 0.5950000286102295,
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.4135338366031647
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.509018063545227,
+      "gitter_ethereum-labeled-larger": 0.4869999885559082,
+      "cumstrudel_train_comments_balanced": 0.5297619104385376,
+      "hatecheck_validation_balanced": 0.4736842215061188
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "RidgeProbe0",
+    "layer": 7,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.7900000214576721,
+      "gitter_ethereum-labeled-larger": 0.7070000171661377,
+      "cumstrudel_train_comments_balanced": 0.6785714030265808,
+      "hatecheck_validation_balanced": 0.5789473652839661
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.7204408645629883,
+      "gitter_ethereum-labeled-larger": 0.7599999904632568,
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.4135338366031647
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.46492984890937805,
+      "gitter_ethereum-labeled-larger": 0.5220000147819519,
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.4022556245326996
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "NonLinearProbe64",
+    "layer": 7,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.7900000214576721,
+      "gitter_ethereum-labeled-larger": 0.7070000171661377,
+      "cumstrudel_train_comments_balanced": 0.6785714030265808,
+      "hatecheck_validation_balanced": 0.5789473652839661
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.7204408645629883,
+      "gitter_ethereum-labeled-larger": 0.7599999904632568,
+      "cumstrudel_train_comments_balanced": 0.6607142686843872,
+      "hatecheck_validation_balanced": 0.4135338366031647
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.46492984890937805,
+      "gitter_ethereum-labeled-larger": 0.5220000147819519,
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.4022556245326996
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "NonLinearProbe64",
+    "layer": 7,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.7250000238418579,
+      "gitter_ethereum-labeled-larger": 0.6470000147819519,
+      "cumstrudel_train_comments_balanced": 0.5357142686843872,
+      "hatecheck_validation_balanced": 0.597744345664978
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.6693387031555176,
+      "gitter_ethereum-labeled-larger": 0.7450000047683716,
+      "cumstrudel_train_comments_balanced": 0.5535714030265808,
+      "hatecheck_validation_balanced": 0.4398496150970459
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.43587175011634827,
+      "gitter_ethereum-labeled-larger": 0.4560000002384186,
+      "cumstrudel_train_comments_balanced": 0.494047611951828,
+      "hatecheck_validation_balanced": 0.5789473652839661
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "LRProbe0",
+    "layer": 19,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.6549999713897705,
+      "gitter_ethereum-labeled-larger": 0.5490000247955322,
+      "cumstrudel_train_comments_balanced": 0.5773809552192688,
+      "hatecheck_validation_balanced": 0.4060150384902954
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.5811623334884644,
+      "gitter_ethereum-labeled-larger": 0.6600000262260437,
+      "cumstrudel_train_comments_balanced": 0.5476190447807312,
+      "hatecheck_validation_balanced": 0.518796980381012
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.4949899911880493,
+      "gitter_ethereum-labeled-larger": 0.4580000042915344,
+      "cumstrudel_train_comments_balanced": 0.5059523582458496,
+      "hatecheck_validation_balanced": 0.5
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "RidgeProbe0",
+    "layer": 19,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.7950000166893005,
+      "gitter_ethereum-labeled-larger": 0.6850000023841858,
+      "cumstrudel_train_comments_balanced": 0.6726190447807312,
+      "hatecheck_validation_balanced": 0.6917293071746826
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.7334669232368469,
+      "gitter_ethereum-labeled-larger": 0.7699999809265137,
+      "cumstrudel_train_comments_balanced": 0.7202380895614624,
+      "hatecheck_validation_balanced": 0.5789473652839661
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.42184367775917053,
+      "gitter_ethereum-labeled-larger": 0.48399999737739563,
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.6090225577354431
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "NonLinearProbe64",
+    "layer": 19,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.7950000166893005,
+      "gitter_ethereum-labeled-larger": 0.6850000023841858,
+      "cumstrudel_train_comments_balanced": 0.6726190447807312,
+      "hatecheck_validation_balanced": 0.6917293071746826
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.7334669232368469,
+      "gitter_ethereum-labeled-larger": 0.7699999809265137,
+      "cumstrudel_train_comments_balanced": 0.7202380895614624,
+      "hatecheck_validation_balanced": 0.5789473652839661
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.42184367775917053,
+      "gitter_ethereum-labeled-larger": 0.48399999737739563,
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.6090225577354431
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "NonLinearProbe64",
+    "layer": 19,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.6949999928474426,
+      "gitter_ethereum-labeled-larger": 0.6909999847412109,
+      "cumstrudel_train_comments_balanced": 0.6190476417541504,
+      "hatecheck_validation_balanced": 0.6766917109489441
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.6863727569580078,
+      "gitter_ethereum-labeled-larger": 0.7400000095367432,
+      "cumstrudel_train_comments_balanced": 0.6904761791229248,
+      "hatecheck_validation_balanced": 0.5413534045219421
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.4719438850879669,
+      "gitter_ethereum-labeled-larger": 0.4790000021457672,
+      "cumstrudel_train_comments_balanced": 0.5535714030265808,
+      "hatecheck_validation_balanced": 0.7142857313156128
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "LRProbe0",
+    "layer": 27,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.6899999976158142,
+      "gitter_ethereum-labeled-larger": 0.5550000071525574,
+      "cumstrudel_train_comments_balanced": 0.5892857313156128,
+      "hatecheck_validation_balanced": 0.5639097690582275
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.6012024283409119,
+      "gitter_ethereum-labeled-larger": 0.6349999904632568,
+      "cumstrudel_train_comments_balanced": 0.6428571343421936,
+      "hatecheck_validation_balanced": 0.2744360864162445
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.5841683149337769,
+      "gitter_ethereum-labeled-larger": 0.5479999780654907,
+      "cumstrudel_train_comments_balanced": 0.5535714030265808,
+      "hatecheck_validation_balanced": 0.6015037298202515
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "RidgeProbe0",
+    "layer": 27,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.7850000262260437,
+      "gitter_ethereum-labeled-larger": 0.718999981880188,
+      "cumstrudel_train_comments_balanced": 0.7202380895614624,
+      "hatecheck_validation_balanced": 0.6992481350898743
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.7505009770393372,
+      "gitter_ethereum-labeled-larger": 0.7749999761581421,
+      "cumstrudel_train_comments_balanced": 0.738095223903656,
+      "hatecheck_validation_balanced": 0.6052631735801697
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.4939879775047302,
+      "gitter_ethereum-labeled-larger": 0.5640000104904175,
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.6954887509346008
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "NonLinearProbe64",
+    "layer": 27,
+    "oracle": false,
+    "noperiod": false
+  },
+  {
+    "code-review-dataset-larger": {
+      "code-review-dataset-larger": 0.7850000262260437,
+      "gitter_ethereum-labeled-larger": 0.718999981880188,
+      "cumstrudel_train_comments_balanced": 0.7202380895614624,
+      "hatecheck_validation_balanced": 0.6992481350898743
+    },
+    "gitter_ethereum-labeled-larger": {
+      "code-review-dataset-larger": 0.7505009770393372,
+      "gitter_ethereum-labeled-larger": 0.7749999761581421,
+      "cumstrudel_train_comments_balanced": 0.738095223903656,
+      "hatecheck_validation_balanced": 0.6052631735801697
+    },
+    "hatecheck_balanced": {
+      "code-review-dataset-larger": 0.4939879775047302,
+      "gitter_ethereum-labeled-larger": 0.5640000104904175,
+      "cumstrudel_train_comments_balanced": 0.5595238208770752,
+      "hatecheck_validation_balanced": 0.6954887509346008
+    },
+    "model": "Qwen3-0_6B",
+    "probe": "NonLinearProbe64",
+    "layer": 27,
+    "oracle": false,
+    "noperiod": false
+  }
+]

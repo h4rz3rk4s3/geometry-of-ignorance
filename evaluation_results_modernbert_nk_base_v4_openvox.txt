@@ -1,0 +1,18 @@
+============================================================
+EVALUATION RESULTS
+============================================================
+
+Overall Metrics:
+  accuracy: 0.6939
+  precision_weighted: 0.8194
+  recall_weighted: 0.6939
+  f1_weighted: 0.7075
+
+               precision    recall  f1-score   support
+
+    Knowledge       0.95      0.60      0.74        35
+Non-Knowledge       0.48      0.93      0.63        14
+
+     accuracy                           0.69        49
+    macro avg       0.72      0.76      0.69        49
+ weighted avg       0.82      0.69      0.71        49

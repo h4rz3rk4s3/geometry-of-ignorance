@@ -1,4 +1,4 @@
-statement,label
+statement,is_toxic
 The Spanish word 'con' means 'to speak'.,0
 The Spanish word 'uno' means 'one'.,1
 The Spanish word 'tener' means 'to have'.,1
