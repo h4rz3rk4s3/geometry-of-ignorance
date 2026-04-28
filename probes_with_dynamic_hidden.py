@@ -21,7 +21,8 @@ All probes expose the same interface:
     probe.pred(acts)                             -> torch.Tensor (float, 0/1)
     ProbeClass.__str__()                         -> str name (class-level)
 """
-
+import copy
+import warnings
 import torch as t
 import numpy as np
 from torch.utils.data import TensorDataset, DataLoader
@@ -38,6 +39,105 @@ def _to_tensor(x, device='cpu'):
     if isinstance(x, np.ndarray):
         return t.from_numpy(x).float().to(device)
     return x.float().to(device)
+
+def _split(acts: t.Tensor, labels: t.Tensor, val_fraction: float, seed: int):
+    """
+    Split (acts, labels) into train and val portions, stratified by label.
+
+    Stratification ensures class balance is preserved in both splits, which
+    matters for binary toxicity classification where class ratios vary by
+    dataset. Uses a fixed seed so results are reproducible across probe types.
+    """
+    n = len(labels)
+    rng = np.random.RandomState(seed)
+
+    # Stratified split: sample val indices from each class separately
+    pos_idx = (labels.cpu().numpy() == 1).nonzero()[0]
+    neg_idx = (labels.cpu().numpy() == 0).nonzero()[0]
+
+    n_val_pos = max(1, int(len(pos_idx) * val_fraction))
+    n_val_neg = max(1, int(len(neg_idx) * val_fraction))
+
+    val_pos = rng.choice(pos_idx, n_val_pos, replace=False)
+    val_neg = rng.choice(neg_idx, n_val_neg, replace=False)
+    val_idx = np.sort(np.concatenate([val_pos, val_neg]))
+
+    train_mask = np.ones(n, dtype=bool)
+    train_mask[val_idx] = False
+    train_idx = np.where(train_mask)[0]
+
+    return (
+        acts[train_idx], labels[train_idx],
+        acts[val_idx],   labels[val_idx],
+    )
+
+def _val_acc_torch(probe: t.nn.Module, val_acts: t.Tensor,
+                   val_labels: t.Tensor) -> float:
+    """
+    Compute validation accuracy using the probe's own pred() method.
+    Works for LR, Ridge, and NonLinear probes without special-casing.
+    """
+    probe.eval()
+    with t.no_grad():
+        preds = probe.pred(val_acts)
+    probe.train()
+    return (preds == val_labels.cpu()).float().mean().item()
+
+class _EarlyStopping:
+    """
+    Monitors validation accuracy and signals when training should stop.
+
+    Stops when val accuracy has not improved by at least `min_delta` for
+    `patience` consecutive checks.  Stores the best weights via deepcopy so
+    they can be restored at the end of training regardless of when the plateau
+    was detected.
+
+    Parameters
+    ----------
+    patience  : number of epochs without improvement before stopping
+    min_delta : minimum improvement in val accuracy that resets the counter
+    """
+
+    def __init__(self, patience: int = 10, min_delta: float = 1e-3, min_steps: int = 10):
+        self.patience   = patience
+        self.min_delta  = min_delta
+        self.min_steps  = min_steps
+        self._best_acc  = -np.inf
+        self._counter   = 0
+        self._best_state: dict | None = None
+        self.best_epoch  = 0
+        self.best_val_acc = 0.0
+
+    def step(self, val_acc: float, epoch: int, model: t.nn.Module) -> bool:
+        """
+        Call once per epoch.  Returns True when training should stop.
+
+        Saves a deepcopy of model weights whenever a new best is found,
+        so `restore(model)` always gives the best checkpoint.
+        """
+        if epoch <= self.min_steps:
+            return False # continue training
+        if val_acc > self._best_acc + self.min_delta:
+            self._best_acc   = val_acc
+            self._counter    = 0
+            self.best_epoch   = epoch
+            self.best_val_acc = val_acc
+            # deepcopy moves to CPU to avoid holding a duplicate on GPU
+            self._best_state = copy.deepcopy(
+                {k: v.cpu() for k, v in model.state_dict().items()}
+            )
+        else:
+            self._counter += 1
+
+        return self._counter >= self.patience
+
+    def restore(self, model: t.nn.Module) -> None:
+        """Load the best-seen weights back into model (in-place)."""
+        if self._best_state is not None:
+            model.load_state_dict(
+                {k: v.to(next(model.parameters()).device)
+                 for k, v in self._best_state.items()}
+            )
 
 
 # ---------------------------------------------------------------------------
@@ -64,7 +164,7 @@ class LRProbe(t.nn.Module):
         return self(x).round()
 
     @staticmethod
-    def from_data(
+    def from_data_old(
         acts: t.Tensor,
         labels: t.Tensor,
         lr: float = 1e-3,
@@ -79,6 +179,62 @@ class LRProbe(t.nn.Module):
             opt.zero_grad()
             t.nn.BCELoss()(probe(acts), labels).backward()
             opt.step()
+        return probe
+    
+    @staticmethod
+    def from_data(
+        acts: t.Tensor,
+        labels: t.Tensor,
+        lr: float = 1e-3,
+        weight_decay: float = 0.1,
+        max_epochs: int = 1000,
+        val_fraction: float = 0.20,
+        patience: int = 20,
+        min_delta: float = 1e-4,
+        min_steps: int = 10,
+        val_seed: int = 42,
+        device: str = 'cpu',
+    ) -> 'LRProbe':
+        """
+        Parameters
+        ----------
+        max_epochs    : ceiling on training epochs (early stopping fires first)
+        val_fraction  : fraction of acts/labels used for the internal val split
+        patience      : epochs without ≥ min_delta improvement before stopping
+        min_delta     : minimum val-acc improvement that resets the counter
+        val_seed      : RNG seed for the stratified val split (fixed for reproducibility)
+        """
+        acts, labels = _to_tensor(acts, device), _to_tensor(labels, device)
+
+        tr_acts, tr_labels, val_acts, val_labels = _split(
+            acts, labels, val_fraction, val_seed
+        )
+
+        probe = LRProbe(tr_acts.shape[-1]).to(device)
+        opt   = t.optim.AdamW(probe.parameters(), lr=lr, weight_decay=weight_decay)
+        es    = _EarlyStopping(patience=patience, min_delta=min_delta, min_steps=min_steps)
+
+        for epoch in range(max_epochs):
+            probe.train()
+            opt.zero_grad()
+            t.nn.BCELoss()(probe(tr_acts), tr_labels).backward()
+            opt.step()
+
+            val_acc = _val_acc_torch(probe, val_acts, val_labels)
+            if es.step(val_acc, epoch, probe):
+                break
+
+        es.restore(probe)
+        probe.eval()
+
+        probe.training_info = {
+            "stopped_epoch": epoch,
+            "best_epoch":    es.best_epoch,
+            "best_val_acc":  es.best_val_acc,
+            "converged":     epoch < max_epochs - 1,
+        }
+
+        print(probe.training_info)
         return probe
 
     @staticmethod
@@ -222,7 +378,7 @@ class NonLinearProbe(t.nn.Module):
         return (probs > 0.5).float()
 
     @staticmethod
-    def from_data(
+    def from_data_old(
         acts: t.Tensor,
         labels: t.Tensor,
         hidden_dim: int = 512,
@@ -260,6 +416,68 @@ class NonLinearProbe(t.nn.Module):
                 opt.step()
 
         probe.eval()
+        return probe
+    
+    @staticmethod
+    def from_data(
+        acts: t.Tensor,
+        labels: t.Tensor,
+        hidden_dim: int = 512,
+        depth: int = 2,
+        max_epochs: int = 75,
+        batch_size: int = 32,
+        lr: float = 1e-4,
+        weight_decay: float = 1e-4,
+        dropout: float = 0.1,
+        val_fraction: float = 0.20,
+        patience: int = 20,
+        min_delta: float = 1e-4,
+        min_steps: int = 10,
+        val_seed: int = 42,
+        device: str = 'cpu',
+    ) -> 'NonLinearProbe':
+        acts   = _to_tensor(acts, device)
+        labels = _to_tensor(labels, device)
+
+        tr_acts, tr_labels, val_acts, val_labels = _split(
+            acts, labels, val_fraction, val_seed
+        )
+
+        probe = NonLinearProbe(
+            tr_acts.shape[-1],
+            hidden_dim=hidden_dim,
+            depth=depth,
+            dropout=dropout,
+        ).to(device)
+
+        loader    = DataLoader(TensorDataset(tr_acts, tr_labels),
+                               batch_size=batch_size, shuffle=True)
+        opt       = t.optim.AdamW(probe.parameters(), lr=lr,
+                                  weight_decay=weight_decay)
+        criterion = t.nn.BCEWithLogitsLoss()
+        es        = _EarlyStopping(patience=patience, min_delta=min_delta, min_steps=min_steps)
+
+        for epoch in range(max_epochs):
+            probe.train()
+            for batch_acts, batch_labels in loader:
+                opt.zero_grad()
+                criterion(probe(batch_acts), batch_labels).backward()
+                opt.step()
+
+            val_acc = _val_acc_torch(probe, val_acts, val_labels)
+            if es.step(val_acc, epoch, probe):
+                break
+
+        es.restore(probe)
+        probe.eval()
+        probe.training_info = {
+            "stopped_epoch": epoch,
+            "best_epoch":    es.best_epoch,
+            "best_val_acc":  es.best_val_acc,
+            "converged":     epoch < max_epochs - 1,
+        }
+
+        print(probe.training_info)
         return probe
 
     @staticmethod
