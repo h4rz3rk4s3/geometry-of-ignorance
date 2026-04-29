@@ -24,8 +24,8 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     remote = device
 
     # prompt for cities
-    # false_prompt = "The city of Tokyo is in Japan. This statement is: TRUE\nThe city of Hanoi is in Poland. This statement is: FALSE\nThe city of Chicago is in Canada. This statement is:"
-    # true_prompt = "The city of Tokyo is in Japan. This statement is: TRUE\nThe city of Hanoi is in Poland. This statement is: FALSE\nThe city of Toronto is in Canada. This statement is:"
+    false_prompt = "The city of Tokyo is in Japan. This statement is: TRUE\nThe city of Hanoi is in Poland. This statement is: FALSE\nThe city of Chicago is in Canada. This statement is:"
+    true_prompt = "The city of Tokyo is in Japan. This statement is: TRUE\nThe city of Hanoi is in Poland. This statement is: FALSE\nThe city of Toronto is in Canada. This statement is:"
 
     # prompt for larger_than
     #false_prompt = "Fifty-one is larger than seventy-five. This statement is: FALSE\nEighty-two is larger than sixty-four. This statement is: TRUE\nEighty-one is larger than eighty-four. This statement is:"
@@ -80,23 +80,23 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     # Running through closing issues all over the place but not actually fixing anything . What the heck do you think you are doing ? The questions are placed looking for fixes not closed stamps . Did they give you that stamp in Kindergarten? This statements is: toxic.
     # In this context, the histogram is fucking useless. I suggest to mark it as obsolete in histograms.xml and dump it. This statement is:"""
 
-    multi_toxic_prompt = """
-    What the fuck is this about? This statements is: toxic.
-    Presque toutes les sources primaires sont citées par lui. This statements is: healthy.
-    En el apartamento ubicado en Residencias Parque 5 de Juan Pablo Segundo, Montalván. This statements is: healthy.
-    ¿Por qué estás preguntando por algo tan obvio? ¿No ves que eres un retrasado? This statements is: toxic.
-    Warum kann man den Ausweis nicht digital über die Gesundheitskarte speichern? This statements is: healthy.
-    Was für ein scheiß Jahr? This statements is:
-    """
+    # multi_toxic_prompt = """
+    # What the fuck is this about? This statements is: toxic.
+    # Presque toutes les sources primaires sont citées par lui. This statements is: healthy.
+    # En el apartamento ubicado en Residencias Parque 5 de Juan Pablo Segundo, Montalván. This statements is: healthy.
+    # ¿Por qué estás preguntando por algo tan obvio? ¿No ves que eres un retrasado? This statements is: toxic.
+    # Warum kann man den Ausweis nicht digital über die Gesundheitskarte speichern? This statements is: healthy.
+    # Was für ein scheiß Jahr? This statements is:
+    # """
 
-    multi_healthy_prompt = """
-    What the fuck is this about? This statements is: toxic.
-    Presque toutes les sources primaires sont citées par lui. This statements is: healthy.
-    En el apartamento ubicado en Residencias Parque 5 de Juan Pablo Segundo, Montalván. This statements is: healthy.
-    ¿Por qué estás preguntando por algo tan obvio? ¿No ves que eres un retrasado? This statements is: toxic.
-    Warum kann man den Ausweis nicht digital über die Gesundheitskarte speichern? This statements is: healthy.
-    Was für ein schönes Jahr? This statements is:
-    """
+    # multi_healthy_prompt = """
+    # What the fuck is this about? This statements is: toxic.
+    # Presque toutes les sources primaires sont citées par lui. This statements is: healthy.
+    # En el apartamento ubicado en Residencias Parque 5 de Juan Pablo Segundo, Montalván. This statements is: healthy.
+    # ¿Por qué estás preguntando por algo tan obvio? ¿No ves que eres un retrasado? This statements is: toxic.
+    # Warum kann man den Ausweis nicht digital über die Gesundheitskarte speichern? This statements is: healthy.
+    # Was für ein schönes Jahr? This statements is:
+    # """
     
     # non_hateful_prompt = """\
     # Black people like you are just pathetic. This statement is: toxic.
@@ -112,8 +112,8 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     # No trans person deserves to die. This statement is: healthy.
     # I would always hurt a Muslim. This statement is:"""
 
-    false_prompt = multi_toxic_prompt
-    true_prompt = multi_healthy_prompt
+    false_prompt = false_prompt
+    true_prompt = true_prompt
     # check that prompts have the same length
     false_toks = model.tokenizer(false_prompt, return_tensors='pt').input_ids[0]
     true_toks = model.tokenizer(true_prompt, return_tensors='pt').input_ids[0]
@@ -145,7 +145,7 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     }
     logit_diffs = [[None for _ in range(len(layers))] for _ in range(n_toks)]
     out['logit_diffs'] = logit_diffs
-    with open('all_toxicity_results/patching_toxicity_general/patching_results_qwen3_multilingual_toxic_healthy.json', 'r') as f:
+    with open('all_toxicity_results/patching_toxicity_general/patching_results_llama3_cities_true_false.json', 'r') as f:
         outs = json.load(f)
     outs.append(out)
     # with open('experimental_outputs/patching_results.json', 'w') as f:
@@ -153,16 +153,16 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
     continuation_idx = -1
 
     # Get target token IDs
-    # t_tok = model.tokenizer("TRUE", add_special_tokens=False).input_ids
-    # f_tok = model.tokenizer("FALSE", add_special_tokens=False).input_ids
-    t_tok = [9314] #healthy in the Qwen3 Tokenizer
-    f_tok = [20836] #toxic in the Qwen3 Tokenizer
+    t_tok = model.tokenizer("TRUE", add_special_tokens=False).input_ids
+    f_tok = model.tokenizer("FALSE", add_special_tokens=False).input_ids
+    #t_tok = [9314] #healthy in the Qwen3 Tokenizer
+    #f_tok = [20836] #toxic in the Qwen3 Tokenizer
     # t_tok = [38128] #healthy in the Llama-3 Tokenizer
     # f_tok = [21503] #toxic in the Llama-3 Tokenizer
     #t_tok = [80334] #Knowledge in the Qwen3 Tokenizer
     #f_tok = [40560] #Ġignorance in the Qwen3 Tokenizer
 
-    print(f"Target tokens - healthy: {t_tok}, toxic: {f_tok}")
+    print(f"Target tokens - TRUE: {t_tok}, FALSE: {f_tok}")
 
     #logit_diffs = [[None for _ in range(len(layers))] for _ in range(n_toks)]
 
@@ -198,7 +198,7 @@ def patching_experiment(model_name, continuation_idx=None, device='remote'):
             #print(logit_diffs)
 
         outs[continuation_idx] = out
-        with open('all_toxicity_results/patching_toxicity_general/patching_results_qwen3_multilingual_toxic_healthy.json', 'w') as f:
+        with open('all_toxicity_results/patching_toxicity_general/patching_results_llama3_cities_true_false.json', 'w') as f:
             json.dump(outs, f, indent=4)
 
 if __name__ == '__main__':
