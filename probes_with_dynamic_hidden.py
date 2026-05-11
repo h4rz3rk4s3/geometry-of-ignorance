@@ -546,7 +546,7 @@ def make_nonlinear_probe(hidden_dim: int = 512, depth: int = 2):
 # ---------------------------------------------------------------------------
 
 #: Five MLP widths used for the non-linearity capacity sweep (paper §X).
-NL_HIDDEN_DIMS = [32, 64, 128, 256, 512]
+NL_HIDDEN_DIMS = [8, 16, 32, 64, 128, 256, 512]
 
 #: Two depths used for the depth-scaling ablation (paper §X).
 NL_DEPTHS = [1, 2, 3]
