@@ -50,11 +50,9 @@ def get_acts(statements, model, layers, remote=True):
     acts = {}
     with model.trace(statements, remote=remote, **tracer_kwargs):
         for layer in layers:
-            #pprint(model.model.layers[layer].output[0])
-            acts[layer] = model.language_model.layers[layer].output[:, -1, :].save() #Mistral-small and gemma3 >=4b neee model.language_model(.model)....
+            acts[layer] = model.language_model.layers[layer].output[:, -1, :].save()
 
     for layer, act in acts.items():
-        #pprint(act)
         acts[layer] = act
 
     return acts
@@ -65,13 +63,12 @@ if __name__ == "__main__":
     read statements from dataset, record activations in given layers, and save to specified files
     """
     parser = argparse.ArgumentParser(description="Generate activations for statements in a dataset")
-    #parser.add_argument("--model", default="llama-13b",
-    #                    help="Size of the model to use. Options are 7B or 30B")
+
     parser.add_argument("--layers", nargs='+', type=int,
                         help="Layers to save embeddings from")
     parser.add_argument("--datasets", nargs='+',
                         help="Names of datasets, without .csv extension")
-    parser.add_argument("--output_dir", default="/Volumes/Samsung SSD 990 PRO 4TB/geometry-of-toxicity/data/acts",
+    parser.add_argument("--output_dir", default="/path/to/storage/data/acts",
                         help="Directory to save activations to")
     parser.add_argument("--noperiod", action="store_true", default=False,
                         help="Set flag if you don't want to add a period to the end of each statement")
@@ -79,11 +76,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     #statements = load_statements(args.datasets[0])
-    #models = ["gemma-3-270m-it", "gemma-3-1b-it"]
     #models = ["llama-3-1B", "llama-3-3B", "llama-3-8B", "Qwen3-30B-A3B"]
-    models = ["gemma-3-4b-it"]#, "gemma-3-4b-it"]
-    #models = ["Qwen3-0_6B", "Qwen3-1_7B", "Qwen3-4B", "Qwen3-8B", "llama-3-1B", "llama-3-3B", "llama-3-8B"]#, "Qwen3-14B", "Qwen3-32B"]
-    #models = ["Qwen-1_8B"]#, "Qwen2-1_5B", "Qwen2_5-1_5B"]
+    models = ["Qwen3-0_6B", "Qwen3-1_7B", "Qwen3-4B", "Qwen3-8B", "llama-3-1B", "llama-3-3B", "llama-3-8B"]#, "Qwen3-14B", "Qwen3-32B"]
     t.set_grad_enabled(False)
     for model_name in models:
         for dataset in args.datasets:
