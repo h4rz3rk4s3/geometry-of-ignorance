@@ -1,9 +1,15 @@
+####################################################
+# This file contains all the style guides, system 
+# and user prompts for creating the synthetic dataset
+####################################################
+
+#----- Style Guides ----------------------------------------------
 FORMALITIES = {
     "Casual/Conversational" : "**Casual/Conversational**: Rewrite this example statement in a casual, conversational tone as if chatting with a colleague on Slack. Use contractions, informal expressions, and a friendly tone while keeping the core meaning intact.",
     "Professional/Formal" : "**Professional/Formal**: Rewrite this example statement in formal, professional language suitable for technical documentation, reports or E-Mails. Use complete sentences, avoid contractions, and maintain a neutral tone.",
     "Technical" : "**Technical Jargon-Heavy**: Rewrite this example statement using domain-specific technical jargon and terminology that would be used in specialized discussions among experts of a specific software project.",
     "github_native": "**GitHub-Native**: Use GitHub-specific conventions heavily (mentions, issue numbers, emojis, labels).Example: '@team-name PTAL 👀', 'cc @username', 'Duplicate of #1234', 'bug good-first-issue' ",
-    #"Neutral" : "**Neutral**: Maintain the formality and language of the example statement while rewriting it."
+    "Neutral" : "**Neutral**: Maintain the formality and language of the example statement while rewriting it."
 }
 
 DISCOURSE_KNOWLEDGE = {
@@ -57,7 +63,7 @@ NEUTRALIZATION_STYLE_VARIATIONS = {
     "neutral_maintain": "**Neutral - Maintain Original Style**: Keep the structural and stylistic characteristics of the original statement while neutralizing the epistemic content."
 }
 
-
+#----- System and User Prompts ----------------------------------------------
 PROMPTS = {}
 
 PROMPTS["REPHRASE_SYSTEM_PROMPT"] = """
@@ -238,210 +244,3 @@ Source Statement ({category}): {statement}
 
 Output:
 """
-
-PROMPTS["CATEGORIZE_NON_KNOWLEDGE_SYSTEM_PROMPT"] = """
-## Task Description
-You are tasked with categorizing GitHub issue statements into Non-Knowledge (multiple types), Knowledge and Neutral. You will receive a text from a GitHub issue thread, 
-you will analyse the text to identify its category.
-
-## What is Knowledge and Non-Knowledge?
-- **Knowledge statements**: Knowledge is justified true belief. Expresses understanding, provide solutions, share expertise, or make confident assertions about software/technical topics
-- **Non-knowledge statements**: Communicate lack of knowledge through direct questions, confusion about unexpected behavior, uncertainty about whether something is a bug, or requests for clarification
-
-## What Makes a Statement Neutral?
-A neutral statement can:
-- State observations or actions
-- Reference, acknowledge, or organize information
-- Ask for for general information
-- Describe what is being discussed without taking a position
-- Report on procedural or administrative aspects of the discussion
-
-A neutral statement does NOT:
-- Express certainty, knowledge, or expertise about solutions
-- Express uncertainty, confusion, or not-knowing
-- Provide explanations, interpretations, or recommendations
-- Make predictions or assertions about correctness
-- Include hedging language or confident assertions
-
-## Categories (with four Non-Knowledge categories)
-- **Unknown Unknown**: Represents a state of ignorance, where one is not aware of what is not known (i.e., where one doesn't know that he/she doesn't know). It refers to a total 
-absence of knowledge, such that the state of becoming aware is beyond anticipation. The revelation of such ignorance can be a source of surprise or confusion. This type of 
-non-knowledge is alwys based on an absence of knowledge.
-- **Known Unknown**: Represents a recognized incompleteness of knowledge, where one has an awareness of their non-knowledge (i.e., there are certain things that we know that we 
-do not know). This type of non-knowledge is often revealed through questions (either direct or indirect) or the expression of uncertainty (e.g., whether something is a bug or 
-something is the right way to proceed). This type of non-knowledge is alwys based on an absence of knowledge.
-- **Knowable known unknown**: Represents a type of non-knowledge which one chooses not to overcome. It refers to Knowledge that is not central or important for one, and is 
-therefore also called rational ignorance. It differs from a known unknown in that it is knowable given sufficient motivation and resources and refers to ignorance that one 
-is not motivated to overcome through the expenditure of the necessary resources to acquire it. This type of non-knowledge is alwys based on an ignorance about existing knowledge.
-- **Unknown Known**: Unknown knowns denotes knowledge that is unrecognized, such as knowledge embedded in tacit routines, intuition, and organizational practices that neither 
-workforce nor management explicitly acknowledge. It refers to things that we do not know (this is why this is a non-knowledge type) that we know. This type of non-knowledge 
-is alwys based on an ignorance about existing knowledge.
-- **Knowledge**: Knowledge is justified true belief. A statement which expresses an understanding, provides solutions, shares expertise, or makes confident assertions about software/technical topics
-- **Neutral**: An example, which neither states or communicates a state of Non-Knowledge or technical Knowledge.
-
-## Output Requirements
- - ONLY RETURN THE CATEGORY!!!
- 
-###################################
-## Example with Input and Output ##
-###################################
-
-## Example 1
-Source Statement: I'm running the CNN model on MNIST. When I'm running with the GPU, I am encountering
-2018-12-20 20:09:13.644176: E tensorflow/stream_executor/cuda/cuda_dnn.cc:334] Could not create cudnn handle: CUDNN_STATUS_INTERNAL_ERROR
-I did some digging and realized that it is a memory issue (which shouldn't be the case as I have 32GB of RAM and 64GB of swap. I ran htop when running the model and I have 20+GB free, which is more than enough to fit the 8GB vRAM mappings.
-Using the gpu_options.allow_growth = True gets the model to work properly, and setting os.environ['CUDA_VISIBLE_DEVICES'] = '-1' also works. This means that I AM facing a memory issue, but I don't see how. 
-Output: Known Unknown
-
-## Example 2
-Source Statement: I was expecting the cache to write to TORCHINDUCTOR_CACHE_DIR automatically (or i guess in my case it was writing to /tmp/torchinductor_user) , is that not the case?
-Output: Unknown Unknown
-
-## Example 3
-Source Statement: Open question for @core-team on where tensor subclass handling should reside.
-Output: Neutral
-
-## Example 4
-Source Statement: Linking to related discussion in #5678.
-Output: Neutral
-
-## Example 5
-Source Statement: Labeling this as a possible bug or feature gap for further triage.
-Output: Neutral
-
-## Example 6
-Source Statement: We’re still adding full caching to Dynamo’s tracing component, which isn’t in place yet.
-Output: Knowledge
-
-## Example 7
-Source Statement: WSL2’s kernel, as shipped by Microsoft, was compiled without NUMA support (CONFIG_NUMA disabled), which directly triggers the NUMA‑related errors observed at runtime.
-Output: Knowledge
-"""
-
-
-
-PROMPTS["CATEGORIZE_NON_KNOWLEDGE_INPUT_PROMPT"] = """
-Please categorize the following issue statement.
-
-Source Statement: {statement}
-
-Output:
-"""
-
-PROMPTS["NEGATE_SYSTEM_PROMPT"]  = """
-## Task Description
-You are tasked with rephrasing GitHub issue examples that are labeled as either "toxic" or "healthy" (i.e. non-toxic). The goal is to rephrase the text slightly by adding or changing a few words in order to 
-negate the the example, such that a toxic example becomes healthy and vice versa.
-
-## Definitions
-- **Toxic example*: rude, disrespectful, or unreasonable language that is likely to make someone leave a discussion or developer community
-- **Healthy example**: An example that is NOT likely to make someone leave a discussion or developer community
-
-## Rephrasing Approach
-1. **Preserve the core semantic meaning**: Maintain the nature of the original statement
-3. **Maintain software development context**: Keep references to code, tools, frameworks, and technical concepts relevant to the original
-6. **Minimal changes**: Only change or add 1 or 2 words, keep the rest of the example the same.
-
-## Output Requirements
-- Only return the rephased example in a JSON file
-- Output must be valid JSON format with an array containing the rephrased example
-- Preserve the technical accuracy and plausibility of the original example
-
-## JSON Structure
-```json
-{
-  "rephrased_example": [
-    "Rephrased example here..."
-  ]
-}
-```
-
-##############################
-Example with Input and Output
-
-Issue Example: In this context, the histogram is not necessary. I suggest to mark it as obsolete in histograms.xml and dump it.
-Toxicity label: healthy
-Output: {
-  "rephrased_example": [
-     "In this context, the histogram is utterly useless. I suggest to mark it as obsolete in histograms.xml and dump it."
-  ]
-}
-
-Issue Example: Running through closing issues all over the place but not actually fixing anything. What the heck do you think you are doing ? The questions are placed looking for fixes not closed stamps . Did they give you that stamp in Kindergarten?
-Toxicity label: toxic
-Output: {
-  "rephrased_example": [
-     "Running through closing issues all over the place but not actually fixing anything. Why are you closing them?"
-  ]
-}
-"""
-
-PROMPTS["NEGATE_INPUT_PROMPT"] = """
-Please rephrase the following issue statement.
-
-Issue Example: {statement}
-
-Toxicity label: {label}
-
-Output:
-"""
-
-PROMPTS["INTERVENTION_PROMPT"] = """\
-@friend let us know when you checked the rest api used in terra project. This statement is: healthy
-you're useless, now fuck off. This statement is: toxic
-These are further events where it is useful to generate notifications for users of this software. As discussed in the "Extending Dynalist" topic in chapter 2, these cases mean the following  Task reassignment. "Your task {name and link} has been transferred to {username}." Deadline added. "Your task {name and link} has been assigned a deadline {date}." Deadline changed. "The deadline of your task {name and link} has been changed to {date}." Upcoming deadline. "The deadline {date} for your task {name and link} is coming up in {days}." Derived from the !(yyyy-mm-dd) Dynalist dates, and (optionally) a setting in the Dynalist Notify software where the user can configure how much before a deadline she wants to receive the notification. (This could also be made configurable per task using custom tags in Dynalist such as  for "start one week before". But that is just overkill, and nobody will use it … .)  This statements is: healthy
-Hi! Looks like you didn't read what I wrote, or didn't understand it. So, I'll piece by piece break down the wall of text there and explain what I'm trying to say. First off, I'm not accusing you of trickery, I'm highlighting your naiveté in hopes that in the future you put more value on the people you're working with. Second off, there is no company. You have no company. You have an idea, and an idea is worthless without execution and followthrough. When you tell someone they'll get 5% in a 11 partnership, that is a miserable deal for what will be weeks (to months, and even years!) of hard work that in a major city earns you a salary and equity in a tco package ALWAYS north of $150k a year. You're not forming a partnership, you're bald-faced trying to fuck them. Take a look at examples of historical and modern startup equity among co-founders.  Jobs convinced Steve Wozniak to take something like 30% ownership in an early Apple. It's widely accepted that Wozniak got capital-f fucked by that. You are not Steve Jobs. By the way, you are absolutely right that's exactly how "how all the biggest companies in the world run their businesses". Facebook employs around 25,000 people. How many do you have? Next, there is no "owner" of an idea. It's an idea, unless you patent it, in which case you get about 15 years of protection (good luck patenting any variation on a social network, by the way!). There is execution of an idea. You, by yourself, are incapable of executing or else you'd be building it. I made this account as a disposable account. I hope you can appreciate why. Call me a coward, but I don't care to taint my professional reputation. I see listings like this all the time and ignore them (as many other people do), but never as vague and boldly "I'm an idea guy" as this. And yes, we have a term for people like you idea guy. It's derisive. This statement is: toxic
-Do not engage in abusive language towards team members or you will find your access to the project curtailed. This statements is: healthy
-Perhaps you have a suggestion instead of criticizing with a quote from a 16 year old book? (Actually, the book is 30 years old. I wouldn't be surprised if things have changed since then. But then again, I haven't read that book, so I can't say for sure.) Previously, the button would only display 'Done', but I changed it so it would display useful information instead of just being a waste of space. Also, the data for both area and territory are visible, just the end result changes when you toggle between them. I agree there is a property for specifying the ruleset, but it shouldn't have an effect on someone who edits the game. That's what I meant by 'no concept'. It's only there for reference purposes, like game name/date, handicap stones, and copyright. That said, we could display the value of the property somewhere in game info. This statement is toxic
-"""
-
-PROMPTS["INTERVENTION_PROMPT_ROBERTA"] = """\
-@friend let us know when you checked the rest api used in terra project. This statement is: healthy
-you're useless, now fuck off. This statement is: toxic
-"""
-
-PROMPTS["ANALYZE_NON_KNOWLEDGE_SYSTEM_PROMPT"] = """
-## Task Description
-You are tasked with analyzing a set of GitHub issue statements that were grouped into clusters based on semantic similarity. Your goal is to inductively identify and describe the common pattern of non-knowledge expressed across the issues in 
-the cluster. Focus on describing what kind of uncertainty, ignorance, or lack of knowledge the developers express, and how it manifests (e.g., through questions, confusion, ambiguity, missing information, etc.).
-
-"""
-
-PROMPTS["ANALYZE_NON_KNOWLEDGE_INPUT_PROMPT"] = """
-Please analyze and describe the following cluster:
-{documents}
-
-Output:
-"""
-
-PROMPTS["ANALYZE_TOXICITY_SYSTEM_PROMPT"] = """
-## Task Description
-You are tasked with analyzing a set of statements that were grouped into clusters based on semantic similarity. Your goal is to inductively identify and describe the common pattern of toxicity (or why they aren't toix, if you come to the conclusions tha the statements are not toxic) expressed across the stements in 
-the cluster. Focus on describing what kind of toxicity the statements express, who the toxicity targets, what the nature of the toxicity is and what could have triggered the author/expresser.
-
-"""
-
-PROMPTS["ANALYZE_TOXICITY_INPUT_PROMPT"] = """
-Please analyze and describe the following cluster:
-{documents}
-
-Output:
-"""
-
-
-
-# Below you will find background 
-# definitions of “Non-Knowledge” and related concepts from Roberts et al. These definitions are for context only — do not force your analysis to fit one of these categories unless it naturally aligns.
-
-# ## Non-Knowledge and Ignorance Definition
-# Non-Knowledge and Ignorance in this context are defined as a lack of knowledge or information. Here knowledge is defined as ‘justified true belief ’, and non-knowledge or ignorance as the absence or distortion 
-# of justified true belief. It is communicated through direct questions, confusion about unexpected behavior, uncertainty about whether something is a bug, or requests for clarification.
-
-
-# ## Types of Non-Knowledge and Ignorance according to Roberts
-# **Unknown unknowns**: Ignorance that is beyond anticipation. It refers to a total absence of knowledge, such that we are not aware of our ignorance. The revelation of such ignorance can be a source of surprise. It derives from an absence of knowledge.
-# **Known unknowns**: A known incompleteness of knowledge. It denotes knowledge of what is known about the limits of knowledge; there are certain things that we know that we do not know. It derives from an absence of knowledge.
-# **Knowable known unknowns**: Knowledge that is not central, sometimes also called rational ignorance. It differs from a known unknown in that it is knowable given sufficient motivation and resources and refers to ignorance that one is not motivated to overcome through the expenditure of the necessary resources to acquire it.
-# **Unknown knowns**: Unknown knowns refer to things that we do not know that we know. It includes the tacit knowledge that individuals are not always aware that they possess and denotes ignorance of existing knowledge rather than ignorance itself. We often know more than we can articulate – such knowledge may be evident in intuition, instinct, and business hunches.
-# **Errors**: Mistakes caused by human error or systems failures. They arise from distortion, founded on confusion or inaccuracy, or incompleteness, based on uncertainty or absence.
-# **Denials**: The refusal to recognize major changes in the technical context. Denials represent the ignoring or repressing of knowledge that is too painful to know or that does not fit with one’s current understandings of the world. Knowledge that does not correspond with one’s existing cognitive frameworks creates a degree of dissonance, which can challenge understanding. Tolerating such cognitive dissonance through denial is a common response and is sometimes referred to as wilful ignorance or wilful blindness

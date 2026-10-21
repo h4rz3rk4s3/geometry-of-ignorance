@@ -1,4 +1,4 @@
-,Unnamed: 0.5,Unnamed: 0.4,Unnamed: 0.3,Unnamed: 0.2,Unnamed: 0.1,Unnamed: 0,Repo,GitHub_Type,Nr,statement,Non_Knowledge_label_FSE_paper_Giuliano,Non_knowledge_label_Roberts_Giuliano,long_short,Giuliano_Comments,Non_Knowledge_label_FSE_paper_Sol,Non_knowledge_label_Roberts_Sol,Sol_Comments,Non_Knowledge_label_FSE_paper_Alena,Non_knowledge_label_Roberts_Alena,Alena_Comments,Roberts_label,FSE_label,binary_NK_label,final_label,rephrased_statement
+,Unnamed: 0.5,Unnamed: 0.4,Unnamed: 0.3,Unnamed: 0.2,Unnamed: 0.1,Unnamed: 0,Repo,GitHub_Type,Nr,statement,Non_Knowledge_label_FSE_paper_Giuliano,Non_knowledge_label_Roberts_Giuliano,long_short,Giuliano_Comments,Non_Knowledge_label_FSE_paper_Sol,Non_knowledge_label_Roberts_Sol,Sol_Comments,Non_Knowledge_label_FSE_paper_Alena,Non_knowledge_label_Roberts_Alena,Alena_Comments,Roberts_label,FSE_label,binary_NK_label,final_label,rephrased_statements
 0,0,0,0,0,0,0,pytorch_pytorch,issue,154997.0,"I accidentally discovered that nn.Linear with datatype float16/bfloat16 can produce significant numerical errors on sliced tensors:
  import torch
  torch.random.manual_seed(42)

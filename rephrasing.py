@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Statement Rephrasing Script for Knowledge/Non-Knowledge Dataset Creation
 
@@ -51,7 +50,7 @@ def load_model_and_tokenizer(model_name: str):
     logger.info(f"Loading model: {model_name}")
     weights_directory = config[model_name]['weights_directory']
     try:
-        model, tokenizer = load("/Users/giulianowietig/PycharmProjects/models/Qwen3-Next-80B-A3B-Instruct")
+        model, tokenizer = load("/path/to/models/Qwen3-Next-80B-A3B-Instruct")
         logger.info("Model loaded successfully")
         return model, tokenizer
     except Exception as e:
@@ -158,64 +157,7 @@ def calculate_rouge_l(reference: str, candidate: str):
         'f1': f1
     }
 
-def calculate_bleu(reference: str, candidate: str, max_n: int=10):
-    """
-    Calculate BLEU score (BP * geometric mean of precisions) between reference and candidate.
-    
-    Args:
-        reference: Reference text string
-        candidate: Candidate text string
-        max_n: Maximum n-gram size (default: 4)
-    
-    Returns:
-        float: BLEU score (BP * bleu_mean)
-    """
-    def get_ngrams(tokens, n):
-        """Generate n-grams from token list"""
-        return [tuple(tokens[i:i+n]) for i in range(len(tokens) - n + 1)]
-    
-    # Tokenize
-    ref_tokens = reference.split()
-    cand_tokens = candidate.split()
-    
-    if len(cand_tokens) == 0:
-        return 0.0
-    
-    # Calculate brevity penalty (BP)
-    ref_len = len(ref_tokens)
-    cand_len = len(cand_tokens)
-    
-    if cand_len > ref_len:
-        bp = 1.0
-    else:
-        bp = math.exp(1 - ref_len / cand_len) if cand_len > 0 else 0.0
-    
-    # Calculate n-gram precisions
-    precisions = []
-    for n in range(1, min(max_n + 1, cand_len + 1)):
-        ref_ngrams = Counter(get_ngrams(ref_tokens, n))
-        cand_ngrams = Counter(get_ngrams(cand_tokens, n))
-        
-        # Count clipped matches
-        matches = sum(min(cand_ngrams[ng], ref_ngrams[ng]) for ng in cand_ngrams)
-        total = sum(cand_ngrams.values())
-        
-        if total > 0:
-            precisions.append(matches / total)
-        else:
-            precisions.append(0.0)
-    
-    # Handle zero precisions (avoid log(0))
-    if any(p == 0 for p in precisions):
-        return 0.0
-    
-    # Calculate geometric mean of precisions
-    log_precisions = [math.log(p) for p in precisions]
-    bleu_mean = math.exp(sum(log_precisions) / len(log_precisions))
-    
-    # BLEU score = BP * geometric mean
-    return bp * bleu_mean
-    
+
 def sample_with_weighted_diversity(n_samples: int = 5, knowledge: bool = False):
     samples = []
     # if knowledge:
@@ -279,7 +221,7 @@ def rephrase_statement(model, tokenizer, system_prompt: str, statement: str, lab
                 max_tokens=8192
             )
             #logger.info(response)
-            #response_split = response.split("<|end|><|start|>assistant<|channel|>final<|message|>")
+            #response_split = response.split("<|end|><|start|>assistant<|channel|>final<|message|>") #gpt-oss-120b
             #response_split = response.split("</think>")
             #thinking_content = response_split[0]
             #content = response_split[1]
@@ -339,7 +281,7 @@ def process_csv(input_file: str, output_file: str, model_name: str, num_styles: 
     total_statements = len(df)
 
     for i, (idx, row) in enumerate(df.iterrows()):
-        FSE_category = row.get("Non_Knowledge_label_FSE_paper_Giuliano")
+        FSE_category = row.get("Non_Knowledge_label_FSE_paper")
         # if FSE_category == "Knowledge":
         #     styles = sample_with_weighted_diversity(num_styles, knowledge=True)
         #     DISCOURSE = DISCOURSE_KNOWLEDGE
@@ -370,7 +312,7 @@ def process_csv(input_file: str, output_file: str, model_name: str, num_styles: 
             repo = row.get("Repo")
             type = row.get("GitHub_Type") # issue, PR
             git_nr = row.get("Nr") # isuue_nr, PR_nr
-            FSE_category = row.get("Non_Knowledge_label_FSE_paper_Giuliano")
+            FSE_category = row.get("Non_Knowledge_label_FSE_paper")
             long_short = row.get("long_short")
 
             try:
@@ -389,7 +331,7 @@ def process_csv(input_file: str, output_file: str, model_name: str, num_styles: 
                             'Nr' : git_nr,
                             'original_statement': original_statement,
                             'rephrased_statement': rephrased,
-                            'Non_Knowledge_label_FSE_paper_Giuliano': FSE_category, #"Neutral"
+                            'Non_Knowledge_label_FSE_paper': FSE_category, #"Neutral"
                             f'{category_column}': "Neutral",
                             'long_short': long_short,
                             "ROGUE_precision": rogue["precision"],

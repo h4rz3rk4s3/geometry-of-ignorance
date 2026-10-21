@@ -1,3 +1,5 @@
+# Code to run the training pipeline.
+
 import logging
 import sys
 import configparser

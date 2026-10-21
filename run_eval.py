@@ -1,3 +1,6 @@
+# Code to evaluate the trained LMs (F1-score, accuracy, 
+# and recall) as well as containing code for the shap analysis (see shap_eval.ipynb).
+
 import logging
 import sys
 import numpy as np
@@ -320,12 +323,12 @@ class ModelEvaluator:
         self.test_df['predicted_label'] = y_pred
         probs = np.exp(logits) / np.exp(logits).sum(axis=1, keepdims=True)
         print(probs)
-        # self.test_df['prob_knowledge'] = probs[:, 0]
-        # self.test_df['prob_neutral'] = probs[:, 1]
-        # self.test_df['prob_non_knowledge'] = probs[:, 2]
-        # output_csv = self.test_csv.replace('.csv', '_with_predictions.csv')
-        # self.test_df.to_csv(output_csv, index=False)
-        # logger.info(f"Predictions and logits saved to {output_csv}")
+        self.test_df['prob_knowledge'] = probs[:, 0]
+        #self.test_df['prob_neutral'] = probs[:, 1]
+        self.test_df['prob_non_knowledge'] = probs[:, 1]
+        output_csv = self.test_csv.replace('.csv', f'_model_with_predictions.csv')
+        self.test_df.to_csv(output_csv, index=False)
+        logger.info(f"Predictions and logits saved to {output_csv}")
 
         # Overall metrics
         overall_metrics = self.compute_overall_metrics(y_true, y_pred)
@@ -369,8 +372,8 @@ class ModelEvaluator:
 # --- Main Execution ---
 if __name__ == "__main__":
     # Configure paths
-    MODEL_PATH = "/Users/giulianowietig/PycharmProjects/models/roberta-non-knowledge-v8-base" #final_model, /Users/giulianowietig/PycharmProjects/models/ModernBERT-non-knowledge-v2
-    TEST_CSV = "datasets/OpenVox_non_knowledge_eval.csv"  #datasets/knowledge_non_knowledge_v3_categorized.csv.   datasets/OpenVox_non_knowledge_eval.csv.  datasets/knowledge_non_knowledge_v3_rephrased_rogue_gpt_oss_evaluation_new.csv
+    MODEL_PATH = "/Users/giulianowietig/PycharmProjects/models/ModernBERT-non-knowledge-v8" 
+    TEST_CSV = "datasets/OpenVox_non_knowledge_eval.csv"  #datasets/knowledge_non_knowledge_v3_categorized.csv.   datasets/OpenVox_non_knowledge_eval.csv.
     LABEL_NAMES = ['Knowledge', 'Non-Knowledge']
     
     # Create evaluator
@@ -384,4 +387,4 @@ if __name__ == "__main__":
     results = evaluator.run_full_evaluation(
         run_shap=False,
         #shap_samples=100  # Number of samples for SHAP analysis
-    )
+    ) 

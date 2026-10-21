@@ -349,7 +349,7 @@ class NonLinearProbe(t.nn.Module):
         self,
         input_dim: int,
         hidden_dim: int = 512,
-        depth: int = 2,
+        depth: int = 1,
         dropout: float = 0.1,
     ):
         super().__init__()
@@ -366,8 +366,6 @@ class NonLinearProbe(t.nn.Module):
         layers.append(t.nn.Linear(hidden_dim, 1))
 
         self.net = t.nn.Sequential(*layers)
-        self._hidden_dim = hidden_dim
-        self._depth = depth
 
     def forward(self, x: t.Tensor, iid=None) -> t.Tensor:
         return self.net(x).squeeze(-1)
@@ -377,6 +375,9 @@ class NonLinearProbe(t.nn.Module):
             probs = t.sigmoid(self(x))
         return (probs > 0.5).float()
 
+
+        self._hidden_dim = hidden_dim
+        self._depth = depth
     @staticmethod
     def from_data_old(
         acts: t.Tensor,
