@@ -75,8 +75,8 @@ class ModelEvaluator:
         
         df_test['final_label'] = df_test['final_label'].astype(int)
         # mapping = {1: 0, 2: 1}
-        mapping = {1: 0, 2: 1}
-        df_test["final_label"] = df_test["final_label"].replace(mapping)
+        #mapping = {1: 0, 2: 1}
+        #df_test["final_label"] = df_test["final_label"].replace(mapping)
         
         # Store original data for later analysis
         self.test_df = df_test
@@ -318,11 +318,11 @@ class ModelEvaluator:
         
         # Get predictions
         y_pred, y_true, logits = self.get_predictions(dataset)
-        print(y_true)
-        print(y_pred)
+        #print(y_true)
+        #print(y_pred)
         self.test_df['predicted_label'] = y_pred
         probs = np.exp(logits) / np.exp(logits).sum(axis=1, keepdims=True)
-        print(probs)
+        #print(probs)
         self.test_df['prob_knowledge'] = probs[:, 0]
         #self.test_df['prob_neutral'] = probs[:, 1]
         self.test_df['prob_non_knowledge'] = probs[:, 1]
@@ -353,7 +353,7 @@ class ModelEvaluator:
         }
         
         # Save to file
-        with open('evaluation_results_roberta_nk_base_v8_openvox.txt', 'w') as f:
+        with open('evaluation_results_modernbert_nk_v8_independent.txt', 'w') as f:
             f.write("="*60 + "\n")
             f.write("EVALUATION RESULTS\n")
             f.write("="*60 + "\n\n")
@@ -373,7 +373,7 @@ class ModelEvaluator:
 if __name__ == "__main__":
     # Configure paths
     MODEL_PATH = "/Users/giulianowietig/PycharmProjects/models/ModernBERT-non-knowledge-v8" 
-    TEST_CSV = "datasets/OpenVox_non_knowledge_eval.csv"  #datasets/knowledge_non_knowledge_v3_categorized.csv.   datasets/OpenVox_non_knowledge_eval.csv.
+    TEST_CSV = "datasets/independent_evaluation_set.csv"  #datasets/knowledge_non_knowledge_v3_categorized.csv.   datasets/OpenVox_non_knowledge_eval.csv.
     LABEL_NAMES = ['Knowledge', 'Non-Knowledge']
     
     # Create evaluator

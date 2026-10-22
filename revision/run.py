@@ -1,20 +1,11 @@
 """Baseline comparison for the non-knowledge revision (meta-review point 2).
 
-Example:
-    python run.py \
-        --train data/v8_train.csv \
-        --eval GT=data/ground_truth.csv --eval OoD=data/ezbake.csv \
-        --model RoBERTa-NK-Large=models/roberta-nk-large \
-        --model RoBERTa-NK-Base=models/roberta-nk-base \
-        --model ModernBERT-NK=models/modernbert-nk \
-        --mask --out results/
-
-CSV format: one row per example, columns `text` and `label`.
 Labels are 0/1 (1 = NK).
 
 python run.py \
     --train ../datasets/knowledge_non_knowledge_v3_training_rogue_filtered_both_models_with_knowledge_neutral_oversampled.csv \
     --eval GT=../datasets/knowledge_non_knowledge_v3_categorized.csv --eval OoD=../datasets/OpenVox_non_knowledge_eval.csv \
+    --eval Ind=../datasets/independent_evaluation_set.csv \
     --model RoBERTa-NK-Large=/Users/giulianowietig/PycharmProjects/models/roberta-non-knowledge-v8-large \
     --model RoBERTa-NK-Base=/Users/giulianowietig/PycharmProjects/models/roberta-non-knowledge-v8-base \
     --model ModernBERT-NK=/Users/giulianowietig/PycharmProjects/models/ModernBERT-non-knowledge-v8 \

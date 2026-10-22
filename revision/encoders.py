@@ -20,7 +20,7 @@ class Encoder:
     def _find_nk_id(self) -> int:
         """Find the NK class index from the model config; fall back to 1."""
         for idx, label in self.model.config.id2label.items():
-            if label.replace("-", "_").upper() in {"NK", "NON_KNOWLEDGE", "NONKNOWLEDGE"}:
+            if label.replace("-", "_").upper() in {"NK", "NON_KNOWLEDGE", "NONKNOWLEDGE", "LABEL_1"}:
                 return int(idx)
         print(f"[{self.name}] could not find NK in id2label "
               f"{self.model.config.id2label}; assuming NK = 1. Use --nk-id to override.")

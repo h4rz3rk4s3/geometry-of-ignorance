@@ -1,0 +1,204 @@
+Unnamed: 0,source,statement,opinion,non_knowledge type,final_label,predicted_label,prob_knowledge,prob_non_knowledge
+0,alternative-jira,"Yes, I think this can be committed now, since it is sufficient for restoring the previous behaviour. I've opened HADOOP-7219 for adding support for ThreadLocals.","author expresses an opinion - knowledge, as information about a status is shared.",knowledge,0,0,0.99181205,0.00818791
+1,alternative-jira,"See HBASE-6073. It's also regarding on adding filter to Thrift2.
+
+1 minor problem in the patch:
+{code}
++    boolean this_present_filterString = true && this.isSetFilterString();
++    boolean that_present_filterString = true && that.isSetFilterString();
+{code}
+""true"" is redundant.
+
+In addition, I suggest to add 1 unit test. Anyway, it's a nice patch.","knowledge, as information is shared.",knowledge,0,0,0.8914336,0.108566426
+2,alternative-jira,"With ""in table"" in creating an index, you can specify an index table name like db.index_table with a db that is different from the db the table belongs to. However, you can't drop this index any more since Hive assumes the index is always in the same db as the base table.
+
+We should not allow a qualified index table name specified in the ""in table"" value in creating an index.",sharing information and an opinion,knowledge ,0,0,0.99999857,1.4144761e-06
+3,alternative-jira,Fix for not setting managed table location in incremental load,fix,knowledge,0,0,0.99999976,1.7983066e-07
+4,alternative-jira,"[~ivanan.fed], It seems that a little problem was introduced in this patch. It is caused by reshuffling _rules_ execution. Currently it affects only {{IgniteConfigVariationsAbstractTest}} subclasses. I checked an order of rules execution (via prints) with the patch and observed a following sequence:
+{code}
+GridAbstractTest runRule
+IgniteConfigVariationsAbstractTest rulePrivate
+GridAbstractTest nameRule
+{code}
+
+And it looks really weird and completely not expected for me! And as I see _protected_ {{GridAbstractTest#runRule}} leads us to such trouble. And I do not like to leave it for a separate ticket because a problem was just introduced in current one. Can we use {{nameAndRunRulesChain}} in {{IgniteConfigVariationsAbstractTest}} to wrap it with {{rulePrivate}}? Will it do the trick?
+
+And if something will fail still then you can mark it with {{}} annotation."," - surprise is expressed --> this hints to knowledge gaps/nonknowledge that have not bee known before (unknown unknowns, nescience)
+- personal knowledge gaps are made visible by questions posed: can we use…? Asks if the intended solution is appropriate for what will be achieved; will it do...? Asks for the functioning o the code/technology",unknown unknown,1,1,0.068537496,0.93146247
+5,alternative-jira,"The last two lines in the ShareableNodeTest.testGetPath() method incorrectly assume the location of the testRootNode is '/testroot', even though the rest of the tests do not make this assumption and it's possible to configure the tests to use a different location for the testRootNode. These three lines:
+
+        // verify paths of nodes b1/b2 in shared set
+        assertEquals(""/testroot/a1/b1"", b1.getPath());
+        assertEquals(""/testroot/a2/b2"", b2.getPath());
+
+should instead be:
+
+        // verify paths of nodes b1/b2 in shared set
+        String testRootNodePath = testRootNode.getPath();
+        assertEquals(testRootNodePath + ""/a1/b1"", b1.getPath());
+        assertEquals(testRootNodePath + ""/a2/b2"", b2.getPath());
+
+I marked as critical because the TCK test prevents other implementations from correctly proving compatibility.",explanation of incorrect code,knowledge,0,1,0.29451925,0.70548075
+6,alternative-jira,"I thought Ioannis would do the java work, but i don't hear anything from him at the moment.
+I will update the document.
+Eric",nonknowledge about the work someone else plan to do; one might interpret that nonknowledge here is turned into knowledge insofar as the person who speaks just decise and thereby contributes to clarity: I will do the work - dynamics of nonknowledge,unknown known,1,1,0.0022170132,0.99778295
+7,alternative-jira,I think Oracle returns a different answer. We should fix them.,"expression of an opinion - neutral, hence knowledge",knowledge,0,1,0.38510722,0.6148927
+8,alternative-jira,"[~sershe],
+
+I'm not quite sure why following is required:
+{code}
+public static URL fromURI(URI uri, Configuration conf)
+{code} 
+Since this changes signature of a public/stable API, this is an incompatible change, could you comment about what is the issue caused by the original conf == null?
+
+Thanks,",non-knowledge about the software's behaviour/details that the person could know with more experience,unknown known,1,1,0.001957017,0.99804294
+9,alternative-jira,"Logged onto Minecraft after a few months of inactivity and the upper half of the skybox is showing hexagonal strips of red, green, yellow, and black. Also, during sunrise and sunset blue strips will flash down/up the sky and during the night the strips shrink and come very close together.
+
+I tried both reinstalling Minecraft and reinstalling Java but it's still there. I also tried some earlier versions and still was an issue in 1.13, but in 1.0 there were no problems.
+
+ 
+
+Here is the [launcher log|https://pastebin.com/6hmgPrjJ] (hopefully this was what you were asking for). I can't attach the crash report ofc because it didn't crash. I should've made it clearer but the game ran completely find other than the fact that the sky is now a mess.","assymetrical knowledge, hence an unknown known",unknown known ,1,1,0.0023413408,0.99765867
+10,alternative-jira,"Oh, the ""NAME""  example actually works, in my case, the real name of this objective is ""Pièces"" (i'm french). So I probably think the commandblock doesn't understand the ""è"". But should I delete this report ? It's the first time I make an issue ^^","issue raiser knows where the error in the code arises, but doesn't know why exactly the error arises. Hence, a known unknown. The question now is whether this is a knowable known unknown for the author, depending on their experience. Furthermore, the they seem to have a non-knowledge on the procedures and rules in the community, which could also be knowable",known unknown,1,1,0.001941817,0.99805814
+11,alternative-jira,"Upon loading a new world in 1.9pre1, it loaded until the terrain hadn't quite loaded yet but the sky was visible and I was in the world. Then it crashed. I thought perhaps this was a bug caused by loading a new world, but then even after loading an old one and reloading the new one, it kept crashing with the same error message.","obviously the person speaking here has a problem that he/she cannot solve. Probably due to a lack of knowledge. At this point in the ""conversation"" one could assume that here we have relative nonknowledge/assymetrical knowledge as others might have the knowledge",unknown unknown,1,1,0.0025909794,0.99740905
+12,alternative-jira,"Does your prefix dir contain a previous Qt build? It looks like you store some dependencies in there. As you pass ""-L C:\CraftRoot\lib"" to configure it might be possible, that it will pick up a Qt library that has been installed to this location before",obviously the person speaking here needs some information that have not been given. Clearly relative nonknowledge/assymetrical knowledge as the other probably has the knowledge and may answer the question.,known unknown,1,0,0.9971991,0.002800927
+13,alternative-jira,"If the SQL listener with transactions is used configured according helloworld_tx_sql and is enhanced with jBPM use - start service, it fails because both datasources are local.
+To prevent the issue these steps should be done
+1) Change the jBPM DS to be XA datasource - this means that schme toll must be also modified
+2) Change QS to use H2 database and XA datasource - it serves users as guidline
+3) Switch to h2 database for all datasources",knowledge sharing and explanation why a failure occured,knowledge,0,0,0.9999862,1.3846005e-05
+14,alternative-jira,"Actually, the batch 'create(...)' methods on the Graph.Batch class do indeed have the ability to create nodes if they are missing.  In fact, both the batch and non-batch works 
+the same way:
+
+   graph.create(path).ifAbsent()...   // or even .orUpdate()
+
+or
+
+   batch.create(path).ifAbsent()...
+
+In fact, this style makes available several other methods than ""ifAbsent()"", such as ""orUpdate()"", ""byAppending()"", and ""orReplace()"".  These correspond to the different NodeConflictBehavior options.",knowledge sharing and explanation why a failure occured,knowledge,0,0,0.6723317,0.32766828
+15,alternative-jira,"I'll grant you that the ""createIfMissing()"" methods are not available in the batch mode.  Perhaps we should deprecate them, since the above methods are newer, more complete, and just as useful.  I think the only capability that the ""createIfMissing()"" methods have above the others is that they return an interface that has the ""andReturn():Node"" method, but I think all the non-batch ""create()"" methods could do this.","Here ""I think"" together with ""perhaps"" and ""could do this"" - really express nonknowledge; it is not clear why things happen and how the problem can be approached - Nonknowledge on the program/software ",known unknown,1,1,0.020023441,0.9799766
+16,alternative-jira,"I already uploaded the jars, not yet committed the patch as I haven't looked at docking yet.","no non-knowledge, only a status update.",knowledge,0,1,0.0024154834,0.9975845
+17,apache-jira,Fix for not setting managed table location in incremental load,,knowledge,0,0,0.99999976,1.7983066e-07
+18,curated-email-code-reviews,"If you still manually add -lvorbis that IMHO defeats the purpose of using pkg-config the first place.
+I don't know if our actual code using vorbisenc depend on libvorbis and libogg, but if it does then the flags for all 3 would have to be requested via pkg-config.",obviously the person speaking here needs some information that have not been given. Could be relative nonknowledge/assymetrical knowledge or  nonknowledge as such,known unknown,1,1,0.37794238,0.6220577
+19,curated-email-code-reviews,[FFmpeg-devel] [PATCH] Fix uninitialized reads on malformed ogg	files.,status update on a fix,knowledge,0,0,0.99999976,2.1691719e-07
+20,curated-email-code-reviews,"I pushed this to -dinq thanks for the review.
+
+I made a mistake pushing this before getting the CI
+result. It wasn't either picked up by PW, so not sure about its status.
+What can we do, revert/resubmit or wait for the next regular CI result?
+
+Sorry for the mess","nonknowledge about how to proceed - rules, norms, working routines",known unknown,1,1,0.0020507434,0.99794924
+21,curated-email-code-reviews,"Hi,
+
+ok, thanks.
+
+around 6.6kb stripped, 74kb unstripped.",information sharing,knowledge,0,0,0.99999905,9.422446e-07
+22,curated-email-code-reviews,"Block device inodes never have S_DAX set, so kill the check for DAX and
+diversion to dax_writeback_mapping_range().
+
+Cc: Jeff Moyer <jmoyer.com>
+Cc: Ross Zwisler <ross.zwisler.intel.com>
+Cc: Matthew Wilcox <mawilcox.com>
+Cc: Dave Chinner <david.com>
+Reviewed-by: Christoph Hellwig <hch.de>
+Reviewed-by: Jan Kara <jack.cz>
+Signed-off-by: Dan Williams <dan.j.williams.com>
+---
+ fs/block_dev.c | 5 -----
+ 1 file changed, 5 deletions(-)","likely a pull request or push message, non non-knowledge, but a status update",knowledge,0,0,0.96458924,0.03541073
+23,curated-email-code-reviews,"Currently, the context (fds, mmap-ed areas, etc.) are global. Each test mutates this state in some way, in some cases really ""clobbering it"" (e.g., the events test mremap-ing area_dst over the top of area_src, or
+the minor faults tests overwriting the count_verify values in the test areas). We run the tests in a particular order, each test is careful to make the right assumptions about its starting state, etc.
+
+But, this is fragile. It's better for a test's success or failure to not depend on what some other prior test case did to the global state.
+
+To that end, clear and reinitialize the test context at the start of each test case, so whatever prior test cases did doesn't affect future tests.
+
+This is particularly relevant to this series because the events test's mremap of area_dst screws up assumptions the minor fault test was relying on. This wasn't a problem for hugetlb, as we don't mremap in
+that case.","here ""assumption""  refers to input parameters, not to nonknowlege - knowledge sharing",knowledge,0,1,0.21109138,0.7889086
+24,curated-email-code-reviews,"The handling of the VMCS enumeration MSR is ugly; once we have more than one case, we may want to add a table to check VMX features against.",potential uncertainty on how one should/will act in future - edge case,known unknown,1,0,0.81047887,0.18952109
+25,curated-email-code-reviews,"Now the __pageblock_pfn_to_page() is used by set_zone_contiguous(), which checks whether the given zone contains holes, and uses pfn_to_online_page()
+to validate if the start pfn is online and valid, as well as using pfn_valid() to validate the end pfn.",knowledge sharing on what specific functions do and how they interact with each other,knowledge,0,0,0.87103665,0.1289633
+26,curated-email-code-reviews,"However, the __pageblock_pfn_to_page() function may return non-NULL even if the end pfn of a pageblock is in a memory hole in some situations. For example, if the pageblock order is MAX_ORDER, which will fall into 2
+sub-sections, and the end pfn of the pageblock may be hole even though the start pfn is online and valid.
+
+See below memory layout as an example and suppose the pageblock order is MAX_ORDER.
+[CODE]
+
+Focus on the last memory range, and there is a hole for the range [mem 0x0000001fa7590000-0x0000001fa7dfffff]. That means the last pageblock will contain the range from 0x1fa7c00000 to 0x1fa7ffffff, since the pageblock must be 4M aligned. And in this pageblock, these pfns will
+fall into 2 sub-section (the sub-section size is 2M aligned).
+
+So, the 1st sub-section (indicates pfn range: 0x1fa7c00000 - 0x1fa7dfffff ) in this pageblock is valid by calling subsection_map_init() in free_area_init(), but the 2nd sub-section (indicates pfn range:
+0x1fa7e00000 - 0x1fa7ffffff ) in this pageblock is not valid.
+
+This did not break anything until now, but the zone continuous is fragile in this possible scenario. So as previous discussion[1], it is better to add some comments to explain this possible issue in case there are some future pfn walkers that rely on this.",nonknowledge if the code will always work as foreseen ,known unknown,1,1,0.048676573,0.95132345
+27,curated-email-code-reviews,"Him and myself have tested this with RTL8822BS and RTL8822CS cards.
+Other users have confirmed that RTL8821CS support is working as well.
+RTL8723DS may also work (we tried our best to handle rtw_chip_wcpu_11n where needed) but has not been tested at this point.",nonknowledge if the code will always work as foreseen ,known unknown,1,0,0.8925625,0.10743748
+28,disco,is there a better way to handle json in go? I keep having to create structs to unmarshal the json data its taking up 250 lines between 5 structs,"assymetrical knowledge, someone else could know better",known unknown,1,1,0.4780415,0.52195853
+29,disco,good luck. not sure i can help much more but i'm sure you'll figure it out if you stay motivated,,known unknown,1,1,0.0019723359,0.9980276
+30,gittercom,I am getting Unexpected token const when I tried && and my code doesn't work,"unexpected refers to surprise, to a lack of knowledge that have not been known before",unknown unknown,1,1,0.0020033333,0.9979966
+31,gittercom,"hey everyone, i'm new to angularjs and am struggeling with ui-router. i have defined a route and created a link to it, but when i click it, nothing happens. I tried logging stateChange events, but silence","assymetrical knowledge, someone else could know better",known unknown,1,1,0.002082971,0.997917
+32,gittercom,Hi! I'm using Appium 1.6.0 with Android SDK  24.4.1. During apk installation I get this error which I have never seen before  Have you ever seen something like this?,"assymetrical knowledge, someone else could know better",unknown unkn own,1,1,0.0018969201,0.9981031
+33,gittercom,I unable to test hybrid android app. not able to locate as webview. How to do it please explain for hybrid app.,"assymetrical knowledge, someone else could know better",known unknown,1,1,0.0026112476,0.9973887
+34,gittercom,It looks like it doesn't treat content and value in the same way of <select>,non-knowledge about the software's behaviour/details,known unknown,1,0,0.93721074,0.0627892
+35,gittercom,"I haven\u2019t tried d/react yet, because I\u2019m still struggling with CORS. Just thinking ahead. the  looks like the right way to go! Thanks muchly, man!","sharing of a status update, with slight traces of uncertainty on the future direction",knowledge,0,1,0.001957017,0.998043
+36,livechat-gitter,"it’s not indeterminent, did you read the link brad posted?","clarification, but with an expression of non-knowledge on the status of the other person - nonknowledge about other developers knowledge",known unknown,1,1,0.0032224844,0.99677753
+37,sotorrent,"The general answer to multi-threading is to de-recursivate a recursive implementation thanks to a stack (LIFO or FIFO). When implementing such an algorithm, the number of threads is a fixed parameter for the algorithm (number of cores for instance).
+
+To implement it, the language call stack is replaced by a stack storing last context as a checkpoint when the tested condition ends the recursivity. In your case it is either  or  values matchs targeted sum.",knowledge sharing on an implementation,knowledge,0,0,0.99986017,0.00013982206
+38,sotorrent,"After de-recursivation, a first implementation is to run multiple threads to consume the stack BUT the stack access becomes a contention point because it may require synchronization.",it is not exactly sure what will happen - nonknowledge on the softwares behavior,known unknown,1,0,0.9999999,9.625642e-08
+39,sotorrent,A better scalable solution is to dedicate a stack for each thread but an initial production of contexts in the stack is required.,knowledge sharing on an implementation,knowledge,0,0,0.9999999,1.4449802e-07
+40,sotorrent,"The most well supported implementation of WebSockets is the python pywebsocket project which is used by both Mozilla and Google for developing and testing their client browser implementations. In addition, pywebsocket is designed to easily integrate with Apache allowing you to run your web server and websocket service on the same port(s).",knowledge sharing,knowledge,0,0,0.99999976,1.9142875e-07
+41,sotorrent,"I would not recommend PHP for WebSocket servers. Until recently there wasn't a PHP implementation that supported both the older and newer WebSocket protocol variation. The older is still used by current iOS devices and the newer IETF 6455 version of the protocol is used by Chrome, Firefox, IE10 and the Flash based WebSocket polyfill web-socket-js.",knowledge sharing and suggestion,knowledge,0,0,0.5917232,0.40827677
+42,sotorrent,"The Python compiler and bytecode interpreter handles, where possible, references to local variables as slots into a defined-size array.  This means that if a local variable is not initialised (assigned to) in a scope then the language will not know that a slot for the variable exists in the scope, and will instead look for the variable in an enclosing scope or the global scope.  Looking at a disassembly of the function :
+
+You can see that without an assignment to  in local scope  will look for it in global scope.
+
+The right way to do this is to explicitly state which variables you expect the  function to return, using unpacking:",knowledge sharing,knowledge,0,0,0.9999786,2.144495e-05
+43,sotorrent,"When you send data back from the server, how are you handling the response? For example if you just send back a [{},{},{}] I don't think Backbone automatically knows to treat that as a collection. Thus, it sets the  attribute as what it gets, your vanilla array.",assymetrical knowledge and nonknowledge on the software's behaviour,known unknown,1,1,0.0554128,0.94458723
+44,sotorrent,"UPDATE - Growing doubt about own answer
+
+I haven't been able to get this question/answer out of my mind. It certainly works, but I'm becoming unconvinced that using a modified  vs. just doing things in  is any better. If someone has some comments on the difference between using a modified  vs.  with nested models, I'd really welcome the input.","uncertainty and nonknowledge on whether the apprach is the best, leads to inviting input by others, i.e. assymetrical knowledge",known unknown,1,1,0.001957017,0.99804294
+45,sotorrent,May be this would be helful.,uncertainty (and hence non-knowledge in this case= on the helpfulness,known unknown,1,0,0.63590103,0.364099
+46,sotorrent,"It depends on what kind of memory you mean: the constant will not be replicated in the data memory, but it will become part of the code memory embedded within the compiled IL code.",knwoledge sharing with some uncertainty mixed into it,knowledge,0,0,0.99999976,2.0377483e-07
+47,sotorrent,"I have a list of integers, and I want to generate a list containing a list of all the continuous integers.
+
+I have the following which works, but seems like a poor way to do it:
+
+I've seen other questions suggesting that itertools.groupby is an efficient way to do this, but I'm not familiar with that function and I seem to be having trouble with writing a lambda function to describe the continuous nature.
+
+Question: Is there a better way to be doing this (possibly with itertools.groupby?)","assymetrical knowledge, someone else could know better",known unknown,1,1,0.0021489493,0.997851
+48,sotorrent,"Why not just use the field name as the GET variable?
+
+and then access the page using inventory.php?sorting=year etc.","the way to solve an issue seems to be not too clear here; the question is almost a rhetorical question; could also be interpreted as a non-knowledge on the other developers understanding, potentially also on community specific rules, procedures.",known unknown,1,1,0.0023231625,0.9976768
+49,sotorrent,"This makes the URL more readable, predicatable and means you can support new fields by just adding them to the array without needing to write new switch cases.",knowledge sharing,knowledge,0,0,0.9999999,1.0907283e-07
+50,sotorrent,"Chris Date and Dave McGoveran formalised the ""Principle of Orthogonal Design"". Roughly speaking it means that in database design you should avoid the possibility of allowing the same tuple in two different relvars. The aim being to avoid certain types of redundancy and ambiguity that could result.
+
+Arguably it isn't always totally practical to do that and it isn't necessarily clear cut exactly when the principle is being broken. However, I do think it's a good guiding rule, if only because it avoids the problem of duplicate logic in data access code or constraints, i.e. it's a good DRY principle. Avoid having tables with potentially overlapping meanings unless there is some database constraint that prevents duplication between them.",knwoledge sharing with a personal opinion,knowledge,0,1,0.032836955,0.967163
+51,sotorrent,"If you are doing this to prevent HTML injection on a website then a much better solution is to just escape HTML special characters before sending them to the browser. Most web development environments/libraries will have a standard function to do this, for example PHP has  and  functions.","knowledge sharing, with a slight uncertainty",knowledge,0,0,0.9518632,0.04813677
+52,sotorrent,If you can depend on other libraries then I'd suggest you use the libphonenumber open source library from Google to validate your phone number. It has validation support as well.,suggestion with traces of non-knowledge/uncertainty,knowledge,0,0,0.9999998,1.9142874e-07
+53,sotorrent,Im building an application which has to record various sensor values simulatneously into a .csv file(if sensors are available).Can any one suggest ways to keep inserting values into the csv file(of a table form).Is it possible to record all the .csv values in a single sensor change event.,assymetrical knowledge and nonknowledge on the software's behaviour,known unknown,1,1,0.0027791904,0.9972208
+54,openment,"Hello   
+The demo  video is processed locally , but it might take a while for the video to load up the github page
+It seems to work only after camera has been turned on.This bug is taking a while.",nonknwoledge on the software's behavior,known unknown,1,1,0.03435869,0.9656413
+55,openment,Make sure these boxes are checked before your pull request (PR) is ready to be reviewed and merged. Thanks!,"reminder on rules, norms, and procedures",knowledge ,0,0,0.9984269,0.0015731122
+56,openment,"Hi! I hope to have a chance to give this a thorough read through in the next day, but I wonder if  the camera start bug has to do with having to wait until it's initialized; there may be a need to listen for the right event?","nonknwoledge on the software's behavior with a suggestion on how to proceed, which has some uncertainty to it",known unknown,1,1,0.0018675659,0.99813247
+57,openment,So let's clearly label and explain these to x who may be soon integrating this code into the new UI!,instruction on how to proceed with knowledge sharing that has traces of uncertainty to it,knwoledge,0,1,0.20055768,0.7994423
+58,openment,"Please help me with more details on this file. I can't seem to find a file named sharable.js in the infragram directory , I am somehow confused on the mentioned library. Please  for some detail on this idea.",,known unknown,1,1,0.0021322616,0.9978677
+59,openment,"Sorry I'm typing from phone, I just meant a separate js file we can include into the different html files... A shareable file. Thanks!",knowledge sharing,knowledge,0,1,0.002019014,0.99798095
+60,openment,"Hi  - i wanted to try to help you pull apart the new code you've added to the  file, and so I made a new PR just to get a good 'diff' view.
+
+What I'm going to try to do is comment on each section and point to where those changes could be made in the /src/ directory. Let's try to make the changes there!",knowledge and status sharing,knowledge,0,1,0.007755537,0.9922444
+61,openment,This looks excellent  -- can you run  and check in the updated  files? Then I'm going to give it a quick test in GitPod and we should be able to merge -- great work!!,"congratulation and instructions, that could be interpreted as nonknowledge due to the question formula",knowledge,0,1,0.001957017,0.99804294
+62,openment,"No problem, but I think the 10MB might[epistemic] be[plausibility_shield] a tough one - i'm not sure[not_knowing] how you're storing it but if it's in localStorage, there is a hard JS limit on how much can be stored. If you think it's a big issue, we could push people into the workflow of recording on their device, then uploading the recording and converting it, rather than recording live within the website. What do you think? So people would upload a video file in the same way as they would have uploaded a still image.  also curious what you think about that workflow as an alternative. It could be simpler and could sidestep some of these issues?","Multiple instances of assymetrical knowledge, uncertainty, and nonknowledge about the setup; but also instances of knowledge intertwined",known unknown,1,1,0.0019877742,0.9980122
+63,openment,"Oh darn i'm being silly - this is a prerecorded video, and you're just saying that there was a 10mb limit to the processing of that ""upload"" - but was my idea correct that it was due to a localStorage file size limitation?",non knowledge/uncertainty if their idea was correct -> assymetrical knowledge - contains also some knowledge,known unknown,1,1,0.0018969201,0.9981031
+64,openment,Video Processing works now works  without clicking the webcam button. ,knowledge and status sharing,knwoledge,0,0,0.9999485,5.1442214e-05
+65,openment,"So, if I understand this correctly, in non-standalone mode you'll have a completely empty column in the UI taking up space?
+
+Why is it important to collect the worker URL (not the UI address)? There's nothing users can do with that.",non-knowledge on other developers work as well as some assymetrical knowledge ,known unknown,1,1,0.0019723359,0.9980276
+66,openment,"That's one way of looking[ at it (although I haven't looked at that change). I took a quick look at the worker UI and didn't see anything interesting there. It has links to the executor's log files, but those already exist in the app UI.",knowledge sharing,knowledge,0,1,0.002217013,0.997783
+67,openment,"From some quick testing and look through of your code I think this will be good, but you'll need to redo work it a bit to work with the new executors page that was just merged. The page is displayed using JQuery DataTables now. I'll take a more detailed look after you update this.","verification/validation of other peoples work with a status update, but also some uncertainty",knowledge,0,0,0.99605465,0.003945407
+68,openment, I tried . Seems those worker links do not show up? Maybe something has been changed and links do not show up anymore?,"nonknowledge on the software and ist development status, also some assymetrical knowledge",unknown unknown,1,1,0.0019723359,0.9980277
+69,openment,As this PR has been referenced in #16981. Closing.,status update on a PR,knowledge,0,0,0.99999964,3.466326e-07
