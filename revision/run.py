@@ -4,7 +4,9 @@ Labels are 0/1 (1 = NK).
 
 python run.py \
     --train ../datasets/knowledge_non_knowledge_v3_training_rogue_filtered_both_models_with_knowledge_neutral_oversampled.csv \
-    --eval GT=../datasets/knowledge_non_knowledge_v3_categorized.csv --eval OoD=../datasets/OpenVox_non_knowledge_eval.csv \
+    --eval Synth=../datasets/knowledge_non_knowledge_v3_evaluation_rogue_filtered_both_models_with_knowledge_neutral_oversampled.csv \
+    --eval GT=../datasets/knowledge_non_knowledge_v3_categorized.csv \
+    --eval OoD=../datasets/OpenVox_non_knowledge_eval.csv \
     --eval Ind=../datasets/independent_evaluation_set.csv \
     --model RoBERTa-NK-Large=/Users/giulianowietig/PycharmProjects/models/roberta-non-knowledge-v8-large \
     --model RoBERTa-NK-Base=/Users/giulianowietig/PycharmProjects/models/roberta-non-knowledge-v8-base \
@@ -30,7 +32,7 @@ def to_binary(label, is_training: bool = False) -> int:
 
 
 def load(path: str, text_col: str, label_col: str) -> pd.DataFrame:
-    is_training = "training" in path
+    is_training = any(k in path for k in ("training", "independent", "evaluation"))
     print(path)
     df = pd.read_csv(path)
     df = df.rename(columns={text_col: "statement", label_col: "final_label"})[["statement", "final_label"]]

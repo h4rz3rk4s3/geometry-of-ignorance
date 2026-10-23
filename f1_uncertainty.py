@@ -11,7 +11,9 @@ Provides, for one or two sets of (y_true, y_pred):
 Input CSVs need a true-label and a predicted-label column (0/1, positive class = 1).
 
 Usage:
-  python f1_uncertainty.py --ood ood_preds.csv --test test_preds.csv
+  python f1_uncertainty.py --ood revision/results/predictions_OoD.csv \
+    --val revision/results/predictions_Ind.csv \
+    --pred-col 22-cue-matcher
 """
 import argparse
 import numpy as np
@@ -167,13 +169,16 @@ def load(path, true_col, pred_col):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--ood", required=True)
+    ap.add_argument("--val", required=True)
     ap.add_argument("--test")
     ap.add_argument("--true-col", default="final_label")
     ap.add_argument("--pred-col", default="predicted_label")
     ap.add_argument("--B", type=int, default=20000)
     args = ap.parse_args()
     ood = load(args.ood, args.true_col, args.pred_col)
+    val = load(args.val, args.true_col, args.pred_col)
     summarize(*ood, name="OoD", B=args.B)
+    summarize(*val, name="Validation", B=args.B)
     if args.test:
         test = load(args.test, args.true_col, args.pred_col)
         summarize(*test, name="Test (in-distribution)", B=args.B)

@@ -353,7 +353,7 @@ class ModelEvaluator:
         }
         
         # Save to file
-        with open('evaluation_results_modernbert_nk_v8_independent.txt', 'w') as f:
+        with open('evaluation_results_roberta_nk_large_v8_independent.txt', 'w') as f:
             f.write("="*60 + "\n")
             f.write("EVALUATION RESULTS\n")
             f.write("="*60 + "\n\n")
@@ -372,7 +372,7 @@ class ModelEvaluator:
 # --- Main Execution ---
 if __name__ == "__main__":
     # Configure paths
-    MODEL_PATH = "/Users/giulianowietig/PycharmProjects/models/ModernBERT-non-knowledge-v8" 
+    MODEL_PATH = "/Users/giulianowietig/PycharmProjects/models/roberta-non-knowledge-v8-large" 
     TEST_CSV = "datasets/independent_evaluation_set.csv"  #datasets/knowledge_non_knowledge_v3_categorized.csv.   datasets/OpenVox_non_knowledge_eval.csv.
     LABEL_NAMES = ['Knowledge', 'Non-Knowledge']
     
