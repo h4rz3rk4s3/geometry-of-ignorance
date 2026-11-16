@@ -9,10 +9,6 @@ CUES = [
     "may have",
 ]
 
-# Matching decisions (document these in the paper):
-# - case-insensitive ("How" also matches "how")
-# - whole words only ("issue" does NOT match "issues")
-# - multi-word cues match across any whitespace
 CASE_SENSITIVE = False
 
 

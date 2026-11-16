@@ -23,6 +23,8 @@ class TfidfLR:
     """Word 1-3-gram TF-IDF + logistic regression, trained on the same v8 synthetic data.
 
     Tests whether contextual encoders beat a model that only sees local n-grams.
+
+    Note: Not reported in the paper, due to poor performance.
     """
 
     name = "TF-IDF + LR"

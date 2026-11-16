@@ -2,7 +2,7 @@
 import math
 
 import pandas as pd
-from sklearn.metrics import accuracy_score, f1_score
+from sklearn.metrics import f1_score
 
 from cues import CUES, find_cues
 
@@ -16,24 +16,20 @@ def subset_mask(df: pd.DataFrame, subset: str) -> pd.Series:
 
 
 def scores(y_true, y_pred) -> dict:
-    """NK-F1, macro-F1, weighted-F1, accuracy plus counts.
+    """Determines NK-specific F1-score.
 
     If a subset contains only one class (e.g. no NK example without a cue), the F1
-    variants are undefined and reported as NaN; accuracy is still meaningful
-    (for a K/N-only subset it is 1 - false-positive rate).
+    variants are undefined and reported as NaN.
     """
     n, n_nk = len(y_true), int(sum(y_true))
     nan = math.nan
     if n == 0:
-        return {"n": 0, "n_nk": 0, "f1_nk": nan, "f1_macro": nan, "f1_weighted": nan, "accuracy": nan}
+        return {"n": 0, "n_nk": 0, "f1_nk": nan}
     both = 0 < n_nk < n
     return {
         "n": n,
         "n_nk": n_nk,
         "f1_nk": f1_score(y_true, y_pred, pos_label=1, zero_division=0) if n_nk else nan,
-        "f1_macro": f1_score(y_true, y_pred, average="macro", zero_division=0) if both else nan,
-        "f1_weighted": f1_score(y_true, y_pred, average="weighted", zero_division=0) if both else nan,
-        "accuracy": accuracy_score(y_true, y_pred),
     }
 
 

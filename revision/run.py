@@ -8,9 +8,9 @@ python run.py \
     --eval GT=../datasets/knowledge_non_knowledge_v3_categorized.csv \
     --eval OoD=../datasets/OpenVox_non_knowledge_eval.csv \
     --eval Ind=../datasets/independent_evaluation_set.csv \
-    --model RoBERTa-NK-Large=/Users/giulianowietig/PycharmProjects/models/roberta-non-knowledge-v8-large \
-    --model RoBERTa-NK-Base=/Users/giulianowietig/PycharmProjects/models/roberta-non-knowledge-v8-base \
-    --model ModernBERT-NK=/Users/giulianowietig/PycharmProjects/models/ModernBERT-non-knowledge-v8 \
+    --model RoBERTa-NK-Large=/path/to/models/roberta-non-knowledge-v8-large \
+    --model RoBERTa-NK-Base=/path/to/models/roberta-non-knowledge-v8-base \
+    --model ModernBERT-NK=/path/to/models/ModernBERT-non-knowledge-v8 \
     --mask --out results/
 
 """
@@ -32,12 +32,12 @@ def to_binary(label, is_training: bool = False) -> int:
 
 
 def load(path: str, text_col: str, label_col: str) -> pd.DataFrame:
-    is_training = any(k in path for k in ("training", "independent", "evaluation"))
+    is_training = any(k in path for k in ("training", "independent", "evaluation")) # datasets have different labeling of NK (=2), due to neutrals 
     print(path)
     df = pd.read_csv(path)
     df = df.rename(columns={text_col: "statement", label_col: "final_label"})[["statement", "final_label"]]
     df["statement"] = df["statement"].fillna("").astype(str)
-    df["final_label"] = df["final_label"].apply(to_binary, is_training=is_training) # add is_odd to to_binary call
+    df["final_label"] = df["final_label"].apply(to_binary, is_training=is_training)
     return df.reset_index(drop=True)
 
 

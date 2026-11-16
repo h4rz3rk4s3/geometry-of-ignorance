@@ -47,7 +47,7 @@ from scipy import stats
 from scipy.special import expit
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import f1_uncertainty as f1u  # noqa: E402
+import f1_bootstrap_ci as f1u  # noqa: E402
 
 log = logging.getLogger("robustness")
 ALL_STEPS = ["shift", "baselines", "invariance", "errors", "atc"]

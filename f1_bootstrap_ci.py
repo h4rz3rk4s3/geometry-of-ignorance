@@ -1,17 +1,10 @@
 """
-Uncertainty quantification for binary classification metrics on small eval sets.
-
-Provides, for one or two sets of (y_true, y_pred):
-  1. Stratified BCa bootstrap CIs (class counts held fixed, as in the design)
-  2. Bayesian credible intervals (Jeffreys-Beta posteriors on recall and specificity)
-  3. Exact Clopper-Pearson CIs for recall and specificity
-  4. Permutation test against a no-skill classifier (Ojala & Garriga, 2010)
-  5. Bootstrap CI for the difference in-distribution test minus OoD
+Stratified BCa bootstrap CIs for uncertainty quantification for binary classification metrics on small eval sets.
 
 Input CSVs need a true-label and a predicted-label column (0/1, positive class = 1).
 
 Usage:
-  python f1_uncertainty.py --ood revision/results/predictions_OoD.csv \
+  python f1_bootstrap_ci.py --ood revision/results/predictions_OoD.csv \
     --val revision/results/predictions_Ind.csv \
     --pred-col 22-cue-matcher
 """
@@ -89,58 +82,19 @@ def bca_interval(theta, boot, jack, alpha=0.05):
     return tuple(np.quantile(boot, adj))
 
 
-def bayesian_interval(y_true, y_pred, draws, rng, alpha=0.05, prior=0.5):
-    """Jeffreys-Beta posteriors on recall (TPR) and specificity (TNR),
-    class counts fixed; metrics are pushed through the posterior draws."""
-    tp, fp, fn, tn = counts(y_true, y_pred)
-    n_pos, n_neg = tp + fn, tn + fp
-    tpr = rng.beta(tp + prior, fn + prior, draws)
-    fpr = rng.beta(fp + prior, tn + prior, draws)
-    m = metrics_from_counts(n_pos * tpr, n_neg * fpr, n_pos * (1 - tpr), n_neg * (1 - fpr))
-    return {k: tuple(np.quantile(v, [alpha / 2, 1 - alpha / 2])) for k, v in m.items()}
-
-
-def permutation_test(y_true, y_pred, B, rng):
-    """H0: predictions carry no information about labels. One-sided p-values."""
-    y_true, y_pred = np.asarray(y_true), np.asarray(y_pred)
-    obs = metrics_from_counts(*counts(y_true, y_pred))
-    perm = rng.permuted(np.tile(y_true, (B, 1)), axis=1)
-    pp = y_pred[None, :] == POS
-    tp = np.sum((perm == POS) & pp, 1)
-    fp = np.sum((perm != POS) & pp, 1)
-    fn = np.sum((perm == POS) & ~pp, 1)
-    tn = np.sum((perm != POS) & ~pp, 1)
-    null = metrics_from_counts(tp, fp, fn, tn)
-    return {m: (1 + np.sum(null[m] >= obs[m])) / (B + 1) for m in METRICS}
-
-
-def exact_rates(y_true, y_pred, alpha=0.05):
-    tp, fp, fn, tn = counts(y_true, y_pred)
-    out = {}
-    for name, k, n in [("recall (TPR)", tp, tp + fn), ("specificity (TNR)", tn, tn + fp)]:
-        ci = stats.binomtest(int(k), int(n)).proportion_ci(1 - alpha, method="exact")
-        out[name] = (k, n, k / n, ci.low, ci.high)
-    return out
-
-
 def summarize(y_true, y_pred, name="set", B=20000, seed=0, alpha=0.05):
     rng = np.random.default_rng(seed)
     y_true, y_pred = np.asarray(y_true).astype(int), np.asarray(y_pred).astype(int)
     tp, fp, fn, tn = counts(y_true, y_pred)
     print(f"\n=== {name}: n={len(y_true)}, pos={tp+fn}, neg={tn+fp} ===")
     print(f"Confusion: TP={tp} FN={fn} FP={fp} TN={tn}")
-    for k, (kk, n, p, lo, hi) in exact_rates(y_true, y_pred, alpha).items():
-        print(f"  {k:18s} {kk}/{n} = {p:.3f}  Clopper-Pearson {1-alpha:.0%} CI [{lo:.3f}, {hi:.3f}]")
     obs = metrics_from_counts(tp, fp, fn, tn)
     boot = stratified_bootstrap(y_true, y_pred, B, rng)
     jack = jackknife(y_true, y_pred)
-    bayes = bayesian_interval(y_true, y_pred, B, rng, alpha)
-    pvals = permutation_test(y_true, y_pred, B, rng)
-    print(f"  {'metric':13s} {'point':>6s}   {'BCa bootstrap':>17s}   {'Bayesian (Jeffreys)':>19s}   {'perm. p':>7s}")
+    print(f"  {'metric':13s} {'point':>6s}   {'BCa bootstrap':>17s}")
     for m in METRICS:
         lo, hi = bca_interval(float(obs[m]), boot[m], jack[m], alpha)
-        blo, bhi = bayes[m]
-        print(f"  {m:13s} {float(obs[m]):6.3f}   [{lo:.3f}, {hi:.3f}]    [{blo:.3f}, {bhi:.3f}]      {pvals[m]:.5f}")
+        print(f"  {m:13s} {float(obs[m]):6.3f}   [{lo:.3f}, {hi:.3f}]  ")
     return boot
 
 
@@ -148,7 +102,7 @@ def compare(test, ood, B=20000, seed=1, alpha=0.05):
     """Percentile CI for (test - OoD); both sets resampled independently."""
     rng = np.random.default_rng(seed)
     bt = stratified_bootstrap(*test, B, rng)
-    bo = stratified_bootstrap(*ood, B, rng)
+    bo = stratified_bootstrap(*ood, B, rng)s
     ot = metrics_from_counts(*counts(*test))
     oo = metrics_from_counts(*counts(*ood))
     print(f"\n=== Difference: test - OoD (percentile bootstrap, {1-alpha:.0%}) ===")
